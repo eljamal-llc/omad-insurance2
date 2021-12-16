@@ -19,7 +19,7 @@ import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
 const SliderCard: FC<SliderCardProps> = () => {
   return (
     <Wrapper>
-      <NextLink href="/" passHref>
+      <NextLink href="/yur-face-page" passHref>
         <Link>
           <SliderTitle>Автострахование</SliderTitle>
           <SliderList>
