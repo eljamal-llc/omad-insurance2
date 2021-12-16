@@ -1,4 +1,4 @@
-import { FC } from "react";
+ import { FC } from "react";
 import { SectionTitleProps } from "./section-title.t";
 import { Title } from "./section-title.e";
 

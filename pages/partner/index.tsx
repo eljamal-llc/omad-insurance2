@@ -9,6 +9,7 @@ import {
   News,
   WrapperTitle,
   WantKnowM,
+  SpecialOffers,
 } from "../../components";
 
 export interface PartnerProps {}
@@ -18,9 +19,10 @@ const Partner: FC<NextPage> = () => {
     <Layout title="Страхование имущества">
       <Navbar />
       <Hero />
-      <WrapperTitle title="Услуги" />
+      <WrapperTitle title="Услуги" onClass="view-three" />
       <MultiSlider />
       <WantKnowM />
+      <SpecialOffers />
       <News />
       <Footer />
     </Layout>

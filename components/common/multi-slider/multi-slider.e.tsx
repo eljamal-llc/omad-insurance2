@@ -96,7 +96,7 @@ export const SliderBtnWrapper = styled.div`
   position: relative;
   background-color: transparent;
   transition: all 0.4s ease-out;
-  @media screen and (min-width: 1366px) {
+  @media (max-width: 1366px) {
     height: 40px;
     width: 40px;
     .btn {
