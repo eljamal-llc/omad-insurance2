@@ -179,6 +179,7 @@ export const CardButton = styled.button`
             background: #F0803D;
             padding: 14px 40px 15px;
             color:#fff;
+            cursor:pointer;
 
 `
 export const CardBodyContent = styled.div`

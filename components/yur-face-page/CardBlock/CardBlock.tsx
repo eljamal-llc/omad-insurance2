@@ -15,6 +15,7 @@ import {CardBody,
 
     } from './CardBlock.e'
 import NextLink from "next/link";
+
 import {  Link } from "@mui/material";
 import Image from 'next/image'
 import car from '../../../assets/images/Card/CardCar.png'
@@ -55,7 +56,7 @@ const   Card: FC<CardBlockProps> = () => {
                     </CardServiceBlock>
                 </CardService>
                 <CardBtns>
-                    <CardButton>Оформить полис</CardButton>
+                    <CardButton><NextLink href='/mtpl-insurance'>Оформить полис</NextLink></CardButton>
                     <HorizontalSliderButton>
                             <NextLink href="/" passHref>
                                 <Link>
