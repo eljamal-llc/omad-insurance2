@@ -202,6 +202,7 @@ const Footer: FC = () => {
                 <FooterBottom>
                     <Image src={Logo} alt="logo of Omad" width={200} className="bottom-logo" />
                     <span>© Lorem ipsum dolor. 2021 Все права защищены</span>
+                    <small className='khan'>© Davidkhan khadjayev</small>
                 </FooterBottom>
             </GWrapper>
         </Wrapper>

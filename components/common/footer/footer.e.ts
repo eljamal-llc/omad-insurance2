@@ -141,4 +141,7 @@ export const FooterBottom = styled.div`
       width: 40%;
     }
   }
+  .khan{
+    display:none
+  }
 `;
