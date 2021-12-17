@@ -15,7 +15,7 @@ import {CardBody,
 
     } from './CardBlock.e'
 import NextLink from "next/link";
-import { CardContent, Link } from "@mui/material";
+import {  Link } from "@mui/material";
 import Image from 'next/image'
 import car from '../../../assets/images/Card/CardCar.png'
 const   Card: FC<CardBlockProps> = () => {

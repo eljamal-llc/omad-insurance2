@@ -6,10 +6,48 @@ export const CardBody  = styled.div`
     width:1478px;
     margin: 40px auto;
     z-index:1;
+    @media (max-width:1480px){
+    width:1078px;
+
+    }
+    @media (max-width:1090px){
+        width:660px;
+    
+        }
+        
+        @media (max-width:890px){
+            width:800px;
+        
+            }
+            @media (max-width:760px){
+                width:600px;
+            
+                }
+                @media (max-width:470px){
+                    width: 420px;
+                    padding: 8px 20px;
+                }
+                @media (max-width:375px){
+                    width: 350px;
+                    padding: 8px 20px;
+                }
+                @media (max-width:330px){
+                    width: 300px;
+                    padding: 8px 20px;
+                }
+
 
 `
 export const CardInfo = styled.div`
     width:798px
+    @media (max-width:890px){
+        width:343px;
+    
+        }
+        @media (max-width:350px){
+            width: 300px;
+            padding: 8px 20px;
+        }
 `
 
 export const  CradTitle = styled.h2`
@@ -18,20 +56,44 @@ export const  CradTitle = styled.h2`
     font-size: 36px;
     line-height: 42px;
     margin:0;
-    padding:0
+    padding:0;
+    @media (max-width:1060px){
+        font-size:24px
+    }
 
 `
 export const CardText = styled.p`
     font-size: 18px;
     line-height: 21px;
     color: #000000;
-    opacity: 0.5
+    opacity: 0.5;
+    @media (max-width:1060px){
+        font-size:13px;
+        width:331px;    
+
+    }
+    @media (max-width:350px){
+        width: 280px;
+    }
+
+    
 `
 export const CardService = styled.div`
     display:flex;   
+    max-width:860px;
+    // @media (max-width:1060px){
+    //     flex-direction: column;
+    //     align-items: baseline;  
+    // }
 
 `
 export const CardServiceBlock = styled.div`
+@media (max-width:1060px){
+    &:last-child{
+        display:none
+    }
+
+}
 `
 export const CardServiceHeading = styled.h3`
     margin:0;
@@ -42,20 +104,28 @@ export const CardServiceHeading = styled.h3`
     line-height: 28px;
 
     color: #000000;
+    @media (max-width:450px){
+       font-size:14px
+    }
 `
 export const CardServiceText = styled.p`
     font-style: normal;
-    font-weight: normal;
+    font-weight: normal;    
     font-size: 18px;
     line-height: 21px;
 
     color: #000000;
 
     opacity: 0.5;
+    @media (max-width:450px){
+        font-size:13px
+     }
 `
 export const CardBtns = styled.div`
     display:flex;
     justify-content:space-between;
+    max-width:84%
+   
 `
 export const HorizontalSliderButton = styled.div` 
     max-width: 270px;
@@ -66,6 +136,9 @@ export const HorizontalSliderButton = styled.div`
         white-space: nowrap; 
         transition: all 0.4s ease-out; 
     } 
+    @media (max-width:1060px){
+        display:none;
+    }
     a { 
         font-family: Roboto; 
         font-style: normal; 
@@ -111,4 +184,12 @@ export const CardButton = styled.button`
 export const CardBodyContent = styled.div`
     display:flex;
     justify-content: space-between;
+    @media (max-width:1060px){
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
 `
+
+
+
