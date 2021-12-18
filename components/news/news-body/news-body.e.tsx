@@ -14,6 +14,9 @@ export const Wrapper = styled.div`
     color: #000000;
     margin: 0;
     margin-bottom: 20px;
+    @media (max-width: 1800px) {
+      font-size: calc(16px + 20 * (100vw / 1920));
+    }
   }
   .section__content {
     font-family: Roboto;

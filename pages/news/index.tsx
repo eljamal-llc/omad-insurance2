@@ -17,6 +17,7 @@ const NewsPage: FC<NextPage> = () => {
       <Navbar />
       <Hero />
       <NewsBody />
+      
       <Footer />
     </Layout>
   );

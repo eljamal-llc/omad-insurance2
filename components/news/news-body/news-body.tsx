@@ -6,6 +6,7 @@ import { MWrapper } from "../../../styles/global-styles.e";
 import { SectionTitle } from "../..";
 
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
+import FourSlider from "./four-slider/four-slider";
 
 const NewsBody: FC<NewsBodyProps> = () => {
   return (
@@ -101,6 +102,14 @@ const NewsBody: FC<NewsBodyProps> = () => {
               </p>
             </div>
           </div>
+        </div>
+        <SectionTitle
+          title="Други новости"
+          color="black"
+          classN="title-slider"
+        />
+        <div className="four-sldier">
+          <FourSlider />
         </div>
       </MWrapper>
     </Wrapper>
