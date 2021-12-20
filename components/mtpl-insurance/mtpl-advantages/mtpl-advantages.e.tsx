@@ -56,7 +56,7 @@ export const MtplAdventagesInsurance = styled.div`
     width:100%;
     margin: 30px  auto;
 `
-cl
+
 export const MtplAdventagesInsuranceHeading = styled.h2`
     font-style: normal;
     font-weight: normal;

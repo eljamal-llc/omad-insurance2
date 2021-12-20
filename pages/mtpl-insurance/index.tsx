@@ -6,7 +6,8 @@ import {
   MtplInsuranceHome,
   MtplAdventages,
   HeroBg,
-  YurFaceCard
+  YurFaceCard,
+  Footer
 
 } from "../../components";
 
@@ -19,6 +20,7 @@ const YurFacePage: FC<NextPage> = () => {
       <Navbar />
       <MtplInsuranceHome HomeHeading='Ответственность товаропроизводителя' HomeText="Страхование без осмотра автомобиля и похода в офис. Скидки (КБМ) на ОСАГО за безаварийную езду" />
       <MtplAdventages/>
+      <Footer/>
     </Layout> 
   );
 };
