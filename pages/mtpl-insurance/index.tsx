@@ -4,6 +4,7 @@ import {
   Layout,
   Navbar,
   MtplInsuranceHome,
+  MtplAdventages,
   HeroBg,
   YurFaceCard
 
@@ -16,7 +17,8 @@ const YurFacePage: FC<NextPage> = () => {
     <Layout title="АВТОСТРАХОВАНИЕ">
 
       <Navbar />
-      <MtplInsuranceHome />
+      <MtplInsuranceHome HomeHeading='Ответственность товаропроизводителя' HomeText="Страхование без осмотра автомобиля и похода в офис. Скидки (КБМ) на ОСАГО за безаварийную езду" />
+      <MtplAdventages/>
     </Layout> 
   );
 };
