@@ -38,7 +38,7 @@ const MtplInsuranceHome:FC<MtplInsuranceHomeProps> = (props : MtplInsuranceHomeP
                     </CardService>
                 </HomeBgItem>
                
-                <Image src={HomeIMg}/>
+                <Image src={HomeIMg} alt="Homeimg"/>
             </HomeBlock>
         </HomeBg>
     )
