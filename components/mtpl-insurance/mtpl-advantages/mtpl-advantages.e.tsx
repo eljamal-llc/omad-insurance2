@@ -63,11 +63,12 @@ export const MtplAdventagesInsuranceHeading = styled.h2`
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
+    padding:0 0 0 20px;
 
     color: #000000;
 `
 export const MtplAdventagesInsuranceText = styled.p`
-
+    padding:0 0 0 20px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;

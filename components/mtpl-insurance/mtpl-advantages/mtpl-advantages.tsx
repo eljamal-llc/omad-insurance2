@@ -49,9 +49,9 @@ const MtplAdventages :FC<MtplAdventagesProps> =  (props : MtplAdventagesProps) =
             <MtplAdventagesInsurance>
                 <div>
                     <MtplAdventagesInsuranceHeading>Максимально онлайн</MtplAdventagesInsuranceHeading>
-                    <MtplAdventagesInsuranceText>При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
+                    <MtplAdventagesInsuranceText>---При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
                     <MtplAdventagesInsuranceHeading>Максимально онлайн</MtplAdventagesInsuranceHeading>
-                    <MtplAdventagesInsuranceText>При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
+                    <MtplAdventagesInsuranceText>---При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
                     
                 </div>
                 <Image src={NoutImg} alt='images'/>
@@ -61,9 +61,9 @@ const MtplAdventages :FC<MtplAdventagesProps> =  (props : MtplAdventagesProps) =
 
                 <div>
                     <MtplAdventagesInsuranceHeading>Максимально онлайн</MtplAdventagesInsuranceHeading>
-                    <MtplAdventagesInsuranceText>При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
+                    <MtplAdventagesInsuranceText>---При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
                     <MtplAdventagesInsuranceHeading>Максимально онлайн</MtplAdventagesInsuranceHeading>
-                    <MtplAdventagesInsuranceText>При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
+                    <MtplAdventagesInsuranceText>---При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
                 </div>
             </MtplAdventagesInsurance>
             <MtplAdventagesHeading>Страховое возмещение по ОСАГО</MtplAdventagesHeading>
