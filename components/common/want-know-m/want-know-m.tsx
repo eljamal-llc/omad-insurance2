@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import NextLink from "next/link";
@@ -19,13 +19,13 @@ import {
 } from "./want-know-m.e";
 
 // import Swiper core and required modules
-import SwiperCore, { EffectCreative, Controller } from "swiper";
+import SwiperCore, { EffectCreative, Controller, Navigation } from "swiper";
 
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 
 // install Swiper modules
-SwiperCore.use([EffectCreative]);
+SwiperCore.use([EffectCreative, Navigation]);
 const ArrowIcon = (props: any) => (
   <svg
     width="47"
@@ -43,6 +43,8 @@ const ArrowIcon = (props: any) => (
 );
 const WantKnowM: FC<WantKnowMProps> = () => {
   const [controlledSwiper, setControlledSwiper] = useState(null);
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
   return (
     <Wrapper>
       <InnerWrapper>
@@ -74,7 +76,28 @@ const WantKnowM: FC<WantKnowMProps> = () => {
               modules={[Controller]}
               //   @ts-ignore
               controller={{ control: controlledSwiper }}
+              navigation={{
+                prevEl: navigationPrevRef.current,
+                nextEl: navigationNextRef.current,
+              }}
+              onInit={(swiper) => {
+                // @ts-ignore
+                swiper.params.navigation.prevEl = navigationPrevRef.current;
+                // @ts-ignore
+                swiper.params.navigation.nextEl = navigationNextRef.current;
+                swiper.navigation.init();
+                swiper.navigation.update();
+              }}
             >
+              <div className="slider-buttons">
+                <div ref={navigationPrevRef} className="nav nav-left">
+                  <ArrowIcon fill="#F0803D" class="svg arrow-left" />
+                </div>
+
+                <div ref={navigationNextRef} className="nav nav-right">
+                  <ArrowIcon fill="#F0803D" class="svg arrow-right" />
+                </div>
+              </div>
               <SwiperSlide>
                 <div>
                   <SliderTitle>Проверка полиса на предмет хищенияе</SliderTitle>
@@ -113,7 +136,14 @@ const WantKnowM: FC<WantKnowMProps> = () => {
                     felis, nec. Augue ultricies elit velit quam id risus. Sed
                     posuere quisque arcu tempor in odio.
                   </SliderDescription>
-                  <SliderButton></SliderButton>
+                  <SliderButton>
+                    <NextLink href="/" passHref>
+                      <Link>
+                        <span>Узнать подробнее</span>
+                        <ArrowIcon fill="#F0803D" class="arrow-right" />
+                      </Link>
+                    </NextLink>
+                  </SliderButton>
                 </div>
               </SwiperSlide>
             </Swiper>

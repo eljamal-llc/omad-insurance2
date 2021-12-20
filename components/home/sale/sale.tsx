@@ -36,6 +36,7 @@ import {
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
+import { SectionTitle } from "../..";
 
 SwiperCore.use([
   Pagination,
@@ -68,8 +69,11 @@ const Sale: FC<SaleProps> = () => {
   return (
     <Wrapper>
       <GWrapper>
-        <SaleTitle>Акции и спец предложения</SaleTitle>
-
+        <SectionTitle
+          title="Акции и спец предложения"
+          color="black"
+          classN="title"
+        />
         <SaleRow>
           <VerticalSlider>
             <Swiper
@@ -88,6 +92,37 @@ const Sale: FC<SaleProps> = () => {
               loopedSlides={5}
               slideActiveClass={"test"}
               watchSlidesProgress={true}
+              breakpoints={{
+                // when window width is >= 640px
+                200: {
+                  slidesPerView: 3,
+                  direction: "horizontal",
+                },
+                640: {
+                  slidesPerView: 3,
+                  direction: "horizontal",
+                },
+                // when window width is >= 768px
+                1024: {
+                  slidesPerView: 5,
+                  direction: "horizontal",
+                },
+                1400: {
+                  spaceBetween: 20,
+                  slidesPerView: 3,
+                  direction: "vertical",
+                },
+                1500: {
+                  slidesPerView: 5,
+                  spaceBetween: 20,
+                  direction: "vertical",
+                },
+                1800: {
+                  spaceBetween: 40,
+                  slidesPerView: 5,
+                  direction: "vertical",
+                },
+              }}
             >
               <SwiperSlide>
                 <Image src={SliderImg1} alt="test1" />

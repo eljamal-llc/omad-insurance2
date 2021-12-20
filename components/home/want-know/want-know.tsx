@@ -7,7 +7,6 @@ import SwiperCore, {
   Parallax,
   Navigation,
   EffectFade,
-  Controller,
   Autoplay,
   FreeMode,
   Thumbs,
@@ -19,15 +18,16 @@ import {
   KnowList,
   KnowListItem,
   KnowRow,
-  KnowTitle,
   Wrapper,
   VerticalSlider,
+  WrapperMob,
 } from "./want-know.e";
 import { GWrapper } from "../../../styles/global-styles.e";
 
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
+import { SectionTitle, WantKnowM } from "../..";
 
 SwiperCore.use([
   Pagination,
@@ -73,71 +73,86 @@ const WantKnow: FC<WantKnowProps> = () => {
     },
   ];
   return (
-    <Wrapper>
-      <VerticalSlider>
-        <Swiper
-          // @ts-ignore
-          ref={swiperRef}
-          tag="section"
-          direction={"vertical"}
-          loop={true}
-          slidesPerView={3}
-          className="mySwiper"
-          navigation={false}
-          speed={1200}
-          spaceBetween={40}
-          centeredSlides={true}
-          loopedSlides={3}
-          watchSlidesProgress={true}
-          allowTouchMove={false}
-        >
-          <SwiperSlide>
-            <Image src={SliderImg1} alt="test1" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image src={SliderImg2} alt="test1" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image src={SliderImg3} alt="test1" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image src={SliderImg1} alt="test1" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image src={SliderImg2} alt="test1" />
-          </SwiperSlide>
-        </Swiper>
-      </VerticalSlider>
-      <GWrapper>
-        <KnowTitle>Хочу узнать</KnowTitle>
-
-        <KnowRow>
-          <KnowList>
-            <div
-              className={`box-out box${activIdx}`}
-              // @ts-ignore
-              top={activIdx}
-            ></div>
-            {lists.map((item, idx) => (
-              <KnowListItem
-                key={idx}
-                onMouseMove={() => {
-                  toSlide(item.id);
-                }}
-                className={activIdx == item.id ? "list-active" : ""}
-              >
-                <NextLink href="/" passHref>
-                  <Link>
-                    <span className="box"></span>
-                    {item.name}
-                  </Link>
-                </NextLink>
-              </KnowListItem>
-            ))}
-          </KnowList>
-        </KnowRow>
-      </GWrapper>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <VerticalSlider>
+          <Swiper
+            // @ts-ignore
+            ref={swiperRef}
+            tag="section"
+            direction={"vertical"}
+            loop={true}
+            slidesPerView={3}
+            className="mySwiper"
+            navigation={false}
+            speed={1200}
+            centeredSlides={true}
+            loopedSlides={3}
+            watchSlidesProgress={true}
+            allowTouchMove={false}
+            breakpoints={{
+              // when window width is >= 1400px
+              1400: {
+                spaceBetween: 40,
+              },
+              1024: {
+                spaceBetween: 20,
+              },
+              400: {
+                spaceBetween: 10,
+              },
+            }}
+          >
+            <SwiperSlide>
+              <Image src={SliderImg1} alt="test1" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={SliderImg2} alt="test1" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={SliderImg3} alt="test1" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={SliderImg1} alt="test1" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={SliderImg2} alt="test1" />
+            </SwiperSlide>
+          </Swiper>
+        </VerticalSlider>
+        <GWrapper>
+          <SectionTitle title="Хочу узнать" color="white" classN="title" />
+          <KnowRow>
+            <KnowList>
+              <div
+                className={`box-out box${activIdx}`}
+                // @ts-ignore
+                top={activIdx}
+              ></div>
+              {lists.map((item, idx) => (
+                <KnowListItem
+                  key={idx}
+                  onMouseMove={() => {
+                    toSlide(item.id);
+                  }}
+                  className={activIdx == item.id ? "list-active" : ""}
+                >
+                  <NextLink href="/" passHref>
+                    <Link>
+                      <span className="box"></span>
+                      {item.name}
+                    </Link>
+                  </NextLink>
+                </KnowListItem>
+              ))}
+            </KnowList>
+          </KnowRow>
+        </GWrapper>
+      </Wrapper>
+      <WrapperMob>
+        <WantKnowM />
+      </WrapperMob>
+    </>
   );
 };
 

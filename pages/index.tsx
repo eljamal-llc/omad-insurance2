@@ -30,7 +30,7 @@ const Home: NextPage = () => {
       <News />
       <Footer />
     </Layout>
-  );
+  ); 
 };
 
 export default Home;

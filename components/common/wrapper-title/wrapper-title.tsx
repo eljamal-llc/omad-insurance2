@@ -14,14 +14,14 @@ import {
 } from "./wrapper-title.e";
 import { SectionTitle } from "../index";
 
-const WrapperTitle: FC<WrapperTitleProps> = ({ title }) => {
+const WrapperTitle: FC<WrapperTitleProps> = ({ title, onClass }) => {
   return (
-    <Wrapper>
+    <Wrapper className={onClass}>
       <TitleRow>
-        <WrapperCategories>
+        <WrapperCategories className="wrapper-categories">
           <SectionTitle color="white" title={title} />
         </WrapperCategories>
-        <WrapperTags>
+        <WrapperTags className="wrapper-tags">
           <TagsTitle>Все категории</TagsTitle>
           <TagsRow>
             <Tag>

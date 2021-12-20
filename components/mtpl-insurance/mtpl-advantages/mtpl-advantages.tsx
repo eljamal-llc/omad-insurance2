@@ -1,6 +1,6 @@
-import {MtplAdventagesProps} from './mtpl-advantages.t'
 import { FC } from "react";
-import { GWrapper } from '../../../styles/global-styles.e';
+import { GWrapper } from "../../../styles/global-styles.e";
+import { MtplAdventagesProps } from "./mtpl-advantages.t";
 
 import {   
      MtplAdventagesHeading , 
@@ -111,11 +111,7 @@ const MtplAdventages :FC<MtplAdventagesProps> =  (props : MtplAdventagesProps) =
         </>
             
 
-
-
-        // </GWrapper>
-
-
-    )
-}
-export default MtplAdventages
+    // </GWrapper>
+  );
+};
+export default MtplAdventages;

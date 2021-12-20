@@ -5,6 +5,13 @@ export const Wrapper = styled.div`
   width: 100%;
   position: relative;
   z-index: 1;
+  .title {
+    padding-left: 50px;
+    position: relative;
+    z-index: 5;
+    padding-top: 40px;
+    padding-left: 0;
+  }
   .container {
     position: relative;
   }
@@ -37,6 +44,15 @@ export const Wrapper = styled.div`
     bottom: 40px;
     z-index: 5;
     padding: 40px 50px;
+    @media (max-width: 1800px) {
+      max-width: 75%;
+    }
+    @media (max-width: 1024px) {
+      height: auto;
+    }
+    @media (max-width: 770px) {
+      max-width: 100%;
+    }
     .news-date {
       display: flex;
       justify-content: space-between;
@@ -50,6 +66,9 @@ export const Wrapper = styled.div`
         font-size: 24px;
         line-height: 28px;
         text-transform: uppercase;
+        @media (max-width: 1800px) {
+          font-size: calc(18px + 6 * (100vw / 1920));
+        }
 
         color: #ffffff;
         span {
@@ -57,6 +76,9 @@ export const Wrapper = styled.div`
           color: #f0803d;
           display: inline-block;
           margin-right: 20px;
+          @media (max-width: 1800px) {
+            font-size: calc(35px + 37 * (100vw / 1920));
+          }
         }
       }
       .year {
@@ -72,10 +94,16 @@ export const Wrapper = styled.div`
     }
     &__row {
     }
+    @media (max-width: 1366px) {
+      padding: 20px 30px;
+    }
     &-item {
       max-width: 840px;
       width: 100%;
       padding-top: 45px;
+      @media (max-width: 1800px) {
+        max-width: 80%;
+      }
     }
 
     &__title {
@@ -87,6 +115,13 @@ export const Wrapper = styled.div`
       color: #ffffff;
       margin: 0;
       margin-bottom: 20px;
+      @media (max-width: 1800px) {
+        font-size: calc(16px + 20 * (100vw / 1920));
+      }
+      @media (max-width: 1024px) {
+        margin-bottom: 10px;
+        line-height: 110%;
+      }
     }
     &__content {
       font-family: Roboto;
@@ -96,6 +131,9 @@ export const Wrapper = styled.div`
       line-height: 21px;
       color: #ffffff;
       margin: 0;
+      @media (max-width: 1800px) {
+        font-size: calc(14px + 4 * (100vw / 1920));
+      }
     }
     &__line {
       position: absolute;
@@ -104,6 +142,9 @@ export const Wrapper = styled.div`
       height: 100%;
       width: 1px;
       background-color: rgba(255, 255, 255, 0.5);
+      @media (max-width: 1800px) {
+        right: 11%;
+      }
       .line {
         position: absolute;
         bottom: 0;
@@ -177,13 +218,24 @@ export const SliderDescriptionBtn = styled.button`
   background-color: transparent;
   transition: border-color 0.3s ease-out;
 
+  @media (max-width: 1366px) {
+    height: 40px;
+    width: 40px;
+  }
+
   .arrow-top {
     background-color: #0d4656;
     transform: translateY(-60%);
+    @media (max-width: 1366px) {
+      height: 30px;
+    }
   }
   .arrow-bottom {
     transform: rotate(-180deg) translateY(-60%);
     background-color: #0d4656;
+    @media (max-width: 1366px) {
+      height: 30px;
+    }
   }
   &:first-child {
     margin-bottom: 20px;

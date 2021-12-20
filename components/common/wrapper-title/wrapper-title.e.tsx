@@ -2,10 +2,34 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   background-color: #0d4656;
+  @media (max-width: 1200px) {
+    &.view-three {
+      .wrapper-categories {
+        max-width: 33.33%;
+      }
+      .wrapper-tags {
+        max-width: 66.66%;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    &.view-three {
+      .wrapper-categories {
+        max-width: 100%;
+        padding: 2% 2.5% 0;
+        border-right: 0;
+      }
+      .wrapper-tags {
+        max-width: 100%;
+        padding: 2% 2.5%;
+      }
+    }
+  }
 `;
 
 export const TitleRow = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 export const WrapperCategories = styled.div`
   padding-top: 40px;
@@ -20,6 +44,7 @@ export const WrapperCategories = styled.div`
     padding-bottom: 6%;
     padding-left: 2.5%;
   }
+
   @media (max-width: 1024px) {
     max-width: 50%;
   }
@@ -30,6 +55,9 @@ export const WrapperCategories = styled.div`
 
 export const WrapperTags = styled.div`
   padding: 40px 50px;
+  max-width: 75%;
+  width: 100%;
+
   @media (max-width: 1800px) {
     padding: 3% 5%;
   }
@@ -46,9 +74,18 @@ export const TagsTitle = styled.div`
   margin-bottom: 20px;
   border: 2px solid #f0803d;
   display: inline-block;
+
+  @media (max-width: 1800px) {
+    font-size: calc(14px + 2 * (100vw / 1920));
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 7px 15px;
+  }
 `;
 export const TagsRow = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 export const Tag = styled.div`
   display: inline-block;
@@ -68,6 +105,11 @@ export const Tag = styled.div`
 
     &:hover {
       background-color: #f0803d;
+    }
+    @media (max-width: 768px) {
+      font-size: 14px;
+      padding: 7px 15px;
+      margin-bottom: 20px;
     }
   }
 `;

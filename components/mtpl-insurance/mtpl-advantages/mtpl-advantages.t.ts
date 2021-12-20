@@ -1,3 +1,1 @@
-export interface MtplAdventagesProps {
-    
-}
+export interface MtplAdventagesProps {}

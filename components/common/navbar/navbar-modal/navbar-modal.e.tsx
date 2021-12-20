@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  overflow: hidden;
   position: absolute;
   top: 0;
   width: 100%;
@@ -13,21 +14,6 @@ export const Wrapper = styled.div`
     visibility: visible;
     opacity: 1;
   }
-  /* .container {
-    padding: 40px 0 20px;
-    position: relative;
-    &::before {
-      position: absolute;
-      display: block;
-      content: "";
-      top: 50%;
-      left: 27.5%;
-      height: 75%;
-      width: 1px;
-      transform: translateY(-50%);
-      background-color: #fff;
-    }
-  } */
 `;
 
 export const ModalRow = styled.div`
@@ -38,6 +24,7 @@ export const ModalMenuList = styled.ul`
   padding: 80px 0 100px 0;
   margin-left: 30%;
   position: relative;
+
   &::before {
     position: absolute;
     display: block;
@@ -49,6 +36,12 @@ export const ModalMenuList = styled.ul`
     transform: translateY(-50%);
     background-color: #fff;
   }
+  @media (max-width: 1400px) {
+    margin-left: 0;
+    &::before {
+      display: none;
+    }
+  }
 `;
 
 export const ModalMenuItem = styled.li`
@@ -56,6 +49,9 @@ export const ModalMenuItem = styled.li`
 
   &:last-child {
     margin-bottom: 0;
+  }
+  .arrow-down {
+    display: none;
   }
   a {
     font-family: Roboto;
@@ -68,11 +64,26 @@ export const ModalMenuItem = styled.li`
     text-decoration: none;
     padding: 0 50px;
     display: block;
+    @media (max-width: 1800px) {
+      font-size: calc(20px + 16 * (100vw / 1920));
+    }
+    @media (max-width: 1200px) {
+      padding-left: 0;
+    }
   }
   &:hover {
     .inner-menu {
       visibility: visible;
       opacity: 1;
+    }
+  }
+  @media (max-width: 650px) {
+    .arrow-down {
+      display: inline-block;
+    }
+    &:hover {
+      padding: 20px 0 0;
+      height: auto;
     }
   }
 `;
@@ -98,6 +109,14 @@ export const ModalSubInnerMenu = styled.ul`
     width: 1px;
     background-color: #fff;
   }
+  @media (max-width: 650px) {
+    height: 0;
+    position: static;
+    padding: 0px 0 0px;
+    &::before {
+      display: none;
+    }
+  }
 `;
 export const ModalSubMenuItem = styled.li`
   margin-bottom: 20px;
@@ -111,5 +130,11 @@ export const ModalSubMenuItem = styled.li`
     display: block;
     text-transform: initial;
     line-height: 100%;
+    @media (max-width: 1800px) {
+      font-size: calc(14px + 10 * (100vw / 1920));
+    }
+    @media (max-width: 1200px) {
+      padding-left: 50px;
+    }
   }
 `;
