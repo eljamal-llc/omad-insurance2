@@ -6,8 +6,7 @@ import {
   MtplInsuranceHome,
   MtplAdventages,
   HeroBg,
-  YurFaceCard
-
+  YurFaceCard,
 } from "../../components";
 
 export interface PartnerProps {}
@@ -15,11 +14,13 @@ export interface PartnerProps {}
 const YurFacePage: FC<NextPage> = () => {
   return (
     <Layout title="АВТОСТРАХОВАНИЕ">
-
       <Navbar />
-      <MtplInsuranceHome HomeHeading='Ответственность товаропроизводителя' HomeText="Страхование без осмотра автомобиля и похода в офис. Скидки (КБМ) на ОСАГО за безаварийную езду" />
-      <MtplAdventages/>
-    </Layout> 
+      <MtplInsuranceHome
+        HomeHeading="Ответственность товаропроизводителя"
+        HomeText="Страхование без осмотра автомобиля и похода в офис. Скидки (КБМ) на ОСАГО за безаварийную езду"
+      />
+      <MtplAdventages />
+    </Layout>
   );
 };
 

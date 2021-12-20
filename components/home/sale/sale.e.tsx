@@ -3,9 +3,23 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   background-color: #e5e5e5;
   padding: 100px 0 50px;
+  @media (max-width: 1800px) {
+    padding: 7% 0 3%;
+  }
+  @media (max-width: 1500px) {
+    padding: 5% 0 2.5%;
+  }
   .swiper {
     width: 100%;
     height: 100%;
+  }
+  .title {
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 5;
+    @media (max-width: 1400px) {
+      margin-bottom: 25px;
+    }
   }
 `;
 export const SaleTitle = styled.h3`
@@ -16,26 +30,40 @@ export const SaleTitle = styled.h3`
   font-size: 36px;
   line-height: 42px;
   color: #000000;
-  margin-bottom: 50px;
-  position: relative;
-  z-index: 5;
 `;
 export const SaleRow = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   height: 800px;
+  overflow: hidden;
+  @media (max-width: 1800px) {
+    height: 700px;
+  }
+  @media (max-width: 1500px) {
+    height: 600px;
+  }
+  @media (max-width: 1400px) {
+    height: auto;
+  }
 `;
 export const VerticalSlider = styled.div`
   max-width: 20%;
   width: 100%;
+  height: 100%;
+  @media (max-width: 1400px) {
+    max-width: 100%;
+    order: 2;
+  }
   .swiper-wrapper {
     align-items: center;
   }
   .swiper-slide {
     width: 200px;
-    /* height: 40px !important;
-    */
     transition: all 200ms linear;
+    @media (max-width: 1800px) {
+      width: 175px;
+    }
 
     span {
       width: 100% !important;
@@ -67,10 +95,38 @@ export const VerticalSlider = styled.div`
       bottom: -20px;
       left: 0;
     }
+    @media (max-width: 1400px) {
+      height: 110% !important;
+      &::before {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #f07f3d71;
+        z-index: 1000;
+      }
+      &::after {
+        height: 2px;
+      }
+    }
   }
   .swiper-slide-thumb-active {
     width: 300px;
-    height: 150px !important;
+
+    @media (min-width: 1500px) {
+      height: 150px !important;
+    }
+    @media (max-width: 1800px) {
+      width: 250px;
+    }
+    @media (max-width: 1400px) {
+      &::before {
+        height: 100%;
+      }
+      &::after {
+        height: 2px;
+      }
+    }
     &::before {
       height: 2px;
     }
@@ -78,17 +134,18 @@ export const VerticalSlider = styled.div`
       height: 2px;
     }
   }
-  /* .swiper-slide-prev,
-  .swiper-slide-next {
-    width: 250px;
-    height: 80px !important;
-  } */
 `;
 export const HorizontalSlider = styled.div`
   max-width: 80%;
   width: 100%;
   transform: translateY(-100px);
   z-index: 1;
+  @media (max-width: 1400px) {
+    max-width: 100%;
+    order: 1;
+    transform: translateY(0);
+    margin-bottom: 30px;
+  }
 `;
 export const HorizontalSliderRow = styled.div`
   display: flex;
@@ -98,10 +155,19 @@ export const HorizontalSliderLeft = styled.div`
   width: 100%;
   padding: 80px 50px;
   position: relative;
+  @media (max-width: 1400px) {
+    max-width: 60%;
+  }
+  @media (max-width: 1300px) {
+    padding: 4% 2.5%;
+  }
 `;
 export const HorizontalSliderRight = styled.div`
   max-width: 50%;
   width: 100%;
+  @media (max-width: 1400px) {
+    max-width: 40%;
+  }
 `;
 export const HorizontalSliderTitle = styled.h3`
   font-family: Roboto;
@@ -112,6 +178,13 @@ export const HorizontalSliderTitle = styled.h3`
   color: #000000;
   margin: 0;
   margin-bottom: 40px;
+  @media (max-width: 1800px) {
+    font-size: calc(16px + 30 * (100vw / 1920));
+  }
+  @media (max-width: 1024px) {
+    line-height: 100%;
+    margin-bottom: 20px;
+  }
 `;
 export const HorizontalSliderDescription = styled.p`
   font-family: Roboto;
@@ -121,6 +194,9 @@ export const HorizontalSliderDescription = styled.p`
   line-height: 28px;
   color: #000000;
   margin: 0;
+  @media (max-width: 1800px) {
+    font-size: calc(12px + 10 * (100vw / 1920));
+  }
 `;
 export const HorizontalSliderButton = styled.div`
   position: absolute;
@@ -150,6 +226,13 @@ export const HorizontalSliderButton = styled.div`
     position: absolute;
     right: 0;
     transition: width 0.4s ease-out;
+    @media (max-width: 1800px) {
+      font-size: calc(14px + 10 * (100vw / 1920));
+    }
+    @media (max-width: 1366px) {
+      line-height: 100%;
+      padding: 12px 16px;
+    }
   }
   &:hover {
     a {
@@ -171,6 +254,18 @@ export const HorizontalSliderButton = styled.div`
 `;
 export const HorizontalSliderImage = styled.div`
   height: 798px;
+  @media (max-width: 1800px) {
+    height: 700px;
+  }
+  @media (max-width: 1500px) {
+    height: 600px;
+  }
+  @media (max-width: 1400px) {
+    height: 450px;
+  }
+  @media (max-width: 1024px) {
+    height: 350px;
+  }
   span {
     height: 100% !important;
   }

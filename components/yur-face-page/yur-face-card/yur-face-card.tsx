@@ -1,16 +1,16 @@
 import { FC } from "react";
-import { YurFaceCardProps } from "./yur-face-card";
-import {CardSection} from './yur-face-card.e'
-import Card from '../CardBlock/CardBlock'
-const YurFaceCard: FC<YurFaceCardProps> = () => {
+import Card from "../CardBlock/CardBlock";
+import { YurFaceCardProps } from "./yur-face-card.t";
+import { CardSection } from "./yur-face-card.e";
 
+const YurFaceCard: FC<YurFaceCardProps> = () => {
   return (
     <CardSection>
-        <Card/>
-        <Card/>
-        <Card/>
+      <Card />
+      <Card />
+      <Card />
     </CardSection>
-    );
+  );
 };
 
 export default YurFaceCard;

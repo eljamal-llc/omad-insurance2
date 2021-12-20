@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
 import axios from "axios";
 
-import { ISubMenus, NavbarModalProps } from "./navbar-modal.t";
+import { IMenus, NavbarModalProps } from "./navbar-modal.t";
 import {
   ModalMenuItem,
   ModalMenuList,
@@ -14,90 +14,55 @@ import {
 } from "./navbar-modal.e";
 import { GWrapper } from "../../../../styles/global-styles.e";
 
-axios.get("categories").then((response) => {
-  console.log(response);
-});
+import ArrowDropDownSharpIcon from "@mui/icons-material/ArrowDropDownSharp";
+import ArrowDropUpSharpIcon from "@mui/icons-material/ArrowDropUpSharp";
 
 const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
-  let [subMenus, setSubMenus] = useState([]);
+  let [menuHover, setMenuHover] = useState(false);
+  let [menus, setMenus] = useState<IMenus[]>();
+  useEffect(() => {
+    axios.get("categories").then((response) => {
+      console.log(response.data);
+      if (response.data.success) {
+        setMenus(response.data.data);
+      }
+    });
+  }, []);
 
-  const menus = [
-    {
-      id: 1,
-      name: "Частныйм лицам",
-      isSubMenu: true,
-      subMenu: [
-        { id: 1, name: "Автострахование" },
-        { id: 2, name: "Страхование здоровья" },
-        { id: 3, name: "Страхование имущества" },
-        { id: 4, name: "Другие программы" },
-      ],
-    },
-    {
-      id: 2,
-      name: "юридиеским лицам",
-      isSubMenu: false,
-      subMenu: [
-        { id: 1, name: "Автострахование" },
-        { id: 2, name: "Страхование здоровья" },
-        { id: 3, name: "Страхование имущества" },
-        { id: 4, name: "Страхование ответсвенности" },
-      ],
-    },
-    {
-      id: 3,
-      name: "Партнерам",
-      isSubMenu: false,
-      subMenu: [
-        { id: 1, name: "Автострахование" },
-        { id: 2, name: "Страхование здоровья" },
-        { id: 3, name: "Страхование имущества" },
-        { id: 4, name: "Страхование ответсвенности" },
-      ],
-    },
-    {
-      id: 4,
-      name: "о компании",
-      isSubMenu: false,
-    },
-    {
-      id: 5,
-      name: "о компании",
-      isSubMenu: false,
-    },
-    {
-      id: 6,
-      name: "Магазин полисов",
-      isSubMenu: false,
-    },
-    {
-      id: 7,
-      name: "Страховой случай",
-      isSubMenu: false,
-    },
-  ];
   return (
     <Wrapper className={isModal ? "active" : ""}>
       <GWrapper className="container">
         <ModalRow>
           <ModalMenuList>
-            {menus.map((item, idx) => (
+            {menus?.map((item, idx) => (
               <ModalMenuItem
                 key={idx}
                 // @ts-ignore
-                onMouseMove={() => item.isSubMenu && setSubMenus(item.subMenu)}
-                onMouseLeave={() => setSubMenus([])}
+                onMouseMove={() => setMenuHover(true)}
+                onMouseLeave={() => setMenuHover(false)}
               >
-                <NextLink href="/" passHref>
-                  <Link>{item.name}</Link>
+                <NextLink href={`/${item.link}`} passHref>
+                  <Link>
+                    {item.name}
+                    {item.isSubMenu && (
+                      <>
+                        <span className="arrow-down">
+                          {menuHover ? (
+                            <ArrowDropUpSharpIcon />
+                          ) : (
+                            <ArrowDropDownSharpIcon />
+                          )}
+                        </span>
+                      </>
+                    )}
+                  </Link>
                 </NextLink>
                 {item.isSubMenu && (
                   <ModalSubInnerMenu className="inner-menu">
-                    {item.subMenu?.map((item, idx) => (
+                    {item.sub?.map((itemChild, idx) => (
                       <ModalSubMenuItem key={idx}>
-                        <NextLink href="/" passHref>
-                          {/* @ts-ignore */}
-                          <Link>{item.name}</Link>
+                        <NextLink href={`/${itemChild.link}`} passHref>
+                          <Link>{itemChild.name}</Link>
                         </NextLink>
                       </ModalSubMenuItem>
                     ))}

@@ -20,6 +20,7 @@ import SwiperCore, {
   Controller,
   Autoplay,
 } from "swiper";
+import { SectionTitle } from "..";
 
 SwiperCore.use([Pagination, Parallax, Navigation, EffectFade, Autoplay]);
 
@@ -48,7 +49,11 @@ const News: FC<NewsProps> = () => {
   return (
     <Wrapper>
       <GWrapper className="container">
-        <HeroTitle>Новости и полезные статьи</HeroTitle>
+        <SectionTitle
+          title="Новости и полезные статьи"
+          color="white"
+          classN="title"
+        />
       </GWrapper>
       <Swiper
         direction={"vertical"}

@@ -1,4 +1,3 @@
 export interface HeroBgProps {
-    imgUrl : string
-
+  imgUrl: string;
 }
