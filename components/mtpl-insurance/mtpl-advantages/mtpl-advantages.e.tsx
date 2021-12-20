@@ -7,7 +7,9 @@ export const  MtplAdventagesBlock = styled.div`
     max-width:81%;
     flex-wrap:wrap;
     margin:0 auto ;
-
+    @media(max-width:1440px){
+        max-width:53%;
+    }
 `
 
 export const MtplAdventagesHeading = styled.h2`

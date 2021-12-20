@@ -8,10 +8,17 @@ export const HomeBlock = styled.div`
     padding: 100px 0px 0 60px;
     justify-content:space-between;
     // align-items:center;
+    @media(max-width:1440px){
+        padding:100px 0 0 0 ;
+        flex-direction: column;
+    }
 `
 export const HomeBgItem = styled.div`
     // padding:110px 60px;
     width: 659px;
+    @media(max-width:1440px){
+        padding: 15px 0 0 26px;
+    }
 `
 export const HomeHeading = styled.h2`
     font-family: Roboto;
