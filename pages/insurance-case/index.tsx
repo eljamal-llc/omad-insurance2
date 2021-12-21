@@ -8,7 +8,7 @@ import {
   Navbar,
   WrapperCategory,
 } from "../../components";
-import { Wrapper } from "./index.e";
+import { Wrapper } from "../../styles/global-styles.e";
 
 export interface InsuranceCaseProps {}
 
