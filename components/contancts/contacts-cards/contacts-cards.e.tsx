@@ -4,6 +4,9 @@ export const CardsHead = styled.div`
     display: flex;
     justify-content: space-around;
     background-color:  #0D4656;;
+    @media(max-width:768px){
+        display: none;
+    }
 `
 export const CardsHeadItem = styled.div`
     width: 40%;
@@ -35,7 +38,19 @@ export const CardImg = styled.div`
     padding: 0px 0 0px;
     margin: 0;
     min-width: 431px;
+    @media(max-width:425px){
+    min-width: 400px;
+
+    }
+    @media(max-width:375px){
+     min-width: 300px;
+
+    }
 `   
+export const ContentsCard = styled.div`
+    display: flex;
+    width: 100%;
+`
 export const CardContacts = styled.div`
         padding: 40px 40px;
         display: flex;
@@ -44,6 +59,12 @@ export const CardContacts = styled.div`
             border-top: 1px solid #000;
             border-bottom: 1px solid #000;
         }
+        @media(max-width:1024px){
+            flex-direction: column;
+        }
+        @media(max-width:425px){
+            background-color: #f1f1f1;
+}
 `
 export const CardContactsHeading = styled.p`
     font-style: normal;
@@ -52,6 +73,9 @@ export const CardContactsHeading = styled.p`
     line-height: 28px;
 
     color: #000000;
+    @media(max-width:425px){
+        font-size: 14px;
+    }
 `
 export const CardContactsText = styled.p`
     font-weight: normal;
@@ -59,11 +83,18 @@ export const CardContactsText = styled.p`
     line-height: 21px;
 
     color:#a0a0a0;
+    @media(max-width:425px){
+        font-size: 13px;
+    }   
 
 `
 export const CardsData = styled.div`
     width: 40%;
     padding: 0px 50px 5px;
+    @media(max-width:425px){
+        width: 52%;
+        padding: 0px 0px 0px;
+    }
 `
 export const MLoc = styled.span`
     font-size: 20px;
@@ -73,6 +104,9 @@ export const MLoc = styled.span`
     border-radius: 50%;
     background-color: #0D4656;
     text-align: center;
+    @media(max-width:425px){
+        font-size: 13px;
+    }   
 `
 export const CardAdress = styled.p`
     font-style: normal;
