@@ -19,17 +19,17 @@ export const CardBody = styled.div`
   @media (max-width: 760px) {
     width: 600px;
   }
-  @media (max-width: 470px) {
+  @media (max-width: 425px) {
     width: 420px;
-    padding: 8px 20px;
+    padding: 23px 20px;
   }
   @media (max-width: 375px) {
     width: 350px;
-    padding: 8px 20px;
+    padding: 20px 20px;
   }
   @media (max-width: 330px) {
     width: 300px;
-    padding: 8px 20px;
+    padding: 20px 20px;
   }
 `;
 export const CardInfo = styled.div`
@@ -70,6 +70,7 @@ export const CardText = styled.p`
 export const CardService = styled.div`
   display: flex;
   max-width: 860px;
+  justify-content: space-between;
   // @media (max-width:1060px){
   //     flex-direction: column;
   //     align-items: baseline;
@@ -106,6 +107,7 @@ export const CardServiceText = styled.p`
   opacity: 0.5;
   @media (max-width: 450px) {
     font-size: 13px;
+    max-width: 133px;
   }
 `;
 export const CardBtns = styled.div`
@@ -167,6 +169,10 @@ export const CardButton = styled.button`
   padding: 14px 40px 15px;
   color: #fff;
   cursor: pointer;
+  @media (max-width:425px){
+  padding: 7px 20px 7px;
+
+  }
 `;
 export const CardBodyContent = styled.div`
   display: flex;

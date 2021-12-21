@@ -7,4 +7,6 @@ export * from "./mtpl-insurance";
 export * from "./partner";
 export * from "./politics";
 export * from "./news";
+export * from "./contancts";
+export * from "./not-found";
 export * from "./auth";

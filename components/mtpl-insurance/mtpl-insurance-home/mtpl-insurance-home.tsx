@@ -1,15 +1,15 @@
 import { FC } from "react";
-import {
-  HomeBg,
-  HomeBgItem,
-  HomeHeading,
-  HomeText,
-  HomeBlock,
-  CardServiceBlock,
-  CardServiceHeading,
-  CardServiceText,
-  CardService,
-} from "./mtpl-insurance-home.e";
+import { HomeBg ,
+         HomeBgItem,
+         HomeHeading,
+         HomeText,
+         HomeBlock,
+         CardServiceBlock,
+         CardServiceHeading,
+         CardServiceText,
+         CardService,
+         HomeImg
+        } from "./mtpl-insurance-home.e";
 import { MtplInsuranceHomeProps } from "./mtpl-insurance-home.t";
 import Image from "next/image";
 import HomeIMg from "../../../assets/images/yur-page/singl-yur-img/home-bg-1.png";
@@ -47,8 +47,9 @@ const MtplInsuranceHome: FC<MtplInsuranceHomeProps> = (
             </CardServiceBlock>
           </CardService>
         </HomeBgItem>
-
-        <Image src={HomeIMg} alt="test" />
+        <HomeImg>
+          <Image src={HomeIMg} alt="test" />
+        </HomeImg>
       </HomeBlock>
     </HomeBg>
   );

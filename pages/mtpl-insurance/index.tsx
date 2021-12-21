@@ -7,6 +7,8 @@ import {
   MtplAdventages,
   HeroBg,
   YurFaceCard,
+  Footer
+
 } from "../../components";
 
 export interface PartnerProps {}
@@ -20,6 +22,8 @@ const YurFacePage: FC<NextPage> = () => {
         HomeText="Страхование без осмотра автомобиля и похода в офис. Скидки (КБМ) на ОСАГО за безаварийную езду"
       />
       <MtplAdventages />
+      <Footer/>
+
     </Layout>
   );
 };

@@ -1,10 +1,7 @@
 import { FC } from "react";
 
-
-
 import { FormElementsProps } from "./form-elements.t";
 import { Wrapper, WrapperError, WrapperInput } from "./form-elements.e";
-
 
 const FormElements: FC<FormElementsProps> = ({
   inputType,
@@ -28,14 +25,6 @@ const FormElements: FC<FormElementsProps> = ({
             onBlur={onChange}
             onChange={onBlur}
           />
-          <WrapperError>{error}</WrapperError>
-        </WrapperInput>
-      );
-      break;
-    case "check-box":
-      return (
-        <WrapperInput>
-          
           <WrapperError>{error}</WrapperError>
         </WrapperInput>
       );
