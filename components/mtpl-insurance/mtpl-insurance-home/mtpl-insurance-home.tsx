@@ -7,13 +7,15 @@ import { HomeBg ,
          CardServiceBlock,
          CardServiceHeading,
          CardServiceText,
-         CardService
+         CardService,
+         HomeImg
         } from "./mtpl-insurance-home.e";
 import { MtplInsuranceHomeProps } from "./mtpl-insurance-home.t";
 import Image from 'next/image'
 import HomeIMg from '../../../assets/images/yur-page/singl-yur-img/home-bg-1.png'
 import { GWrapper } from "../../../styles/global-styles.e";
 import BreadcrumbsBlock from '../../common/bread-crumbs/Breadcrumbs'
+import {CardButton} from '../../yur-face-page/CardBlock/CardBlock.e'
 const MtplInsuranceHome:FC<MtplInsuranceHomeProps> = (props : MtplInsuranceHomeProps)=>{
     return (
         <HomeBg>
@@ -35,10 +37,15 @@ const MtplInsuranceHome:FC<MtplInsuranceHomeProps> = (props : MtplInsuranceHomeP
                             <CardServiceHeading>Помощь 24/7</CardServiceHeading>
                             <CardServiceText>Поддержка в чате и по телефону</CardServiceText>
                         </CardServiceBlock>
+                        
                     </CardService>
+                    <CardButton>Оформить полис</CardButton>
+
                 </HomeBgItem>
-               
+               <HomeImg>
                 <Image src={HomeIMg} alt="Homeimg"/>
+
+               </HomeImg>
             </HomeBlock>
         </HomeBg>
     )

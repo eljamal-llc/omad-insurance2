@@ -2,14 +2,21 @@ import styled from "styled-components";
 
 export const  MtplAdventagesBlock = styled.div`
     display:flex;
-    justify-cntent:center;
+    justify-content:center;
     width:100%;
     max-width:81%;
     flex-wrap:wrap;
     margin:0 auto ;
-    @media(max-width:1440px){
-        max-width:53%;
+    @media(max-width:425px  ){
+        width: 100%;
+        max-width: 100%;
+        margin: 2.5px 0;
+        padding: 0;
+    
     }
+
+
+
 `
 
 export const MtplAdventagesHeading = styled.h2`
@@ -26,6 +33,11 @@ export const MtplAdventagesCard = styled.div`
     padding:40px 50px ;
     margin:20px 20px ;
     width: 714px;
+    @media (max-width:425px){
+        padding: 20px 15px ;
+        margin: 2.5px 16px;
+
+    }
 `
 export const MtplAdventagesCardHeading = styled.h3`
   font-style: normal;
@@ -56,6 +68,24 @@ export const MtplAdventagesInsurance = styled.div`
     align-items:center;
     width:100%;
     margin: 30px  auto;
+        @media(max-width:1024px){
+            flex-direction: column-reverse;
+           
+            
+        }
+      
+`
+export const MtplAdventagesInsuranceTwo = styled.div`
+    display:flex;
+    max-width:75%;
+    align-items:center;
+    width:100%;
+    margin: 30px  auto;
+        @media(max-width:1024px){
+            flex-direction: column;
+           
+            
+        }
 `
 
 export const MtplAdventagesInsuranceHeading = styled.h2`

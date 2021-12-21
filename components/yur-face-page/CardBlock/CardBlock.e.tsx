@@ -167,6 +167,10 @@ export const CardButton = styled.button`
   padding: 14px 40px 15px;
   color: #fff;
   cursor: pointer;
+  @media (max-width:425px){
+  padding: 7px 20px 7px;
+
+  }
 `;
 export const CardBodyContent = styled.div`
   display: flex;

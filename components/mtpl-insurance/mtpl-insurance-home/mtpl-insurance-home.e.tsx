@@ -2,15 +2,27 @@ import styled from 'styled-components'
 
 export const HomeBg = styled.div`
     background: #0D4656;
+    @media(max-width:425px){
+        background-image: url(./home-bg-1.png);
+            background-size: cover;
+            background-position:center;
+    }
 `   
+export const HomeImg = styled.div`
+    @media(max-width:425px){
+        display: none;
+    }
+`
 export const HomeBlock = styled.div`
     display:flex;
     padding: 100px 0px 0 60px;
     justify-content:space-between;
-    // align-items:center;
     @media(max-width:1440px){
         padding:100px 0 0 0 ;
         flex-direction: column;
+    }
+    @media(max-width:425px){
+        flex-direction: column-reverse;
     }
 `
 export const HomeBgItem = styled.div`
@@ -18,6 +30,20 @@ export const HomeBgItem = styled.div`
     width: 659px;
     @media(max-width:1440px){
         padding: 15px 0 0 26px;
+    }
+    @media(max-width:425px){
+        background: #0D4656;
+        margin-top: 250px;
+        padding:15px ;
+        max-width: 425px;
+    }
+    @media(max-width:375px){
+        
+        max-width:375px;
+    }
+    @media(max-width:320px){
+        
+        max-width:320px;
     }
 `
 export const HomeHeading = styled.h2`
@@ -30,7 +56,16 @@ export const HomeHeading = styled.h2`
     padding-bottom:10px;
     margin-bottom:10px;
     color: #FFFFFF;
-    border-bottom: 1px solid #fff
+    border-bottom: 1px solid #fff;
+
+    @media(max-width:425px){
+        /* padding:100px 0 0 0 ; */
+        font-size: 24px;
+        line-height: 28px;
+        width: 100px;
+        text-transform: uppercase;
+    }
+    
     
 `
 export const HomeText = styled.p`
@@ -50,10 +85,9 @@ export const HomeText = styled.p`
 export const CardService = styled.div`
     display:flex;   
     max-width:960px;
-    // @media (max-width:1060px){
-    //     flex-direction: column;
-    //     align-items: baseline;  
-    // }
+    @media (max-width:425px){
+        justify-content:space-between
+    }
 
 `
 export const CardServiceBlock = styled.div`
@@ -75,7 +109,7 @@ export const CardServiceHeading = styled.h3`
     line-height: 28px;
 
     color: #fff;
-    @media (max-width:450px){
+    @media (max-width:425px){
        font-size:14px
     }
 `
@@ -87,6 +121,8 @@ export const CardServiceText = styled.p`
 
     color: #fff;
 
-    @media (max-width:450px){
-        font-size:13px
+    @media (max-width:425px){
+        font-size:13px;
+        width: 138px;
+        padding: 0;
      }`

@@ -14,7 +14,8 @@ import {
      MtplAdventagesNubmer,
      NumText,
      NumberB,
-     ImgBlock
+     ImgBlock,
+     MtplAdventagesInsuranceTwo
      
 } from './mtpl-advantages.e';
 import NoutImg from '../../../assets/images/yur-page/singl-yur-img/nout.png'
@@ -56,7 +57,7 @@ const MtplAdventages :FC<MtplAdventagesProps> =  (props : MtplAdventagesProps) =
                 </div>
                 <Image src={NoutImg} alt='images'/>
             </MtplAdventagesInsurance>
-            <MtplAdventagesInsurance>
+            <MtplAdventagesInsuranceTwo>
             <Image src={CarImg} alt='images'/>
 
                 <div>
@@ -65,7 +66,7 @@ const MtplAdventages :FC<MtplAdventagesProps> =  (props : MtplAdventagesProps) =
                     <MtplAdventagesInsuranceHeading>Максимально онлайн</MtplAdventagesInsuranceHeading>
                     <MtplAdventagesInsuranceText>---При расчете ОСАГО на онлайн-калькуляторе учитываем все коэффициенты и накопленную скидку за безаварийную езду</MtplAdventagesInsuranceText>
                 </div>
-            </MtplAdventagesInsurance>
+            </MtplAdventagesInsuranceTwo>
             <MtplAdventagesHeading>Страховое возмещение по ОСАГО</MtplAdventagesHeading>
             <MtplAdventagesBlock>
                     <MtplAdventagesCard>
