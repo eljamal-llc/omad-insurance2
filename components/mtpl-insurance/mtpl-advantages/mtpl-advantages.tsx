@@ -15,7 +15,7 @@ import {
      NumText,
      NumberB,
      ImgBlock,
-     MtplAdventagesInsuranceTwo
+     MtplAdventagesInsuranceTwo,
      
 } from './mtpl-advantages.e';
 import NoutImg from '../../../assets/images/yur-page/singl-yur-img/nout.png'

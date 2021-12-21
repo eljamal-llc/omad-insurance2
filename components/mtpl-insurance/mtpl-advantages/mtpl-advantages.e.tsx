@@ -7,6 +7,15 @@ export const  MtplAdventagesBlock = styled.div`
     max-width:81%;
     flex-wrap:wrap;
     margin:0 auto ;
+    @media(max-width:1024px  ){
+        max-width: 100%;
+        width: 100%;
+    }
+    @media(max-width:768px  ){
+        justify-content: center;
+        flex-direction: column;
+    
+    }
     @media(max-width:425px  ){
         width: 100%;
         max-width: 100%;
@@ -27,15 +36,30 @@ export const MtplAdventagesHeading = styled.h2`
   font-weight: normal;
   text-align: center;
   margin-top: 120px;
+  @media(max-width:425px  ){
+    font-size: 16px;
+    text-align: left;
+    line-height: 16px;
+    padding: 0 39px;
+    width: 320px;
+    
+    }
 `;
 export const MtplAdventagesCard = styled.div`
     background: #0D4656;
     padding:40px 50px ;
     margin:20px 20px ;
-    width: 714px;
+    /* width: 714px; */
     @media (max-width:425px){
         padding: 20px 15px ;
         margin: 2.5px 16px;
+        
+
+    }
+    @media (max-width:375px){
+        margin: 0 auto;
+        width: 300px;
+    
 
     }
 `
@@ -46,6 +70,11 @@ export const MtplAdventagesCardHeading = styled.h3`
   line-height: 28px;
 
   color: #ffffff;
+  @media (max-width:425px){
+       font-size: 14px;
+       width: 340px;
+
+    }
 `;
 export const MtplAdventagesCardText = styled.p`
   font-style: normal;
@@ -58,6 +87,11 @@ export const MtplAdventagesCardText = styled.p`
     &::before {
         content:'-----';
         // border: 2px solid #FFFFFF;
+    }
+    @media (max-width:425px){
+       font-size: 13px;
+
+
     }
 
 `
@@ -126,9 +160,33 @@ export const NumText = styled.h2`
     export const NumberB = styled.div`
         text-align:center;
         width:300px;
+        @media(max-width:768px){
+            margin: 100px auto 0;
+        }
 `
-
 export const ImgBlock = styled.div`
     margin-top: 50px;
     width: 319px;
+    @media(max-width:1440px){
+        width: 130px;
+
+    }
+    @media(max-width:1024px){
+       display: none;
+    }
+    @media(max-width:768px){
+        position :relative ;
+        display: block;
+        left: 322px;
+        transform: rotate(90deg);
+    }
+    @media(max-width:425px){
+        left: 150px;
+    }
+    @media(max-width:375px){
+        left: 125px;
+    }
+    @media(max-width:320px){
+        left: 110px;
+    }
 `
