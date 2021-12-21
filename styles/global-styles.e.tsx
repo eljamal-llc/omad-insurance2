@@ -16,6 +16,11 @@ export const MWrapper = styled.div`
     max-width: 95%;
   }
 `;
+export const Wrapper = styled.div`
+  .bg-blue {
+    background-color: #0d4656;
+  }
+`;
 
 // export const GlobalStyles = styled.div`
 //   padding: 0 100px;
