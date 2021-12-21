@@ -47,10 +47,12 @@ export const MtplAdventagesHeading = styled.h2`
 `;
 export const MtplAdventagesCard = styled.div`
     background: #0D4656;
-    padding:40px 50px ;
+    padding: 27px 34px;
+    width: 714px;
     margin:20px 20px ;
     /* width: 714px; */
     @media (max-width:425px){
+        width:400px;
         padding: 20px 15px ;
         margin: 2.5px 16px;
         

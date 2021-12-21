@@ -12,7 +12,7 @@ import {
        MLoc,
        CardsData,
        CardAdress
-        } from "./contacts-cards.e";
+        } from "./contacts-cards.e"
 import { ContactsCardsProps } from "./contacts-cards.t";
 import Image from "next/image";
 import { GWrapper } from "../../../styles/global-styles.e";

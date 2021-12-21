@@ -4,6 +4,9 @@ import styled from "styled-components";
 export const ContactsHomeBG  = styled.div`
         background: #0D4656;
         padding: 88px 0 0px 16px;
+        @media(max-width:1024px){
+            background: url('y');
+        }
 
 `
 export const ContactsHomeBlock = styled.div`
@@ -46,6 +49,8 @@ export const ContactsBlockLokations = styled.p`
 
 // 
 export const ConImg =  styled.div`
-    
+    @media(max-width:1024px){
+        display: none;
+    }
 
 `
