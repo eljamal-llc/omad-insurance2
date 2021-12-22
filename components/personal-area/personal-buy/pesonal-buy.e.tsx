@@ -10,6 +10,11 @@ export const FormBody = styled.div`
     padding:80px 50px;
     margin: 0 auto;
     background-color: #fff;
+    @media(max-width:425px){
+        width: 305px;
+        padding:80px 10px;
+
+    }
 `
 export const PageForm = styled.form`
     padding-bottom: 40px;
@@ -23,6 +28,10 @@ export const FormHeading = styled.h2`
 
 
     color: #000000;
+    @media(max-width:425px){
+        font-size: 16px;
+        line-height: 19px;  
+    }
 `
 export const UserInfoInput = styled.input`
     background: #F1F1F1;
@@ -37,6 +46,9 @@ export const UserInfoInput = styled.input`
 
 
     color: #000000;
+    @media(max-width:425px){
+        width:285px;  
+    }
 `
 export const UserNumber = styled.input`
     background: #F1F1F1;
@@ -48,6 +60,9 @@ export const UserNumber = styled.input`
     font-size: 18px;
     line-height: 21px;
     color: #000000;
+    @media(max-width:425px){
+        width:285px;  
+    }
        
 `
 export const UserEmail = styled.input`
@@ -61,6 +76,11 @@ export const UserEmail = styled.input`
     font-size: 18px;
     line-height: 21px;
     color: #000000;
+    @media(max-width:425px){
+        width:285px;  
+        margin-left: 0px;
+
+    }
        
 `
 export const ButtonAdd = styled.button`
@@ -81,7 +101,10 @@ export const FormMessage = styled.textarea`
     border: none;
     padding: 20px 10px;
     color: #000;
-    
+    @media(max-width:425px){
+        width:285px;  
+    }
+
 `
 export const ButtonBlock = styled.div`
     display: flex;

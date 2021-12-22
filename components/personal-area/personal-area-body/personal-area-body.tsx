@@ -35,7 +35,7 @@ const PersonalAreaBody: FC<PersonalAreaBodyProps> = () => {
                         <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>Купить полис онлайн</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>в данном разделе вы можете приобрести полиса онлайн. Просто заполните форму и наш сотрудник мгновенно свяжется с вами</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}>Перейти</Link></CardButton></ButtonCard>
+                            <ButtonCard><CardButton><Link href={'/personal-area/buy'}>Перейти</Link></CardButton></ButtonCard>
                         </PersonalAreaBodyCard>
                         <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>Продлить полис онлайн</PersonalAreaBodyCardHeading>

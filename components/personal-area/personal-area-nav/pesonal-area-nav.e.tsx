@@ -34,7 +34,7 @@ export const PersonalAreaUserNav = styled.ul`
     margin:0;
     color: #000000;
     box-sizing: border-box;
-        @media(max-width:425px){
+        @media(max-width:825px){
             display: none;
         }
 
@@ -77,7 +77,7 @@ export const PersonalAreaSettings = styled.li`
         font-size: 14px;
         line-height: 16px;
     }
-    @media(max-width:725px){
+    @media(max-width:825px){
         display: none;
     }
 
@@ -85,7 +85,7 @@ export const PersonalAreaSettings = styled.li`
 
 export const NavBurger = styled.div`
     display: none;
-    @media(max-width:425px){
+    @media(max-width:825px){
         display: block;
     }
 `
