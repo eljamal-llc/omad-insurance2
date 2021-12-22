@@ -5,16 +5,25 @@ import {HeaderNavBody,
         PersonalAreaUserNav,
         PersonalAreaNavbar,
         PersonalAreaUserNavLi,
-        PersonalAreaSettings
+        PersonalAreaSettings,
+        NavBurger
         
         } from './pesonal-area-nav.e'
 import Link from "next/link";
+import { slide as Menu } from 'react-burger-menu'
+import PersonalNavBurger from '../../common/personal-nav-burger/pesonal-nav-burger'
 const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
     
     return (
         <>
         <HeaderNavBody/>
         <PersonalAreaNavbar>
+            <NavBurger>
+              <PersonalNavBurger>
+                  
+              </PersonalNavBurger>
+            </NavBurger>
+            
             <PersonalAreaUserNav>
                 <PersonalAreaUserNavLi>
                     <Link href='/personal-area'>Информация</Link>
@@ -26,7 +35,7 @@ const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
                     <Link href='/personal-area'>Мои страховые полиса</Link>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <Link href='/personal-area'>Купить полис онлайн</Link>
+                    <Link href='/personal-area/buy'>Купить полис онлайн</Link>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
                     <Link href='/personal-area'>Продлить полис онлайн</Link>

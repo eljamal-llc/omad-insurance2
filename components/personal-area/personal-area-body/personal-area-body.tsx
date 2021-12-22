@@ -7,19 +7,20 @@ import {
     PersonalAreaBodyCard,
     PersonalAreaBodyCardHeading,
     PersonalAreaBodyCardText,
-    ButtonCard
+    ButtonCard,
+    
 }   from './personal-area-body.e'
 import{ PersonalAreaBodyProps} from './personal-area-body.t'
 import {CardButton} from '../../yur-face-page/CardBlock/CardBlock.e'
 import { GWrapper } from "../../../styles/global-styles.e";
 import Link from "next/link";
-
 const PersonalAreaBody: FC<PersonalAreaBodyProps> = () => {
     
     return (
         <PersonalAreaBodyBg>
             <GWrapper>
                 <PersonalAreaBodyHeading>Добро пожаловать в персональный кабинет СК “OMAD SUG’URTA” <br/>Приобретайте наши страховые продукты онлайн</PersonalAreaBodyHeading>
+
                 <PersonalAreaBodyCardBody>
                         <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>Мои данные</PersonalAreaBodyCardHeading>

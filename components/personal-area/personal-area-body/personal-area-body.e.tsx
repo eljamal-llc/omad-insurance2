@@ -4,6 +4,9 @@ import styled from 'styled-components'
 export const PersonalAreaBodyBg = styled.div`
     background-color: #f1f1f1;
     padding: 67px 50px;
+        @media(max-width:425px){
+            padding: 5px 50px;
+        }
 
 `
 export const PersonalAreaBodyHeading = styled.h1`
@@ -14,6 +17,13 @@ export const PersonalAreaBodyHeading = styled.h1`
     text-align: center;
 
     color: #000000;
+        @media(max-width:1024px){
+            font-size: 24px;    
+            line-height: 28px;
+        }
+            @media(max-width:425px){
+                display: none;
+            }
 
 `
 export const  PersonalAreaBodyCard = styled.div`
@@ -24,6 +34,12 @@ export const  PersonalAreaBodyCard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media(max-width:1024px){
+        margin: 11px 11px;
+        padding: 34px 28px;
+        width: 270px;
+
+    }
 `
 export const PersonalAreaBodyCardBody = styled.div`
     display: flex;
@@ -39,6 +55,12 @@ export const PersonalAreaBodyCardHeading = styled.h3`
 
     color: #000000;
 
+    @media(max-width:1024px){
+        font-size: 18px;
+        line-height: 21px;
+    }
+        
+
 `
 export const PersonalAreaBodyCardText = styled.p`
     font-style: normal;
@@ -47,6 +69,11 @@ export const PersonalAreaBodyCardText = styled.p`
     line-height: 21px;
 
     color: #000000;
+    
+        @media(max-width:1024px){
+            font-size: 14px;
+            line-height: 16px;
+        }
 
 `
 export const  ButtonCard = styled.div`
