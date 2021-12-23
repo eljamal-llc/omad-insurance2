@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 
 export const BodyForm = styled.div`
-    height: 100vh;
     background-color: #f1f1f1;
+    min-height: 100vh;
+
 `
 export const FormBody = styled.div`
     width: 880px;

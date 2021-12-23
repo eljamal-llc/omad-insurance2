@@ -9,12 +9,12 @@ import {
     PersonalAreaBodyCardText,
     ButtonCard,
     
-}   from './personal-area-body.e'
-import{ PersonalAreaBodyProps} from './personal-area-body.t'
+}   from './personal-area-info.e'
+import{ PersonalAreaInfoProps} from './personal-area-info.t'
 import {CardButton} from '../../yur-face-page/CardBlock/CardBlock.e'
 import { GWrapper } from "../../../styles/global-styles.e";
 import Link from "next/link";
-const PersonalAreaBody: FC<PersonalAreaBodyProps> = () => {
+const PersonalAreaInfo: FC<PersonalAreaInfoProps> = () => {
     
     return (
         <PersonalAreaBodyBg>
@@ -25,28 +25,28 @@ const PersonalAreaBody: FC<PersonalAreaBodyProps> = () => {
                         <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>Мои данные</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>В данном разделе вам нужно указать личные данные, которые будут использоваться в дальнейшем для  процесса покупки страхового полиса</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}>Перейти</Link></CardButton></ButtonCard>
+                            <ButtonCard><CardButton><Link href={'/personal-area'}><a>Перейти</a></Link></CardButton></ButtonCard>
                         </PersonalAreaBodyCard>
                         <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>Мои страховые полиса</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>Список приобретенных электронных страховых полисов</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}>Перейти</Link></CardButton></ButtonCard>
+                            <ButtonCard><CardButton><Link href={'/personal-area'}><a>Перейти</a></Link></CardButton></ButtonCard>
                         </PersonalAreaBodyCard>
                         <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>Купить полис онлайн</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>в данном разделе вы можете приобрести полиса онлайн. Просто заполните форму и наш сотрудник мгновенно свяжется с вами</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area/buy'}>Перейти</Link></CardButton></ButtonCard>
+                            <ButtonCard><CardButton><Link href={'/personal-area/buy'}><a>Перейти</a></Link></CardButton></ButtonCard>
                         </PersonalAreaBodyCard>
                         <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>Продлить полис онлайн</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>Срок действия страхового полиса истёк? Не беда! Отправьте нам заявку на продление действия страхового полиса онлайн.</PersonalAreaBodyCardText>
                             <PersonalAreaBodyCardText>Отправка заявки на продление страхового полиса. Обратная связь c “OMAD SUG’URTA”</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}>Перейти</Link></CardButton></ButtonCard>
+                            <ButtonCard><CardButton><Link href={'/personal-area'}><a>Перейти</a></Link></CardButton></ButtonCard>
                         </PersonalAreaBodyCard>
                         <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>Настройки</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>в данном разделе есть возможность поменть пароль на личный кабинет</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}>Перейти</Link></CardButton></ButtonCard>
+                            <ButtonCard><CardButton><Link href={'/personal-area'}><a>Перейти</a></Link></CardButton></ButtonCard>
                         </PersonalAreaBodyCard>
                 </PersonalAreaBodyCardBody>
             </GWrapper>
@@ -55,4 +55,4 @@ const PersonalAreaBody: FC<PersonalAreaBodyProps> = () => {
 
 }
 
-export default PersonalAreaBody;
+export default PersonalAreaInfo;

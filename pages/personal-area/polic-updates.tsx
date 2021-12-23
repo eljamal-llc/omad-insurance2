@@ -4,21 +4,21 @@ import {
   Layout,
   Navbar,
   PersonalAreaNav,
-  PersonalAreaInfo
+  PersonalUdates
 } from "../../components";
 
 export interface PartnerProps {}
 
-const PersonalArea: FC<NextPage> = () => {
+const buy: FC<NextPage> = () => {
   return (
-    <Layout title="Персональный кобинет">
+    <Layout title="Продлить полис онлайн">
       <Navbar />
       <PersonalAreaNav/>
-      <PersonalAreaInfo/>
+      <PersonalUdates/>
 
 
     </Layout>
   );
 };
 
-export default PersonalArea;
+export default buy;

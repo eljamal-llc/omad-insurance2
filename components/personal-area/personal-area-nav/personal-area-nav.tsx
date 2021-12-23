@@ -9,7 +9,6 @@ import {HeaderNavBody,
         NavBurger
         
         } from './pesonal-area-nav.e'
-import Link from "next/link";
 import { slide as Menu } from 'react-burger-menu'
 import PersonalNavBurger from '../../common/personal-nav-burger/pesonal-nav-burger'
 const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
@@ -19,29 +18,27 @@ const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
         <HeaderNavBody/>
         <PersonalAreaNavbar>
             <NavBurger>
-              <PersonalNavBurger>
-                  
-              </PersonalNavBurger>
+              <PersonalNavBurger/>
             </NavBurger>
             
             <PersonalAreaUserNav>
                 <PersonalAreaUserNavLi>
-                    <Link href='/personal-area'>Информация</Link>
+                    <NextLink href='/personal-area/info'>Информация</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <Link href='/personal-area'>Мои данные</Link>
+                    <NextLink href='/personal-area/user-data'>Мои данные</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <Link href='/personal-area'>Мои страховые полиса</Link>
+                    <NextLink href='/personal-area/my-polic'>Мои страховые полиса</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <Link href='/personal-area/buy'>Купить полис онлайн</Link>
+                    <NextLink href='/personal-area/buy'>Купить полис онлайн</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <Link href='/personal-area'>Продлить полис онлайн</Link>
+                    <NextLink href='/personal-area/polic-updates'>Продлить полис онлайн</NextLink>
                 </PersonalAreaUserNavLi>
             </PersonalAreaUserNav>
-            <PersonalAreaSettings> <Link href='/personal-area'>настройки</Link></PersonalAreaSettings>
+            <PersonalAreaSettings> <NextLink href='/personal-area/settings'>настройки</NextLink></PersonalAreaSettings>
         </PersonalAreaNavbar>
 
 
