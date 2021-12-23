@@ -81,10 +81,14 @@ export const FooterUL = styled.ul`
     margin-left: 0;
     padding-left: 0;
     text-align: left;
+
     a {
       color: white;
       text-decoration: none;
       cursor: pointer;
+      &:hover{
+          color:#f0803d
+      }
     }
   }
   @media (max-width: 1024px) {
