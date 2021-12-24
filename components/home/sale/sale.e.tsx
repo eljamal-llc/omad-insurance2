@@ -153,7 +153,7 @@ export const HorizontalSliderRow = styled.div`
 export const HorizontalSliderLeft = styled.div`
   max-width: 50%;
   width: 100%;
-  padding: 80px 50px;
+  padding: 100px 50px;
   position: relative;
   @media (max-width: 1400px) {
     max-width: 60%;
