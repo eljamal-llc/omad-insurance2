@@ -96,7 +96,7 @@ const AuthPage: FC<AuthPageProps> = () => {
             <Tab label="Вход" {...a11yProps(1)} className="tab-item" />
           </Tabs>
         </Box>
-
+        {/* -------Registration------- */}
         <Formik
           initialValues={{
             email: "",
@@ -178,13 +178,15 @@ const AuthPage: FC<AuthPageProps> = () => {
             </form>
           )}
         </Formik>
+
+        {/* -------Login------- */}
         <Formik
           initialValues={{
             email: "",
             password: "",
           }}
           onSubmit={(values) => {
-            console.log(values);
+            console.log("login = > ", values);
           }}
           validationSchema={SchemaLogIn}
         >
