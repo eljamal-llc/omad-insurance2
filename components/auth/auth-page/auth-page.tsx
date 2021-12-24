@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -8,7 +8,7 @@ import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import { AuthContext } from "../../../context/AuthContext";
 
 import { AuthPageProps } from "./auth-page.t";
 import {
@@ -81,6 +81,7 @@ const AuthPage: FC<AuthPageProps> = () => {
     setValue(newValue);
   };
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const { signIn } = useContext(AuthContext);
 
   return (
     <Wrapper>
@@ -185,7 +186,8 @@ const AuthPage: FC<AuthPageProps> = () => {
             email: "",
             password: "",
           }}
-          onSubmit={(values) => {
+          onSubmit={async (values) => {
+            await signIn(values);
             console.log("login = > ", values);
           }}
           validationSchema={SchemaLogIn}

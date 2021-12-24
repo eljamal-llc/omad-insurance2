@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
 import axios from "axios";
-
+import { api } from "../../../../services/api";
 import { IMenus, NavbarModalProps } from "./navbar-modal.t";
 import {
   ModalMenuItem,
@@ -21,8 +21,8 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
   let [menuHover, setMenuHover] = useState(false);
   let [menus, setMenus] = useState<IMenus[]>();
   useEffect(() => {
-    axios.get("categories").then((response) => {
-      console.log(response.data);
+    api.get("categories").then((response) => {
+      // console.log("test", response.data);
       if (response.data.success) {
         setMenus(response.data.data);
       }

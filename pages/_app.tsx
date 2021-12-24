@@ -10,7 +10,7 @@ import "../styles/_normalize.scss";
 import "../styles/globals.css";
 import { AuthProvider } from "../context/AuthContext";
 
-axios.defaults.baseURL = "https://omad.eljamalgroup.uz/api/";
+// axios.defaults.baseURL = "https://omad.eljamalgroup.uz/api/";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

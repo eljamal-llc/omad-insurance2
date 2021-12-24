@@ -11,10 +11,6 @@ const Auth: FC<NextPage> = () => {
       <Wrapper>
         <Navbar onClass="bg-blue" />
         <AuthPage />
-        <form action="/api/login" method="POST">
-          <input type="text" name="name" />
-          <input type="submit" value="test" />
-        </form>
       </Wrapper>
     </Layout>
   );
