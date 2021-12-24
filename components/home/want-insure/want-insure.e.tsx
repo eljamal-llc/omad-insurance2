@@ -34,6 +34,7 @@ export const InsureTitle = styled.h3`
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
+  margin-left: 47px;
   font-size: 36px;
   line-height: 100%;
   color: #ffffff;
@@ -47,7 +48,40 @@ export const InsureIndividualsBlock = styled.div`
   width: 100%;
   padding: 40px 50px;
   border-left: 1px solid #fff;
-  border-right: 1px solid #fff;
+  background-color: transparent;
+  transition: all 0.4s ease-out;
+  &.active {
+    background-color: #f0803d;
+    .btn {
+      background-color: #f0803d !important;
+      transform: rotate(-180deg) translateY(50%) !important;
+      path {
+        fill: #0d4656;
+      }
+    }
+    .description {
+      opacity: 0.5;
+    }
+  }
+  @media (max-width: 1600px) {
+    max-width: 35%;
+  }
+  @media (max-width: 1500px) {
+    padding: 20px 30px;
+  }
+  @media (max-width: 1000px) {
+    max-width: 50%;
+    border-left: none;
+    &:last-child {
+      border: none;
+    }
+  }
+`;
+export const InsureIndividualsBlockYur = styled.div`
+  max-width: 100%;
+  width: 100%;
+  padding: 40px 50px;
+  border-left: 1px solid #fff;
   background-color: transparent;
   transition: all 0.4s ease-out;
   &.active {
