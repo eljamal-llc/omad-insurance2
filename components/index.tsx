@@ -10,3 +10,4 @@ export * from "./news";
 export * from "./contancts";
 export * from "./not-found";
 export * from "./auth";
+export * from "./personal-area"

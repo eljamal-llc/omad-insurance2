@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
-import { Link } from "@mui/material";
-
+// import { Link } from "@mui/material";
+import Link from "next/link";
 import NavbarModal from "./navbar-modal/navbar-modal";
 
 import { NavbarProps } from "./navbar.t";
@@ -34,7 +34,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
           <NavbarLeft>
             <NavbarLogo>
               <NextLink href="/" passHref>
-                <Link>
+                <Link href={'/'}>
                   <Image src={Logo} alt="navbar-logo" />
                 </Link>
               </NextLink>
@@ -51,7 +51,9 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
           <NavbarRight>
             <NavbarBtn className="toremove">RU</NavbarBtn>
             <NavbarBtn className="navbar-user toremove">
-              <Image src={User} alt="admin-user" />
+              <Link href={'/personal-area'}>
+                <Image src={User} alt="admin-user" />
+              </Link>
             </NavbarBtn>
             <NavbarBtn className="navbar-menu" onClick={handleNavbar}>
               Menu <MenuIcon />
