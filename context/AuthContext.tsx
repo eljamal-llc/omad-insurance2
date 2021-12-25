@@ -44,7 +44,7 @@ export function AuthProvider({ children }) {
         password: data.password,
       })
       .then((response) => {
-        console.log("test====>>>>>>>", response.data);
+        // console.log("test====>>>>>>>", response.data);
 
         setCookie(undefined, "nextauth.token", response.data.data.token, {
           maxAge: 60 * 60 * 1,

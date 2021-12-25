@@ -1,5 +1,5 @@
 export interface HeroProps {
-  data: IData[] | [];
+  data?: IData[] | [];
 }
 export interface IData {
   id: number;

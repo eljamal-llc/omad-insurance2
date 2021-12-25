@@ -39,7 +39,7 @@ SwiperCore.use([
   Thumbs,
 ]);
 
-const WantKnow: FC<WantKnowProps> = () => {
+const WantKnow: FC<WantKnowProps> = ({ data }) => {
   const swiperRef = useRef(null);
   const buttonRef = useRef(null);
   let [activIdx, setActiveIdx] = useState(1);
@@ -103,21 +103,12 @@ const WantKnow: FC<WantKnowProps> = () => {
               },
             }}
           >
-            <SwiperSlide>
-              <Image src={SliderImg1} alt="test1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image src={SliderImg2} alt="test1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image src={SliderImg3} alt="test1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image src={SliderImg1} alt="test1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image src={SliderImg2} alt="test1" />
-            </SwiperSlide>
+            {data.map((item, idx) => (
+              <SwiperSlide key={idx}>
+                {/* <Image src={SliderImg1} alt="test1" /> */}
+                <img src={item.image} alt={item.title} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </VerticalSlider>
         <GWrapper>
@@ -129,18 +120,18 @@ const WantKnow: FC<WantKnowProps> = () => {
                 // @ts-ignore
                 top={activIdx}
               ></div>
-              {lists.map((item, idx) => (
+              {data.map((item, idx) => (
                 <KnowListItem
                   key={idx}
                   onMouseMove={() => {
-                    toSlide(item.id);
+                    toSlide(idx + 1);
                   }}
-                  className={activIdx == item.id ? "list-active" : ""}
+                  className={activIdx == idx + 1 ? "list-active" : ""}
                 >
                   <NextLink href="/" passHref>
                     <Link>
                       <span className="box"></span>
-                      {item.name}
+                      {item.title}
                     </Link>
                   </NextLink>
                 </KnowListItem>
