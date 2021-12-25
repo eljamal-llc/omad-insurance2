@@ -229,5 +229,7 @@ export const SliderImg = styled.div`
   }
   img {
     object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
 `;

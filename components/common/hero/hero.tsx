@@ -8,10 +8,6 @@ import { HeroProps } from "./hero.t";
 import { GWrapper } from "../../../styles/global-styles.e";
 import { Wrapper, SliderImg, SliderDescriptionBtn, HeroTitle } from "./hero.e";
 
-import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
-import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
-import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
-
 import SwiperCore, {
   Pagination,
   Parallax,
@@ -21,9 +17,13 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 
+import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
+import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
+import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
+
 SwiperCore.use([Pagination, Parallax, Navigation, EffectFade, Autoplay]);
 
-const Hero: FC<HeroProps> = () => {
+const Hero: FC<HeroProps> = ({ data }) => {
   const ArrowIcon = (props: any) => (
     <svg
       width="16"
@@ -60,44 +60,21 @@ const Hero: FC<HeroProps> = () => {
         onSwiper={setControlledSwiper}
         allowTouchMove={false}
       >
-        <SwiperSlide>
-          <HeroTitle>
-            Страхование <br />
-            имущества 1
-          </HeroTitle>
-          <SliderImg
-            data-swiper-parallax="20%"
-            data-swiper-parallax-opacity="0"
-          >
-            <Image src={SliderImg1} alt="test1" />
-          </SliderImg>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <HeroTitle>
-            Страхование <br />
-            имущества 23
-          </HeroTitle>
-          <SliderImg
-            data-swiper-parallax="20%"
-            data-swiper-parallax-opacity="0"
-          >
-            <Image src={SliderImg2} alt="test2" />
-          </SliderImg>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <HeroTitle>
-            Страхование <br />
-            имущества 3
-          </HeroTitle>
-          <SliderImg
-            data-swiper-parallax="20%"
-            data-swiper-parallax-opacity="0"
-          >
-            <Image src={SliderImg3} alt="test3" />
-          </SliderImg>
-        </SwiperSlide>
+        {data?.map((item, idx) => (
+          <SwiperSlide key={idx}>
+            <HeroTitle>{item.title}</HeroTitle>
+            <SliderImg
+              data-swiper-parallax="20%"
+              data-swiper-parallax-opacity="0"
+            >
+              {/* <Image
+                src="https://images.unsplash.com/photo-1640333560852-ea96893a871d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                alt={item.title}
+              /> */}
+              <img src={item.image} alt={item.title} />
+            </SliderImg>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className="slider-description">
@@ -143,49 +120,14 @@ const Hero: FC<HeroProps> = () => {
             //   setLineProgress(false);
             // }}
           >
-            <SwiperSlide>
-              <div className="slider-description-item">
-                <h4 className="slider-description__title">
-                  Для юридических лиц 1
-                </h4>
-                <p className="slider-description__content">
-                  Корпоративное страхование — наиболее эффективный способ защиты
-                  финансовой стабильности предприятия и компенсации
-                  непрогнозируемых финансовых расходов. Ведь повреждение, гибель
-                  или утрата имущественного объекта способны кардинальным
-                  образом ухудшить экономическое положение предприятия.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-description-item">
-                <h4 className="slider-description__title">
-                  Для юридических лиц 2
-                </h4>
-                <p className="slider-description__content">
-                  Корпоративное страхование — наиболее эффективный способ защиты
-                  финансовой стабильности предприятия и компенсации
-                  непрогнозируемых финансовых расходов. Ведь повреждение, гибель
-                  или утрата имущественного объекта способны кардинальным
-                  образом ухудшить экономическое положение предприятия.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-description-item">
-                <h4 className="slider-description__title">
-                  Для юридических лиц 3
-                </h4>
-                <p className="slider-description__content">
-                  Корпоративное страхование — наиболее эффективный способ защиты
-                  финансовой стабильности предприятия и компенсации
-                  непрогнозируемых финансовых расходов. Ведь повреждение, гибель
-                  или утрата имущественного объекта способны кардинальным
-                  образом ухудшить экономическое положение предприятия.
-                </p>
-              </div>
-            </SwiperSlide>
-
+            {data?.map((item, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="slider-description-item">
+                  <h4 className="slider-description__title">{item.title}</h4>
+                  <p className="slider-description__content">{item.text}</p>
+                </div>
+              </SwiperSlide>
+            ))}
             <div
               className={
                 lineProgress

@@ -35,8 +35,8 @@ export function AuthProvider({ children }) {
   }, []);
 
   async function signIn(data: SignInData) {
-    const { token, user } = await SignInRequest(data);
-    console.log("data==>", data);
+    // const { token, user } = await SignInRequest(data);
+    // console.log("data==>", data);
 
     await api
       .post("login", {
@@ -54,7 +54,7 @@ export function AuthProvider({ children }) {
     // setCookie(undefined, "nextauth.token", token, {
     //   maxAge: 60 * 60 * 1,
     // });
-    setUser(user);
+    // setUser(user);
     Router.push("/personal-area");
   }
   return (
