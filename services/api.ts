@@ -8,7 +8,7 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  console.log(config);
+  // console.log(config);
   return config;
 });
 if (token) {

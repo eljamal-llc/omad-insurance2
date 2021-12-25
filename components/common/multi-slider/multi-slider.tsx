@@ -18,7 +18,7 @@ import SliderCard from "./slider-card/slider-card";
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation]);
 
-const MultiSlider: FC<MultiSliderProps> = () => {
+const MultiSlider: FC<MultiSliderProps> = ({ data }) => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [btnPrevHover, setBtnPrevHover] = useState(false);
@@ -101,27 +101,12 @@ const MultiSlider: FC<MultiSliderProps> = () => {
         }}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
+        {data?.map((item, idx) => (
+          <SwiperSlide key={idx}>
+            <SliderCard item={item} />
+          </SwiperSlide>
+        ))}
+
         <SliderBtnRow>
           <SliderBtn
             ref={navigationPrevRef}
