@@ -12,7 +12,7 @@ import {
   WantKnow,
   News,
 } from "../components";
-import { HeroProps, IData } from "../components/common/hero/hero.t";
+import { IData } from "../components/common/hero/hero.t";
 import { ISliderData } from "../components/common/multi-slider/multi-slider.t";
 import { IDataWantKnow } from "../components/home/want-know/want-know.t";
 import { api } from "../services/api";
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
   const [sliders, setSliders] = useState<IData[] | []>([]);
   const [wantKnows, setWantKnows] = useState<IDataWantKnow[] | []>([]);
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
-  const [onlineInsure, setOnlineInsure] = useState("fiz");
+  const [onlineInsure, setOnlineInsure] = useState("yur");
 
   useEffect(() => {
     api.get("slider-categories").then(async (response) => {
@@ -37,6 +37,14 @@ const Home: NextPage = () => {
         await setSliderData(response.data.data);
       });
   }, []);
+
+  useEffect(() => {
+    api
+      .get("category-cards", { params: { type: onlineInsure } })
+      .then(async (response) => {
+        await setSliderData(response.data.data);
+      });
+  }, [onlineInsure]);
 
   return (
     <Layout title="Страхование имущества">
