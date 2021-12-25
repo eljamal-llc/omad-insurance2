@@ -138,7 +138,7 @@ export const PersonDescription = styled.p`
   margin-bottom: 20px;
   height: 130px;
   opacity: 0;
-  transition: all 0.4s ease-out;
+  transition: all 0.3s ease-out;
   @media (max-width: 1800px) {
     font-size: calc(14px + 10 * (100vw / 1920));
   }
@@ -166,7 +166,7 @@ export const InsureBtn = styled.div`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    transition: all 0.4s ease-out;
+    transition: all 1s ease-out;
   }
   path {
     transition: all 0.4s ease-out;

@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
   max-width: 25%;
   width: 100%;
   border: 1px solid #000;
+  @media (max-width:768px){
+    max-width: 100%;
+  }
 `;
 export const RightWrapper = styled.div`
   padding: 40px 50px;
@@ -44,7 +47,11 @@ export const RightButton = styled.div`
   margin-top: 125px;
   &.bottom-button {
     margin-top: 45px;
+   
   }
+  @media(max-width:425px){
+       margin-top:47px;
+    }
 `;
 export const FormControl = styled.div`
   &:first-child {
