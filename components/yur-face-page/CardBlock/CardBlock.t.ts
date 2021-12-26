@@ -1,4 +1,5 @@
+import { ICards } from "../yur-face-card/yur-face-card.t";
+
 export interface CardBlockProps {
-  CardImg?: string;
-  CardTitle?: string;
+  item: ICards;
 }

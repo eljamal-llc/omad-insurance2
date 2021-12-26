@@ -9,6 +9,6 @@ export interface ISliderData {
   id: number;
   title: string;
   info: [];
-  image: string;
+  main_image: string;
   slug: string;
 }

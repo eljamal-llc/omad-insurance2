@@ -32,7 +32,7 @@ const Home: NextPage = () => {
       await setWantKnows(response.data.data);
     });
     api
-      .get("category-cards", { params: { type: onlineInsure } })
+      .get("category-insurance", { params: { type: onlineInsure } })
       .then(async (response) => {
         await setSliderData(response.data.data);
       });
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     api
-      .get("category-cards", { params: { type: onlineInsure } })
+      .get("category-insurance", { params: { type: onlineInsure } })
       .then(async (response) => {
         await setSliderData(response.data.data);
       });

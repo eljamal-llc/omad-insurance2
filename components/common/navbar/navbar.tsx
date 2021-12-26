@@ -33,11 +33,13 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
         <NavbarRow>
           <NavbarLeft>
             <NavbarLogo>
-              <NextLink href="/" passHref>
-                <Link href={'/'}>
+              {/* <NextLink href="/" passHref> */}
+              <Link href={"/"} passHref>
+                <a>
                   <Image src={Logo} alt="navbar-logo" />
-                </Link>
-              </NextLink>
+                </a>
+              </Link>
+              {/* </NextLink> */}
             </NavbarLogo>
 
             <NextLink href="/" passHref>
@@ -51,7 +53,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
           <NavbarRight>
             <NavbarBtn className="toremove">RU</NavbarBtn>
             <NavbarBtn className="navbar-user toremove">
-              <Link href={'/personal-area'}>
+              <Link href={"/personal-area"}>
                 <Image src={User} alt="admin-user" />
               </Link>
             </NavbarBtn>

@@ -67,6 +67,7 @@ export const CardText = styled.p`
     width: 280px;
   }
 `;
+export const CardImage = styled.div``;
 export const CardService = styled.div`
   display: flex;
   max-width: 860px;
@@ -169,9 +170,8 @@ export const CardButton = styled.button`
   padding: 14px 40px 15px;
   color: #fff;
   cursor: pointer;
-  @media (max-width:425px){
-  padding: 7px 20px 7px;
-
+  @media (max-width: 425px) {
+    padding: 7px 20px 7px;
   }
 `;
 export const CardBodyContent = styled.div`
