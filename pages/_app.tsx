@@ -11,7 +11,7 @@ import "../styles/globals.css";
 import { AuthProvider } from "../context/AuthContext";
 
 // axios.defaults.baseURL = "https://omad.eljamalgroup.uz/api/";
-
+import { appWithTranslation } from 'next-i18next';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
@@ -20,4 +20,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

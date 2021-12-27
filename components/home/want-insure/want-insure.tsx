@@ -11,8 +11,11 @@ import {
   Wrapper,
   InsureIndividualsBlockYur,
 } from "./want-insure.e";
+import {useTranslation} from 'next-i18next'
 
 const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
+  const { t } = useTranslation()
+
   const ArrowIcon = (props: any) => (
     <svg
       width="47"
@@ -40,13 +43,13 @@ const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
       {/* <GWrapper className="container"> */}
       <InsureRow>
         <InsureTitleBlock>
-          <InsureTitle>Хочу застраховать онлайн</InsureTitle>
+          <InsureTitle>{t('common:want_to_insure')}</InsureTitle>
         </InsureTitleBlock>
 
         <InsureIndividualsBlock
           className={onlineInsure == "fiz" ? "active" : ""}
         >
-          <PersonTitle>Частным лицам</PersonTitle>
+          <PersonTitle>{t('common:home_card_title2_for_individuals')}</PersonTitle>
           <PersonDescription className="description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
             elementum imperdiet id.
@@ -58,7 +61,7 @@ const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
         <InsureIndividualsBlockYur
           className={onlineInsure == "yur" ? "active" : ""}
         >
-          <PersonTitle>Юридическим лицам</PersonTitle>
+          <PersonTitle>{t('common:home_card_title3_Legal_entities')}</PersonTitle>
           <PersonDescription className="description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
             elementum imperdiet id.

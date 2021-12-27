@@ -22,6 +22,8 @@ import {
   VerticalSlider,
   WrapperMob,
 } from "./want-know.e";
+import {useTranslation} from 'next-i18next'
+
 import { GWrapper } from "../../../styles/global-styles.e";
 
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
@@ -49,6 +51,7 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
     // @ts-ignore
     swiperRef.current?.swiper.slideTo(num);
   };
+  const { t } = useTranslation()
 
   const lists = [
     {
@@ -112,7 +115,7 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
           </Swiper>
         </VerticalSlider>
         <GWrapper>
-          <SectionTitle title="Хочу узнать" color="white" classN="title" />
+          <SectionTitle title={t("common:polit_market")} color="white" classN="title" />
           <KnowRow>
             <KnowList>
               <div

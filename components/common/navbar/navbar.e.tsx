@@ -107,3 +107,31 @@ export const NavbarBtn = styled.button`
     padding: 4px 6px;
   }
 `;
+export const LangSwitch = styled.a`
+ font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+  background-color: #0000001b;
+  border: 1px solid #ffffff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 50;
+  &:hover {
+    cursor: pointer;
+  }
+  svg {
+    margin-left: 20px;
+  }
+  @media (max-width: 1120px) {
+    font-size: 14px;
+    line-height: 100%;
+    padding: 4px 6px;
+  }
+`;
+

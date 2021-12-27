@@ -65,10 +65,10 @@ const Card: FC<CardBlockProps> = ({ item }) => {
           </CardService>
           <CardBtns>
             <CardButton>
-              <NextLink href="/">Оформить полис</NextLink>
+              <NextLink href={`/mtpl-insurance?id=${id}`} passHref>Оформить полис</NextLink>
             </CardButton>
             <HorizontalSliderButton>
-              <Link href={`/mtpl-insurance?id=${id}`} passHref>
+              <Link href={`/`} passHref>
                 <a>
                   <span>Узнать подробнее</span>
                   <ArrowIcon fill="#F0803D" class="arrow-right" />
