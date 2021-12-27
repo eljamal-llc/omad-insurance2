@@ -48,6 +48,8 @@ const Home: NextPage = () => {
       />
       <MultiSlider data={sliderData} />
       <WantKnow data={wantKnows} />
+       
+         
       <Sale />
       <News />
       <Footer />

@@ -30,7 +30,7 @@ const ContactsHome: FC<ContactsHomeProps> = (
                 <ContactsBlockLokations>тел.: +998 (71) 249-02-77e-mail: omad.insurance.g@mail.ru</ContactsBlockLokations>
             </ContactsBlock>
             <ConImg>
-                <Image src={ContImg}/>
+                <Image src={ContImg} alt="contact_img"/>
             </ConImg>
         </ContactsHomeBlock>
     </ContactsHomeBG>

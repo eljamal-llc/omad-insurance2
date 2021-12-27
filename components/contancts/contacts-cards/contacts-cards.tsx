@@ -39,7 +39,7 @@ const ContactsCards: FC<ContactsCardsProps> = (
       </CardsHead>
       <CardContacts>
           <CardImg>
-            <Image src={contactCartImg}/>
+            <Image src={contactCartImg} alt='contact_catd_img'/>
           </CardImg>
           <ContentsCard>
             <CardsData>
@@ -61,7 +61,7 @@ const ContactsCards: FC<ContactsCardsProps> = (
       </CardContacts>
       <CardContacts>
           <CardImg>
-            <Image src={contactCartImg}/>
+            <Image src={contactCartImg} alt='contact_catd_img'/>
           </CardImg>
           <ContentsCard>
             <CardsData>
@@ -82,7 +82,7 @@ const ContactsCards: FC<ContactsCardsProps> = (
       </CardContacts>
       <CardContacts>
           <CardImg>
-            <Image src={contactCartImg}/>
+            <Image src={contactCartImg} alt='contact_catd_img'/>
           </CardImg>
           <ContentsCard>
             <CardsData>
