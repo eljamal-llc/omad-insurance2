@@ -1,14 +1,14 @@
 import { FC } from "react";
 import {
-    NotFoundBg,
-    NotFoundBlock,
-    NotFound,
-    NotFoundText,
-    NotFoundInfo,
-    NoTbtn
-        } from "./not-found.e";
-import {CardButton} from '../yur-face-page/CardBlock/CardBlock.e'
-import  Link  from "next/Link";
+  NotFoundBg,
+  NotFoundBlock,
+  NotFound,
+  NotFoundText,
+  NotFoundInfo,
+  NoTbtn,
+} from "./not-found.e";
+import { CardButton } from "../yur-face-page/CardBlock/CardBlock.e";
+import Link from "next/link";
 // import { ContactsHomeProps } from "./contacts-home.t";
 // import Image from "next/image";
 // import HomeIMg from "../../../assets/images/yur-page/singl-yur-img/home-bg-1.png";
@@ -17,21 +17,24 @@ import  Link  from "next/Link";
 // import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
 const NotFoundPage: FC = () => {
   return (
-  <>
-    <NotFoundBg>
+    <>
+      <NotFoundBg>
         <NotFoundBlock>
-            <NotFound>404</NotFound>
-            <NotFoundText>Страница не найдена</NotFoundText>
-            <NotFoundInfo>Неправильно выбран адрес или такой страницы не существует</NotFoundInfo>
-            <NoTbtn>
-                <Link href={'/'}>
-                    <CardButton>Вернутся на главную</CardButton>
-                </Link>
-            </NoTbtn>
-            
+          <NotFound>404</NotFound>
+          <NotFoundText>Страница не найдена</NotFoundText>
+          <NotFoundInfo>
+            Неправильно выбран адрес или такой страницы не существует
+          </NotFoundInfo>
+          <NoTbtn>
+            <Link href={"/"} passHref>
+              <a>
+                <CardButton>Вернутся на главную</CardButton>
+              </a>
+            </Link>
+          </NoTbtn>
         </NotFoundBlock>
-    </NotFoundBg>
-  </>
+      </NotFoundBg>
+    </>
   );
 };
 export default NotFoundPage;

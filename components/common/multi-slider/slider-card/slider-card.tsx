@@ -17,23 +17,21 @@ import {
 import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
 
 const SliderCard: FC<SliderCardProps> = ({ item }) => {
-  const { title, info, image, slug } = item;
+  const { title, info, main_image, slug, id } = item;
   return (
     <Wrapper>
-      <NextLink href="/yur-face-page" passHref>
+      <NextLink href={`/page-persons?id=${id}`} passHref>
         <Link>
           <SliderTitle>{title}</SliderTitle>
           <SliderList>
             {info?.map((infoItem, idx) => (
               <SliderListItem key={`child-${idx}`}>{infoItem}</SliderListItem>
             ))}
-
-            {/* <SliderListItem>КАСКО</SliderListItem>
-            <SliderListItem>КАСКО профессионал</SliderListItem>
-            <SliderListItem>Помощ на дороге</SliderListItem> */}
           </SliderList>
           <SliderImg>
-            <Image src={Slider1} alt="slider-image" />
+            {/* <Image src={Slider1} alt="slider-image" />
+             */}
+            <img src={main_image} alt={title} />
             <SliderLink>Купить онлайн</SliderLink>
           </SliderImg>
         </Link>

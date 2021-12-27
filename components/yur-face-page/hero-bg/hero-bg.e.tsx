@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { HeroBgProps } from "./hero-bg.t";
+import { TStyle } from "./hero-bg.t";
 
-export const ContainerHero = styled.div<HeroBgProps>`
+export const ContainerHero = styled.div<TStyle>`
   color: #ffffff;
   background: url(${(props) => props.imgUrl});
   height: 600px;

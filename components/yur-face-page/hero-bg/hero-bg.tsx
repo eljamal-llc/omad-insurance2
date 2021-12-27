@@ -1,22 +1,21 @@
 import { FC } from "react";
+
 import { HeroBgProps } from "./hero-bg.t";
 import { ContainerHero, HeroBgItem, PageHeading, PageText } from "./hero-bg.e";
 import { GWrapper } from "../../../styles/global-styles.e";
 
 import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
-const HeroBg: FC = () => {
+const HeroBg: FC<HeroBgProps> = ({ data }) => {
+  const { title, main_image, description } = data[0];
+  // console.log("inner ->>>>", data[0]);
+
   return (
-    <ContainerHero imgUrl="./bg-avto-str.png">
+    <ContainerHero imgUrl={main_image}>
       <GWrapper>
         <HeroBgItem>
           <BreadcrumbsBlock />
-          <PageHeading>АВТОСТРАХОВАНИЕ</PageHeading>
-          <PageText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie
-            posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque
-            ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis
-            mauris sed vitae tellus tempor, tortor.{" "}
-          </PageText>
+          <PageHeading>{title}</PageHeading>
+          <PageText>{description}</PageText>
         </HeroBgItem>
       </GWrapper>
     </ContainerHero>

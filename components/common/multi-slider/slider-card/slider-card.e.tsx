@@ -88,6 +88,8 @@ export const SliderImg = styled.div`
   }
   img {
     object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
   @media (max-width: 1680px) {
     height: 190px;

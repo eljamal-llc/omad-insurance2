@@ -1,5 +1,10 @@
 import { FC } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import NextLink from "next/link";
+
 import { CardBlockProps } from "./CardBlock.t";
+
 import {
   CardBody,
   CradTitle,
@@ -13,13 +18,13 @@ import {
   HorizontalSliderButton,
   CardButton,
   CardBodyContent,
+  CardImage,
 } from "./CardBlock.e";
-import NextLink from "next/link";
 
-import { Link } from "@mui/material";
-import Image from "next/image";
 import car from "../../../assets/images/Card/CardCar.png";
-const Card: FC<CardBlockProps> = () => {
+
+const Card: FC<CardBlockProps> = ({ item }) => {
+  // console.log("inner==>>>", item);
   const ArrowIcon = (props: any) => (
     <svg
       width="47"
@@ -35,15 +40,13 @@ const Card: FC<CardBlockProps> = () => {
       />
     </svg>
   );
+  const { main_title, main_description, main_image, id } = item;
   return (
     <CardBody>
       <CardBodyContent>
         <CardInfo>
-          <CradTitle>Страхование ОСАГО</CradTitle>
-          <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hac
-            ut mauris, interdum. Massa sed eros, ut magna cras scelerisque elit.{" "}
-          </CardText>
+          <CradTitle>{main_title}</CradTitle>
+          <CardText>{main_description}</CardText>
           <CardService>
             <CardServiceBlock>
               <CardServiceHeading>Быстрый расчет</CardServiceHeading>
@@ -62,19 +65,23 @@ const Card: FC<CardBlockProps> = () => {
           </CardService>
           <CardBtns>
             <CardButton>
-              <NextLink href="/mtpl-insurance">Оформить полис</NextLink>
+              <NextLink href="/">Оформить полис</NextLink>
             </CardButton>
             <HorizontalSliderButton>
-              <NextLink href="/" passHref>
-                <Link>
+              <Link href={`/mtpl-insurance?id=${id}`} passHref>
+                <a>
                   <span>Узнать подробнее</span>
                   <ArrowIcon fill="#F0803D" class="arrow-right" />
-                </Link>
-              </NextLink>
+                </a>
+              </Link>
             </HorizontalSliderButton>
           </CardBtns>
         </CardInfo>
-        <Image src={car} alt="image-test" />
+        <CardImage>
+          {/* <Image src={car} alt="image-test" />
+           */}
+          <img src={main_image} alt={main_title} />
+        </CardImage>
       </CardBodyContent>
     </CardBody>
   );

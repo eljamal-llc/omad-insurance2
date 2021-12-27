@@ -9,10 +9,8 @@ import {
   PersonDescription,
   PersonTitle,
   Wrapper,
-  InsureIndividualsBlockYur
+  InsureIndividualsBlockYur,
 } from "./want-insure.e";
-import { GWrapper } from "../../../styles/global-styles.e";
-import MainBtn from "../../common/main-btn/main-btn";
 
 const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
   const ArrowIcon = (props: any) => (
@@ -32,44 +30,44 @@ const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
   );
 
   const handlePrivate = () => {
-    setOnlineInsure("private");
+    setOnlineInsure("fiz");
   };
   const handlePublic = () => {
-    setOnlineInsure("public");
+    setOnlineInsure("yur");
   };
   return (
     <Wrapper>
       {/* <GWrapper className="container"> */}
-        <InsureRow>
-          <InsureTitleBlock>
-            <InsureTitle>Хочу застраховать онлайн</InsureTitle>
-          </InsureTitleBlock>
+      <InsureRow>
+        <InsureTitleBlock>
+          <InsureTitle>Хочу застраховать онлайн</InsureTitle>
+        </InsureTitleBlock>
 
-          <InsureIndividualsBlock
-            className={onlineInsure == "private" ? "active" : ""}
-          >
-            <PersonTitle>Частным лицам</PersonTitle>
-            <PersonDescription className="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
-              elementum imperdiet id.
-            </PersonDescription>
-            <InsureBtn onClick={handlePrivate}>
-              <ArrowIcon fill="#F0803D" class={"arrow-left"} />
-            </InsureBtn>
-          </InsureIndividualsBlock>
-          <InsureIndividualsBlockYur
-            className={onlineInsure == "public" ? "active" : ""}
-          >
-            <PersonTitle>Юридическим лицам</PersonTitle>
-            <PersonDescription className="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
-              elementum imperdiet id.
-            </PersonDescription>
-            <InsureBtn onClick={handlePublic}>
-              <ArrowIcon fill="#F0803D" class={"arrow-left"} />
-            </InsureBtn>
-          </InsureIndividualsBlockYur>
-        </InsureRow>
+        <InsureIndividualsBlock
+          className={onlineInsure == "fiz" ? "active" : ""}
+        >
+          <PersonTitle>Частным лицам</PersonTitle>
+          <PersonDescription className="description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
+            elementum imperdiet id.
+          </PersonDescription>
+          <InsureBtn onClick={handlePrivate}>
+            <ArrowIcon fill="#F0803D" class={"arrow-left"} />
+          </InsureBtn>
+        </InsureIndividualsBlock>
+        <InsureIndividualsBlockYur
+          className={onlineInsure == "yur" ? "active" : ""}
+        >
+          <PersonTitle>Юридическим лицам</PersonTitle>
+          <PersonDescription className="description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
+            elementum imperdiet id.
+          </PersonDescription>
+          <InsureBtn onClick={handlePublic}>
+            <ArrowIcon fill="#F0803D" class={"arrow-left"} />
+          </InsureBtn>
+        </InsureIndividualsBlockYur>
+      </InsureRow>
       {/* </GWrapper> */}
     </Wrapper>
   );
