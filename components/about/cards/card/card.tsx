@@ -9,13 +9,15 @@ import {
   CardTitleRow,
   Wrapper,
 } from "./card.e";
+import {useTranslation} from 'next-i18next'
 
 import Icon1 from "../../../../assets/images/about/cards/icon-2.png";
 const Card: FC<CardProps> = () => {
+  const {t} = useTranslation()
   return (
     <Wrapper>
       <CardTitleRow>
-        <CardTitle>Миссия и ценности</CardTitle>
+        <CardTitle>{t('common:Mission_and_values')}</CardTitle>
         <CardIcon>
           <Image src={Icon1} alt="test2" />
         </CardIcon>

@@ -17,8 +17,8 @@ import {
   NavbarBtn,
   LangSwitch
 } from "./navbar.e";
-
-
+import setLanguage from 'next-translate/setLanguage'
+import { useRouter } from "next/router";
 import Logo from "../../../assets/images/navbar/logo.png";
 import User from "../../../assets/images/navbar/user.svg";
 // import { ReactComponent as User } from "../../../assets/images/navbar/user.svg";
@@ -31,6 +31,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
     setNavbarModal(!navbarModal);
   };
   const { t } = useTranslation()
+  const router = useRouter()
   return (
     <Wrapper className={onClass}>
       <GWrapper>
@@ -55,15 +56,9 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             </NextLink>
           </NavbarLeft>
           <NavbarRight>
-            <NextLink  href={'/ru'}>
-              <LangSwitch className="toremove">RU</LangSwitch>
-            </NextLink>
-            <NextLink href={'/uz'}>
-              <LangSwitch  className="toremove">UZ</LangSwitch>
-            </NextLink>
-            <NextLink href={'/en'}>
-              <LangSwitch  className="toremove">EN</LangSwitch>
-            </NextLink>
+              <LangSwitch onClick={async () => await setLanguage('ru')} className="toremove">RU</LangSwitch>
+              <LangSwitch onClick={async () => await setLanguage('uz')}  className="toremove">UZ</LangSwitch>
+              <LangSwitch onClick={async () => await setLanguage('en')} className="toremove" >EN</LangSwitch>
 
             <NavbarBtn className="navbar-user toremove">
               <Link href={"/personal-area"}>
@@ -71,7 +66,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
               </Link>
             </NavbarBtn>
             <NavbarBtn className="navbar-menu" onClick={handleNavbar}>
-            {t("nav:menu")}<MenuIcon />
+            {t("common:menu")}<MenuIcon />
             </NavbarBtn>
           </NavbarRight>
         </NavbarRow>

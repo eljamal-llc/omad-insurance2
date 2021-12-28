@@ -9,10 +9,10 @@ export const ContainerHero = styled.div<TStyle>`
   background-repeat: no-repeat;
   background-size: cover;
   @media (max-width: 780px) {
-    background-position-x: -693px;
+    /* background-position-x: -693px; */
   }
   @media (max-width: 600px) {
-    background-position-x: -693px;
+    /* background-position-x: -693px; */
   }
 `;
 export const HeroBgItem = styled.div`

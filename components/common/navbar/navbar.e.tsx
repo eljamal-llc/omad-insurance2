@@ -107,7 +107,7 @@ export const NavbarBtn = styled.button`
     padding: 4px 6px;
   }
 `;
-export const LangSwitch = styled.a`
+export const LangSwitch = styled.option`
  font-family: Roboto;
   font-style: normal;
   font-weight: normal;

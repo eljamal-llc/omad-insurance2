@@ -2251,10 +2251,10 @@
   "resolved" "https://registry.npmjs.org/i18next-fs-backend/-/i18next-fs-backend-1.1.4.tgz"
   "version" "1.1.4"
 
-"i18next@^21.5.3", "i18next@>= 19.0.0":
-  "integrity" "sha512-2uuRGslNQ8m7TRllsVs4cZuei5X9OgoPRB/Sj5oadUpxZaW+NYv3srn7zR+h8bCMhkux9z8HtnJdQM5Mz+Govw=="
-  "resolved" "https://registry.npmjs.org/i18next/-/i18next-21.6.3.tgz"
-  "version" "21.6.3"
+"i18next@^21.5.3", "i18next@^21.6.4", "i18next@>= 19.0.0":
+  "integrity" "sha512-pk0Utxtq5g//Q9ONQ0w3+PRSwOFJ7+m4rAekhHHg1Xql0KcUjJU7DzmzweGy6DsrIQ1GM/t57wLeeGuyGKtjTg=="
+  "resolved" "https://registry.npmjs.org/i18next/-/i18next-21.6.4.tgz"
+  "version" "21.6.4"
   dependencies:
     "@babel/runtime" "^7.12.0"
 
@@ -2848,6 +2848,11 @@
     "i18next" "^21.5.3"
     "i18next-fs-backend" "^1.0.7"
     "react-i18next" "^11.8.13"
+
+"next-translate@^1.2.0":
+  "integrity" "sha512-L15JCfvj6BhQfx7i3nsJReUF7wrHe1RlzK7h25QlBT40prGQLZ5nJ6gx9Vd3Ew0V9QMqaVELUeQQ1u51yyDu0Q=="
+  "resolved" "https://registry.npmjs.org/next-translate/-/next-translate-1.2.0.tgz"
+  "version" "1.2.0"
 
 "next@^12.0.4", "next@>= 10.0.0", "next@>=10.2.0":
   "integrity" "sha512-1pvjcSZBm5OLoGmDhp4JwKwIE798WbqUNLuyU7w6a2jUkdWaxOYtkE/ROXQTi2pXHj7+6rm68AvhxROLX2NHQg=="

@@ -16,12 +16,13 @@ import {
 import { SectionTitle, MainBtn } from "../../../common";
 
 import PDFImage from "../../../../assets/images/about/carbon_document-pdf.png";
-
+import { useTranslation } from "react-i18next";
 const LeftPanel: FC<LeftPanelProps> = () => {
+  const {t} = useTranslation()
   return (
     <Wrapper>
       <LeftWrapper>
-        <SectionTitle title="Лицензии" color="black" classN="title" />
+        <SectionTitle title={t('common:Licenses')} color="black" classN="title" />
         <LeftWrapperRow>
           <LeftWrapperDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo
@@ -35,27 +36,27 @@ const LeftPanel: FC<LeftPanelProps> = () => {
               <Image src={PDFImage} alt="test2" />
             </PDFIcon>
             <PDFInfo>
-              <PDFTitle>Лицензии компании (RUS/EN)</PDFTitle>
+              <PDFTitle>{t('common:Company_licenses')} </PDFTitle>
               <PDFData>1017.18 КБ</PDFData>
-              <PDFData>Обновлено 20.09.2021 в 13:05</PDFData>
+              <PDFData>{t('common:Updated_at')}</PDFData>
 
               <LeftButton>
-                <MainBtn onClass="download" text="Cкачать" url="/" />
+                <MainBtn onClass="download" text={t('common:Download')} url="/" />
               </LeftButton>
             </PDFInfo>
           </LeftWrapperPDF>
-        </LeftWrapperRow>
+        </LeftWrapperRow>ч
       </LeftWrapper>
 
       <LeftWrapper>
-        <SectionTitle title="Капитал" color="black" classN="title" />
+        <SectionTitle title={t('common:Capital')} color="black" classN="title" />
         <LeftWrapperDescription>
-          Оплаченный уставный капитал Компании составляет 100 млрд сум.
+        {t('common:The_paid_up_authorized_capital_of_the_Company_is_100_billion_UZS')}
         </LeftWrapperDescription>
       </LeftWrapper>
 
       <LeftWrapper className="bottom-wrap">
-        <SectionTitle title="Капитал" color="black" classN="title" />
+        <SectionTitle title={t('common:Capital')} color="black" classN="title" />
         <LeftWrapperDescription className="description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis nisi,
           sed amet eu, nec. Iaculis consectetur molestie scelerisque arcu, et
@@ -70,12 +71,12 @@ const LeftPanel: FC<LeftPanelProps> = () => {
               <Image src={PDFImage} alt="test2" />
             </PDFIcon>
             <PDFInfo>
-              <PDFTitle>Лицензии компании (RUS/EN)</PDFTitle>
+              <PDFTitle>{t('common:Company_licenses')}</PDFTitle>
               <PDFData>1017.18 КБ</PDFData>
-              <PDFData>Обновлено 20.09.2021 в 13:05</PDFData>
+              <PDFData>{t('common:Updated_at')}</PDFData>
 
               <LeftButton>
-                <MainBtn onClass="download" text="Cкачать" url="/" />
+                <MainBtn onClass="download" text={t('common:Download')} url="/" />
               </LeftButton>
             </PDFInfo>
           </LeftWrapperPDF>
@@ -84,12 +85,12 @@ const LeftPanel: FC<LeftPanelProps> = () => {
               <Image src={PDFImage} alt="test2" />
             </PDFIcon>
             <PDFInfo>
-              <PDFTitle>Лицензии компании (RUS/EN)</PDFTitle>
+              <PDFTitle>{t('common:Company_licenses')}</PDFTitle>
               <PDFData>1017.18 КБ</PDFData>
-              <PDFData>Обновлено 20.09.2021 в 13:05</PDFData>
+              <PDFData>{t('common:Updated_at')}</PDFData>
 
               <LeftButton>
-                <MainBtn onClass="download" text="Cкачать" url="/" />
+                <MainBtn onClass="download" text={t('common:Download')} url="/" />
               </LeftButton>
             </PDFInfo>
           </LeftWrapperPDF>

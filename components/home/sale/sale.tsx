@@ -37,6 +37,7 @@ import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
 import { SectionTitle } from "../..";
+import {useTranslation} from 'next-i18next'
 
 SwiperCore.use([
   Pagination,
@@ -51,6 +52,7 @@ SwiperCore.use([
 const Sale: FC<SaleProps> = () => {
   const [controlledSwiper, setControlledSwiper] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const {t} = useTranslation()
   const ArrowIcon = (props: any) => (
     <svg
       width="47"
@@ -70,7 +72,7 @@ const Sale: FC<SaleProps> = () => {
     <Wrapper>
       <GWrapper>
         <SectionTitle
-          title="Акции и спец предложения"
+          title={t('common:home_Promotions_and_special_offers')}
           color="black"
           classN="title"
         />

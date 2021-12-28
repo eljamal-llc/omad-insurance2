@@ -18,154 +18,155 @@ import Logo from "../../../assets/images/footer/logo-bottom.png";
 import Instagram from "../../../assets/images/footer/instagram.png";
 import Facebook from "../../../assets/images/footer/facebook.png";
 import Mail from "../../../assets/images/footer/gmail.png";
+import {useTranslation} from 'next-i18next'
 
 const Footer: FC = () => {
-
+const {t} = useTranslation()
     return (
         <Wrapper>
             <GWrapper>
                 <div className="footer-container">
                     <FooterColumn className="first-column">
-                        <ColumnHeader>Меню</ColumnHeader>
+                        <ColumnHeader>{t('common:menu')}</ColumnHeader>
                         <FooterUL>
                             <li>
                                 <NextLink href="/">
-                                    <Link>Частным лицам </Link>
+                                    <Link>{t("common:home_card_title2_for_individuals")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/about">
-                                    <Link>Юридическим лицам </Link>
+                                    <Link>{t("common:home_card_title3_Legal_entities")} </Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services">
-                                    <Link>Услуги</Link>
+                                    <Link>{t("common:Services")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/contacts">
-                                    <Link>Партнерам</Link>
+                                    <Link>{t("common:For_partners")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/faq">
-                                    <Link>Компания</Link>
+                                    <Link>{t("common:Company")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/faq">
-                                    <Link>Контакты</Link>
+                                    <Link> {t("common:Contacts")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/faq">
-                                    <Link>Новости</Link>
+                                    <Link> {t("common:news")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/faq">
-                                    <Link>Магазин полисов</Link>
+                                    <Link> {t("common:polit_market")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/faq">
-                                    <Link>Страховой случай</Link>
+                                    <Link> {t("common:Insurance_case")}</Link>
                                 </NextLink>
                             </li>
                         </FooterUL>
                     </FooterColumn>
                     <FooterColumn className="second-column">
-                        <ColumnHeader>Частным лицам</ColumnHeader>
+                        <ColumnHeader> {t("common:home_card_title2_for_individuals")} </ColumnHeader>
                         <FooterUL>
                             <li>
                                 <NextLink href="/services/tax-services">
-                                    <Link>Страхование транспорта </Link>
+                                    <Link> {t("common:Transport_insurance")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/corporate-tax">
-                                    <Link>Страхование имуцества </Link>
+                                    <Link> {t("common:Property_insurance")} </Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/individual-tax">
-                                    <Link>Индивидуальный налог</Link>
+                                    <Link>{t("common:Individual_tax")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/tax-returns">
-                                    <Link>Страхование путешествия</Link>
+                                    <Link>{t("common:Travel_insurance")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/tax-calculator">
-                                    <Link>Страхование здоровья</Link>
+                                    <Link>{t("common:Health_insurance")}</Link>
                                 </NextLink>
                             </li>
                         </FooterUL>
                     </FooterColumn>
                     <FooterColumn className="third-column">
-                        <ColumnHeader>Юридическим лицам</ColumnHeader>
+                        <ColumnHeader>{t("common:home_card_title3_Legal_entities")}</ColumnHeader>
                         <FooterUL>
                             <li>
                                 <NextLink href="/services/tax-services">
-                                    <Link>Страхование транспорта </Link>
+                                    <Link>{t("common:Transport_insurance")} </Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/corporate-tax">
-                                    <Link>Страхование имуцества </Link>
+                                    <Link>{t("common:Property_insurance")} </Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/tax-returns">
-                                    <Link>Страхование ответственности</Link>
+                                    <Link>{t("common:Liability_Insurance")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/tax-calculator">
-                                    <Link>Страхование сотрудников</Link>
+                                    <Link>{t("common:Employee_insurance")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/tax-services">
-                                    <Link>Страхование грузов и грузоперевозчиков</Link>
+                                    <Link>{t("common:Insurance_of_goods_and_carriers")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/individual-tax">
-                                    <Link>Страхование технических рисков</Link>
+                                    <Link>{t("common:Technical_risks_insurance")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/tax-returns">
-                                    <Link>Страхование технических рисков</Link>
+                                    <Link>{t("common:Technical_risks_insurance")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/tax-calculator">
-                                    <Link>Страхование финансовых рисков</Link>
+                                    <Link>{t("common:Insurance_of_goods_and_carriers")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/tax-calculator">
-                                    <Link>Страхование сельскохояйственных рисков</Link>
+                                    <Link>{t("common:Agricultural_risks_insurance")}</Link>
                                 </NextLink>
                             </li>
                         </FooterUL>
                     </FooterColumn>
                     <FooterColumn className="fourth-column">
-                        <ColumnHeader>Правовая информация</ColumnHeader>
+                        <ColumnHeader>{t("common:legal_information")}</ColumnHeader>
                         <FooterUL>
                             <li>
                                 <NextLink href="/services/tax-services">
-                                    <Link>Налоговые услуги</Link>
+                                    <Link>{t("common:Tax_services")}</Link>
                                 </NextLink>
                             </li>
                             <li>
                                 <NextLink href="/services/corporate-tax">
-                                    <Link>Корпоративный налог</Link>
+                                    <Link>{t("common:Corporate_tax")}</Link>
                                 </NextLink>
                             </li>
                         </FooterUL>

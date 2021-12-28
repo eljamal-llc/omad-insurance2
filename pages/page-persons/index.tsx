@@ -7,7 +7,18 @@ import { useRouter } from "next/router";
 import { Layout, Navbar, Footer, HeroBg, YurFaceCard } from "../../components";
 import { api } from "../../services/api";
 import { ICards } from "../../components/yur-face-page/yur-face-card/yur-face-card.t";
-
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
+import {useTranslation} from 'next-i18next'
+ 
+export async  function getStaticProps({locale}:{locale : string} ) {
+  return {
+    props:{
+     ...(await serverSideTranslations(locale, [
+        'common'
+      ]))
+    },
+  };
+}
 export interface PartnerProps {}
 
 const YurFacePage: FC<NextPage> = () => {

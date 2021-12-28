@@ -13,11 +13,13 @@ import {
 
 export interface RightPanelProps {}
 
+import { useTranslation } from "react-i18next";
 const RightPanel: FC<RightPanelProps> = () => {
+  const {t} = useTranslation()
   return (
     <Wrapper>
       <RightWrapper className="vacancies">
-        <RightTitle className="white">Вакансии</RightTitle>
+        <RightTitle className="white"> {t('common:Vacancies')}</RightTitle>
         <RightDescription className="white">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem a et
           velit erat est. Dui commodo vehicula nibh mi arcu facilisis elementum.
@@ -25,14 +27,14 @@ const RightPanel: FC<RightPanelProps> = () => {
           nunc laoreet donec eu eget facilisis nisl. Luctus non tristique purus
           blandit. Egestas nec.
         </RightDescription>
-
+        
         <RightButton>
-          <MainBtn onClass="white" text="Узнать подробнее" url="/" />
+          <MainBtn onClass="white" text={t('common:Learn_more')} url="/" />
         </RightButton>
       </RightWrapper>
       <RightWrapper>
-        <RightTitle>Бланк строгой отчетности</RightTitle>
-        <RightDescription>Проверка полиса</RightDescription>
+        <RightTitle>{t('common:Form_of_strict_accountability')}</RightTitle>
+        <RightDescription>{t('common:Policy_check')}</RightDescription>
 
         <Formik
           initialValues={{
@@ -46,14 +48,14 @@ const RightPanel: FC<RightPanelProps> = () => {
         >
           <Form>
             <FormControl>
-              <Field id="firstName" name="firstName" placeholder="Серия" />
+              <Field id="firstName" name="firstName" placeholder={t('common:Series')} />
             </FormControl>
             <FormControl>
-              <Field id="lastName" name="lastName" placeholder="Номер полиса" />
+              <Field id="lastName" name="lastName" placeholder={t('common:Policy_number')} />
             </FormControl>
 
             <RightButton className="bottom-button">
-              <MainBtn onClass="blue" text="Проверить полис" url={null} />
+              <MainBtn onClass="blue" text={t('common:Check_policy')}url={null} />
             </RightButton>
           </Form>
         </Formik>

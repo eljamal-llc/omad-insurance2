@@ -3,6 +3,7 @@ import { LayoutProps } from "./layout.t";
 import Head from "next/head";
 
 const Layout: FC<LayoutProps> = ({ children, title }) => {
+  
   return (
     <>
       <Head>

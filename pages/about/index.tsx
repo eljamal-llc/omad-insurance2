@@ -10,15 +10,27 @@ import {
   News,
   WrapperTitle,
 } from "../../components";
-
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
+import {useTranslation} from 'next-i18next'
+ 
+export async  function getStaticProps({locale}:{locale : string} ) {
+  return {
+    props:{
+     ...(await serverSideTranslations(locale, [
+        'common'
+      ]))
+    },
+  };
+}
 export interface AboutProps {}
-
 const About: FC<NextPage> = () => {
+const {t} = useTranslation()
+
   return (
-    <Layout title="Страхование имущества - about">
+    <Layout title={t('common:Property_insurance')}>
       <Navbar />
       <Hero />
-      <WrapperTitle title="Все о компании" />
+      <WrapperTitle title={t('common:All_about_the_company')} />
       <Cards />
       <AboutInfo />
       <News />

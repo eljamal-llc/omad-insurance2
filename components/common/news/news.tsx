@@ -11,6 +11,7 @@ import { Wrapper, SliderImg, SliderDescriptionBtn, HeroTitle } from "./news.e";
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
+import {useTranslation} from 'next-i18next'
 
 import SwiperCore, {
   Pagination,
@@ -40,7 +41,7 @@ const News: FC<NewsProps> = () => {
       />
     </svg>
   );
-
+  const {t} = useTranslation()
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [controlledSwiper, setControlledSwiper] = useState(null);
@@ -50,7 +51,7 @@ const News: FC<NewsProps> = () => {
     <Wrapper>
       <GWrapper className="container">
         <SectionTitle
-          title="Новости и полезные статьи"
+          title={t('common:news_title')}
           color="white"
           classN="title"
         />
