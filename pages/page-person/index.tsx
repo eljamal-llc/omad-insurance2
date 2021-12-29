@@ -13,7 +13,6 @@ import {
 } from "../../components";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
- 
 export async  function getStaticProps({locale}:{locale : string} ) {
   return {
     props:{
@@ -27,13 +26,14 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 
 
 export interface PartnerProps {}
-const {t} = useTranslation()
 const Partner: FC<NextPage> = () => {
+const {t} = useTranslation()
+
   return (  
-    <Layout title="Страхование имущества">
+    <Layout title={t('common:Property_insurance')}>
       <Navbar />
       <Hero />
-      <WrapperTitle title="Услуги" onClass="view-three" />
+      <WrapperTitle title={t('common:Services')} onClass="view-three" />
       <MultiSlider />
       <WantKnowM />
       <SpecialOffers />

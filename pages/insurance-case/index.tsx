@@ -24,8 +24,9 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 export interface InsuranceCaseProps {}
 
 const InsuranceCase: FC<NextPage> = () => {
+  const {t} = useTranslation()
   return (
-    <Layout title="Страхование имущества - about">
+    <Layout title={t('common:polit_market')}>
       <Wrapper>
         <Navbar onClass="bg-blue" />
         <HeroCase />

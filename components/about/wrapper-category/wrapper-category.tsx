@@ -2,7 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
-
+import { useTranslation } from "react-i18next";
 import { WrapperCategoryProps } from "./wrapper-category.t";
 import {
   Tag,
@@ -16,34 +16,35 @@ import {
 } from "./wrapper-category.e";
 
 const HeroCase: FC<WrapperCategoryProps> = () => {
+  const {t} = useTranslation()
   return (
     <Wrapper>
       <WrapperRow>
         <WrapperCategories>
-          <WrapperCategory className="active">Частным лицам</WrapperCategory>
-          <WrapperCategory>Юридическим лицам</WrapperCategory>
+          <WrapperCategory className="active">{t('common:For_individuals')}</WrapperCategory>
+          <WrapperCategory>{t('common:home_card_title3_Legal_entities')}</WrapperCategory>
         </WrapperCategories>
         <WrapperTags>
-          <TagsTitle>Все категории</TagsTitle>
+          <TagsTitle>{t('common:All_categories')}</TagsTitle>
           <TagsRow>
             <Tag>
               <NextLink href="/" passHref>
-                <Link>Здоровья</Link>
+                <Link>{t('common:Health')}</Link>
               </NextLink>
             </Tag>
             <Tag>
               <NextLink href="/" passHref>
-                <Link>Путешествия</Link>
+                <Link>{t('common:Travels')}</Link>
               </NextLink>
             </Tag>
             <Tag>
               <NextLink href="/" passHref>
-                <Link>Транспорт</Link>
+                <Link>{t('common:Transport')}</Link>
               </NextLink>
             </Tag>
             <Tag>
               <NextLink href="/" passHref>
-                <Link>Имущества</Link>
+                <Link>{t('common:Property')}</Link>
               </NextLink>
             </Tag>
           </TagsRow>

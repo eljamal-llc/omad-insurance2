@@ -22,8 +22,9 @@ export async  function getStaticProps({locale}:{locale : string} ) {
   };
 }
 const Politics: FC<NextPage> = () => {
+  const {t} = useTranslation()
   return (
-    <Layout title="Страхование имущества">
+    <Layout title={t('common:privacy_policy')}>
       <Navbar />
       <Hero />
       <PoliticsBody />

@@ -21,8 +21,9 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 export interface PartnerProps {}
 
 const buy: FC<NextPage> = () => {
+  const {t} = useTranslation()
   return (
-    <Layout title=" настройки">
+    <Layout title={t('common:settings')}>
       <Navbar />
       <PersonalAreaNav/>
       <Settings/>

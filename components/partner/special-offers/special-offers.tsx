@@ -2,7 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
-
+import { useTranslation } from "react-i18next";
 import { SpecialOffersProps } from "./special-offers.t";
 import {
   HorizontalSliderButton,
@@ -17,6 +17,7 @@ import { SectionTitle } from "../..";
 import Img from "../../../assets/images/multi-slider/slider-1.jpg";
 
 const SpecialOffers: FC<SpecialOffersProps> = () => {
+  const {t} = useTranslation()
   const ArrowIcon = (props: any) => (
     <svg
       width="47"
@@ -36,7 +37,7 @@ const SpecialOffers: FC<SpecialOffersProps> = () => {
     <Wrapper>
       <GWrapper>
         <SectionTitle
-          title="Акции и спец предложения"
+          title={t('common:Promotions_and_special_offers')}
           color="black"
           classN="title"
         />

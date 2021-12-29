@@ -21,69 +21,71 @@ import NoutImg from "../../../assets/images/yur-page/singl-yur-img/nout.png";
 import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
 // import Strelka from "../../../assets/images/yur-page/singl-yur-img/strlka.png";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+
 const MtplAdventages: FC<MtplAdventagesProps> = () => {
+  const {t} = useTranslation()
   return (
     // <GWrapper>
     <>
       <MtplAdventagesHeading>
-        Преимущества страхования ОСАГО онлайн
+        {t('common:Benefits_of_OSAGO_insurance')}
       </MtplAdventagesHeading>
       <MtplAdventagesBlock>
         <MtplAdventagesCard>
           <MtplAdventagesCardHeading>
-            Максимально онлайн
+          {t('common:Online_as_much')}
           </MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            В OMAD основные процессы — от оформления до урегулирования — онлайн.
-            Быстро и удобно
+          {t('common:Benefits_of_OSAGO_insurance')}
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
         <MtplAdventagesCard>
           <MtplAdventagesCardHeading>
-            Максимально онлайн
+          {t('common:Online_as_much')}
           </MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            В OMAD основные процессы — от оформления до урегулирования — онлайн.
-            Быстро и удобно
+          {t('common:At_OMAD_main_processes')}
+            {t('common:Fastconvenient')}
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
         <MtplAdventagesCard>
           <MtplAdventagesCardHeading>
-            Максимально онлайн
+          {t('common:Online_as_much')}
           </MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            В OMAD основные процессы — от оформления до урегулирования — онлайн.
-            Быстро и удобно
+          {t('common:At_OMAD_main_processes')} 
+          {t('common:Fastconvenient')}
+
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
         <MtplAdventagesCard>
           <MtplAdventagesCardHeading>
-            Максимально онлайн
+          {t('common:Online_as_much')}
           </MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            В OMAD основные процессы — от оформления до урегулирования — онлайн.
-            Быстро и удобно
+          {t('common:At_OMAD_main_processes')} 
+          {t('common:Fastconvenient')}
+
           </MtplAdventagesCardText>
-        </MtplAdventagesCard>
+        </MtplAdventagesCard> 
       </MtplAdventagesBlock>
       <MtplAdventagesHeading>
-        Электронный полис автострахования
+      {t('common:Electronic_insurance')}
       </MtplAdventagesHeading>
       <MtplAdventagesInsurance>
         <div>
           <MtplAdventagesInsuranceHeading>
-            Максимально онлайн
+          {t('common:Online_as_much')}
           </MtplAdventagesInsuranceHeading>
           <MtplAdventagesInsuranceText>
-            ---При расчете ОСАГО на онлайн-калькуляторе учитываем все
-            коэффициенты и накопленную скидку за безаварийную езду
+          ---{t('common:text-avtostrox')}
           </MtplAdventagesInsuranceText>
           <MtplAdventagesInsuranceHeading>
-            Максимально онлайн
+          {t('common:Online_as_much')} 
           </MtplAdventagesInsuranceHeading>
           <MtplAdventagesInsuranceText>
-            ---При расчете ОСАГО на онлайн-калькуляторе учитываем все
-            коэффициенты и накопленную скидку за безаварийную езду
+          ---{t('common:text-avtostrox')} 
           </MtplAdventagesInsuranceText>
         </div>
         <Image src={NoutImg} alt="images" />
@@ -93,54 +95,57 @@ const MtplAdventages: FC<MtplAdventagesProps> = () => {
 
         <div>
           <MtplAdventagesInsuranceHeading>
-            Максимально онлайн
+          {t('common:Online_as_much')}
           </MtplAdventagesInsuranceHeading>
           <MtplAdventagesInsuranceText>
-            ---При расчете ОСАГО на онлайн-калькуляторе учитываем все
-            коэффициенты и накопленную скидку за безаварийную езду
+          ---{t('common:text-avtostrox')} 
           </MtplAdventagesInsuranceText>
           <MtplAdventagesInsuranceHeading>
-            Максимально онлайн
+          {t('common:Online_as_much')}
           </MtplAdventagesInsuranceHeading>
           <MtplAdventagesInsuranceText>
-            ---При расчете ОСАГО на онлайн-калькуляторе учитываем все
-            коэффициенты и накопленную скидку за безаварийную езду
+          ---{t('common:text-avtostrox')} 
           </MtplAdventagesInsuranceText>
         </div>
       </MtplAdventagesInsuranceTwo>
       <MtplAdventagesHeading>
-        Страховое возмещение по ОСАГО
+      {t('common:nsurance_indemnity_for_OSAGO')} 
       </MtplAdventagesHeading>
       <MtplAdventagesBlock>
         <MtplAdventagesCard>
           <MtplAdventagesCardHeading>
-            Максимально онлайн
+          {t('common:Fastconvenient')}
           </MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            В OMAD основные процессы — от оформления до урегулирования — онлайн.
-            Быстро и удобно
+          {t('common:At_OMAD_main_processes')}<br/>
+            {t('common:Fastconvenient')} 
+
           </MtplAdventagesCardText>
           <MtplAdventagesCardText>
-            В OMAD основные процессы — от оформления до урегулирования — онлайн.
-            Быстро и удобно
+          {t('common:At_OMAD_main_processes')}<br/>
+            {t('common:Fastconvenient')}
+
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
         <MtplAdventagesCard>
           <MtplAdventagesCardHeading>
-            Максимально онлайн
+          {t('common:Fastconvenient')}
+
           </MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            В OMAD основные процессы — от оформления до урегулирования — онлайн.
-            Быстро и удобно
+          {t('common:At_OMAD_main_processes')}<br/>
+            {t('common:Fastconvenient')}
+
           </MtplAdventagesCardText>
           <MtplAdventagesCardText>
-            В OMAD основные процессы — от оформления до урегулирования — онлайн.
-            Быстро и удобно
+          {t('common:At_OMAD_main_processes')}<br/>
+            {t('common:Fastconvenient')}
+
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
       </MtplAdventagesBlock>
       <MtplAdventagesHeading>
-        Рассчитайте стоимость ОСАГО на калькуляторе
+      {t('common:Calculate_osago')}
       </MtplAdventagesHeading>
       <MtplAdventagesBlock>
         <NumberB>
@@ -148,7 +153,9 @@ const MtplAdventages: FC<MtplAdventagesProps> = () => {
             <NumText>1</NumText>
           </MtplAdventagesNubmer>
           <MtplAdventagesInsuranceText>
-            Рассчитайте стоимость ОСАГО на онлайн калькуляторе
+            
+            {t('common:Calculate_osago')}
+
           </MtplAdventagesInsuranceText>
         </NumberB>
         <ImgBlock>
@@ -161,7 +168,9 @@ const MtplAdventages: FC<MtplAdventagesProps> = () => {
             <NumText>2</NumText>
           </MtplAdventagesNubmer>
           <MtplAdventagesInsuranceText>
-            Рассчитайте стоимость ОСАГО на онлайн калькуляторе
+            
+            {t('common:Calculate_osago')}
+
           </MtplAdventagesInsuranceText>
         </NumberB>
         <ImgBlock>
@@ -173,7 +182,9 @@ const MtplAdventages: FC<MtplAdventagesProps> = () => {
             <NumText>3</NumText>
           </MtplAdventagesNubmer>
           <MtplAdventagesInsuranceText>
-            Рассчитайте стоимость ОСАГО на онлайн калькуляторе
+            
+            {t('common:Calculate_osago')}
+
           </MtplAdventagesInsuranceText>
         </NumberB>
       </MtplAdventagesBlock>

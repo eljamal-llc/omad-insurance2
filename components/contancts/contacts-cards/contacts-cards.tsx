@@ -18,21 +18,23 @@ import { ContactsCardsProps } from "./contacts-cards.t";
 import Image from "next/image";
 import { GWrapper } from "../../../styles/global-styles.e";
 import contactCartImg from "../../../assets/images/contacts/contactCartImg.png";
+import { useTranslation } from "react-i18next";
 const ContactsCards: FC<ContactsCardsProps> = (props: ContactsCardsProps) => {
+  const {t} = useTranslation()
   return (
     <>
       <CardsHead>
         <CardsHeadItem>
-          <CardsText>Контакты филиалов в городах</CardsText>
+          <CardsText>{t('common:Contacts_of_branches')}</CardsText>
         </CardsHeadItem>
         <CardsHeadItem>
-          <CardsTextMini>Адрес </CardsTextMini>
+          <CardsTextMini>{t('common:Address')} </CardsTextMini>
         </CardsHeadItem>
         <CardsHeadItem>
-          <CardsTextMini>Телефоны</CardsTextMini>
+          <CardsTextMini>{t('common:Telephones')}</CardsTextMini>
         </CardsHeadItem>
         <CardsHeadItem>
-          <CardsTextMini>Часы работы</CardsTextMini>
+          <CardsTextMini>{t('common:Opening_')}</CardsTextMini>
         </CardsHeadItem>
       </CardsHead>
       <CardContacts>

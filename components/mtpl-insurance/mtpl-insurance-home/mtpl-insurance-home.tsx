@@ -15,9 +15,11 @@ import Image from "next/image";
 import HomeIMg from "../../../assets/images/yur-page/singl-yur-img/home-bg-1.png";
 import { GWrapper } from "../../../styles/global-styles.e";
 import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
+import { useTranslation } from "react-i18next";
 const MtplInsuranceHome: FC<MtplInsuranceHomeProps> = (
   props: MtplInsuranceHomeProps
 ) => {
+  const {t} = useTranslation()
   return (
     <HomeBg>
       <HomeBlock>
@@ -32,18 +34,18 @@ const MtplInsuranceHome: FC<MtplInsuranceHomeProps> = (
           </HomeText>
           <CardService>
             <CardServiceBlock>
-              <CardServiceHeading>Быстрый расчет</CardServiceHeading>
+              <CardServiceHeading>{t('common:Fastconvenient')} </CardServiceHeading>
               <CardServiceText>
-                Рассчитайте и оплатите за 3 минуты
+              {t('common:Calculate_and_pay_3_minutes')}
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>В любом регионе</CardServiceHeading>
-              <CardServiceText>Страховые выплаты за 1 — 2 дня</CardServiceText>
+              <CardServiceHeading>{t('common:any_region')}</CardServiceHeading>
+              <CardServiceText>{t('common:Insurance_payments_days')}</CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>Помощь 24/7</CardServiceHeading>
-              <CardServiceText>Поддержка в чате и по телефону</CardServiceText>
+              <CardServiceHeading>{t('common:Help__24')}</CardServiceHeading>
+              <CardServiceText>{t('common:Live_chat_and_phone_support')}</CardServiceText>
             </CardServiceBlock>
           </CardService>
         </HomeBgItem>
