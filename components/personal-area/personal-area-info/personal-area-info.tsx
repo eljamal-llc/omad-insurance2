@@ -14,12 +14,13 @@ import{ PersonalAreaInfoProps} from './personal-area-info.t'
 import {CardButton} from '../../yur-face-page/CardBlock/CardBlock.e'
 import { GWrapper } from "../../../styles/global-styles.e";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 const PersonalAreaInfo: FC<PersonalAreaInfoProps> = () => {
-    
+    const {t} = useTranslation()
     return (
         <PersonalAreaBodyBg>
             <GWrapper>
-                <PersonalAreaBodyHeading>Добро пожаловать в персональный кабинет СК “OMAD SUG’URTA” <br/>Приобретайте наши страховые продукты онлайн</PersonalAreaBodyHeading>
+                <PersonalAreaBodyHeading>{t('common:Welcome')} <br/>{t('common:Welcome2')}</PersonalAreaBodyHeading>
 
                 <PersonalAreaBodyCardBody>
                         <PersonalAreaBodyCard>

@@ -41,12 +41,12 @@ const PersonalArea: FC<NextPage> = () => {
   //       // }
   //     });
   // }, []);
-
+  const {t} = useTranslation()
   return (
-    <Layout title="Персональный кобинет">
+    <Layout title={t('common:Personal_Cobinet')}>
       <Navbar />
       <PersonalAreaNav />
-      <h1 style={{ color: "red" }}>WElcom {user?.name}</h1>
+      {/* <h1 style={{ color: "red" }}>WElcom {user?.name}</h1> */}
       <PersonalAreaInfo />
     </Layout>
   );
