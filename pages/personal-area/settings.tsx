@@ -20,7 +20,7 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 }
 export interface PartnerProps {}
 
-const buy: FC<NextPage> = () => {
+const Setting: FC<NextPage> = () => {
   const {t} = useTranslation()
   return (
     <Layout title={t('common:settings')}>
@@ -33,4 +33,4 @@ const buy: FC<NextPage> = () => {
   );
 };
 
-export default buy;
+export default Setting;

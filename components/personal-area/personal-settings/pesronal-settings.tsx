@@ -1,7 +1,5 @@
 import { FC } from "react";
-import NextLink from "next/link";
 import {SettingsProps} from './pesronal-settings.t';
-import { useState } from "react";
 import {
         BodyForm,
         FormBody,

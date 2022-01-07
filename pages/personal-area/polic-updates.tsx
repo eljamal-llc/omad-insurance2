@@ -20,7 +20,7 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 }
 export interface PartnerProps {}
 
-const buy: FC<NextPage> = () => {
+const Uptade: FC<NextPage> = () => {
   return (
     <Layout title="Продлить полис онлайн">
       <Navbar />
@@ -32,4 +32,4 @@ const buy: FC<NextPage> = () => {
   );
 };
 
-export default buy;
+export default Uptade;

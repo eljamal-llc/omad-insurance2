@@ -20,7 +20,7 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 }
 export interface PartnerProps {}
 
-const Info: FC<NextPage> = () => {
+const MyPolics: FC<NextPage> = () => {
   return (
     <Layout title="Мои страховые полиса">
       <Navbar />
@@ -32,4 +32,4 @@ const Info: FC<NextPage> = () => {
   );
 };
 
-export default Info;
+export default MyPolics;
