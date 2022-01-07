@@ -14,19 +14,21 @@ import {
         
         } from '../personal-buy/pesonal-buy.e'
 import { CardButton } from "../../yur-face-page/CardBlock/CardBlock.e";
+import { useTranslation } from "react-i18next";
 const Settings: FC<SettingsProps> = () => {
+    const {t} = useTranslation()
     return (
         <>
         <BodyForm>
             <FormBody>
                 <PageForm>
-                    <FormHeading>Изменить пароль</FormHeading>
-                    <UserInfoInput type={'password'} placeholder="Введите новый пароль"/>
+                    <FormHeading>{t('common:Change_Password')}</FormHeading>
+                    <UserInfoInput type={'password'} placeholder={t('common:Enter_new_password')}/>
                     <br/><br/>
-                    <UserInfoInput type={'password'} placeholder="Подтвердить новый пароль"/>
+                    <UserInfoInput type={'password'} placeholder={t('common:Confirm_new_password')}/>
                 </PageForm>
                 <ButtonBlock>
-                        <CardButton>Отправить</CardButton>
+                        <CardButton>{t('common:send')}</CardButton>
                     </ButtonBlock>
             </FormBody>
         </BodyForm>
