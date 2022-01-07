@@ -11,7 +11,7 @@ import { Wrapper, SliderImg, SliderDescriptionBtn, HeroTitle } from "./news.e";
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
-import {useTranslation} from 'next-i18next'
+import { useTranslation } from "next-i18next";
 
 import SwiperCore, {
   Pagination,
@@ -25,7 +25,7 @@ import { SectionTitle } from "..";
 
 SwiperCore.use([Pagination, Parallax, Navigation, EffectFade, Autoplay]);
 
-const News: FC<NewsProps> = () => {
+const News: FC<NewsProps> = ({ data }) => {
   const ArrowIcon = (props: any) => (
     <svg
       width="16"
@@ -41,7 +41,7 @@ const News: FC<NewsProps> = () => {
       />
     </svg>
   );
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [controlledSwiper, setControlledSwiper] = useState(null);
@@ -51,7 +51,7 @@ const News: FC<NewsProps> = () => {
     <Wrapper>
       <GWrapper className="container">
         <SectionTitle
-          title={t('common:news_title')}
+          title={t("common:news_title")}
           color="white"
           classN="title"
         />
@@ -67,48 +67,17 @@ const News: FC<NewsProps> = () => {
         allowTouchMove={false}
         className="news-image"
       >
-        <SwiperSlide>
-          <SliderImg
-            data-swiper-parallax="20%"
-            data-swiper-parallax-opacity="0"
-          >
-            <Image src={SliderImg1} alt="test1" />
-          </SliderImg>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <SliderImg
-            data-swiper-parallax="20%"
-            data-swiper-parallax-opacity="0"
-          >
-            <Image src={SliderImg2} alt="test2" />
-          </SliderImg>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <SliderImg
-            data-swiper-parallax="20%"
-            data-swiper-parallax-opacity="0"
-          >
-            <Image src={SliderImg3} alt="test3" />
-          </SliderImg>
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderImg
-            data-swiper-parallax="20%"
-            data-swiper-parallax-opacity="0"
-          >
-            <Image src={SliderImg3} alt="test3" />
-          </SliderImg>
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderImg
-            data-swiper-parallax="20%"
-            data-swiper-parallax-opacity="0"
-          >
-            <Image src={SliderImg3} alt="test3" />
-          </SliderImg>
-        </SwiperSlide>
+        {data?.map((item, idx) => (
+          <SwiperSlide key={idx}>
+            <SliderImg
+              data-swiper-parallax="20%"
+              data-swiper-parallax-opacity="0"
+            >
+              {/* <Image src={SliderImg1} alt="test1" /> */}
+              <img src={item.image} alt={item.title} />
+            </SliderImg>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className="slider-description">
@@ -151,76 +120,17 @@ const News: FC<NewsProps> = () => {
               setLineProgress(!lineProgress);
             }}
           >
-            <SwiperSlide>
-              <div className="slider-description-item">
-                <h4 className="slider-description__title">
-                  Региональные новости компании «OMAD SUG’URTA» за 15 – 19
-                  ноября 2021 года 1
-                </h4>
-                <p className="slider-description__content">
-                  1 С наступлением холодов увеличилось количество пожаров в
-                  частном секторе. Как рассказала директор филиала «OMAD
-                  SUG’URTA» в фергане Ольга Заровняева, только в октябре от
-                  клиентов поступило 10 заявлений по факту пожаров в домах.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-description-item">
-                <h4 className="slider-description__title">
-                  Региональные новости компании «OMAD SUG’URTA» за 15 – 19
-                  ноября 2021 года 2
-                </h4>
-                <p className="slider-description__content">
-                  2 С наступлением холодов увеличилось количество пожаров в
-                  частном секторе. Как рассказала директор филиала «OMAD
-                  SUG’URTA» в фергане Ольга Заровняева, только в октябре от
-                  клиентов поступило 10 заявлений по факту пожаров в домах.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-description-item">
-                <h4 className="slider-description__title">
-                  Региональные новости компании «OMAD SUG’URTA» за 15 – 19
-                  ноября 2021 года 3
-                </h4>
-                <p className="slider-description__content">
-                  3 С наступлением холодов увеличилось количество пожаров в
-                  частном секторе. Как рассказала директор филиала «OMAD
-                  SUG’URTA» в фергане Ольга Заровняева, только в октябре от
-                  клиентов поступило 10 заявлений по факту пожаров в домах.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-description-item">
-                <h4 className="slider-description__title">
-                  Региональные новости компании «OMAD SUG’URTA» за 15 – 19
-                  ноября 2021 года 4
-                </h4>
-                <p className="slider-description__content">
-                  4 С наступлением холодов увеличилось количество пожаров в
-                  частном секторе. Как рассказала директор филиала «OMAD
-                  SUG’URTA» в фергане Ольга Заровняева, только в октябре от
-                  клиентов поступило 10 заявлений по факту пожаров в домах.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-description-item">
-                <h4 className="slider-description__title">
-                  Региональные новости компании «OMAD SUG’URTA» за 15 – 19
-                  ноября 2021 года
-                </h4>
-                <p className="slider-description__content">
-                  5 С наступлением холодов увеличилось количество пожаров в
-                  частном секторе. Как рассказала директор филиала «OMAD
-                  SUG’URTA» в фергане Ольга Заровняева, только в октябре от
-                  клиентов поступило 10 заявлений по факту пожаров в домах.
-                </p>
-              </div>
-            </SwiperSlide>
+            {data?.map((item, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="slider-description-item">
+                  <h4 className="slider-description__title">
+                    {item.title}
+                    {idx}
+                  </h4>
+                  <p className="slider-description__content">{item.text}</p>
+                </div>
+              </SwiperSlide>
+            ))}
 
             <div
               className={
