@@ -10,7 +10,6 @@ import {
   Wrapper,
 } from "./card.e";
 import {useTranslation} from 'next-i18next'
-
 import Icon1 from "../../../../assets/images/about/cards/icon-2.png";
 const Card: FC<CardProps> = () => {
   const {t} = useTranslation()

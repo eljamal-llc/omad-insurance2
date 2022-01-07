@@ -107,6 +107,25 @@ export const NavbarBtn = styled.button`
     padding: 4px 6px;
   }
 `;
+export const LangSwitchSelect = styled.select`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+  background-color: #0000001b;
+  border: 1px solid #ffffff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 50;
+  &:hover {
+    cursor: pointer;
+  }
+`
 export const LangSwitch = styled.option`
  font-family: Roboto;
   font-style: normal;
@@ -114,7 +133,7 @@ export const LangSwitch = styled.option`
   font-size: 18px;
   line-height: 21px;
   color: #ffffff;
-  background-color: #0000001b;
+  background-color: #00000034;
   border: 1px solid #ffffff;
   padding: 10px;
   display: flex;

@@ -15,7 +15,8 @@ import {
   NavbarLogo,
   NavbarLink,
   NavbarBtn,
-  LangSwitch
+  LangSwitch,
+  LangSwitchSelect
 } from "./navbar.e";
 import setLanguage from 'next-translate/setLanguage'
 import { useRouter } from "next/router";
@@ -56,10 +57,11 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             </NextLink>
           </NavbarLeft>
           <NavbarRight>
-              <LangSwitch onClick={async () => await setLanguage('ru')} className="toremove">RU</LangSwitch>
-              <LangSwitch onClick={async () => await setLanguage('uz')}  className="toremove">UZ</LangSwitch>
-              <LangSwitch onClick={async () => await setLanguage('en')} className="toremove" >EN</LangSwitch>
-
+            {/* <LangSwitchSelect> */}
+              <LangSwitch onClick={async () => await setLanguage('en')} value={'en'} className="toremove" >EN</LangSwitch>
+              <LangSwitch onClick={async () => await setLanguage('uz')} value={'uz'} className="toremove">UZ</LangSwitch>
+              <LangSwitch onClick={async () => await setLanguage('ru')} value={'ru'} className="toremove">RU</LangSwitch>
+            {/* </LangSwitchSelect> */}
             <NavbarBtn className="navbar-user toremove">
               <Link href={"/personal-area"}>
                 <Image src={User} alt="admin-user" />
