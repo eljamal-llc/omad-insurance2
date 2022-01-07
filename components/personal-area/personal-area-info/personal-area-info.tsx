@@ -18,40 +18,39 @@ import { useTranslation } from "react-i18next";
 const PersonalAreaInfo: FC<PersonalAreaInfoProps> = () => {
     const {t} = useTranslation()
     return (
-        <PersonalAreaBodyBg>
-            <GWrapper>
-                <PersonalAreaBodyHeading>{t('common:Welcome')} <br/>{t('common:Welcome2')}</PersonalAreaBodyHeading>
-
-                <PersonalAreaBodyCardBody>
-                        <PersonalAreaBodyCard>
-                            <PersonalAreaBodyCardHeading>Мои данные</PersonalAreaBodyCardHeading>
-                            <PersonalAreaBodyCardText>В данном разделе вам нужно указать личные данные, которые будут использоваться в дальнейшем для  процесса покупки страхового полиса</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}><a>Перейти</a></Link></CardButton></ButtonCard>
-                        </PersonalAreaBodyCard>
-                        <PersonalAreaBodyCard>
-                            <PersonalAreaBodyCardHeading>Мои страховые полиса</PersonalAreaBodyCardHeading>
-                            <PersonalAreaBodyCardText>Список приобретенных электронных страховых полисов</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}><a>Перейти</a></Link></CardButton></ButtonCard>
-                        </PersonalAreaBodyCard>
-                        <PersonalAreaBodyCard>
-                            <PersonalAreaBodyCardHeading>Купить полис онлайн</PersonalAreaBodyCardHeading>
-                            <PersonalAreaBodyCardText>в данном разделе вы можете приобрести полиса онлайн. Просто заполните форму и наш сотрудник мгновенно свяжется с вами</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area/buy'}><a>Перейти</a></Link></CardButton></ButtonCard>
-                        </PersonalAreaBodyCard>
-                        <PersonalAreaBodyCard>
-                            <PersonalAreaBodyCardHeading>Продлить полис онлайн</PersonalAreaBodyCardHeading>
-                            <PersonalAreaBodyCardText>Срок действия страхового полиса истёк? Не беда! Отправьте нам заявку на продление действия страхового полиса онлайн.</PersonalAreaBodyCardText>
-                            <PersonalAreaBodyCardText>Отправка заявки на продление страхового полиса. Обратная связь c “OMAD SUG’URTA”</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}><a>Перейти</a></Link></CardButton></ButtonCard>
-                        </PersonalAreaBodyCard>
-                        <PersonalAreaBodyCard>
-                            <PersonalAreaBodyCardHeading>Настройки</PersonalAreaBodyCardHeading>
-                            <PersonalAreaBodyCardText>в данном разделе есть возможность поменть пароль на личный кабинет</PersonalAreaBodyCardText>
-                            <ButtonCard><CardButton><Link href={'/personal-area'}><a>Перейти</a></Link></CardButton></ButtonCard>
-                        </PersonalAreaBodyCard>
-                </PersonalAreaBodyCardBody>
-            </GWrapper>
-        </PersonalAreaBodyBg>
+    <PersonalAreaBodyBg>
+    <GWrapper>
+        <PersonalAreaBodyHeading>{t('common:Welcome')} <br/>{t('common:Welcome2')}</PersonalAreaBodyHeading>
+        <PersonalAreaBodyCardBody>
+                <PersonalAreaBodyCard>
+                    <PersonalAreaBodyCardHeading>{t('common:My_details')}</PersonalAreaBodyCardHeading>
+                    <PersonalAreaBodyCardText>{t('common:info_details_personal_area')}</PersonalAreaBodyCardText>
+                    <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                </PersonalAreaBodyCard>
+                <PersonalAreaBodyCard>
+                    <PersonalAreaBodyCardHeading>{t('common:My_insurance_policies')}</PersonalAreaBodyCardHeading>
+                    <PersonalAreaBodyCardText>{t('common:infp_ins_polic_List')}</PersonalAreaBodyCardText>
+                    <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                </PersonalAreaBodyCard>
+                <PersonalAreaBodyCard>
+                    <PersonalAreaBodyCardHeading>{t('common:buy_online')}</PersonalAreaBodyCardHeading>
+                    <PersonalAreaBodyCardText>{t('common:buy_online_info')}</PersonalAreaBodyCardText>
+                    <ButtonCard><CardButton><Link href={'/personal-area/buy'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                </PersonalAreaBodyCard>
+                <PersonalAreaBodyCard>
+                    <PersonalAreaBodyCardHeading>{t('common:renew_policy')}</PersonalAreaBodyCardHeading>
+                    <PersonalAreaBodyCardText>{t('common:renew_policy_INFO')}</PersonalAreaBodyCardText>
+                    <PersonalAreaBodyCardText>{t('common:renew_policy_INFO22')}</PersonalAreaBodyCardText>
+                    <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                </PersonalAreaBodyCard>
+                <PersonalAreaBodyCard>
+                    <PersonalAreaBodyCardHeading>{t('common:settings')}</PersonalAreaBodyCardHeading>
+                    <PersonalAreaBodyCardText>{t('common:settings_info')}</PersonalAreaBodyCardText>
+                    <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                </PersonalAreaBodyCard>
+        </PersonalAreaBodyCardBody>
+    </GWrapper>
+    </PersonalAreaBodyBg>
     )
 
 }

@@ -2,7 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NextLink from "next/link";
-
+import { useTranslation } from "react-i18next";
 import { CardBlockProps } from "./CardBlock.t";
 
 import {
@@ -41,6 +41,7 @@ const Card: FC<CardBlockProps> = ({ item }) => {
     </svg>
   );
   const { main_title, main_description, main_image, id } = item;
+  const {t} = useTranslation()
   return (
     <CardBody>
       <CardBodyContent>
@@ -49,28 +50,28 @@ const Card: FC<CardBlockProps> = ({ item }) => {
           <CardText>{main_description}</CardText>
           <CardService>
             <CardServiceBlock>
-              <CardServiceHeading>Быстрый расчет</CardServiceHeading>
+              <CardServiceHeading>{t('common:Quick_calculation')}</CardServiceHeading>
               <CardServiceText>
-                Рассчитайте и оплатите за 3 минуты
+              {t('common:Calculate_and_pay_3_minutes')}
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>В любом регионе</CardServiceHeading>
-              <CardServiceText>Страховые выплаты за 1 — 2 дня</CardServiceText>
+              <CardServiceHeading>{t('common:any_region')}</CardServiceHeading>
+              <CardServiceText>{t('common:Insurance_payments_days')}</CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>Помощь 24/7</CardServiceHeading>
-              <CardServiceText>Поддержка в чате и по телефону</CardServiceText>
+              <CardServiceHeading>{t('common:Help__24')}</CardServiceHeading>
+              <CardServiceText>{t('common:Live_chat_and_phone_support')}</CardServiceText>
             </CardServiceBlock>
           </CardService>
           <CardBtns>
             <CardButton>
-              <NextLink href={`/mtpl-insurance?id=${id}`} passHref>Оформить полис</NextLink>
+              <NextLink href={`/mtpl-insurance?id=${id}`} passHref>{t('common:Get_policy')}</NextLink>
             </CardButton>
             <HorizontalSliderButton>
               <Link href={`/`} passHref>
                 <a>
-                  <span>Узнать подробнее</span>
+                  <span>{t('common:Learn_more')}</span>
                   <ArrowIcon fill="#F0803D" class="arrow-right" />
                 </a>
               </Link>

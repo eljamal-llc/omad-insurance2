@@ -11,8 +11,9 @@ import {HeaderNavBody,
         } from './pesonal-area-nav.e'
 import { slide as Menu } from 'react-burger-menu'
 import PersonalNavBurger from '../../common/personal-nav-burger/pesonal-nav-burger'
+import { useTranslation } from "react-i18next";
 const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
-    
+    const {t} = useTranslation()
     return (
         <>
         <HeaderNavBody/>
@@ -23,22 +24,22 @@ const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
             
             <PersonalAreaUserNav>
                 <PersonalAreaUserNavLi>
-                    <NextLink href='/personal-area/info'>Информация</NextLink>
+                    <NextLink href='/personal-area/info'>{t('common:Information')}</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <NextLink href='/personal-area/user-data'>Мои данные</NextLink>
+                    <NextLink href='/personal-area/user-data'>{t('common:My_details')}</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <NextLink href='/personal-area/my-polic'>Мои страховые полиса</NextLink>
+                    <NextLink href='/personal-area/my-polic'>{t('common:My_insurance_policies')}</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <NextLink href='/personal-area/buy'>Купить полис онлайн</NextLink>
+                    <NextLink href='/personal-area/buy'>{t('common:buy_online')}</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <NextLink href='/personal-area/polic-updates'>Продлить полис онлайн</NextLink>
+                    <NextLink href='/personal-area/polic-updates'>{t('common:renew_policy')}</NextLink>
                 </PersonalAreaUserNavLi>
             </PersonalAreaUserNav>
-            <PersonalAreaSettings> <NextLink href='/personal-area/settings'>настройки</NextLink></PersonalAreaSettings>
+            <PersonalAreaSettings> <NextLink href='/personal-area/settings'>{t('common:settings')}</NextLink></PersonalAreaSettings>
         </PersonalAreaNavbar>
 
 

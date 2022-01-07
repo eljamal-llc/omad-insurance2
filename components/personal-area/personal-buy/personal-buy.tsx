@@ -15,21 +15,22 @@ import {
         
         } from './pesonal-buy.e'
 import { CardButton } from "../../yur-face-page/CardBlock/CardBlock.e";
+import { useTranslation } from "react-i18next";
 const BuyPolis: FC<PersonalBuyProps> = () => {
-    
+    const {t} = useTranslation()
     return (
         <>
         <BodyForm>
             <FormBody>
-                <FormHeading>Связаться с нами   </FormHeading>
+                <FormHeading>{t('common:contact_us')}</FormHeading>
                 <PageForm>
-                    <UserInfoInput type={'text'}  placeholder="Фамилия, имя и отчество*"/>
-                    <UserNumber placeholder="Номер теефона"/ >
-                    <UserEmail placeholder="Электронная почта"/>
-                    <ButtonAdd>+ Добавить</ButtonAdd>
-                    <FormMessage placeholder="Сообщение"/>
+                    <UserInfoInput type={'text'}  placeholder={t('common:name_data')}/>
+                    <UserNumber placeholder={t('common:Phone_number')}/ >
+                    <UserEmail placeholder={t('common:Email')}/>
+                    <ButtonAdd>+ {t('common:Add')}</ButtonAdd>
+                    <FormMessage placeholder={t('common:Message')}/>
                     <ButtonBlock>
-                        <CardButton>Отправить</CardButton>
+                        <CardButton>{t('common:send')}</CardButton>
                     </ButtonBlock>
                 </PageForm>
             </FormBody>
