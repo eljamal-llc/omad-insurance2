@@ -74,7 +74,7 @@ export const CardTag = styled.p`
   &:last-child {
     margin-bottom: 0px;
   }
-  span {
+  a {
     background-color: #0d4656;
     font-family: Roboto;
     font-style: normal;
