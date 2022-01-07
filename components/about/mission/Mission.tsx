@@ -1,7 +1,7 @@
 import { FC } from "react";
 import type { NextPage } from "next";
 import {MissionProps} from './Mission.t'
-
+import {MissionBody} from './Mission.e'
 import { ContainerHero, HeroBgItem, PageHeading, PageText } from "../../yur-face-page/hero-bg/hero-bg.e";
 import { GWrapper } from "../../../styles/global-styles.e";
 import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
@@ -22,7 +22,9 @@ const MissionComp: FC<MissionProps> = ({title,description}) => {
         </HeroBgItem>
       </GWrapper>
     </ContainerHero>
-    <h2>Missiya </h2>
+    <MissionBody>
+      <h2>Missiya </h2>
+    </MissionBody>
   </>
    
     
