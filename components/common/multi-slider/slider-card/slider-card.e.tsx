@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     display: inline-block;
     text-decoration: none;
     position: relative;
+    width: 100%;
 
     &::before {
       display: block;
