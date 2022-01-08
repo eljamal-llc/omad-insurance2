@@ -8,7 +8,7 @@ import { SectionTitle } from "../..";
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import FourSlider from "./four-slider/four-slider";
 
-const NewsBody: FC<NewsBodyProps> = () => {
+const NewsBody: FC<NewsBodyProps> = ({data}) => {
   return (
     <Wrapper>
       <MWrapper>
