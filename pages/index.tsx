@@ -1,5 +1,5 @@
-import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import type { NextPage } from 'next';
+import { useEffect, useState } from 'react';
 
 import {
   Layout,
@@ -11,19 +11,20 @@ import {
   Footer,
   WantKnow,
   News,
-} from "../components";
-import { IData } from "../components/common/hero/hero.t";
-import { ISliderData } from "../components/common/multi-slider/multi-slider.t";
-import { IDataWantKnow } from "../components/home/want-know/want-know.t";
-import { api } from "../services/api";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import { INewsData } from "../components/common/news/news.t";
+  LoadingScreen,
+} from '../components';
+import { IData } from '../components/common/hero/hero.t';
+import { ISliderData } from '../components/common/multi-slider/multi-slider.t';
+import { IDataWantKnow } from '../components/home/want-know/want-know.t';
+import { api } from '../services/api';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import { INewsData } from '../components/common/news/news.t';
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ['common'])),
     },
   };
 }
@@ -33,50 +34,53 @@ const Home: NextPage = () => {
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
   const [news, setNews] = useState<INewsData[] | []>([]);
 
-  const [onlineInsure, setOnlineInsure] = useState("yur");
+  const [onlineInsure, setOnlineInsure] = useState('yur');
+
+  const [loading, setLoading] = useState(false);
+
   const { t } = useTranslation();
   useEffect(() => {
-    api.get("slider-categories").then(async (response) => {
+    // setLoading(true);
+    api.get('slider-categories').then(async (response) => {
       await setSliders(response.data.data);
     });
 
-    api.get("want-to-know").then(async (response) => {
+    api.get('want-to-know').then(async (response) => {
       await setWantKnows(response.data.data);
     });
-    api
-      .get("category-insurance", { params: { type: onlineInsure } })
-      .then(async (response) => {
-        await setSliderData(response.data.data);
-      });
+    api.get('category-insurance', { params: { type: onlineInsure } }).then(async (response) => {
+      await setSliderData(response.data.data);
+    });
 
-    api.get("news").then((res) => {
+    api.get('news').then((res) => {
       setNews(res.data.data);
     });
   }, []);
 
   useEffect(() => {
-    api
-      .get("category-insurance", { params: { type: onlineInsure } })
-      .then(async (response) => {
-        await setSliderData(response.data.data);
-      });
+    api.get('category-insurance', { params: { type: onlineInsure } }).then(async (response) => {
+      await setSliderData(response.data.data);
+    });
   }, [onlineInsure]);
 
   return (
-    <Layout title="Страхование имущества">
-      <Navbar />
-      <Hero data={sliders} />
-      <WantInsure
-        onlineInsure={onlineInsure}
-        setOnlineInsure={setOnlineInsure}
-      />
-      <MultiSlider data={sliderData} />
-      <WantKnow data={wantKnows} />
+    <>
+      {!loading ? (
+        <Layout title="Страхование имущества">
+          <Navbar />
+          <Hero data={sliders} />
+          <WantInsure onlineInsure={onlineInsure} setOnlineInsure={setOnlineInsure} />
+          <MultiSlider data={sliderData} />
+          <WantKnow data={wantKnows} />
 
-      <Sale />
-      <News data={news} />
-      <Footer />
-    </Layout>
+          <Sale />
+          <News data={news} />
+          <Footer />
+        </Layout>
+      ) : (
+        <LoadingScreen />
+      )}
+    </>
   );
 };
 
