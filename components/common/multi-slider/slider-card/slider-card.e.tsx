@@ -125,3 +125,8 @@ export const SliderLink = styled.div`
     font-size: 14px;
   }
 `;
+
+export const CardContent = styled.p`
+  color: #000000;
+  opacity: 0.5;
+`

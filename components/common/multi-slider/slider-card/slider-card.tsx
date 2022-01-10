@@ -13,6 +13,7 @@ import {
   SliderListItem,
   SliderTitle,
   Wrapper,
+  CardContent
 } from "./slider-card.e";
 
 import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
@@ -28,7 +29,7 @@ const SliderCard: FC<SliderCardProps> = ({ item }) => {
             {/* {info?.map((infoItem, idx) => (
               <SliderListItem key={`child-${idx}`}>{infoItem}</SliderListItem>
             ))} */}
-            {parse(info)}
+            <CardContent>{parse(info)}</CardContent>
           </SliderList>
           <SliderImg>
             {/* <Image src={Slider1} alt="slider-image" />

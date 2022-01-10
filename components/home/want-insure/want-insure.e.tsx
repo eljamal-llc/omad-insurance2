@@ -51,9 +51,9 @@ export const InsureIndividualsBlock = styled.div`
   background-color: transparent;
   transition: all 0.4s ease-out;
   &.active {
-    background-color: #f0803d;
+    background-color: #f0803d;  
     .btn {
-      background-color: #f0803d !important;
+      /* background-color: #f0803d !important; */
       transform: rotate(-180deg) translateY(50%) !important;
       path {
         fill: #0d4656;
@@ -87,7 +87,7 @@ export const InsureIndividualsBlockYur = styled.div`
   &.active {
     background-color: #f0803d;
     .btn {
-      background-color: #f0803d !important;
+      /* background-color: #f0803d !important; */
       transform: rotate(-180deg) translateY(50%) !important;
       path {
         fill: #0d4656;
@@ -154,15 +154,17 @@ export const PersonDescription = styled.p`
 `;
 
 export const InsureBtn = styled.div`
+  /* height: 50px;
+  width: 50px;
+  border: 2px solid #fff; */
   height: 50px;
   width: 50px;
-  border: 2px solid #fff;
   position: relative;
   &:hover {
     cursor: pointer;
   }
   .btn {
-    background-color: #0d4656;
+    /* background-color: #0d4656; */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
