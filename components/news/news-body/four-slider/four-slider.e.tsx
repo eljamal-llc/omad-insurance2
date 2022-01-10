@@ -96,6 +96,12 @@ export const Wrapper = styled.div`
     .image {
       width: 240px;
       height: 240px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     }
     span {
       height: 100% !important;

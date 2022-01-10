@@ -15,6 +15,7 @@ export const WrapperCategory = styled.div`
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
+  cursor: pointer;
   font-size: 24px;
   line-height: 28px;
   color: #ffffff;

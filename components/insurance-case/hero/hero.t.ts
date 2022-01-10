@@ -1,1 +1,3 @@
-export interface HeroProps {}
+export interface HeroProps {
+  id?: any;
+}

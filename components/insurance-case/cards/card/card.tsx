@@ -19,13 +19,13 @@ import {
 
 import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
 
-const Card: FC<CardProps> = () => {
-  const test = false;
-  return test ? (
+const Card: FC<CardProps> = ({ id }) => {
+  // const test = false;
+  return id == "10" ? (
     <Wrapper>
       <NextLink href="/" passHref>
         <Link>
-          <SliderTitle>Автострахование</SliderTitle>
+          <SliderTitle>Другие программы</SliderTitle>
           <SliderList>
             <SliderListItem>ОСАГО</SliderListItem>
             <SliderListItem>КАСКО</SliderListItem>
@@ -41,7 +41,7 @@ const Card: FC<CardProps> = () => {
     </Wrapper>
   ) : (
     <WrapperTag>
-      <SliderTitle>Автострахование 12121212</SliderTitle>
+      <SliderTitle>Авто</SliderTitle>
       <CardDesc>Узнать, что делать в случае если:</CardDesc>
       <CardTags>
         <CardTag>

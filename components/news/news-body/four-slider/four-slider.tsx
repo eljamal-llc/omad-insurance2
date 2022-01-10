@@ -1,12 +1,11 @@
-import { FC, useRef } from "react";
+import { FC, useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
-
+import Link from "next/link";
 import { FourSliderProps } from "./four-slider.t";
 import { Wrapper } from "./four-slider.e";
-
-import SliderImg1 from "../../../../assets/images/hero/slider1.jpg";
+import { api } from "../../../../services/api";
 
 // install Swiper modules
 SwiperCore.use([Navigation]);
@@ -26,8 +25,15 @@ const ArrowIcon = (props: any) => (
   </svg>
 );
 const FourSlider: FC<FourSliderProps> = () => {
+  const [news, setNews] = useState([]);
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
+  useEffect(() => {
+    api.get("news", { params: { id: "part" } }).then((res) => {
+      // console.log(res.data);
+      setNews(res.data);
+    });
+  }, []);
   return (
     <Wrapper>
       <Swiper
@@ -54,90 +60,33 @@ const FourSlider: FC<FourSliderProps> = () => {
             <ArrowIcon fill="#F0803D" class="svg arrow-right" />
           </div>
         </div>
-        <SwiperSlide>
-          <div className="slider-row">
-            <div className="slider-item">
-              <div className="slider-img">
-                <div className="image">
-                  <Image src={SliderImg1} alt="test1" />
+        {news?.map((items, idx) => (
+          <SwiperSlide key={idx}>
+            <div className="slider-row">
+              {/* @ts-ignore */}
+              {items?.map((item, index) => (
+                <div className="slider-item" key={index}>
+                  <div className="slider-img">
+                    <div className="image">
+                      {/* <Image src={SliderImg1} alt="test1" /> */}
+                      <img src={item.image} alt={item.title} />
+                    </div>
+                  </div>
+                  <div className="slider-content">
+                    <h6 className="slider-content__name">
+                      <Link href={`/news?id=${item.id}`}>
+                        <a>{item.title}</a>
+                      </Link>
+                    </h6>
+                    <p className="slider-content__text">{item.anons}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="slider-content">
-                <h6 className="slider-content__name">
-                  Vestibulum morbi enim risus.
-                </h6>
-                <p className="slider-content__text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris amet laoreet mi sed. Risus, tempor bibendum fames amet
-                  nisl odio purus auctor non. Eget aliquet porttitor tempor
-                  tortor, egestas enim. Volutpat cum nunc, nec consectetur
-                  semper sit. Aliquam urna semper diam nec
-                </p>
-              </div>
+              ))}
             </div>
+          </SwiperSlide>
+        ))}
 
-            <div className="slider-item">
-              <div className="slider-img">
-                <div className="image">
-                  <Image src={SliderImg1} alt="test1" />
-                </div>
-              </div>
-              <div className="slider-content">
-                <h6 className="slider-content__name">
-                  Vestibulum morbi enim risus.
-                </h6>
-                <p className="slider-content__text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris amet laoreet mi sed. Risus, tempor bibendum fames amet
-                  nisl odio purus auctor non. Eget aliquet porttitor tempor
-                  tortor, egestas enim. Volutpat cum nunc, nec consectetur
-                  semper sit. Aliquam urna semper diam nec
-                </p>
-              </div>
-            </div>
-
-            <div className="slider-item">
-              <div className="slider-img">
-                <div className="image">
-                  <Image src={SliderImg1} alt="test1" />
-                </div>
-              </div>
-              <div className="slider-content">
-                <h6 className="slider-content__name">
-                  Vestibulum morbi enim risus.
-                </h6>
-                <p className="slider-content__text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris amet laoreet mi sed. Risus, tempor bibendum fames amet
-                  nisl odio purus auctor non. Eget aliquet porttitor tempor
-                  tortor, egestas enim. Volutpat cum nunc, nec consectetur
-                  semper sit. Aliquam urna semper diam nec
-                </p>
-              </div>
-            </div>
-
-            <div className="slider-item">
-              <div className="slider-img">
-                <div className="image">
-                  <Image src={SliderImg1} alt="test1" />
-                </div>
-              </div>
-              <div className="slider-content">
-                <h6 className="slider-content__name">
-                  Vestibulum morbi enim risus.
-                </h6>
-                <p className="slider-content__text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris amet laoreet mi sed. Risus, tempor bibendum fames amet
-                  nisl odio purus auctor non. Eget aliquet porttitor tempor
-                  tortor, egestas enim. Volutpat cum nunc, nec consectetur
-                  semper sit. Aliquam urna semper diam nec
-                </p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+        {/* <SwiperSlide>Slide 2</SwiperSlide> */}
       </Swiper>
     </Wrapper>
   );

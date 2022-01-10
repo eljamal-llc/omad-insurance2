@@ -15,40 +15,64 @@ import {
   WrapperTags,
 } from "./wrapper-category.e";
 
-const HeroCase: FC<WrapperCategoryProps> = () => {
-  const {t} = useTranslation()
+const HeroCase: FC<WrapperCategoryProps> = ({
+  id,
+  setOnlineInsure,
+  onlineInsure,
+}) => {
+  const { t } = useTranslation();
+  const handlePrivate = () => {
+    setOnlineInsure("fiz");
+  };
+  const handlePublic = () => {
+    setOnlineInsure("yur");
+  };
   return (
     <Wrapper>
       <WrapperRow>
         <WrapperCategories>
-          <WrapperCategory className="active">{t('common:For_individuals')}</WrapperCategory>
-          <WrapperCategory>{t('common:home_card_title3_Legal_entities')}</WrapperCategory>
+          <WrapperCategory
+            className={onlineInsure == "fiz" ? "active" : ""}
+            onClick={handlePrivate}
+          >
+            {t("common:For_individuals")}
+          </WrapperCategory>
+          <WrapperCategory
+            className={onlineInsure == "yur" ? "active" : ""}
+            onClick={handlePublic}
+          >
+            {t("common:home_card_title3_Legal_entities")}
+          </WrapperCategory>
         </WrapperCategories>
-        <WrapperTags>
-          <TagsTitle>{t('common:All_categories')}</TagsTitle>
-          <TagsRow>
-            <Tag>
-              <NextLink href="/" passHref>
-                <Link>{t('common:Health')}</Link>
-              </NextLink>
-            </Tag>
-            <Tag>
-              <NextLink href="/" passHref>
-                <Link>{t('common:Travels')}</Link>
-              </NextLink>
-            </Tag>
-            <Tag>
-              <NextLink href="/" passHref>
-                <Link>{t('common:Transport')}</Link>
-              </NextLink>
-            </Tag>
-            <Tag>
-              <NextLink href="/" passHref>
-                <Link>{t('common:Property')}</Link>
-              </NextLink>
-            </Tag>
-          </TagsRow>
-        </WrapperTags>
+        {id == "10" ? (
+          <WrapperTags>
+            <TagsTitle>{t("common:All_categories")}</TagsTitle>
+            <TagsRow>
+              <Tag>
+                <NextLink href="/" passHref>
+                  <Link>{t("common:Health")}</Link>
+                </NextLink>
+              </Tag>
+              <Tag>
+                <NextLink href="/" passHref>
+                  <Link>{t("common:Travels")}</Link>
+                </NextLink>
+              </Tag>
+              <Tag>
+                <NextLink href="/" passHref>
+                  <Link>{t("common:Transport")}</Link>
+                </NextLink>
+              </Tag>
+              <Tag>
+                <NextLink href="/" passHref>
+                  <Link>{t("common:Property")}</Link>
+                </NextLink>
+              </Tag>
+            </TagsRow>
+          </WrapperTags>
+        ) : (
+          ""
+        )}
       </WrapperRow>
     </Wrapper>
   );
