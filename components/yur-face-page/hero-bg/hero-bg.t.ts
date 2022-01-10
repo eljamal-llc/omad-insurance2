@@ -2,7 +2,7 @@ export interface HeroBgProps {
   data: IProps[];
 }
 export interface IProps {
-  title: string;
+  name: string;
   bg_image: string;
   description: string;
 }

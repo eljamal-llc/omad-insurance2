@@ -16,6 +16,7 @@ import {
   NumberB,
   ImgBlock,
   MtplAdventagesInsuranceTwo,
+  CardImage,
 } from "./mtpl-advantages.e";
 import NoutImg from "../../../assets/images/yur-page/singl-yur-img/nout.png";
 import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
@@ -23,7 +24,15 @@ import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
-const MtplAdventages: FC<MtplAdventagesProps> = () => {
+const MtplAdventages: FC<MtplAdventagesProps> = ({
+  title_text,
+  first_text,
+  second_text,
+  first_image,
+  second_image,
+  three_text,
+  four_text,
+}) => {
   const { t } = useTranslation();
   return (
     // <GWrapper>
@@ -68,41 +77,52 @@ const MtplAdventages: FC<MtplAdventagesProps> = () => {
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
       </MtplAdventagesBlock>
+
       <MtplAdventagesHeading>
-        {t("common:Electronic_insurance")}
+        {/* {t("common:Electronic_insurance")} */}
+        {title_text}
       </MtplAdventagesHeading>
       <MtplAdventagesInsurance>
         <div>
-          <MtplAdventagesInsuranceHeading>
+          {/* <MtplAdventagesInsuranceHeading>
             {t("common:Online_as_much")}
-          </MtplAdventagesInsuranceHeading>
+          </MtplAdventagesInsuranceHeading> */}
           <MtplAdventagesInsuranceText>
-            ---{t("common:text-avtostrox")}
+            {/* ---{t("common:text-avtostrox")} */}
+            {first_text}
           </MtplAdventagesInsuranceText>
-          <MtplAdventagesInsuranceHeading>
+          {/* <MtplAdventagesInsuranceHeading>
             {t("common:Online_as_much")}
-          </MtplAdventagesInsuranceHeading>
+          </MtplAdventagesInsuranceHeading> */}
           <MtplAdventagesInsuranceText>
-            ---{t("common:text-avtostrox")}
+            {/* ---{t("common:text-avtostrox")} */}
+            {second_text}
           </MtplAdventagesInsuranceText>
         </div>
-        <Image src={NoutImg} alt="images" />
+        {/* <Image src={NoutImg} alt="images" /> */}
+        <CardImage>
+          <img src={first_image} alt={first_text} />
+        </CardImage>
       </MtplAdventagesInsurance>
       <MtplAdventagesInsuranceTwo>
-        <Image src={CarImg} alt="images" />
-
+        {/* <Image src={CarImg} alt="images" /> */}
+        <CardImage>
+          <img src={second_image} alt={three_text} />
+        </CardImage>
         <div>
-          <MtplAdventagesInsuranceHeading>
+          {/* <MtplAdventagesInsuranceHeading>
             {t("common:Online_as_much")}
-          </MtplAdventagesInsuranceHeading>
+          </MtplAdventagesInsuranceHeading> */}
           <MtplAdventagesInsuranceText>
-            ---{t("common:text-avtostrox")}
+            {/* ---{t("common:text-avtostrox")} */}
+            {three_text}
           </MtplAdventagesInsuranceText>
-          <MtplAdventagesInsuranceHeading>
+          {/* <MtplAdventagesInsuranceHeading>
             {t("common:Online_as_much")}
-          </MtplAdventagesInsuranceHeading>
+          </MtplAdventagesInsuranceHeading> */}
           <MtplAdventagesInsuranceText>
-            ---{t("common:text-avtostrox")}
+            {/* ---{t("common:text-avtostrox")} */}
+            {four_text}
           </MtplAdventagesInsuranceText>
         </div>
       </MtplAdventagesInsuranceTwo>
