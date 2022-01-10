@@ -161,7 +161,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
           <MtplAdventagesInsuranceText>{t('common:Calculate_osago')}</MtplAdventagesInsuranceText>
         </NumberB>
         <ImgBlock>
-          <Image src={Strelka} alt="str" />
+          <Image src={Strelka} alt="str2" />
         </ImgBlock>
         <NumberB>
           <MtplAdventagesNubmer>
