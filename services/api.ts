@@ -4,7 +4,7 @@ import { parseCookies } from "nookies";
 const { "nextauth.token": token } = parseCookies();
 
 export const api = axios.create({
-  baseURL: "https://omad.eljamalgroup.uz/api/",
+  baseURL: "http://api.znutech.uz/api/",
 });
 
 api.interceptors.request.use((config) => {

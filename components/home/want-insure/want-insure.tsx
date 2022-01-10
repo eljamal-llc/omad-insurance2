@@ -11,10 +11,10 @@ import {
   Wrapper,
   InsureIndividualsBlockYur,
 } from "./want-insure.e";
-import {useTranslation} from 'next-i18next'
+import { useTranslation } from "next-i18next";
 
 const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const ArrowIcon = (props: any) => (
     <svg
@@ -33,23 +33,23 @@ const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
   );
 
   const handlePrivate = () => {
-    setOnlineInsure("fiz");
+    setOnlineInsure("1");
   };
   const handlePublic = () => {
-    setOnlineInsure("yur");
+    setOnlineInsure("2");
   };
   return (
     <Wrapper>
       {/* <GWrapper className="container"> */}
       <InsureRow>
         <InsureTitleBlock>
-          <InsureTitle>{t('common:want_to_insure')}</InsureTitle>
+          <InsureTitle>{t("common:want_to_insure")}</InsureTitle>
         </InsureTitleBlock>
 
-        <InsureIndividualsBlock
-          className={onlineInsure == "fiz" ? "active" : ""}
-        >
-          <PersonTitle>{t('common:home_card_title2_for_individuals')}</PersonTitle>
+        <InsureIndividualsBlock className={onlineInsure == "1" ? "active" : ""}>
+          <PersonTitle>
+            {t("common:home_card_title2_for_individuals")}
+          </PersonTitle>
           <PersonDescription className="description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
             elementum imperdiet id.
@@ -59,9 +59,11 @@ const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
           </InsureBtn>
         </InsureIndividualsBlock>
         <InsureIndividualsBlockYur
-          className={onlineInsure == "yur" ? "active" : ""}
+          className={onlineInsure == "2" ? "active" : ""}
         >
-          <PersonTitle>{t('common:home_card_title3_Legal_entities')}</PersonTitle>
+          <PersonTitle>
+            {t("common:home_card_title3_Legal_entities")}
+          </PersonTitle>
           <PersonDescription className="description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
             elementum imperdiet id.

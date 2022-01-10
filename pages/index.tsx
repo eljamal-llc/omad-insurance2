@@ -33,7 +33,7 @@ const Home: NextPage = () => {
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
   const [news, setNews] = useState<INewsData[] | []>([]);
 
-  const [onlineInsure, setOnlineInsure] = useState("yur");
+  const [onlineInsure, setOnlineInsure] = useState("2");
   const { t } = useTranslation();
   useEffect(() => {
     api.get("slider-categories").then(async (response) => {

@@ -5,15 +5,23 @@ import { Wrapper } from "./cards.e";
 import Card from "./card/card";
 import { CardsRow } from "../../about/cards/cards.e";
 
-const CardsCase: FC<CardsProps> = () => {
+const CardsCase: FC<CardsProps> = ({ id, data }) => {
   return (
     <Wrapper>
       <CardsRow>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {id == 17 ? (
+          <>
+            {data?.map((item, idx) => (
+              <Card id={id} key={idx} />
+            ))}
+          </>
+        ) : (
+          <>
+            {data?.map((item, idx) => (
+              <Card id={id} key={idx} />
+            ))}
+          </>
+        )}
       </CardsRow>
     </Wrapper>
   );

@@ -7,7 +7,7 @@ import { NewsProps } from "./news.t";
 
 import { GWrapper } from "../../../styles/global-styles.e";
 import { Wrapper, SliderImg, SliderDescriptionBtn, HeroTitle } from "./news.e";
-
+import Link from "next/link";
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
@@ -124,10 +124,11 @@ const News: FC<NewsProps> = ({ data }) => {
               <SwiperSlide key={idx}>
                 <div className="slider-description-item">
                   <h4 className="slider-description__title">
-                    {item.title}
-                    {idx}
+                    <Link href={`/news?id=${item.id}`}>
+                      <a>{item.title}</a>
+                    </Link>
                   </h4>
-                  <p className="slider-description__content">{item.text}</p>
+                  <p className="slider-description__content">{item.anons}</p>
                 </div>
               </SwiperSlide>
             ))}

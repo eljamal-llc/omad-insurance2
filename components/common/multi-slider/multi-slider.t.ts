@@ -7,8 +7,8 @@ export interface ButtonProps {
 
 export interface ISliderData {
   id: number;
-  title: string;
-  info: [];
-  main_image: string;
+  name: string;
+  info: string;
+  image: string;
   slug: string;
 }
