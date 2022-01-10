@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Wrapper = styled.div`
   border-right: 2px solid #000;
   a {
