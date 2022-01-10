@@ -25,7 +25,7 @@ const SliderCard: FC<SliderCardProps> = ({ item }) => {
       <NextLink href={`/page-persons?id=${id}`} passHref>
         <Link>
           <SliderTitle>{name}</SliderTitle>
-          <SliderList>{parse(info)}</SliderList>
+          <SliderList><CardContent>{parse(info)}</CardContent></SliderList>
           <SliderImg>
             {/* <Image src={Slider1} alt="slider-image" />
              */}

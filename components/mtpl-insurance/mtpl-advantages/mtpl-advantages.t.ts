@@ -1,9 +1,9 @@
 export interface MtplAdventagesProps {
-  title_text: string;
-  first_text: string;
-  second_text: string;
-  first_image: string;
-  second_image: string;
-  three_text: string;
-  four_text: string;
+  title_text: string | any;
+  first_text: string | any;
+  second_text: string | any;
+  first_image: string | any;
+  second_image: string | any;
+  three_text: string | any;
+  four_text: string | any;
 }

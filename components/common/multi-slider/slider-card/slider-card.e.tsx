@@ -64,6 +64,7 @@ export const SliderList = styled.ul`
     margin-bottom: 10px;
   }
 `;
+
 export const SliderListItem = styled.li`
   font-family: Roboto;
   font-style: normal;
