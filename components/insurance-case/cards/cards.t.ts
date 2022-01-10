@@ -1,6 +1,6 @@
 export interface CardsProps {
   id?: any;
-  data?: ISliderData[] | [] | any;
+  data?: ISliderData[] | [] ;
 }
 export interface ISliderData {
   id: number;
