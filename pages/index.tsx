@@ -34,7 +34,7 @@ const Home: NextPage = () => {
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
   const [news, setNews] = useState<INewsData[] | []>([]);
 
-  const [onlineInsure, setOnlineInsure] = useState('yur');
+  const [onlineInsure, setOnlineInsure] = useState("1");
 
   const [loading, setLoading] = useState(false);
 
