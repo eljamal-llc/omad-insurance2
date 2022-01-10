@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CardBody = styled.div`
   padding: 40px 50px;
@@ -33,7 +33,7 @@ export const CardBody = styled.div`
   }
 `;
 export const CardInfo = styled.div`
-  width: 798px;
+  width: 844px;
   @media (max-width: 890px) {
     width: 343px;
   }
