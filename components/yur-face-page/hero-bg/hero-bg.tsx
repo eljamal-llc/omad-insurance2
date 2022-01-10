@@ -7,14 +7,14 @@ import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
 
 const HeroBg: FC<HeroBgProps> = ({ data }) => {
   // @ts-ignore
-  const { title, bg_image, description } = data[0];
+  const { name, bg_image, description } = data[0];
 
   return (
     <ContainerHero imgUrl={bg_image}>
       <GWrapper>
         <HeroBgItem>
           <BreadcrumbsBlock />
-          <PageHeading>{title}</PageHeading>
+          <PageHeading>{name}</PageHeading>
           <PageText>{description}</PageText>
         </HeroBgItem>
       </GWrapper>

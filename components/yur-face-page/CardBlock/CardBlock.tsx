@@ -41,7 +41,7 @@ const Card: FC<CardBlockProps> = ({ item }) => {
     </svg>
   );
   const { main_title, main_description, main_image, id } = item;
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <CardBody>
       <CardBodyContent>
@@ -50,28 +50,32 @@ const Card: FC<CardBlockProps> = ({ item }) => {
           <CardText>{main_description}</CardText>
           <CardService>
             <CardServiceBlock>
-              <CardServiceHeading>{t('common:Quick_calculation')}</CardServiceHeading>
+              <CardServiceHeading>
+                {t("common:Quick_calculation")}
+              </CardServiceHeading>
               <CardServiceText>
-              {t('common:Calculate_and_pay_3_minutes')}
+                {t("common:Calculate_and_pay_3_minutes")}
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>{t('common:any_region')}</CardServiceHeading>
-              <CardServiceText>{t('common:Insurance_payments_days')}</CardServiceText>
+              <CardServiceHeading>{t("common:any_region")}</CardServiceHeading>
+              <CardServiceText>
+                {t("common:Insurance_payments_days")}
+              </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>{t('common:Help__24')}</CardServiceHeading>
-              <CardServiceText>{t('common:Live_chat_and_phone_support')}</CardServiceText>
+              <CardServiceHeading>{t("common:Help__24")}</CardServiceHeading>
+              <CardServiceText>
+                {t("common:Live_chat_and_phone_support")}
+              </CardServiceText>
             </CardServiceBlock>
           </CardService>
           <CardBtns>
-            <CardButton>
-              <NextLink href={`/mtpl-insurance?id=${id}`} passHref>{t('common:Get_policy')}</NextLink>
-            </CardButton>
+            <CardButton>{t("common:Get_policy")}</CardButton>
             <HorizontalSliderButton>
-              <Link href={`/`} passHref>
+              <Link href={`/mtpl-insurance?id=${id}`} passHref>
                 <a>
-                  <span>{t('common:Learn_more')}</span>
+                  <span>{t("common:Learn_more")}</span>
                   <ArrowIcon fill="#F0803D" class="arrow-right" />
                 </a>
               </Link>
