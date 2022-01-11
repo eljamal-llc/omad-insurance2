@@ -29,8 +29,8 @@ const {t} = useTranslation()
 
   return (
     <Layout title={t('common:Property_insurance')}>
-      <Navbar />
-      <MissionComp title={t('common:Mission')} description={t('common:Mission')}/>
+      <Navbar  />
+      <MissionComp title={t('common:Mission')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
       <News />
       <Footer />
     </Layout>
