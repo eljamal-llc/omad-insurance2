@@ -85,6 +85,7 @@ export const HomeText = styled.p`
 export const CardService = styled.div`
     display:flex;   
     max-width:960px;
+    justify-content: space-between;
     @media (max-width:425px){
         justify-content:space-between
     }
@@ -118,7 +119,7 @@ export const CardServiceText = styled.p`
     font-weight: normal;    
     font-size: 18px;
     line-height: 21px;
-
+    width: 206px;
     color: #fff;
 
     @media (max-width:425px){

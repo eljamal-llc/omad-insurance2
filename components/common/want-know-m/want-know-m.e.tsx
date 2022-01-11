@@ -190,7 +190,8 @@ export const SliderTitle = styled.h3`
   font-size: 48px;
   line-height: 56px;
   color: #ffffff;
-  margin-bottom: 20px;
+  background:#0D4656;
+  padding-bottom: 20px;
   @media (max-width: 1800px) {
     font-size: calc(16px + 30 * (100vw / 1920));
   }
@@ -209,6 +210,7 @@ export const SliderDescription = styled.p`
   font-size: 24px;
   line-height: 28px;
   color: #ffffff;
+  background:#0D4656;
 
   @media (max-width: 1800px) {
     font-size: calc(14px + 10 * (100vw / 1920));

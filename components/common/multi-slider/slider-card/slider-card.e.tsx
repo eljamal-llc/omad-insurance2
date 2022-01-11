@@ -115,6 +115,7 @@ export const SliderLink = styled.div`
   background-color: #0d4656;
   padding: 20px;
   display: inline-block;
+  transition: 0.3s all linear;
   @media (max-width: 1800px) {
     font-size: calc(14px + 14 * (100vw / 1920));
     line-height: 110%;
@@ -125,6 +126,10 @@ export const SliderLink = styled.div`
   @media (max-width: 768px) {
     padding: 10px;
     font-size: 14px;
+  }
+  &:hover {
+    background:  #F0803D;;
+
   }
 `;
 
