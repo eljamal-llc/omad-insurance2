@@ -10,6 +10,7 @@ import {MissionBody,
         MissionContentAbItem
         } from './Mission.e'
 import Navlink from "next/Link";
+import Link from "next/dist/client/link";
 import { ContainerHero, HeroBgItem, PageHeading, PageText } from "../../yur-face-page/hero-bg/hero-bg.e";
 import { GWrapper } from "../../../styles/global-styles.e";
 import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
@@ -48,44 +49,63 @@ const MissionComp: FC<MissionProps> = ({title,description}) => {
 
       </div>
         <MissionNav>
-          <Navlink href={'/about/mission'}>
-              <MissionNavItem  >Миссия</MissionNavItem></Navlink> 
-          <Navlink href={'/about/values'}>
-              <MissionNavItem>  Ценности</MissionNavItem></Navlink>
-          <Navlink href={'/'}>
-              <MissionNavItem>  Социальная ответственность</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Финансовые показатели</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-               <MissionNavItem>  Политика безопасности</MissionNavItem></Navlink>
-          <Navlink href={'/'}>
-              <MissionNavItem>  Закупки</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Пресс-центр</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Выплаты</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Правила страхования</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Перестрахование</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Виды страхования</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Руководство и участники</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Ассоциации и пулы</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Партнеры</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Лицензии</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Рейтинги</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Награды</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-              <MissionNavItem>  Благодарности</MissionNavItem></Navlink> 
-          <Navlink href={'/'}>
-               <MissionNavItem>  Спецпроекты</MissionNavItem></Navlink>
+          <Link href={'/about/mission'}>
+              <MissionNavItem  >Миссия</MissionNavItem>
+        </Link> 
+          <Link href={'/about/values'}>
+              <MissionNavItem>  Ценности</MissionNavItem>
+        </Link>
+          <Link href={'/'}>
+              <MissionNavItem>  Социальная ответственность</MissionNavItem>
+        </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Финансовые показатели</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+               <MissionNavItem>  Политика безопасности</MissionNavItem>
+            </Link>
+          <Link href={'/'}>
+              <MissionNavItem>  Закупки</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Пресс-центр</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Выплаты</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Правила страхования</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Перестрахование</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Виды страхования</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Руководство и участники</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Ассоциации и пулы</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Партнеры</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Лицензии</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Рейтинги</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Награды</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+              <MissionNavItem>  Благодарности</MissionNavItem>
+            </Link> 
+          <Link href={'/'}>
+               <MissionNavItem>  Спецпроекты</MissionNavItem>
+            </Link>
         </MissionNav>
       </MissionContent>
      
