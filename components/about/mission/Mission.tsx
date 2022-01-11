@@ -9,7 +9,6 @@ import {MissionBody,
         MissionContentAbout,
         MissionContentAbItem
         } from './Mission.e'
-import Navlink from "next/Link";
 import Link from "next/dist/client/link";
 import { ContainerHero, HeroBgItem, PageHeading, PageText } from "../../yur-face-page/hero-bg/hero-bg.e";
 import { GWrapper } from "../../../styles/global-styles.e";
