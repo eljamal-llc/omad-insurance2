@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import type { NextPage } from "next";
 import {
   Layout,
@@ -13,6 +13,10 @@ import {
 } from "../../components";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
+import { IData } from "../../components/common/hero/hero.t";
+import { api } from "../../services/api";
+import { INewsData } from "../../components/common/news/news.t";
+
 export async  function getStaticProps({locale}:{locale : string} ) {
   return {
     props:{
@@ -27,20 +31,38 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 
 export interface PartnerProps {}
 const Partner: FC<NextPage> = () => {
+  useEffect(() => {
+    // setLoading(true);
+    api.get('slider-categories').then(async (response) => {
+      await setSliders(response.data.data);
+    });
+
+
+
+    api.get('news').then((res) => {
+      setNews(res.data.data);
+    });
+  }, []);
 const {t} = useTranslation()
+const [sliders, setSliders] = useState<IData[] | []>([])
+const [news, setNews] = useState<INewsData[] | []>([]);
 
   return (  
     <Layout title={t('common:Property_insurance')}>
       <Navbar />
-      <Hero />
+      <Hero data={sliders} />
       <WrapperTitle title={t('common:Services')} onClass="view-three" />
       <MultiSlider />
       <WantKnowM />
       <SpecialOffers />
-      <News />
+      <News data={news} />
       <Footer />
     </Layout>
   );
 };
 
 export default Partner;
+function setNews(data: any) {
+  throw new Error("Function not implemented.");
+}
+

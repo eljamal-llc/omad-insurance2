@@ -285,5 +285,9 @@ export const SliderButton = styled.div`
     right: -35px;
     transition: all 0.4s ease-out;
     background-color: #0d4656;
+    @media (max-width:768px){
+      background-color: transparent;
+    }
   }
+
 `;
