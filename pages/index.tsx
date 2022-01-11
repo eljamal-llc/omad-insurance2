@@ -40,7 +40,10 @@ const Home: NextPage = () => {
 
   const { t } = useTranslation();
   useEffect(() => {
-    // setLoading(true);
+    setLoading(true);
+    setTimeout(()=>{
+      setLoading(false)
+    },1200)
     api.get('slider-categories').then(async (response) => {
       await setSliders(response.data.data);
     });

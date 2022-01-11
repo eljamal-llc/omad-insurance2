@@ -45,7 +45,7 @@ const LeftPanel: FC<LeftPanelProps> = () => {
               </LeftButton>
             </PDFInfo>
           </LeftWrapperPDF>
-        </LeftWrapperRow>ч
+        </LeftWrapperRow>
       </LeftWrapper>
 
       <LeftWrapper>

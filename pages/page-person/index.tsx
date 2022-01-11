@@ -10,6 +10,7 @@ import {
   WrapperTitle,
   WantKnowM,
   SpecialOffers,
+  LoadingScreen
 } from "../../components";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
@@ -31,7 +32,13 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 
 export interface PartnerProps {}
 const Partner: FC<NextPage> = () => {
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    setLoading(true);
+    setTimeout(()=>{
+      setLoading(false)
+    },1200)
     // setLoading(true);
     api.get('slider-categories').then(async (response) => {
       await setSliders(response.data.data);
@@ -48,16 +55,21 @@ const [sliders, setSliders] = useState<IData[] | []>([])
 const [news, setNews] = useState<INewsData[] | []>([]);
 
   return (  
-    <Layout title={t('common:Property_insurance')}>
-      <Navbar />
-      <Hero data={sliders} />
-      <WrapperTitle title={t('common:Services')} onClass="view-three" />
-      <MultiSlider />
-      <WantKnowM />
-      <SpecialOffers />
-      <News data={news} />
-      <Footer />
-    </Layout>
+    <>
+      {!loading ? (
+        <Layout title={t('common:Property_insurance')}>
+          <Navbar />
+          <Hero data={sliders} />
+          <WrapperTitle title={t('common:Services')} onClass="view-three" />
+          <MultiSlider />
+          <WantKnowM />
+          <SpecialOffers />
+          <News data={news} />
+          <Footer />
+        </Layout>
+      ):(<LoadingScreen/>)}
+    </>
+
   );
 };
 

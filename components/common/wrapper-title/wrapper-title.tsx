@@ -14,16 +14,18 @@ import {
 } from "./wrapper-title.e";
 import { SectionTitle } from "../index";
 import { t } from "i18next";
-
+import { useState } from "react";
 const WrapperTitle: FC<WrapperTitleProps> = ({ title, onClass }) => {
   const {t} = useTranslation()
+ const [showBtn , setShowBtb] = useState('show')
   return (
     <Wrapper className={onClass}>
       <TitleRow>
         <WrapperCategories className="wrapper-categories">
           <SectionTitle color="white" title={title} />
         </WrapperCategories>
-        <WrapperTags className="wrapper-tags">
+        {showBtn == 'show' ? (
+          <WrapperTags className="wrapper-tags">
           <TagsTitle>{t('common:All_categories')}</TagsTitle>
           <TagsRow>
             <Tag>
@@ -48,6 +50,8 @@ const WrapperTitle: FC<WrapperTitleProps> = ({ title, onClass }) => {
             </Tag>
           </TagsRow>
         </WrapperTags>
+        ):(<></>)}
+        
       </TitleRow>
     </Wrapper>
   );

@@ -4,7 +4,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import { useRouter } from "next/router";
 
-import { Layout, Navbar, Footer, HeroBg, YurFaceCard } from "../../components";
+import { Layout, Navbar, Footer, HeroBg, YurFaceCard ,LoadingScreen } from "../../components";
 import { api } from "../../services/api";
 import { ICards } from "../../components/yur-face-page/yur-face-card/yur-face-card.t";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -25,8 +25,13 @@ const YurFacePage: FC<NextPage> = () => {
 
   const router = useRouter();
   const { id } = router.query;
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+    setTimeout(()=>{
+      setLoading(false)
+    },1200)
     api
       .get("category-insurance", { params: { id: id } })
       .then(async (response) => {
@@ -41,7 +46,9 @@ const YurFacePage: FC<NextPage> = () => {
   }, []);
 
   return (
-    <Layout title="АВТОСТРАХОВАНИЕ">
+    <>
+    {!loading ? (
+      <Layout title="АВТОСТРАХОВАНИЕ">
       <Navbar />
       {pageInfo ? (
         <HeroBg data={pageInfo} />
@@ -54,6 +61,9 @@ const YurFacePage: FC<NextPage> = () => {
       <YurFaceCard data={insurances} />
       <Footer />
     </Layout>
+    ):(<LoadingScreen/>)}
+    </>
+    
   );
 };
 
