@@ -85,8 +85,10 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             </LangSwitch>
             {/* </LangSwitchSelect> */}
             <NavbarBtn className="navbar-user toremove">
-              <Link href={"/personal-area"}>
-                <Image src={User} alt="admin-user" />
+              <Link href={"/auth"} passHref>
+                <a>
+                  <Image src={User} alt="admin-user" />
+                </a>
               </Link>
             </NavbarBtn>
             <NavbarBtn className="navbar-menu" onClick={handleNavbar}>
