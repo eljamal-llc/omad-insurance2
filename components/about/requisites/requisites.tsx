@@ -27,7 +27,7 @@ const Requisites: FC<requisitesProps> = ({title,description}) => {
    <ContainerHero imgUrl={main_image}>
       <GWrapper>
         <HeroBgItem>
-          <BreadcrumbsBlock />
+          <BreadcrumbsBlock  link1="Главная "  link2="about" url2={'/about' }  url3={'/about/requisites'} link3="Реквизиты" />
           <PageHeading>{title}</PageHeading>
           <PageText>{description}</PageText>
         </HeroBgItem>
