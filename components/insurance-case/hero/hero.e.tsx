@@ -15,3 +15,6 @@ export const Title = styled.h1`
   color: #ffffff;
   margin: 0;
 `;
+export const BranDPos = styled.div`
+  padding: 111px 0 0px 45px;
+`

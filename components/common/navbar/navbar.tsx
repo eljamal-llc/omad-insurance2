@@ -66,13 +66,13 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
                     {/* </NextLink> */}
                   </NavbarLogo>
 
-                  <NextLink href="/insurance-case?id=10" passHref>
+                  <NextLink href="/insurance-case?id=polit_market" passHref>
                     <NavbarLink className="toremove">
                       {t("common:polit_market")}
                     </NavbarLink>
                   </NextLink>
 
-                  <NextLink href="/insurance-case?id=17" passHref>
+                  <NextLink href="/insurance-case?id=insurance-case" passHref>
                     <NavbarLink className="toremove">
                       {t("common:Insurance_case")}
                     </NavbarLink>

@@ -20,7 +20,7 @@ import { api } from '../services/api';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { INewsData } from '../components/common/news/news.t';
-
+import { useRouter } from 'next/router';
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -29,6 +29,8 @@ export async function getStaticProps({ locale }: { locale: string }) {
   };
 }
 const Home: NextPage = () => {
+  const router = useRouter()
+  console.log(   router)
   const [sliders, setSliders] = useState<IData[] | []>([]);
   const [wantKnows, setWantKnows] = useState<IDataWantKnow[] | []>([]);
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);

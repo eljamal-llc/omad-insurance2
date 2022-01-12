@@ -19,7 +19,7 @@ import {
 import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
 
 const SliderCard: FC<SliderCardProps> = ({ item }) => {
-  const { name, info, image, slug, id } = item;
+  const { name, info, image, slug, id , } = item;
   return (
     <Wrapper>
       <NextLink href={`/page-persons?id=${id}`} passHref>
