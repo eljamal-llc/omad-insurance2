@@ -221,6 +221,3 @@ span.boo {
 #main-nav:checked ~ ul a {
 		height: 50px;
 }
-p {
-	margin: 0;
-}
