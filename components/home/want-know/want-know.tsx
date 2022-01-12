@@ -115,7 +115,7 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
           </Swiper>
         </VerticalSlider>
         <GWrapper>
-          <SectionTitle title={t("common:polit_market")} color="white" classN="title" />
+          <SectionTitle title={t("common:want_to_know")} color="white" classN="title" />
           <KnowRow>
             <KnowList>
               <div

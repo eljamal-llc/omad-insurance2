@@ -82,11 +82,11 @@ const Hero: FC<HeroProps> = ({ data }) => {
           <Swiper
             fadeEffect={{ crossFade: true }}
             effect="fade"
-            speed={1200}
+            speed={2000}
             loop={true}
             modules={[Controller]}
             autoplay={{
-              delay: 2500,
+              delay: 3500,
               disableOnInteraction: false,
             }}
             pagination={{
@@ -123,7 +123,7 @@ const Hero: FC<HeroProps> = ({ data }) => {
             {data?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <div className="slider-description-item">
-                  <h4 className="slider-description__title">{item.title}</h4>
+                  <h4 className="slider-description__title">{item.anons}</h4>
                   <p className="slider-description__content">{item.text}</p>
                 </div>
               </SwiperSlide>

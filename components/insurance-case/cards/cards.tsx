@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Key} from "react";
 
 import { CardsProps } from "./cards.t";
 import { Wrapper } from "./cards.e";
@@ -11,13 +11,13 @@ const CardsCase: FC<CardsProps> = ({ id, data }) => {
       <CardsRow>
         {id == 17 ? (
           <>
-            {data?.map((item, idx) => (
+            {data?.map((item: any, idx: Key | null | undefined) => (
               <Card id={id} key={idx} />
             ))}
           </>
         ) : (
           <>
-            {data?.map((item, idx) => (
+            {data?.map((item: any, idx: Key | null | undefined) => (
               <Card id={id} key={idx} />
             ))}
           </>

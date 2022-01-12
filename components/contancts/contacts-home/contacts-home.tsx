@@ -21,7 +21,7 @@ const ContactsHome: FC<ContactsHomeProps> = (props: ContactsHomeProps) => {
     <ContactsHomeBG>
       <ContactsHomeBlock>
         <ContactsBlock>
-          <BreadcrumbsBlock />
+          <BreadcrumbsBlock link1="Главная" url3={''} url2={'/contacts'} link2="Контакты" link3="" />
           <ContactsBlockHeading> {t('common:Contacts')}</ContactsBlockHeading>
           <ContactsBlockSlogan>«OMAD SUG’URTA»</ContactsBlockSlogan>
           <ContactsBlockLokations>{t('common:Tashkent_city')}</ContactsBlockLokations>

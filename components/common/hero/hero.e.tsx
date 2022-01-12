@@ -91,12 +91,12 @@ export const Wrapper = styled.div`
       right: 15%;
       height: 100%;
       width: 1px;
-      background-color: rgba(255, 255, 255, 0.5);
+      /* background-color: rgba(255, 255, 255, 0.5); */
       .line {
         position: absolute;
         bottom: 0;
         height: 0;
-        background-color: #fff;
+        /* background-color: #fff; */
         width: 1px;
         transition: height 4.5s ease-out;
       }

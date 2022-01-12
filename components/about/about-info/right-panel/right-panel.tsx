@@ -2,6 +2,7 @@ import { FC } from "react";
 import { MainBtn } from "../../../common";
 import { Formik, Field, Form } from "formik";
 import { FilledInput } from "@mui/material";
+import parse from "html-react-parser";
 import {
   FormControl,
   RightButton,
@@ -11,30 +12,32 @@ import {
   Wrapper,
 } from "./right-panel.e";
 
-export interface RightPanelProps {}
+export interface RightPanelProps {
+  dataRight?: any;
+}
 
 import { useTranslation } from "react-i18next";
-const RightPanel: FC<RightPanelProps> = () => {
-  const {t} = useTranslation()
+const RightPanel: FC<RightPanelProps> = ({ dataRight }) => {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <RightWrapper className="vacancies">
-        <RightTitle className="white"> {t('common:Vacancies')}</RightTitle>
+        <RightTitle className="white"> {t("common:Vacancies")}</RightTitle>
         <RightDescription className="white">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem a et
-          velit erat est. Dui commodo vehicula nibh mi arcu facilisis elementum.
-          Nisi adipiscing est luctus elementum vitae cursus est tincidunt. Sed
-          nunc laoreet donec eu eget facilisis nisl. Luctus non tristique purus
-          blandit. Egestas nec.
+          {parse(dataRight.description)}
         </RightDescription>
-        
+
         <RightButton>
-          <MainBtn onClass="white" text={t('common:Learn_more')} url="/" />
+          <MainBtn
+            onClass="white"
+            text={t("common:Learn_more")}
+            url={dataRight.slug}
+          />
         </RightButton>
       </RightWrapper>
       <RightWrapper>
-        <RightTitle>{t('common:Form_of_strict_accountability')}</RightTitle>
-        <RightDescription>{t('common:Policy_check')}</RightDescription>
+        <RightTitle>{t("common:Form_of_strict_accountability")}</RightTitle>
+        <RightDescription>{t("common:Policy_check")}</RightDescription>
 
         <Formik
           initialValues={{
@@ -48,14 +51,26 @@ const RightPanel: FC<RightPanelProps> = () => {
         >
           <Form>
             <FormControl>
-              <Field id="firstName" name="firstName" placeholder={t('common:Series')} />
+              <Field
+                id="firstName"
+                name="firstName"
+                placeholder={t("common:Series")}
+              />
             </FormControl>
             <FormControl>
-              <Field id="lastName" name="lastName" placeholder={t('common:Policy_number')} />
+              <Field
+                id="lastName"
+                name="lastName"
+                placeholder={t("common:Policy_number")}
+              />
             </FormControl>
 
             <RightButton className="bottom-button">
-              <MainBtn onClass="blue" text={t('common:Check_policy')}url={null} />
+              <MainBtn
+                onClass="blue"
+                text={t("common:Check_policy")}
+                url={null}
+              />
             </RightButton>
           </Form>
         </Formik>

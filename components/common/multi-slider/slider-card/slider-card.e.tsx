@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Wrapper = styled.div`
   border-right: 2px solid #000;
   a {
@@ -7,6 +8,7 @@ export const Wrapper = styled.div`
     display: inline-block;
     text-decoration: none;
     position: relative;
+    width: 100%;
 
     &::before {
       display: block;
@@ -54,20 +56,23 @@ export const SliderTitle = styled.h4`
   }
 `;
 export const SliderList = styled.ul`
+  padding: 0;
   margin-bottom: 75px;
   @media (max-width: 1680px) {
     margin-bottom: 30px;
   }
   @media (max-width: 768px) {
-    padding-left: 18px;
+    /* padding-left: 18px; */
     margin-bottom: 10px;
   }
 `;
+
 export const SliderListItem = styled.li`
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
+
   line-height: 21px;
   color: #000000;
   opacity: 0.5;
@@ -112,6 +117,7 @@ export const SliderLink = styled.div`
   background-color: #0d4656;
   padding: 20px;
   display: inline-block;
+  transition: 0.3s all linear;
   @media (max-width: 1800px) {
     font-size: calc(14px + 14 * (100vw / 1920));
     line-height: 110%;
@@ -123,4 +129,16 @@ export const SliderLink = styled.div`
     padding: 10px;
     font-size: 14px;
   }
+  &:hover {
+    background:  #F0803D;;
+
+  }
 `;
+
+export const CardContent = styled.p`
+  color: #000000;
+  margin: 0;
+  padding: 0 ;
+  opacity: 0.5;
+  
+`

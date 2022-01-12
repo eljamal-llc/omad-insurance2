@@ -64,12 +64,12 @@ const WantKnowM: FC<WantKnowMProps> = () => {
                   shadow: true,
                   origin: "left center",
                   translate: ["-5%", 0, -200],
-                  rotate: [0, 100, 0],
+                  rotate: [0, 106, 0],
                 },
                 next: {
                   origin: "right center",
                   translate: ["5%", 0, -200],
-                  rotate: [0, -100, 0],
+                  rotate: [0, -106, 0],
                 },
               }}
               className="mySwiper3"
@@ -157,12 +157,12 @@ const WantKnowM: FC<WantKnowMProps> = () => {
                   shadow: true,
                   origin: "left center",
                   translate: ["-5%", 0, -200],
-                  rotate: [0, 100, 0],
+                  rotate: [0, 105, 0],
                 },
                 next: {
                   origin: "right center",
                   translate: ["5%", 0, -200],
-                  rotate: [0, -100, 0],
+                  rotate: [0, -105, 0],
                 },
               }}
               className="mySwiper6"

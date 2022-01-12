@@ -57,6 +57,8 @@ export const CardIcon = styled.div`
   }
   img {
     object-fit: contain;
+    height: 100%;
+    width: 100%;
   }
 `;
 export const CardTags = styled.div`

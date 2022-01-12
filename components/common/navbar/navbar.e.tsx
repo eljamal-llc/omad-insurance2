@@ -2,15 +2,19 @@ import styled from "styled-components";
 import { Link } from "@mui/material";
 export const Wrapper = styled.div`
   /* background-color: #0d4656; */
-  padding: 20px 0;
-  position: absolute;
-  top: 0;
+  padding: 24px 0;
+  position: relative;
+  margin: -47px 0;
+  top: 30px;
   left: 0;
   width: 100%;
   z-index: 100;
   .navbar-user {
     max-width: 44px;
     width: 100%;
+  }
+  &.active {
+    background:  #0D4656;
   }
 `;
 export const NavbarRow = styled.div`
@@ -69,6 +73,7 @@ export const NavbarLink = styled(Link)`
   border: 1px solid #fff;
   display: inline-block;
   margin-right: 50px;
+  transition: 0.3s all linear;
   &:last-child {
     margin-right: 0;
   }
@@ -77,6 +82,9 @@ export const NavbarLink = styled(Link)`
     line-height: 100%;
     padding: 10px 15px;
     margin-right: 5%;
+  }
+  &:hover {
+    background:  #F0803D;
   }
 `;
 
@@ -95,8 +103,12 @@ export const NavbarBtn = styled.button`
   justify-content: center;
   position: relative;
   z-index: 50;
+  transition: 0.3s all linear;
+
   &:hover {
     cursor: pointer;
+    background:  #F0803D;
+
   }
   svg {
     margin-left: 20px;
@@ -141,8 +153,16 @@ export const LangSwitch = styled.option`
   justify-content: center;
   position: relative;
   z-index: 50;
+  transition: 0.3s all linear;
+
   &:hover {
     cursor: pointer;
+
+    background:  #F0803D;
+
+  }
+  &.active {
+    background:  #F0803D;
   }
   svg {
     margin-left: 20px;

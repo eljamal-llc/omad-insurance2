@@ -11,4 +11,5 @@ export interface ISliderData {
   info: string;
   image: string;
   slug: string;
+  link: string
 }

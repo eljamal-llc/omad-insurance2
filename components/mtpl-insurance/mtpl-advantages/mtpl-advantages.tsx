@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { GWrapper } from "../../../styles/global-styles.e";
-import { MtplAdventagesProps } from "./mtpl-advantages.t";
+import { FC } from 'react';
+import { GWrapper } from '../../../styles/global-styles.e';
+import { MtplAdventagesProps } from './mtpl-advantages.t';
 
 import {
   MtplAdventagesHeading,
@@ -37,43 +37,31 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   return (
     // <GWrapper>
     <>
-      <MtplAdventagesHeading>
-        {t("common:Benefits_of_OSAGO_insurance")}
-      </MtplAdventagesHeading>
+      <MtplAdventagesHeading>{t('common:Benefits_of_OSAGO_insurance')}</MtplAdventagesHeading>
       <MtplAdventagesBlock>
         <MtplAdventagesCard>
-          <MtplAdventagesCardHeading>
-            {t("common:Online_as_much")}
-          </MtplAdventagesCardHeading>
+          <MtplAdventagesCardHeading>{t('common:Online_as_much')}</MtplAdventagesCardHeading>
+          <MtplAdventagesCardText>{t('common:Benefits_of_OSAGO_insurance')}</MtplAdventagesCardText>
+        </MtplAdventagesCard>
+        <MtplAdventagesCard>
+          <MtplAdventagesCardHeading>{t('common:Online_as_much')}</MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            {t("common:Benefits_of_OSAGO_insurance")}
+            {t('common:At_OMAD_main_processes')}
+            {t('common:Fastconvenient')}
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
         <MtplAdventagesCard>
-          <MtplAdventagesCardHeading>
-            {t("common:Online_as_much")}
-          </MtplAdventagesCardHeading>
+          <MtplAdventagesCardHeading>{t('common:Online_as_much')}</MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            {t("common:At_OMAD_main_processes")}
-            {t("common:Fastconvenient")}
+            {t('common:At_OMAD_main_processes')}
+            {t('common:Fastconvenient')}
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
         <MtplAdventagesCard>
-          <MtplAdventagesCardHeading>
-            {t("common:Online_as_much")}
-          </MtplAdventagesCardHeading>
+          <MtplAdventagesCardHeading>{t('common:Online_as_much')}</MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            {t("common:At_OMAD_main_processes")}
-            {t("common:Fastconvenient")}
-          </MtplAdventagesCardText>
-        </MtplAdventagesCard>
-        <MtplAdventagesCard>
-          <MtplAdventagesCardHeading>
-            {t("common:Online_as_much")}
-          </MtplAdventagesCardHeading>
-          <MtplAdventagesCardText>
-            {t("common:At_OMAD_main_processes")}
-            {t("common:Fastconvenient")}
+            {t('common:At_OMAD_main_processes')}
+            {t('common:Fastconvenient')}
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
       </MtplAdventagesBlock>
@@ -126,77 +114,62 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
           </MtplAdventagesInsuranceText>
         </div>
       </MtplAdventagesInsuranceTwo>
-      <MtplAdventagesHeading>
-        {t("common:nsurance_indemnity_for_OSAGO")}
-      </MtplAdventagesHeading>
+      <MtplAdventagesHeading>{t('common:nsurance_indemnity_for_OSAGO')}</MtplAdventagesHeading>
       <MtplAdventagesBlock>
         <MtplAdventagesCard>
-          <MtplAdventagesCardHeading>
-            {t("common:Fastconvenient")}
-          </MtplAdventagesCardHeading>
+          <MtplAdventagesCardHeading>{t('common:Fastconvenient')}</MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            {t("common:At_OMAD_main_processes")}
+            {t('common:At_OMAD_main_processes')}
             <br />
-            {t("common:Fastconvenient")}
+            {t('common:Fastconvenient')}
           </MtplAdventagesCardText>
           <MtplAdventagesCardText>
-            {t("common:At_OMAD_main_processes")}
+            {t('common:At_OMAD_main_processes')}
             <br />
-            {t("common:Fastconvenient")}
+            {t('common:Fastconvenient')}
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
         <MtplAdventagesCard>
-          <MtplAdventagesCardHeading>
-            {t("common:Fastconvenient")}
-          </MtplAdventagesCardHeading>
+          <MtplAdventagesCardHeading>{t('common:Fastconvenient')}</MtplAdventagesCardHeading>
           <MtplAdventagesCardText>
-            {t("common:At_OMAD_main_processes")}
+            {t('common:At_OMAD_main_processes')}
             <br />
-            {t("common:Fastconvenient")}
+            {t('common:Fastconvenient')}
           </MtplAdventagesCardText>
           <MtplAdventagesCardText>
-            {t("common:At_OMAD_main_processes")}
+            {t('common:At_OMAD_main_processes')}
             <br />
-            {t("common:Fastconvenient")}
+            {t('common:Fastconvenient')}
           </MtplAdventagesCardText>
         </MtplAdventagesCard>
       </MtplAdventagesBlock>
-      <MtplAdventagesHeading>
-        {t("common:Calculate_osago")}
-      </MtplAdventagesHeading>
+      <MtplAdventagesHeading>{t('common:Calculate_osago')}</MtplAdventagesHeading>
       <MtplAdventagesBlock>
         <NumberB>
           <MtplAdventagesNubmer>
             <NumText>1</NumText>
           </MtplAdventagesNubmer>
-          <MtplAdventagesInsuranceText>
-            {t("common:Calculate_osago")}
-          </MtplAdventagesInsuranceText>
+          <MtplAdventagesInsuranceText>{t('common:Calculate_osago')}</MtplAdventagesInsuranceText>
         </NumberB>
         <ImgBlock>
-          {/* <Image src={Strelka} alt="str" />
-           */}
-          strelka1
+        -------------------
+          {/* <Image src={Strelka} alt="str" /> */}
         </ImgBlock>
         <NumberB>
           <MtplAdventagesNubmer>
             <NumText>2</NumText>
           </MtplAdventagesNubmer>
-          <MtplAdventagesInsuranceText>
-            {t("common:Calculate_osago")}
-          </MtplAdventagesInsuranceText>
+          <MtplAdventagesInsuranceText>{t('common:Calculate_osago')}</MtplAdventagesInsuranceText>
         </NumberB>
         <ImgBlock>
-          {/* <Image src={Strelka} alt="str" /> */}
-          strelka2
+        -----------
+          {/* <Image src={Strelka} alt="str2" /> */}
         </ImgBlock>
         <NumberB>
           <MtplAdventagesNubmer>
             <NumText>3</NumText>
           </MtplAdventagesNubmer>
-          <MtplAdventagesInsuranceText>
-            {t("common:Calculate_osago")}
-          </MtplAdventagesInsuranceText>
+          <MtplAdventagesInsuranceText>{t('common:Calculate_osago')}</MtplAdventagesInsuranceText>
         </NumberB>
       </MtplAdventagesBlock>
     </>
