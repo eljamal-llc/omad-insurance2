@@ -74,7 +74,5 @@ const [news, setNews] = useState<INewsData[] | []>([]);
 };
 
 export default Partner;
-function setNews(data: any) {
-  throw new Error("Function not implemented.");
-}
+
 

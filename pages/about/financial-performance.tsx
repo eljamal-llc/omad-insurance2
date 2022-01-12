@@ -8,9 +8,9 @@ import {
   Layout,
   Navbar,
   News,
-  WrapperTitle,
-  MissionComp
+  FinancialPerformance
 } from "../../components";
+
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
 import { INewsData } from "../../components/common/news/news.t";
@@ -40,9 +40,9 @@ export interface AboutProps {}
     });
     }, []);
     return (
-        <Layout title={t('common:Property_insurance')}>
+        <Layout title={t('common:Financial_performance')}>
         <Navbar />
-        <MissionComp title={t('common:Values')} description={t('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
+        <FinancialPerformance title={t('common:Financial_performance')} description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. "/>
         <News data={news}  />
         <Footer />
         </Layout>

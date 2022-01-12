@@ -15,6 +15,7 @@ export const MissionNav = styled.div`
     width: 480px;
     background: #ffff;
     padding: 40px 50px;
+    margin: 0 27px;
     border: 1px solid #000;
 `
 export  const MissionNavItem = styled.p`

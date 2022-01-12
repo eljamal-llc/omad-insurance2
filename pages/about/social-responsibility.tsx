@@ -40,9 +40,9 @@ export interface AboutProps {}
     });
     }, []);
     return (
-        <Layout title={t('common:Property_insurance')}>
+        <Layout title={t('common:Social_responsibility')} >
         <Navbar />
-        <MissionComp title={t('common:Values')} description={t('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
+        <MissionComp title={t('common:Social_responsibility')} description={t('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
         <News data={news}  />
         <Footer />
         </Layout>

@@ -9,3 +9,4 @@ export { default as SectionTitle } from "./section-title/section-title";
 export { default as WantKnowM } from "./want-know-m/want-know-m";
 export { default as FormElements } from "./forms/form-elements";
 export {default as  PersonalNavBurger} from './personal-nav-burger/pesonal-nav-burger'
+export {default as AboutNav} from './about-nav/about-nav'
