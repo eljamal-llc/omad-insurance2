@@ -82,11 +82,11 @@ const Hero: FC<HeroProps> = ({ data }) => {
           <Swiper
             fadeEffect={{ crossFade: true }}
             effect="fade"
-            speed={1200}
+            speed={2000}
             loop={true}
             modules={[Controller]}
             autoplay={{
-              delay: 2500,
+              delay: 3500,
               disableOnInteraction: false,
             }}
             pagination={{

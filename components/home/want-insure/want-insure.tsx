@@ -51,8 +51,8 @@ const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
             {t("common:home_card_title2_for_individuals")}
           </PersonTitle>
           <PersonDescription className="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
-            elementum imperdiet id.
+          В числе наших конкурентных преимуществ – доскональное изучение интересов страхователя таким образом, чтобы оформление страхового договора не требовало существенных временных затрат.
+
           </PersonDescription>
           <InsureBtn onClick={handlePrivate}>
             <Image src={Ramka}  alt='dd'/>
@@ -66,8 +66,7 @@ const WantInsure: FC<WantInsureProps> = ({ onlineInsure, setOnlineInsure }) => {
             {t("common:home_card_title3_Legal_entities")}
           </PersonTitle>
           <PersonDescription className="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
-            elementum imperdiet id.
+          Корпоративное страхование — наиболее эффективный способ защиты финансовой стабильности предприятия и компенсации непрогнозируемых финансовых расходов
           </PersonDescription>
           <InsureBtn onClick={handlePublic}>
           <Image src={Ramka}  alt='dd'/>

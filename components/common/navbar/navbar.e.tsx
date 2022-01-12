@@ -161,6 +161,9 @@ export const LangSwitch = styled.option`
     background:  #F0803D;
 
   }
+  &.active {
+    background:  #F0803D;
+  }
   svg {
     margin-left: 20px;
   }

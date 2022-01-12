@@ -14,10 +14,11 @@ import { ContainerHero, HeroBgItem, PageHeading, PageText } from "../../yur-face
 import { GWrapper } from "../../../styles/global-styles.e";
 import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
 import {AboutNav} from '../../common'
+import { useTranslation } from "react-i18next";
 // import { Link } from "@mui/icons-material";
 const main_image = '/slider1.jpg'
 const MissionComp: FC<MissionProps> = ({title,description}) => {
-
+const {t} = useTranslation()
    
   // console.log("inner ->>>>", data[0]);
 
@@ -26,7 +27,7 @@ const MissionComp: FC<MissionProps> = ({title,description}) => {
    <ContainerHero imgUrl={main_image}>
       <GWrapper>
         <HeroBgItem>
-          <BreadcrumbsBlock />
+        <BreadcrumbsBlock url2={`/about`} url3={'financial-performance'}  link1="Главная" link2='О нас'link3={t('common:Financial_performance')}/>
           <PageHeading>{title}</PageHeading>
           <PageText>{description}</PageText>
         </HeroBgItem>

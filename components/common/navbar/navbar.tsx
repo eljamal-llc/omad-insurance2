@@ -24,15 +24,31 @@ import Logo from "../../../assets/images/navbar/logo.png";
 import User from "../../../assets/images/navbar/user.svg";
 // import { ReactComponent as User } from "../../../assets/images/navbar/user.svg";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useTranslation } from "next-i18next";
+import { i18n, useTranslation } from "next-i18next";
 
 const Navbar: FC<NavbarProps> = ({ onClass }) => {
   const [navbarModal, setNavbarModal] = useState(false);
-
+  // const { t, i18n } = useTranslation()
+  const [active , setActive ] = useState('ru')
+  // const changeLanguage = (language: string | undefined) => {
+  //   i18n.changeLanguage(language);
+  // };
   const handleNavbar = () => {
     setNavbarModal(!navbarModal);
   };
- 
+ const setRu = () =>{
+  setActive('ru')
+  setLanguage("ru")
+ }
+ const setEn = () =>{
+  
+  setLanguage("en")
+  setActive('en')
+ }
+ const setUz = () =>{
+  setActive('uz')
+  setLanguage("uz")
+ }
   const { t } = useTranslation();
   const router = useRouter();
   return (
@@ -65,26 +81,27 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
                 <NavbarRight>
                   {/* <LangSwitchSelect> */}
                   <LangSwitch
-                    onClick={async () => await setLanguage("en")}
+                    onClick={async () => await  setRu()}
+                    value={"ru"}
+                    className={active == 'ru' ? 'active' : ''}
+                  >
+                    RU
+                  </LangSwitch>
+                  <LangSwitch
+                    onClick={async () => await setEn()}
                     value={"en"}
-                    className="toremove"
+                    className={active == 'en' ? 'active' : ''}
                   >
                     EN
                   </LangSwitch>
                   <LangSwitch
-                    onClick={async () => await setLanguage("uz")}
+                    onClick={async () => await  setUz()}
                     value={"uz"}
-                    className="toremove"
+                    className={active == 'uz' ? 'active' : ''}
                   >
                     UZ
                   </LangSwitch>
-                  <LangSwitch
-                    onClick={async () => await setLanguage("ru")}
-                    value={"ru"}
-                    className="toremove"
-                  >
-                    RU
-                  </LangSwitch>
+                  
                   {/* </LangSwitchSelect> */}
                   <NavbarBtn className="navbar-user toremove">
                     <Link href={"/personal-area"}>

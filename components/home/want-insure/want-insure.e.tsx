@@ -132,7 +132,7 @@ export const PersonDescription = styled.p`
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 21px;
   color: #ffffff;
   opacity: 0.5;
   margin-bottom: 20px;

@@ -27,7 +27,7 @@ const MtplInsuranceHome: FC<MtplInsuranceHomeProps> = ({
     <HomeBg>
       <HomeBlock>
         <HomeBgItem>
-          <BreadcrumbsBlock />
+          <BreadcrumbsBlock url2={'/page-persons?id=7'} url3={'mtpl-insurance?id=2'} link1="Главная" link2="АВТОСТРАХОВАНИЕ" link3="СТРАХОВАНИЕ ОСАГО" />
           <HomeHeading>
             {title || "Ответственность товаропроизводителя"}
           </HomeHeading>

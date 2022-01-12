@@ -5,11 +5,11 @@ import { Link } from "@mui/material";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-const  BreadcrumbsBlock: FC<BreadcrumbsProps> = () => {
-    function handleClick(event: any) {
-        event.preventDefault();
-        console.info("You clicked a breadcrumb.");
-      }
+const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({link1 , link2 , link3 , url2 , url3}) => {
+    // function handleClick(event: any) {
+    //     event.preventDefault();
+    //     console.info("You clicked a breadcrumb.");
+    //   }
       return (
         <BreadCrumbs>
             <Stack spacing={2}>
@@ -19,24 +19,34 @@ const  BreadcrumbsBlock: FC<BreadcrumbsProps> = () => {
                 key="1"
                 color="#ffff"
                 href="/"
-                onClick={handleClick}
+                // onClick={handleClick}
                 >
-                Главная
+                    <a>
+                        {link1}
+                    </a>
                 </Link>
 
-                {/* <Link
+                <Link
                 underline="hover"
                 key="2"
-                color="inherit"
-                href="/getting-started/installation/"
-                onClick={handleClick}
+                color="#ffff"
+                href={url2}
+            
                 >
-                Магазин полисов
-                </Link> */}
-
-                <Typography key="3" color="#fff">
-                Магазин полисов
-                </Typography>
+                    <a>
+                        {link2}
+                    </a>
+                </Link>
+                <Link
+                underline="hover"
+                color="#ffff"
+                key="2"
+                href={url3}
+        
+                >
+               {link3}
+                </Link>
+              
             </Breadcrumbs>
             </Stack>
       </BreadCrumbs>

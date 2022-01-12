@@ -56,12 +56,13 @@ export const SliderTitle = styled.h4`
   }
 `;
 export const SliderList = styled.ul`
+  padding: 0;
   margin-bottom: 75px;
   @media (max-width: 1680px) {
     margin-bottom: 30px;
   }
   @media (max-width: 768px) {
-    padding-left: 18px;
+    /* padding-left: 18px; */
     margin-bottom: 10px;
   }
 `;
@@ -71,6 +72,7 @@ export const SliderListItem = styled.li`
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
+
   line-height: 21px;
   color: #000000;
   opacity: 0.5;
@@ -135,5 +137,8 @@ export const SliderLink = styled.div`
 
 export const CardContent = styled.p`
   color: #000000;
+  margin: 0;
+  padding: 0 ;
   opacity: 0.5;
+  
 `
