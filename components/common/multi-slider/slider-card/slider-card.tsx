@@ -19,24 +19,25 @@ import {
 import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
 
 const SliderCard: FC<SliderCardProps> = ({ item }) => {
-  const { name, info, image, slug, id , } = item;
+  const { name, info, image, id } = item;
   return (
     <Wrapper>
       <NextLink href={`/page-persons?id=${id}`} passHref>
         <Link>
           <div>
-          <SliderTitle>{name}</SliderTitle>
-          <SliderList><CardContent>{parse(info)}</CardContent></SliderList>
+            <SliderTitle>{name}</SliderTitle>
+            <SliderList>
+              <CardContent>{parse(info)}</CardContent>
+            </SliderList>
           </div>
           <div>
             <SliderImg>
-            {/* <Image src={Slider1} alt="slider-image" />
-              */}
-            <img src={image} alt={name} />
-          <SliderLink>Купить онлайн</SliderLink>
-        </SliderImg>
+              {/* <Image src={Slider1} alt="slider-image" />
+               */}
+              <img src={image} alt={name} />
+              <SliderLink>Купить онлайн</SliderLink>
+            </SliderImg>
           </div>
-         
         </Link>
       </NextLink>
     </Wrapper>

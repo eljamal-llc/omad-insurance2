@@ -21,20 +21,23 @@ const RightPanel: FC<RightPanelProps> = ({ dataRight }) => {
   const { t } = useTranslation();
   return (
     <Wrapper>
-      <RightWrapper className="vacancies">
-        <RightTitle className="white"> {t("common:Vacancies")}</RightTitle>
-        <RightDescription className="white">
-          {parse(dataRight.description)}
-        </RightDescription>
+      {dataRight && (
+        <RightWrapper className="vacancies">
+          <RightTitle className="white"> {t("common:Vacancies")}</RightTitle>
+          <RightDescription className="white">
+            {parse(dataRight.description)}
+          </RightDescription>
 
-        <RightButton>
-          <MainBtn
-            onClass="white"
-            text={t("common:Learn_more")}
-            url={dataRight.slug}
-          />
-        </RightButton>
-      </RightWrapper>
+          <RightButton>
+            <MainBtn
+              onClass="white"
+              text={t("common:Learn_more")}
+              url={dataRight.slug}
+            />
+          </RightButton>
+        </RightWrapper>
+      )}
+
       <RightWrapper>
         <RightTitle>{t("common:Form_of_strict_accountability")}</RightTitle>
         <RightDescription>{t("common:Policy_check")}</RightDescription>

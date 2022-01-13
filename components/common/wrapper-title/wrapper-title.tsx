@@ -15,43 +15,41 @@ import {
 import { SectionTitle } from "../index";
 import { t } from "i18next";
 import { useState } from "react";
-const WrapperTitle: FC<WrapperTitleProps> = ({ title, onClass }) => {
-  const {t} = useTranslation()
- const [showBtn , setShowBtb] = useState('show')
+const WrapperTitle: FC<WrapperTitleProps> = ({
+  title,
+  onClass,
+  data,
+  sortData,
+}) => {
+  const { t } = useTranslation();
+  const [showBtn, setShowBtb] = useState("show");
   return (
     <Wrapper className={onClass}>
       <TitleRow>
         <WrapperCategories className="wrapper-categories">
           <SectionTitle color="white" title={title} />
         </WrapperCategories>
-        {showBtn == 'show' ? (
+        {/* @ts-ignore */}
+        {data?.length > 0 ? (
           <WrapperTags className="wrapper-tags">
-          <TagsTitle>{t('common:All_categories')}</TagsTitle>
-          <TagsRow>
-            <Tag>
-              <NextLink href="/" passHref>
-                <Link>{t('common:Health')}</Link>
-              </NextLink>
-            </Tag>
-            <Tag>
-              <NextLink href="/" passHref>
-                <Link>{t('common:Travels')}</Link>
-              </NextLink>
-            </Tag>
-            <Tag>
-              <NextLink href="/" passHref>
-                <Link>{t('common:Transport')}</Link>
-              </NextLink>
-            </Tag>
-            <Tag>
-              <NextLink href="/" passHref>
-                <Link>{t('common:Property')}</Link>
-              </NextLink>
-            </Tag>
-          </TagsRow>
-        </WrapperTags>
-        ):(<></>)}
-        
+            <TagsTitle onClick={() => sortData()}>
+              {t("common:All_categories")}
+            </TagsTitle>
+            <TagsRow>
+              {data?.map((item, idx) => (
+                <Tag key={idx}>
+                  <div onClick={() => sortData(item.id)}>{item.name}</div>
+
+                  {/* <NextLink href="/" passHref>
+                    <Link>{item.name}</Link>
+                  </NextLink> */}
+                </Tag>
+              ))}
+            </TagsRow>
+          </WrapperTags>
+        ) : (
+          <></>
+        )}
       </TitleRow>
     </Wrapper>
   );
