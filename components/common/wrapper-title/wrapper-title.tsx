@@ -23,6 +23,17 @@ const WrapperTitle: FC<WrapperTitleProps> = ({
 }) => {
   const { t } = useTranslation();
   const [showBtn, setShowBtb] = useState("show");
+  const [activCat , setActivCat] = useState('')
+  const [allAc , setAllAc] = useState('All')
+  const activeHandler = (item: any)=>{
+    // setActivCat('active')
+    setAllAc('')
+  }
+  const setActiveAll = ()=>{
+      setAllAc('All')
+    setActivCat('')
+
+  }
   return (
     <Wrapper className={onClass}>
       <TitleRow>
@@ -32,12 +43,15 @@ const WrapperTitle: FC<WrapperTitleProps> = ({
         {/* @ts-ignore */}
         {data?.length > 0 ? (
           <WrapperTags className="wrapper-tags">
-            <TagsTitle onClick={() => sortData()}>
-              {t("common:All_categories")}
-            </TagsTitle>
+            <div onClick={setActiveAll} >
+              <TagsTitle className={allAc} onClick={() => sortData()}>
+                {t("common:All_categories")}
+              </TagsTitle>
+            </div>
+            
             <TagsRow>
               {data?.map((item, idx) => (
-                <Tag key={idx}>
+                <Tag onClick={activeHandler} id={idx} className={ activCat} key={idx}>
                   <div onClick={() => sortData(item.id)}>{item.name}</div>
 
                   {/* <NextLink href="/" passHref>

@@ -32,7 +32,7 @@ export const ContactsBlockHeading = styled.h2`
     font-size: 72px;
     line-height: 84px;
     text-transform: uppercase;
-
+    margin-top: 123px;
     color: #FFFFFF;
     @media(max-width:425px){
         font-size: 24px;

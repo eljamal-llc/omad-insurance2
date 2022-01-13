@@ -42,42 +42,42 @@ const Footer: FC = () => {
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/about">
+                <NextLink href="/page-person?id=2">
                   <Link>{t('common:home_card_title3_Legal_entities')} </Link>
                 </NextLink>
               </li>
-              <li>
+              {/* <li>
                 <NextLink href="/services">
                   <Link>{t('common:Services')}</Link>
                 </NextLink>
-              </li>
+              </li> */}
               <li>
-                <NextLink href="/contacts">
+                <NextLink href="/page-person?id=3">
                   <Link>{t('common:For_partners')}</Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/faq">
+                <NextLink href="/about?id=4">
                   <Link>{t('common:Company')}</Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/faq">
+                <NextLink href="/contacts">
                   <Link> {t('common:Contacts')}</Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/faq">
+                <NextLink href="/news">
                   <Link> {t('common:news')}</Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/faq">
+                <NextLink href="/insurance-case?id=polit_market">
                   <Link> {t('common:polit_market')}</Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/faq">
+                <NextLink href="/insurance-case?id=insurance-case ">
                   <Link> {t('common:Insurance_case')}</Link>
                 </NextLink>
               </li>
@@ -87,27 +87,27 @@ const Footer: FC = () => {
             <ColumnHeader> {t('common:home_card_title2_for_individuals')} </ColumnHeader>
             <FooterUL>
               <li>
-                <NextLink href="/services/tax-services">
+                <NextLink href="/page-persons?id=7">
                   <Link> {t('common:Transport_insurance')}</Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/services/corporate-tax">
+                <NextLink href="/page-persons?id=9">
                   <Link> {t('common:Property_insurance')} </Link>
                 </NextLink>
               </li>
-              <li>
+              {/* <li>
                 <NextLink href="/services/individual-tax">
                   <Link>{t('common:Individual_tax')}</Link>
                 </NextLink>
-              </li>
+              </li> */}
               <li>
-                <NextLink href="/services/tax-returns">
+                <NextLink href="/page-persons?id=10">
                   <Link>{t('common:Travel_insurance')}</Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/services/tax-calculator">
+                <NextLink href="page-persons?id=8">
                   <Link>{t('common:Health_insurance')}</Link>
                 </NextLink>
               </li>
@@ -117,27 +117,27 @@ const Footer: FC = () => {
             <ColumnHeader>{t('common:home_card_title3_Legal_entities')}</ColumnHeader>
             <FooterUL>
               <li>
-                <NextLink href="/services/tax-services">
+                <NextLink href="page-persons?id=11">
                   <Link>{t('common:Transport_insurance')} </Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/services/corporate-tax">
+                <NextLink href="page-persons?id=13">
                   <Link>{t('common:Property_insurance')} </Link>
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/services/tax-returns">
+                <NextLink href="page-persons?id=14">
                   <Link>{t('common:Liability_Insurance')}</Link>
                 </NextLink>
               </li>
-              <li>
+              {/* <li>
                 <NextLink href="/services/tax-calculator">
                   <Link>{t('common:Employee_insurance')}</Link>
                 </NextLink>
-              </li>
+              </li> */}
               <li>
-                <NextLink href="/services/tax-services">
+                <NextLink href="page-persons?id=15">
                   <Link>{t('common:Insurance_of_goods_and_carriers')}</Link>
                 </NextLink>
               </li>
@@ -196,22 +196,22 @@ const Footer: FC = () => {
                 </a>
               </li>
             </ul>
-            <a href="mailto:uzbekjon2003@gmail.com" className={'maillink'}>
-              @Info.totembo.com
+            <a href="mailto:info@omadsugurta.uz" className={'maillink'}>
+            info@omadsugurta.uz
             </a>
             <NumAndAddress>
-              <span>+998 (99) 987 65 43</span>
+              <span>+998 95 341 71 71</span>
               <span>г. Ташкент, ул. Абая, д. 1</span>
             </NumAndAddress>
             <NumAndAddress>
               <span>+998 (99) 987 65 43</span>
-              <span>г. Ташкент, ул. Абая, д. 1</span>
+              <span> г. Ташкент ул. Хамид Алимджана, строение 13 А</span>
             </NumAndAddress>
           </FooterColumn>
         </div>
         <FooterBottom>
           <Image src={Logo} alt="logo of Omad" className="bottom-logo" />
-          <span>© Lorem ipsum dolor. 2021 Все права защищены</span>
+          <span>© 1 000 000, Узбекистан, г. Ташкент ул. Хамид Алимджана, строение 13 А</span>
           <small className="khan">© Davidkhan khadjayev</small>
         </FooterBottom>
       </GWrapper>
