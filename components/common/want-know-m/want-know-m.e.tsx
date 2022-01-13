@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 770px) {
     padding: 5% 2.5%;
-
   }
 
   .section-title {
@@ -171,6 +170,8 @@ export const SliderImage = styled.div`
   }
   img {
     object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
   @media (max-width: 1440px) {
     height: 600px;
@@ -191,7 +192,7 @@ export const SliderTitle = styled.h3`
   font-size: 48px;
   line-height: 56px;
   color: #ffffff;
-  background:#0D4656;
+  background: #0d4656;
   padding-bottom: 20px;
   @media (max-width: 1800px) {
     font-size: calc(16px + 30 * (100vw / 1920));
@@ -204,7 +205,6 @@ export const SliderTitle = styled.h3`
   }
   @media (max-width: 768px) {
     background: transparent;
-
   }
 `;
 export const SliderDescription = styled.p`
@@ -215,19 +215,17 @@ export const SliderDescription = styled.p`
   font-size: 24px;
   line-height: 28px;
   color: #ffffff;
-  background:#0D4656;
+  background: #0d4656;
 
   @media (max-width: 1800px) {
     font-size: calc(14px + 10 * (100vw / 1920));
   }
   @media (max-width: 900px) {
     font-size: 14px;
-    background: transparent ;
-
+    background: transparent;
   }
   @media (max-width: 768px) {
-    background: transparent ;
-
+    background: transparent;
   }
 `;
 export const SliderButton = styled.div`
@@ -285,9 +283,8 @@ export const SliderButton = styled.div`
     right: -35px;
     transition: all 0.4s ease-out;
     background-color: #0d4656;
-    @media (max-width:768px){
+    @media (max-width: 768px) {
       background-color: transparent;
     }
   }
-
 `;

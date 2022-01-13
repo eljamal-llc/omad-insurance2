@@ -16,8 +16,8 @@ import { SectionTitle } from "../..";
 
 import Img from "../../../assets/images/multi-slider/slider-1.jpg";
 
-const SpecialOffers: FC<SpecialOffersProps> = () => {
-  const {t} = useTranslation()
+const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
+  const { t } = useTranslation();
   const ArrowIcon = (props: any) => (
     <svg
       width="47"
@@ -37,118 +37,113 @@ const SpecialOffers: FC<SpecialOffersProps> = () => {
     <Wrapper>
       <GWrapper>
         <SectionTitle
-          title={t('common:Promotions_and_special_offers')}
+          title={t("common:Promotions_and_special_offers")}
           color="black"
           classN="title"
         />
       </GWrapper>
-      <SpecialRow>
-        <SpecialLeft>
-          <div className="left-row">
-            <div className="min-block item">
-              <div className="item-image">
-                <Image src={Img} alt="test1" />
-              </div>
-              <p className="offers-title">Turpis parturient vitae.</p>
-              <p className="offers-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-                pellentesque quis volutpat felis tortor. Ultrices ornare
-                faucibus hendrerit eu nulla. Nibh nisl augue congue viverra nam
-                mauris.
-              </p>
-              <HorizontalSliderButton className="item-button">
-                <NextLink href="/" passHref>
-                  <Link>
-                    <span>Узнать подробнее</span>
-                    <ArrowIcon fill="#F0803D" class="arrow-right" />
-                  </Link>
-                </NextLink>
-              </HorizontalSliderButton>
+      {data && (
+        <SpecialRow>
+          <SpecialLeft>
+            <div className="left-row">
+              {data[0].pos == 1 && (
+                <div className="min-block item">
+                  <div className="item-image">
+                    {/* <Image src={Img} alt="test1" /> */}
+                    <img src={data[0].image} alt={data[0].title} />
+                  </div>
+                  <p className="offers-title">{data[0].title}</p>
+                  <p className="offers-description">{data[0].text}</p>
+                  <HorizontalSliderButton className="item-button">
+                    <NextLink href="/promotion" passHref>
+                      <Link>
+                        <span>Узнать подробнее</span>
+                        <ArrowIcon fill="#F0803D" class="arrow-right" />
+                      </Link>
+                    </NextLink>
+                  </HorizontalSliderButton>
+                </div>
+              )}
+              {data[1].pos == 2 && (
+                <div className="max-block item">
+                  <div className="item-image">
+                    {/* <Image src={Img} alt="test1" /> */}
+                    <img src={data[1].image} alt={data[1].title} />
+                  </div>
+                  <p className="offers-title">{data[1].title}</p>
+                  <p className="offers-description">{data[1].text}</p>
+                  <HorizontalSliderButton className="item-button">
+                    <NextLink href="/promotion" passHref>
+                      <Link>
+                        <span>Узнать подробнее</span>
+                        <ArrowIcon fill="#F0803D" class="arrow-right" />
+                      </Link>
+                    </NextLink>
+                  </HorizontalSliderButton>
+                </div>
+              )}
             </div>
-            <div className="max-block item">
-              <div className="item-image">
-                <Image src={Img} alt="test1" />
-              </div>
-              <p className="offers-title">Turpis parturient vitae.</p>
-              <p className="offers-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-                pellentesque quis volutpat felis tortor. Ultrices ornare
-                faucibus hendrerit eu nulla. Nibh nisl augue congue viverra nam
-                mauris.
-              </p>
-              <HorizontalSliderButton className="item-button">
-                <NextLink href="/" passHref>
-                  <Link>
-                    <span>Узнать подробнее</span>
-                    <ArrowIcon fill="#F0803D" class="arrow-right" />
-                  </Link>
-                </NextLink>
-              </HorizontalSliderButton>
+            <div className="left-row">
+              {data[2].pos == 3 && (
+                <div className="max-block item">
+                  <div className="item-image">
+                    {/* <Image src={Img} alt="test1" /> */}
+                    <img src={data[2].image} alt={data[2].title} />
+                  </div>
+                  <p className="offers-title">{data[2].title}</p>
+                  <p className="offers-description">{data[2].text}</p>
+                  <HorizontalSliderButton className="item-button">
+                    <NextLink href="/promotion" passHref>
+                      <Link>
+                        <span>Узнать подробнее</span>
+                        <ArrowIcon fill="#F0803D" class="arrow-right" />
+                      </Link>
+                    </NextLink>
+                  </HorizontalSliderButton>
+                </div>
+              )}
+              {data[3].pos == 4 && (
+                <div className="min-block item">
+                  <div className="item-image">
+                    {/* <Image src={Img} alt="test1" /> */}
+                    <img src={data[3].image} alt={data[3].title} />
+                  </div>
+                  <p className="offers-title">{data[3].title}</p>
+                  <p className="offers-description">{data[3].text}</p>
+                  <HorizontalSliderButton className="item-button">
+                    <NextLink href="/promotion" passHref>
+                      <Link>
+                        <span>Узнать подробнее</span>
+                        <ArrowIcon fill="#F0803D" class="arrow-right" />
+                      </Link>
+                    </NextLink>
+                  </HorizontalSliderButton>
+                </div>
+              )}
             </div>
-          </div>
-          <div className="left-row">
-            <div className="max-block item">
-              <div className="item-image">
-                <Image src={Img} alt="test1" />
-              </div>
-              <p className="offers-title">Turpis parturient vitae.</p>
-              <p className="offers-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-                pellentesque quis volutpat felis tortor. Ultrices ornare
-                faucibus hendrerit eu nulla. Nibh nisl augue congue viverra nam
-                mauris.
-              </p>
-              <HorizontalSliderButton className="item-button">
-                <NextLink href="/" passHref>
-                  <Link>
-                    <span>Узнать подробнее</span>
-                    <ArrowIcon fill="#F0803D" class="arrow-right" />
-                  </Link>
-                </NextLink>
-              </HorizontalSliderButton>
-            </div>
-            <div className="min-block item">
-              <div className="item-image">
-                <Image src={Img} alt="test1" />
-              </div>
-              <p className="offers-title">Turpis parturient vitae.</p>
-              <p className="offers-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-                pellentesque quis volutpat felis tortor. Ultrices ornare
-                faucibus hendrerit eu nulla. Nibh nisl augue congue viverra nam
-                mauris.
-              </p>
-              <HorizontalSliderButton className="item-button">
-                <NextLink href="/" passHref>
-                  <Link>
-                    <span>Узнать подробнее</span>
-                    <ArrowIcon fill="#F0803D" class="arrow-right" />
-                  </Link>
-                </NextLink>
-              </HorizontalSliderButton>
-            </div>
-          </div>
-        </SpecialLeft>
-        <SpecialRight className="item">
-          <div className="item-image">
-            <Image src={Img} alt="test1" />
-          </div>
-          <p className="offers-title">Turpis parturient vitae.</p>
-          <p className="offers-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-            pellentesque quis volutpat felis tortor. Ultrices ornare faucibus
-            hendrerit eu nulla. Nibh nisl augue congue viverra nam mauris.
-          </p>
-          <HorizontalSliderButton className="item-button">
-            <NextLink href="/" passHref>
-              <Link>
-                <span>Узнать подробнее</span>
-                <ArrowIcon fill="#F0803D" class="arrow-right" />
-              </Link>
-            </NextLink>
-          </HorizontalSliderButton>
-        </SpecialRight>
-      </SpecialRow>
+          </SpecialLeft>
+          <SpecialRight className="item">
+            {data[4].pos == 5 && (
+              <>
+                <div className="item-image">
+                  {/* <Image src={Img} alt="test1" /> */}
+                  <img src={data[4].image} alt={data[4].title} />
+                </div>
+                <p className="offers-title">{data[3].title}</p>
+                <p className="offers-description">{data[3].text}</p>
+                <HorizontalSliderButton className="item-button">
+                  <NextLink href="/promotion" passHref>
+                    <Link>
+                      <span>Узнать подробнее</span>
+                      <ArrowIcon fill="#F0803D" class="arrow-right" />
+                    </Link>
+                  </NextLink>
+                </HorizontalSliderButton>
+              </>
+            )}
+          </SpecialRight>
+        </SpecialRow>
+      )}
     </Wrapper>
   );
 };

@@ -100,8 +100,10 @@ const Partner: FC<NextPage> = () => {
           />
           {/* @ts-ignore */}
           <MultiSlider data={pageData.content} />
-          <WantKnowM />
-          <SpecialOffers />
+          {/* @ts-ignore */}
+          <WantKnowM data={pageData.want_to_know} />
+          {/* @ts-ignore */}
+          <SpecialOffers data={pageData.promotions} />
           <News data={news} />
           <Footer />
         </Layout>
