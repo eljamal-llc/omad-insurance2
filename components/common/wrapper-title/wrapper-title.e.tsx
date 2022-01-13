@@ -90,6 +90,20 @@ export const TagsRow = styled.div`
 export const Tag = styled.div`
   display: inline-block;
   margin-right: 20px;
+  font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: 2px solid #f0803d;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+    &:hover {
+      background-color: #f0803d;
+    }
   a {
     font-family: Roboto;
     font-style: normal;
