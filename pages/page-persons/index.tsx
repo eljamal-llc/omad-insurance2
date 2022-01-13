@@ -11,6 +11,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 
+
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -45,13 +46,15 @@ const YurFacePage: FC<NextPage> = () => {
         await setInsurances(response.data.data);
       });
   }, []);
+  const singleId = Object.values(router.query).toString()
+  console.log(singleId)
 
   return (
     <>
     {!loading ? (
       <Layout title="АВТОСТРАХОВАНИЕ">
       <Navbar />
-      <BreadcrumbsBlock link1={"Главная"} link2={"АВТОСТРАХОВАНИЕ"} link3={""} url2={'page-persons?id=7'} url3={''}/>
+      <BreadcrumbsBlock link1={"Главная"} link2={"АВТОСТРАХОВАНИЕ"} link3={""} url2={'page-persons?id=' + singleId} url3={''}/>
       {pageInfo ? (
         <HeroBg data={pageInfo} />
       ) : (

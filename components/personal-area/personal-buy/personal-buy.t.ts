@@ -1,3 +1,3 @@
-npm export interface PersonalBuyProps {
+ export interface PersonalBuyProps {
 
 }
