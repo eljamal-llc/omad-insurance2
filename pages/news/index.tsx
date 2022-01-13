@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import {
   Layout,
   Navbar,
@@ -14,6 +15,8 @@ import { useTranslation } from "next-i18next";
 import { Wrapper } from "../../styles/global-styles.e";
 import bgImg from "../../public/slider1.jpg";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
+import { api } from "../../services/api";
+import { INewsData } from "../../components/common/news/news.t";
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -24,23 +27,39 @@ export async function getStaticProps({ locale }: { locale: string }) {
 export interface NewsPageProps {}
 
 const NewsPage: FC<NextPage> = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const [news, setNews] = useState<INewsData>();
+  useEffect(() => {
+    api.get("news", { params: { id: id } }).then(async (response) => {
+      await setNews(response.data.data[0]);
+    });
+  }, []);
+
   return (
     <Layout title="Страхование имущества">
       <Wrapper>
         <Navbar />
-        <BreadcrumbsBlock url3={''} url2={'news'} link1="Главная" link2="News" link3="" /> 
+        <BreadcrumbsBlock
+          url3={""}
+          url2={""}
+          link1="Главная"
+          link2="News"
+          // @ts-ignore
+          link3={news.title}
+        />
         <HeroBg
           // @ts-ignore
           data={[
             {
               name: "Новость",
               bg_image: bgImg.src,
-              description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ",
+              description: "",
             },
           ]}
         />
-        <NewsBody />
+        <NewsBody news={news} />
 
         <Footer />
       </Wrapper>

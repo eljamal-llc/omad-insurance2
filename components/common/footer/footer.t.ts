@@ -1,1 +1,3 @@
-export interface FooterProps {};
+export interface FooterProps {
+  data?: any;
+}
