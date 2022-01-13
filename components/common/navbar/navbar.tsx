@@ -50,6 +50,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
  const setEn = () =>{
   setLanguage("en")
   console.log(router.locale)
+  
     if(router.locale == 'en'){
       setActive('en')
   

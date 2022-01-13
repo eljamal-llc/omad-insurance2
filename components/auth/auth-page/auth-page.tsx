@@ -219,7 +219,7 @@ const AuthPage: FC<AuthPageProps> = () => {
                   </Link>
                 </AuthLink>
 
-                <AuthButton type="submit">Регистрация</AuthButton>
+                <AuthButton type="submit">Вход</AuthButton>
               </TabPanel>
             </form>
           )}
