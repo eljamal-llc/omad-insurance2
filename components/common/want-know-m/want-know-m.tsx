@@ -41,7 +41,7 @@ const ArrowIcon = (props: any) => (
     />
   </svg>
 );
-const WantKnowM: FC<WantKnowMProps> = () => {
+const WantKnowM: FC<WantKnowMProps> = ({ data }) => {
   const [controlledSwiper, setControlledSwiper] = useState(null);
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
@@ -53,136 +53,103 @@ const WantKnowM: FC<WantKnowMProps> = () => {
           color="white"
           classN="section-title"
         />
+        {data && (
+          <SliderRow>
+            <SliderLeft>
+              <Swiper
+                grabCursor={true}
+                effect={"creative"}
+                creativeEffect={{
+                  prev: {
+                    shadow: true,
+                    origin: "left center",
+                    translate: ["-5%", 0, -200],
+                    rotate: [0, 106, 0],
+                  },
+                  next: {
+                    origin: "right center",
+                    translate: ["5%", 0, -200],
+                    rotate: [0, -106, 0],
+                  },
+                }}
+                className="mySwiper3"
+                modules={[Controller]}
+                //   @ts-ignore
+                controller={{ control: controlledSwiper }}
+                navigation={{
+                  prevEl: navigationPrevRef.current,
+                  nextEl: navigationNextRef.current,
+                }}
+                onInit={(swiper) => {
+                  // @ts-ignore
+                  swiper.params.navigation.prevEl = navigationPrevRef.current;
+                  // @ts-ignore
+                  swiper.params.navigation.nextEl = navigationNextRef.current;
+                  swiper.navigation.init();
+                  swiper.navigation.update();
+                }}
+              >
+                <div className="slider-buttons">
+                  <div ref={navigationPrevRef} className="nav nav-left">
+                    <ArrowIcon fill="#F0803D" class="svg arrow-left" />
+                  </div>
 
-        <SliderRow>
-          <SliderLeft>
-            <Swiper
-              grabCursor={true}
-              effect={"creative"}
-              creativeEffect={{
-                prev: {
-                  shadow: true,
-                  origin: "left center",
-                  translate: ["-5%", 0, -200],
-                  rotate: [0, 106, 0],
-                },
-                next: {
-                  origin: "right center",
-                  translate: ["5%", 0, -200],
-                  rotate: [0, -106, 0],
-                },
-              }}
-              className="mySwiper3"
-              modules={[Controller]}
-              //   @ts-ignore
-              controller={{ control: controlledSwiper }}
-              navigation={{
-                prevEl: navigationPrevRef.current,
-                nextEl: navigationNextRef.current,
-              }}
-              onInit={(swiper) => {
-                // @ts-ignore
-                swiper.params.navigation.prevEl = navigationPrevRef.current;
-                // @ts-ignore
-                swiper.params.navigation.nextEl = navigationNextRef.current;
-                swiper.navigation.init();
-                swiper.navigation.update();
-              }}
-            >
-              <div className="slider-buttons">
-                <div ref={navigationPrevRef} className="nav nav-left">
-                  <ArrowIcon fill="#F0803D" class="svg arrow-left" />
+                  <div ref={navigationNextRef} className="nav nav-right">
+                    <ArrowIcon fill="#F0803D" class="svg arrow-right" />
+                  </div>
                 </div>
-
-                <div ref={navigationNextRef} className="nav nav-right">
-                  <ArrowIcon fill="#F0803D" class="svg arrow-right" />
-                </div>
-              </div>
-              <SwiperSlide>
-                <div>
-                  <SliderTitle>Проверка полиса на предмет хищенияе</SliderTitle>
-                  <SliderDescription>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Faucibus quam ut urna non tortor pellentesque vestibulum,
-                    turpis quis. A sit at mus vitae. Diam ultricies commodo
-                    metus est, non vitae in sapien pellentesque. Platea
-                    suspendisse amet orci ullamcorper pharetra. Amet morbi
-                    posuere nulla bibendum orci. Faucibus tempor felis
-                    adipiscing egestas. Consequat enim consectetur sed eu sit
-                    felis, nec. Augue ultricies elit velit quam id risus. Sed
-                    posuere quisque arcu tempor in odio.
-                  </SliderDescription>
-                  <SliderButton>
-                    <NextLink href="/" passHref>
-                      <Link>
-                        <span>Узнать подробнее</span>
-                        <ArrowIcon fill="#F0803D" class="arrow-right" />
-                      </Link>
-                    </NextLink>
-                  </SliderButton>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div>
-                  <SliderTitle>Проверка полиса на предмет хищенияе</SliderTitle>
-                  <SliderDescription>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Faucibus quam ut urna non tortor pellentesque vestibulum,
-                    turpis quis. A sit at mus vitae. Diam ultricies commodo
-                    metus est, non vitae in sapien pellentesque. Platea
-                    suspendisse amet orci ullamcorper pharetra. Amet morbi
-                    posuere nulla bibendum orci. Faucibus tempor felis
-                    adipiscing egestas. Consequat enim consectetur sed eu sit
-                    felis, nec. Augue ultricies elit velit quam id risus. Sed
-                    posuere quisque arcu tempor in odio.
-                  </SliderDescription>
-                  <SliderButton>
-                    <NextLink href="/" passHref>
-                      <Link>
-                        <span>Узнать подробнее</span>
-                        <ArrowIcon fill="#F0803D" class="arrow-right" />
-                      </Link>
-                    </NextLink>
-                  </SliderButton>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </SliderLeft>
-          <SliderRight>
-            <Swiper
-              grabCursor={true}
-              effect={"creative"}
-              creativeEffect={{
-                prev: {
-                  shadow: true,
-                  origin: "left center",
-                  translate: ["-5%", 0, -200],
-                  rotate: [0, 105, 0],
-                },
-                next: {
-                  origin: "right center",
-                  translate: ["5%", 0, -200],
-                  rotate: [0, -105, 0],
-                },
-              }}
-              className="mySwiper6"
-              modules={[Controller]}
-              //   @ts-ignore
-              onSwiper={setControlledSwiper}
-            >
-              <SwiperSlide>
-                <SliderImage>
-                  <Image src={SliderImg1} alt="test1" />
-                </SliderImage>
-              </SwiperSlide>
-              <SwiperSlide>
-                <SliderImage>
-                  <Image src={SliderImg2} alt="test1" />
-                </SliderImage>
-              </SwiperSlide>
-            </Swiper>
-          </SliderRight>
-        </SliderRow>
+                {data.map((item, idx) => (
+                  <SwiperSlide key={idx}>
+                    <div>
+                      <SliderTitle>{item.title}</SliderTitle>
+                      <SliderDescription>{item.text}</SliderDescription>
+                      <SliderButton>
+                        <NextLink href="/" passHref>
+                          <Link>
+                            <span>Узнать подробнее</span>
+                            <ArrowIcon fill="#F0803D" class="arrow-right" />
+                          </Link>
+                        </NextLink>
+                      </SliderButton>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </SliderLeft>
+            <SliderRight>
+              <Swiper
+                grabCursor={true}
+                effect={"creative"}
+                creativeEffect={{
+                  prev: {
+                    shadow: true,
+                    origin: "left center",
+                    translate: ["-5%", 0, -200],
+                    rotate: [0, 105, 0],
+                  },
+                  next: {
+                    origin: "right center",
+                    translate: ["5%", 0, -200],
+                    rotate: [0, -105, 0],
+                  },
+                }}
+                className="mySwiper6"
+                modules={[Controller]}
+                //   @ts-ignore
+                onSwiper={setControlledSwiper}
+              >
+                {data.map((item, idx) => (
+                  <SwiperSlide key={idx}>
+                    <SliderImage>
+                      {/* <Image src={SliderImg1} alt="test1" /> */}
+                      <img src={item.image} alt={item.title} />
+                    </SliderImage>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </SliderRight>
+          </SliderRow>
+        )}
       </InnerWrapper>
     </Wrapper>
   );

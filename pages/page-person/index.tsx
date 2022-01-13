@@ -72,15 +72,24 @@ const Partner: FC<NextPage> = () => {
     }
   };
   const { t } = useTranslation();
-  const singleId = Object.values(router.query).toString()
-
+  // test
   return (
     <>
       {!loading ? (
         <Layout title={t("common:Property_insurance")}>
           <Navbar />
-        <BreadcrumbsBlock url2={ '/page-person?id=' + singleId } url3={''} link1="Главная " link2={'Для частных лиц'} link3="" />
-          
+          <BreadcrumbsBlock
+            url2={
+              "polit_market"
+                ? "insurance-case?id=polit_market"
+                : "insurance-case?id=insurance-case"
+            }
+            url3={""}
+            link1="Главная "
+            link2={"polit_market" ? "МАГАЗИН ПОЛИС " : "СТРАХОВОЙ СЛУЧАЙ"}
+            link3=""
+          />
+
           <Hero data={sliders} />
           <WrapperTitle
             title={t("common:Services")}
@@ -91,8 +100,10 @@ const Partner: FC<NextPage> = () => {
           />
           {/* @ts-ignore */}
           <MultiSlider data={pageData.content} />
-          <WantKnowM />
-          <SpecialOffers />
+          {/* @ts-ignore */}
+          <WantKnowM data={pageData.want_to_know} />
+          {/* @ts-ignore */}
+          <SpecialOffers data={pageData.promotions} />
           <News data={news} />
           <Footer />
         </Layout>

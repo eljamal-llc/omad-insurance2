@@ -99,6 +99,8 @@ export const Wrapper = styled.div`
       object-position: center;
       opacity: 0;
       transition: all 0.4s ease-out;
+      height: 100%;
+      width: 100%;
     }
   }
 

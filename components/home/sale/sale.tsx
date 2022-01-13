@@ -37,7 +37,7 @@ import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
 import { SectionTitle } from "../..";
-import {useTranslation} from 'next-i18next'
+import { useTranslation } from "next-i18next";
 
 SwiperCore.use([
   Pagination,
@@ -49,10 +49,10 @@ SwiperCore.use([
   Thumbs,
 ]);
 
-const Sale: FC<SaleProps> = () => {
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+const Sale: FC<SaleProps> = ({ data }) => {
+  // const [controlledSwiper, setControlledSwiper] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const ArrowIcon = (props: any) => (
     <svg
       width="47"
@@ -72,258 +72,116 @@ const Sale: FC<SaleProps> = () => {
     <Wrapper>
       <GWrapper>
         <SectionTitle
-          title={t('common:home_Promotions_and_special_offers')}
+          title={t("common:home_Promotions_and_special_offers")}
           color="black"
           classN="title"
         />
+        {/*  */}
         <SaleRow>
-          <VerticalSlider>
-            <Swiper
-              direction={"vertical"}
-              //  @ts-ignore
-              onSwiper={setThumbsSwiper}
-              loop={true}
-              slidesPerView={5}
-              freeMode={true}
-              className="mySwiper"
-              navigation={false}
-              speed={1200}
-              spaceBetween={40}
-              centeredSlides={true}
-              slideToClickedSlide={true}
-              loopedSlides={5}
-              slideActiveClass={"test"}
-              watchSlidesProgress={true}
-              breakpoints={{
-                // when window width is >= 640px
-                200: {
-                  slidesPerView: 3,
-                  direction: "horizontal",
-                },
-                640: {
-                  slidesPerView: 3,
-                  direction: "horizontal",
-                },
-                // when window width is >= 768px
-                1024: {
-                  slidesPerView: 5,
-                  direction: "horizontal",
-                },
-                1400: {
-                  spaceBetween: 20,
-                  slidesPerView: 3,
-                  direction: "vertical",
-                },
-                1500: {
-                  slidesPerView: 5,
-                  spaceBetween: 20,
-                  direction: "vertical",
-                },
-                1800: {
-                  spaceBetween: 40,
-                  slidesPerView: 5,
-                  direction: "vertical",
-                },
-              }}
-            >
-              <SwiperSlide>
-                <Image src={SliderImg1} alt="test1" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={SliderImg2} alt="test1" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={SliderImg3} alt="test1" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={SliderImg1} alt="test1" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={SliderImg2} alt="test1" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image src={SliderImg3} alt="test1" />
-              </SwiperSlide>
-            </Swiper>
-          </VerticalSlider>
-          <HorizontalSlider>
-            <Swiper
-              // @ts-ignore
-              loop={true}
-              thumbs={{ swiper: thumbsSwiper }}
-              className="mySwiper2"
-              speed={1200}
-            >
-              <SwiperSlide>
-                <HorizontalSliderRow>
-                  <HorizontalSliderLeft>
-                    <HorizontalSliderTitle>
-                      Уверенность в пути
-                    </HorizontalSliderTitle>
-                    <HorizontalSliderDescription>
-                      Весь ноябрь получайте в два раза больше миль при покупке
-                      полиса страхования выезжающих за рубеж и каско в офисах и
-                      на сайте omadsugurta.uz
-                    </HorizontalSliderDescription>
+          {data && (
+            <>
+              <VerticalSlider>
+                <Swiper
+                  direction={"vertical"}
+                  //  @ts-ignore
+                  onSwiper={setThumbsSwiper}
+                  loop={true}
+                  slidesPerView={5}
+                  freeMode={true}
+                  className="mySwiper"
+                  navigation={false}
+                  speed={1200}
+                  spaceBetween={40}
+                  centeredSlides={true}
+                  slideToClickedSlide={true}
+                  loopedSlides={5}
+                  slideActiveClass={"test"}
+                  watchSlidesProgress={true}
+                  breakpoints={{
+                    // when window width is >= 640px
+                    200: {
+                      slidesPerView: 3,
+                      direction: "horizontal",
+                    },
+                    640: {
+                      slidesPerView: 3,
+                      direction: "horizontal",
+                    },
+                    // when window width is >= 768px
+                    1024: {
+                      slidesPerView: 5,
+                      direction: "horizontal",
+                    },
+                    1400: {
+                      spaceBetween: 20,
+                      slidesPerView: 3,
+                      direction: "vertical",
+                    },
+                    1500: {
+                      slidesPerView: 5,
+                      spaceBetween: 20,
+                      direction: "vertical",
+                    },
+                    1800: {
+                      spaceBetween: 40,
+                      slidesPerView: 5,
+                      direction: "vertical",
+                    },
+                  }}
+                >
+                  {data.map((item, idx) => (
+                    <SwiperSlide key={idx}>
+                      {/* <Image src={SliderImg1} alt="test1" /> */}
+                      <img src={item.image} alt={item.title} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </VerticalSlider>
+              <HorizontalSlider>
+                <Swiper
+                  // @ts-ignore
+                  loop={true}
+                  thumbs={{ swiper: thumbsSwiper }}
+                  className="mySwiper2"
+                  speed={1200}
+                >
+                  {data.map((item, idx) => (
+                    <SwiperSlide key={idx}>
+                      <HorizontalSliderRow>
+                        <HorizontalSliderLeft>
+                          <HorizontalSliderTitle>
+                            {item.title}
+                          </HorizontalSliderTitle>
+                          <HorizontalSliderDescription>
+                            {item.text}
+                          </HorizontalSliderDescription>
 
-                    <HorizontalSliderButton>
-                      <NextLink href="/" passHref>
-                        <Link>
-                          <span>Узнать подробнее</span>
-                          <ArrowIcon fill="#F0803D" class="arrow-right" />
-                        </Link>
-                      </NextLink>
-                    </HorizontalSliderButton>
-                  </HorizontalSliderLeft>
-                  <HorizontalSliderRight>
-                    <HorizontalSliderImage>
-                      <Image src={SliderImg1} alt="test1" className="img" />
-                    </HorizontalSliderImage>
-                  </HorizontalSliderRight>
-                </HorizontalSliderRow>
-              </SwiperSlide>
-              <SwiperSlide>
-                <HorizontalSliderRow>
-                  <HorizontalSliderLeft>
-                    <HorizontalSliderTitle>
-                      Уверенность в пути
-                    </HorizontalSliderTitle>
-                    <HorizontalSliderDescription>
-                      Весь ноябрь получайте в два раза больше миль при покупке
-                      полиса страхования выезжающих за рубеж и каско в офисах и
-                      на сайте omadsugurta.uz
-                    </HorizontalSliderDescription>
-
-                    <HorizontalSliderButton>
-                      <NextLink href="/" passHref>
-                        <Link>
-                          <span>Узнать подробнее</span>
-                          <ArrowIcon fill="#F0803D" class="arrow-right" />
-                        </Link>
-                      </NextLink>
-                    </HorizontalSliderButton>
-                  </HorizontalSliderLeft>
-                  <HorizontalSliderRight>
-                    <HorizontalSliderImage>
-                      <Image src={SliderImg2} alt="test1" className="img" />
-                    </HorizontalSliderImage>
-                  </HorizontalSliderRight>
-                </HorizontalSliderRow>
-              </SwiperSlide>
-              <SwiperSlide>
-                <HorizontalSliderRow>
-                  <HorizontalSliderLeft>
-                    <HorizontalSliderTitle>
-                      Уверенность в пути
-                    </HorizontalSliderTitle>
-                    <HorizontalSliderDescription>
-                      Весь ноябрь получайте в два раза больше миль при покупке
-                      полиса страхования выезжающих за рубеж и каско в офисах и
-                      на сайте omadsugurta.uz
-                    </HorizontalSliderDescription>
-
-                    <HorizontalSliderButton>
-                      <NextLink href="/" passHref>
-                        <Link>
-                          <span>Узнать подробнее</span>
-                          <ArrowIcon fill="#F0803D" class="arrow-right" />
-                        </Link>
-                      </NextLink>
-                    </HorizontalSliderButton>
-                  </HorizontalSliderLeft>
-                  <HorizontalSliderRight>
-                    <HorizontalSliderImage>
-                      <Image src={SliderImg3} alt="test1" className="img" />
-                    </HorizontalSliderImage>
-                  </HorizontalSliderRight>
-                </HorizontalSliderRow>
-              </SwiperSlide>
-              <SwiperSlide>
-                <HorizontalSliderRow>
-                  <HorizontalSliderLeft>
-                    <HorizontalSliderTitle>
-                      Уверенность в пути
-                    </HorizontalSliderTitle>
-                    <HorizontalSliderDescription>
-                      Весь ноябрь получайте в два раза больше миль при покупке
-                      полиса страхования выезжающих за рубеж и каско в офисах и
-                      на сайте omadsugurta.uz
-                    </HorizontalSliderDescription>
-
-                    <HorizontalSliderButton>
-                      <NextLink href="/" passHref>
-                        <Link>
-                          <span>Узнать подробнее</span>
-                          <ArrowIcon fill="#F0803D" class="arrow-right" />
-                        </Link>
-                      </NextLink>
-                    </HorizontalSliderButton>
-                  </HorizontalSliderLeft>
-                  <HorizontalSliderRight>
-                    <HorizontalSliderImage>
-                      <Image src={SliderImg1} alt="test1" className="img" />
-                    </HorizontalSliderImage>
-                  </HorizontalSliderRight>
-                </HorizontalSliderRow>
-              </SwiperSlide>
-              <SwiperSlide>
-                <HorizontalSliderRow>
-                  <HorizontalSliderLeft>
-                    <HorizontalSliderTitle>
-                      Уверенность в пути
-                    </HorizontalSliderTitle>
-                    <HorizontalSliderDescription>
-                      Весь ноябрь получайте в два раза больше миль при покупке
-                      полиса страхования выезжающих за рубеж и каско в офисах и
-                      на сайте omadsugurta.uz
-                    </HorizontalSliderDescription>
-
-                    <HorizontalSliderButton>
-                      <NextLink href="/" passHref>
-                        <Link>
-                          <span>Узнать подробнее</span>
-                          <ArrowIcon fill="#F0803D" class="arrow-right" />
-                        </Link>
-                      </NextLink>
-                    </HorizontalSliderButton>
-                  </HorizontalSliderLeft>
-                  <HorizontalSliderRight>
-                    <HorizontalSliderImage>
-                      <Image src={SliderImg2} alt="test1" className="img" />
-                    </HorizontalSliderImage>
-                  </HorizontalSliderRight>
-                </HorizontalSliderRow>
-              </SwiperSlide>
-              <SwiperSlide>
-                <HorizontalSliderRow>
-                  <HorizontalSliderLeft>
-                    <HorizontalSliderTitle>
-                      Уверенность в пути
-                    </HorizontalSliderTitle>
-                    <HorizontalSliderDescription>
-                      Весь ноябрь получайте в два раза больше миль при покупке
-                      полиса страхования выезжающих за рубеж и каско в офисах и
-                      на сайте omadsugurta.uz
-                    </HorizontalSliderDescription>
-
-                    <HorizontalSliderButton>
-                      <NextLink href="/" passHref>
-                        <Link>
-                          <span>Узнать подробнее</span>
-                          <ArrowIcon fill="#F0803D" class="arrow-right" />
-                        </Link>
-                      </NextLink>
-                    </HorizontalSliderButton>
-                  </HorizontalSliderLeft>
-                  <HorizontalSliderRight>
-                    <HorizontalSliderImage>
-                      <Image src={SliderImg3} alt="test1" className="img" />
-                    </HorizontalSliderImage>
-                  </HorizontalSliderRight>
-                </HorizontalSliderRow>
-              </SwiperSlide>
-            </Swiper>
-          </HorizontalSlider>
+                          <HorizontalSliderButton>
+                            <NextLink href="/" passHref>
+                              <Link>
+                                <span>Узнать подробнее</span>
+                                <ArrowIcon fill="#F0803D" class="arrow-right" />
+                              </Link>
+                            </NextLink>
+                          </HorizontalSliderButton>
+                        </HorizontalSliderLeft>
+                        <HorizontalSliderRight>
+                          <HorizontalSliderImage>
+                            {/* <Image
+                              src={SliderImg1}
+                              alt="test1"
+                              className="img"
+                            /> */}
+                            <img src={item.image} alt={item.title} />
+                          </HorizontalSliderImage>
+                        </HorizontalSliderRight>
+                      </HorizontalSliderRow>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </HorizontalSlider>
+            </>
+          )}
         </SaleRow>
       </GWrapper>
     </Wrapper>

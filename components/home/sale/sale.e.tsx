@@ -254,6 +254,7 @@ export const HorizontalSliderButton = styled.div`
 `;
 export const HorizontalSliderImage = styled.div`
   height: 798px;
+  width: 100%;
   @media (max-width: 1800px) {
     height: 700px;
   }
@@ -271,6 +272,13 @@ export const HorizontalSliderImage = styled.div`
   }
   .img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  img {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
     object-position: center;
   }
