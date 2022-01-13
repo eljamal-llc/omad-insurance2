@@ -72,14 +72,24 @@ const Partner: FC<NextPage> = () => {
     }
   };
   const { t } = useTranslation();
-
+  // test
   return (
     <>
       {!loading ? (
         <Layout title={t("common:Property_insurance")}>
           <Navbar />
-        <BreadcrumbsBlock url2={ 'polit_market' ? 'insurance-case?id=polit_market' :'insurance-case?id=insurance-case' } url3={''} link1="Главная " link2={'polit_market' ? "МАГАЗИН ПОЛИС " : 'СТРАХОВОЙ СЛУЧАЙ'} link3="" />
-          
+          <BreadcrumbsBlock
+            url2={
+              "polit_market"
+                ? "insurance-case?id=polit_market"
+                : "insurance-case?id=insurance-case"
+            }
+            url3={""}
+            link1="Главная "
+            link2={"polit_market" ? "МАГАЗИН ПОЛИС " : "СТРАХОВОЙ СЛУЧАЙ"}
+            link3=""
+          />
+
           <Hero data={sliders} />
           <WrapperTitle
             title={t("common:Services")}
