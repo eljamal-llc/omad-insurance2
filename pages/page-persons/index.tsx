@@ -54,7 +54,7 @@ const YurFacePage: FC<NextPage> = () => {
     {!loading ? (
       <Layout title="АВТОСТРАХОВАНИЕ">
       <Navbar />
-      <BreadcrumbsBlock link1={"Главная"} link2={"АВТОСТРАХОВАНИЕ"} link3={""} url2={'page-persons?id=' + {singleId}} url3={''}/>
+      <BreadcrumbsBlock link1={"Главная"} link2={"АВТОСТРАХОВАНИЕ"} link3={""} url2={'page-persons?id=' + singleId} url3={''}/>
       {pageInfo ? (
         <HeroBg data={pageInfo} />
       ) : (
