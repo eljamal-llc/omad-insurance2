@@ -13,6 +13,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Wrapper } from "../../styles/global-styles.e";
 import bgImg from "../../public/slider1.jpg";
+import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -27,6 +28,7 @@ const NewsPage: FC<NextPage> = () => {
     <Layout title="Страхование имущества">
       <Wrapper>
         <Navbar />
+        <BreadcrumbsBlock url3={''} url2={'news'} link1="Главная" link2="News" link3="" /> 
         <HeroBg
           // @ts-ignore
           data={[

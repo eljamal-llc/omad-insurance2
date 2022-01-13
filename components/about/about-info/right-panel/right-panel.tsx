@@ -24,6 +24,7 @@ const RightPanel: FC<RightPanelProps> = ({ dataRight }) => {
       <RightWrapper className="vacancies">
         <RightTitle className="white"> {t("common:Vacancies")}</RightTitle>
         <RightDescription className="white">
+          
           {parse(dataRight.description)}
         </RightDescription>
 

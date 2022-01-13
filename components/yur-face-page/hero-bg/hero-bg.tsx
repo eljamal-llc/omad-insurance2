@@ -13,7 +13,7 @@ const HeroBg: FC<HeroBgProps> = ({ data }) => {
     <ContainerHero imgUrl={bg_image}>
       <GWrapper>
         <HeroBgItem>
-          <BreadcrumbsBlock url3={''} url2={'page-persons?id=7'} link1="Главная" link2="АВТОСТРАХОВАНИЕ" link3="" />
+          {/* */}
           <PageHeading>{name}</PageHeading>
           <PageText>{description}</PageText>
         </HeroBgItem>

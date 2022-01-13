@@ -9,6 +9,7 @@ import { api } from "../../services/api";
 import { ICards } from "../../components/yur-face-page/yur-face-card/yur-face-card.t";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -50,6 +51,7 @@ const YurFacePage: FC<NextPage> = () => {
     {!loading ? (
       <Layout title="АВТОСТРАХОВАНИЕ">
       <Navbar />
+      <BreadcrumbsBlock link1={"Главная"} link2={"АВТОСТРАХОВАНИЕ"} link3={""} url2={'page-persons?id=7'} url3={''}/>
       {pageInfo ? (
         <HeroBg data={pageInfo} />
       ) : (

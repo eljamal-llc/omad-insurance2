@@ -13,6 +13,7 @@ import {
 } from "../../components";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
+import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
  
 export async  function getStaticProps({locale}:{locale : string} ) {
   return {
@@ -30,6 +31,7 @@ const {t} = useTranslation()
   return (
     <Layout title={t('common:Property_insurance')}>
       <Navbar  />
+      <BreadcrumbsBlock url2={`/about`} url3={'financial-performance'}  link1="Главная" link2='О нас'link3={t('common:Financial_performance')}/>
       <MissionComp title={t('common:Mission')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
       <News />
       <Footer />

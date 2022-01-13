@@ -13,7 +13,7 @@ export const Title = styled.h1`
   text-transform: uppercase;
   padding: 20px 50px ;
   color: #ffffff;
-  margin: 0;
+  margin: 109px 0 0 40px;
 `;
 export const BranDPos = styled.div`
   padding: 111px 0 0px 45px;

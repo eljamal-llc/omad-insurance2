@@ -58,12 +58,4 @@ const About: FC<NextPage> = () => {
     </Layout>
   );
 };
-
-export default About;
-function setSliders(data: any) {
-  throw new Error("Function not implemented.");
-}
-
-function setNews(data: any) {
-  throw new Error("Function not implemented.");
-}
+export default About

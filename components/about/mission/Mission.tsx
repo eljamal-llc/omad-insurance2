@@ -27,7 +27,6 @@ const {t} = useTranslation()
    <ContainerHero imgUrl={main_image}>
       <GWrapper>
         <HeroBgItem>
-        <BreadcrumbsBlock url2={`/about`} url3={'financial-performance'}  link1="Главная" link2='О нас'link3={t('common:Financial_performance')}/>
           <PageHeading>{title}</PageHeading>
           <PageText>{description}</PageText>
         </HeroBgItem>
