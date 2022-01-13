@@ -25,7 +25,6 @@ import User from "../../../assets/images/navbar/user.svg";
 // import { ReactComponent as User } from "../../../assets/images/navbar/user.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import { i18n, useTranslation } from "next-i18next";
-
 const Navbar: FC<NavbarProps> = ({ onClass }) => {
   const [navbarModal, setNavbarModal] = useState(false);
   // const { t, i18n } = useTranslation()
@@ -33,24 +32,33 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
   // const changeLanguage = (language: string | undefined) => {
   //   i18n.changeLanguage(language);
   // };
+  const router = useRouter();
+
   const handleNavbar = () => {
     setNavbarModal(!navbarModal);
   };
  const setRu = () =>{
-  setActive('ru')
   setLanguage("ru")
+    if(router.locale == 'ru'){
+      setActive('ru')
+  
+     }
+   
  }
  const setEn = () =>{
-  
   setLanguage("en")
-  setActive('en')
+  console.log(router.locale)
+    if(router.locale == 'en'){
+      setActive('en')
+  
+     }
+  
  }
  const setUz = () =>{
   setActive('uz')
   setLanguage("uz")
  }
   const { t } = useTranslation();
-  const router = useRouter();
   return (
       <Wrapper  className={onClass}>
             <GWrapper>
