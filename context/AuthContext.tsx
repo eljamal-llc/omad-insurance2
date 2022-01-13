@@ -10,7 +10,9 @@ type SignInData = {
 };
 type UserType = {
   name: string;
+  surname: string;
   email: string;
+  avatar: string;
 };
 
 type AuthContextType = {
@@ -27,10 +29,20 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const { "nextauth.token": token } = parseCookies();
+    // console.log("_________>>>>>>>>", token);
     if (token) {
-      recoverUserInformation().then((response) => {
-        setUser(response.user);
+      api.get("user-data").then(async (res) => {
+        // console.log("--->>>", res);
+        await setUser({
+          name: res.data.name,
+          surname: res.data.surname,
+          email: res.data.email,
+          avatar: res.data.avatar,
+        });
       });
+      // recoverUserInformation().then((response) => {
+      //   setUser(response.user);
+      // });
     }
   }, []);
 
@@ -45,10 +57,21 @@ export function AuthProvider({ children }) {
       })
       .then((response) => {
         // console.log("test====>>>>>>>", response.data);
-
+        if (response.data.success) {
+          setUser({
+            name: response.data.data.name,
+            surname: response.data.data.surname,
+            email: response.data.data.email,
+            avatar: response.data.data.avatar,
+          });
+        }
         setCookie(undefined, "nextauth.token", response.data.data.token, {
           maxAge: 60 * 60 * 1,
         });
+
+        api.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${response.data.data.token}`;
       });
 
     // setCookie(undefined, "nextauth.token", token, {

@@ -45,12 +45,19 @@ const YurFacePage: FC<NextPage> = () => {
       )}
       {insurance && (
         <MtplAdventages
+          // @ts-ignore
           title_text={insurance.title_text}
+          // @ts-ignore
           first_text={insurance.first_text}
+          // @ts-ignore
           second_text={insurance.second_text}
+          // @ts-ignore
           first_image={insurance.first_image}
+          // @ts-ignore
           second_image={insurance.first_image}
+          // @ts-ignore
           three_text={insurance.three_text}
+          // @ts-ignore
           four_text={insurance.four_text}
         />
       )}

@@ -188,7 +188,7 @@ const AuthPage: FC<AuthPageProps> = () => {
           }}
           onSubmit={async (values) => {
             await signIn(values);
-            console.log("login = > ", values);
+            // console.log("login = > ", values);
           }}
           validationSchema={SchemaLogIn}
         >

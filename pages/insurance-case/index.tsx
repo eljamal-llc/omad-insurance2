@@ -59,6 +59,7 @@ const InsuranceCase: FC<NextPage> = () => {
           onlineInsure={onlineInsure}
           id={id && id}
         />
+        {/* @ts-ignore */}
         <CardsCase id={id} data={sliderData} />
         <Footer />
       </Wrapper>

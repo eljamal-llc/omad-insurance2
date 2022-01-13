@@ -13,8 +13,8 @@ export async function SignInRequest(data: SignInRequestData) {
   return {
     token: uuid(),
     user: {
-      name: "testName",
-      email: "test@gmail.com",
+      name: "AAAAAAAA SIGIN_IN",
+      email: "AAA@AAA.MAILCOM SIGIN_IN",
     },
   };
 }
@@ -22,8 +22,8 @@ export async function recoverUserInformation() {
   await delay();
   return {
     user: {
-      name: "testName111111111",
-      email: "test@gmail.com",
+      name: "AAAAAAAA RECOVER",
+      email: "AAA@AAA.MAILCOM RECOVER",
     },
   };
 }
