@@ -110,6 +110,10 @@ export const NavbarBtn = styled.button`
     background:  #F0803D;
 
   }
+  &.avtive {
+    background:  #F0803D;
+
+  }
   svg {
     margin-left: 20px;
   }

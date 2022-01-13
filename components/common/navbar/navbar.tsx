@@ -30,38 +30,31 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
   const { "nextauth.token": token } = parseCookies();
   const [navbarModal, setNavbarModal] = useState(false);
   // const { t, i18n } = useTranslation()
-  const [active, setActive] = useState("ru");
   // const changeLanguage = (language: string | undefined) => {
   //   i18n.changeLanguage(language);
   // };
   const router = useRouter();
-
+  
   const handleNavbar = () => {
     setNavbarModal(!navbarModal);
   };
  const setRu = () =>{
   setLanguage("ru")
-    if(router.locale == 'ru'){
-      setActive('ru')
-  
-     }
-   
+
  }
  const setEn = () =>{
-  setLanguage("en")
   console.log(router.locale)
   
-    if(router.locale == 'en'){
-      setActive('en')
+ 
   
-     }
   
  }
  const setUz = () =>{
-  setActive('uz')
+
   setLanguage("uz")
  }
   const { t } = useTranslation();
+  
   return (
     <Wrapper className={onClass}>
       <GWrapper>
@@ -94,30 +87,33 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             <LangSwitch
               onClick={async () => await setRu()}
               value={"ru"}
-              className={active == "ru" ? "active" : ""}
+              className={router.locale == 'ru'? "active" : ""}
             >
               RU
             </LangSwitch>
+            <NextLink href={'/'} locale='en'>
             <LangSwitch
               onClick={async () => await setEn()}
               value={"en"}
-              className={active == "en" ? "active" : ""}
+              className={router.locale == 'en'? "active" : ""}
             >
               EN
             </LangSwitch>
+            </NextLink>
+            
             <LangSwitch
               onClick={async () => await setUz()}
               value={"uz"}
-              className={active == "uz" ? "active" : ""}
+              className={router.locale == 'uz'? "active" : ""}
             >
               UZ
             </LangSwitch>
 
             {/* </LangSwitchSelect> */}
             {token ? (
-              <NavbarBtn className="navbar-user toremove">
+              <NavbarBtn className="navbar-user toremove avtive">
                 <Link href={"/personal-area"} passHref>
-                  <a>admin</a>
+                  <a ><Image src={User} alt="admin-user" /></a>
                 </Link>
               </NavbarBtn>
             ) : (
@@ -143,3 +139,4 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
 };
 
 export default Navbar;
+
