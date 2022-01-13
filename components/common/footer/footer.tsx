@@ -37,7 +37,7 @@ const Footer: FC = () => {
             <ColumnHeader>{t('common:menu')}</ColumnHeader>
             <FooterUL>
               <li>
-                <NextLink href="/">
+                <NextLink href="/page-person?id=1">
                   <Link>{t('common:home_card_title2_for_individuals')}</Link>
                 </NextLink>
               </li>

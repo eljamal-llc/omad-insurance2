@@ -21,6 +21,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { INewsData } from '../components/common/news/news.t';
 import { useRouter } from 'next/router';
+import { IMenus } from '../components/common/navbar/navbar-modal/navbar-modal.t';
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -41,6 +42,16 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
 
   const { t } = useTranslation();
+  let [footerHover, setFooterHover] = useState(false);
+  let [footers, setfooters] = useState<IMenus[]>();
+  useEffect(() => {
+    api.get("footer").then((response) => {
+      console.log("test", response.data);
+      if (response.data.success) {
+        setfooters(response.data.data);
+      }
+    });
+  }, []);
   useEffect(() => {
     setLoading(true);
     setTimeout(()=>{
@@ -80,7 +91,7 @@ const Home: NextPage = () => {
 
           <Sale />
           <News data={news} />
-          <Footer />
+          <Footer  />
         </Layout>
       ) : (
         <LoadingScreen />
