@@ -132,18 +132,22 @@ export const PersonDescription = styled.p`
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 21px;
+  font-size: 19px;
   color: #ffffff;
   opacity: 0.5;
   margin-bottom: 20px;
   height: 130px;
   opacity: 0;
   transition: all 0.3s ease-out;
-  @media (max-width: 1800px) {
+  /* @media (max-width: 1800px) {
     font-size: calc(14px + 10 * (100vw / 1920));
-  }
+  } */
   @media (max-width: 1450px) {
     height: 100px;
+  }
+  @media (max-width: 1024px) {
+    font-size: 15px;
+
   }
   @media (max-width: 1000px) {
     height: 80px;
