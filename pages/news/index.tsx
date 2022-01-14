@@ -33,7 +33,7 @@ const NewsPage: FC<NextPage> = () => {
 
   const [news, setNews] = useState<INewsData>();
 
-  
+
   useEffect(() => {
     api.get("news", { params: { id: id } }).then(async (response) => {
       await setNews(response.data.data[0]);
@@ -54,7 +54,7 @@ const NewsPage: FC<NextPage> = () => {
           link1="Главная"
           link2="News"
           // @ts-ignore
-          link3={news.title}
+          link3={news?.title}
         />
         <HeroBg
           // @ts-ignore
