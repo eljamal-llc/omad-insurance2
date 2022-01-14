@@ -22,7 +22,7 @@ import { useTranslation } from "next-i18next";
 import { INewsData } from "../components/common/news/news.t";
 import { useRouter } from "next/router";
 import { ISaleData } from "../components/home/sale/sale.t";
-import { IMenus } from "../components/common/footer/footer.t";
+import { FooterProps } from "../components/common/footer/footer.t";
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
 
   const { t } = useTranslation();
   let [footerHover, setFooterHover] = useState(false);
-  let [footers, setfooters] = useState<IMenus[]>();
+  let [footers, setfooters] = useState<FooterProps[]>();
   useEffect(() => {
     api.get("footer").then((response) => {
       console.log("test", response.data);
