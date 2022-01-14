@@ -38,6 +38,7 @@ export const WrapperTags = styled.div`
 export const TagsTitle = styled.div`
   font-family: Roboto;
   font-style: normal;
+  cursor: pointer;
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;

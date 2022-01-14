@@ -52,7 +52,7 @@ const HeroCase: FC<WrapperCategoryProps> = ({
         </WrapperCategories>
         {id == "shop" ? (
           <WrapperTags>
-            <a>
+            <a onClick={()=> setActiveBtn('active')}>
               <TagsTitle className={activeBtn} onClick={() => sortData()}>
                 {t("common:All_categories")}
               </TagsTitle>
