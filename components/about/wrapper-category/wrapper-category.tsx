@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
@@ -29,6 +29,10 @@ const HeroCase: FC<WrapperCategoryProps> = ({
   const handlePublic = () => {
     setOnlineInsure(2);
   };
+  const [activeBtn ,setActiveBtn ] = useState('active')
+  const removeAct = ()=>{
+    setActiveBtn('')
+  }
   return (
     <Wrapper>
       <WrapperRow>
@@ -48,14 +52,19 @@ const HeroCase: FC<WrapperCategoryProps> = ({
         </WrapperCategories>
         {id == "shop" ? (
           <WrapperTags>
-            <TagsTitle onClick={() => sortData()}>
-              {t("common:All_categories")}
-            </TagsTitle>
+            <a>
+              <TagsTitle className={activeBtn} onClick={() => sortData()}>
+                {t("common:All_categories")}
+              </TagsTitle>
+            </a>
             <TagsRow>
               {data?.map((item: any, idx: any) => (
-                <Tag key={idx} onClick={() => sortData(item.id)}>
+                <a onClick={removeAct}>
+                  <Tag key={idx} onClick={() => sortData(item.id)}>
                   {item.name}
                 </Tag>
+                </a>
+                
               ))}
             </TagsRow>
           </WrapperTags>

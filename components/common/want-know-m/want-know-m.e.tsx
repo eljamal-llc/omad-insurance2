@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   }
 `;
 export const InnerWrapper = styled.div`
-  max-width: 1270px;
+  /* max-width: 1270px; */
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -32,7 +32,7 @@ export const InnerWrapper = styled.div`
 
 export const SliderRow = styled.div`
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   position: relative;
   @media (max-width: 770px) {
     height: 400px;
@@ -44,6 +44,7 @@ export const SliderRow = styled.div`
 export const SliderLeft = styled.div`
   width: 55%;
   padding-right: 5%;
+  background-color: #0d4656;;
   .swiper {
     padding-top: 80px;
     margin-top: 20px;
@@ -64,6 +65,7 @@ export const SliderLeft = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    display: none ;
 
     @media (max-width: 900px) {
       display: none;
@@ -230,7 +232,8 @@ export const SliderDescription = styled.p`
 `;
 export const SliderButton = styled.div`
   position: relative;
-  margin-top: 40px;
+  background:  #0d4656;
+  padding: 40px 0;
   max-width: 270px;
   width: 100%;
   @media (max-width: 1366px) {

@@ -42,11 +42,14 @@ export const TagsTitle = styled.div`
   font-size: 16px;
   line-height: 19px;
   color: #ffffff;
-  background-color: #f0803d;
   padding: 10px 20px;
   /* margin-bottom: 20px; */
   border: 2px solid #f0803d;
   display: inline-block;
+  &.active{
+  background-color: #f0803d;
+
+  }
 `;
 export const TagsRow = styled.div`
   display: flex;
