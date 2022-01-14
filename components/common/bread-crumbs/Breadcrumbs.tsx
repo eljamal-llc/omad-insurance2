@@ -23,10 +23,10 @@ const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({link1 , link2 , link3 , url2 ,
       
     
        
-        api.get("bread-crimbs", { params: { id: id ? id : 1 } }).then((res) => {
-          console.log('ssss' + res.data);
+        // api.get("bread-crimbs", { params: { id: id ? id : 1 } }).then((res) => {
+        //   console.log('ssss' + res.data);
          
-        });
+        // });
       }, []);
     
       return (

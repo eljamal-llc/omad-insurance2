@@ -51,6 +51,7 @@ const WrapperTitle: FC<WrapperTitleProps> = ({
             
             <TagsRow>
               {data?.map((item, idx) => (
+                //@ts-ignore
                 <Tag onClick={activeHandler} id={idx} className={ activCat} key={idx}>
                   <div onClick={() => sortData(item.id)}>{item.name}</div>
 
