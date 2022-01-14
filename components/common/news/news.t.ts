@@ -4,7 +4,7 @@ export interface NewsProps {
 
 export interface INewsData {
   id: number;
-  title: string;
+  title: string | any ;
   anons: string;
   text: string;
   image: string;
