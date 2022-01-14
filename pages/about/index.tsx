@@ -18,6 +18,7 @@ import { INewsData } from "../../components/common/news/news.t";
 import { CardsProps } from "../../components/about/cards/cards.t";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 import { useRouter } from "next/router";
+
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {

@@ -35,7 +35,8 @@ const Partner: FC<NextPage> = () => {
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [pageData, setPageData] = useState([]);
   const router = useRouter();
-  const { id } = router.query;
+  const { 
+    id } = router.query;
 
   useEffect(() => {
     setLoading(true);

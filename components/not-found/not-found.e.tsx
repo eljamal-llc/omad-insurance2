@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const NotFoundBg = styled.div`
     
-    background: url('./notFound.png');
+    background: #0D4656;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
