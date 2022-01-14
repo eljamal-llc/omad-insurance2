@@ -42,9 +42,9 @@ const Partner: FC<NextPage> = () => {
 
   useEffect(() => {
     setLoading(true);
-    // setTimeout(() => {
-    //   setLoading(false);
-    // }, 1200);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1200);
     // setLoading(true);
     api
       .get("slider-categories", { params: { id: id } })
