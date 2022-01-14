@@ -46,7 +46,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
         <SpecialRow>
           <SpecialLeft>
             <div className="left-row">
-              {data[0].pos == 1 && (
+              {data[0] ?  data[0].pos : null  == 1 && (
                 <div className="min-block item">
                   <div className="item-image">
                     {/* <Image src={Img} alt="test1" /> */}
@@ -84,7 +84,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
               )}
             </div>
             <div className="left-row">
-              {data[2].pos == 3 && (
+              {data[2] ? data[2].pos : null  == 3 && (
                 <div className="max-block item">
                   <div className="item-image">
                     {/* <Image src={Img} alt="test1" /> */}
@@ -102,7 +102,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
                   </HorizontalSliderButton>
                 </div>
               )}
-              {data[3].pos == 4 && (
+              {data[3] ? data[3].pos : null  == 4 && (
                 <div className="min-block item">
                   <div className="item-image">
                     {/* <Image src={Img} alt="test1" /> */}
@@ -123,7 +123,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
             </div>
           </SpecialLeft>
           <SpecialRight className="item">
-            {data[4].pos == 5 && (
+            {data[4] ?  data[4].pos : null  == 5 && (
               <>
                 <div className="item-image">
                   {/* <Image src={Img} alt="test1" /> */}

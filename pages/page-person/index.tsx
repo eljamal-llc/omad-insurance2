@@ -87,13 +87,11 @@ const Partner: FC<NextPage> = () => {
           <Navbar />
           <BreadcrumbsBlock
             url2={
-              "polit_market"
-                ? "insurance-case?id=polit_market"
-                : "insurance-case?id=insurance-case"
+              id == '1' ? '/page-person?id=1' : '/page-person?id=1'
             }
             url3={""}
             link1="Главная "
-            link2={"polit_market" ? "МАГАЗИН ПОЛИС " : "СТРАХОВОЙ СЛУЧАЙ"}
+            link2={ id == '1' ?  "Частным лицам" : "Юридическим лицам"}
             link3=""
           />
 
