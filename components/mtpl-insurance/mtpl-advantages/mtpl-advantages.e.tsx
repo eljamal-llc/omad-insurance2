@@ -4,7 +4,7 @@ export const MtplAdventagesBlock = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 81%;
+  max-width: 100%;
   flex-wrap: wrap;
   margin: 0 auto;
   @media (max-width: 1024px) {
@@ -76,7 +76,13 @@ export const MtplAdventagesCardText = styled.p`
   color: #ffffff;
 
   &::before {
-    content: "-----";
+    /* content: "";
+    padding: 1px;
+    flex-direction: column;
+    width: 20px;
+    background-color: #fff;
+    display: flex;
+    align-items: center; */
     // border: 2px solid #FFFFFF;
   }
   @media (max-width: 425px) {

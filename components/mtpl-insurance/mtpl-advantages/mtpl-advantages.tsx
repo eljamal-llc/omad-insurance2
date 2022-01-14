@@ -20,7 +20,8 @@ import {
 } from "./mtpl-advantages.e";
 import NoutImg from "../../../assets/images/yur-page/singl-yur-img/nout.png";
 import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
-// import Strelka from "../../../assets/images/yur-page/singl-yur-img/strlka.png";
+import Strelka from "../../../assets/strlka.png";
+// import Strelka from '/strlka.png'
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
@@ -152,8 +153,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
           <MtplAdventagesInsuranceText>{t('common:Calculate_osago')}</MtplAdventagesInsuranceText>
         </NumberB>
         <ImgBlock>
-        -------------------
-          {/* <Image src={Strelka} alt="str" /> */}
+          <Image src={Strelka} alt="str" />
         </ImgBlock>
         <NumberB>
           <MtplAdventagesNubmer>
@@ -162,8 +162,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
           <MtplAdventagesInsuranceText>{t('common:Calculate_osago')}</MtplAdventagesInsuranceText>
         </NumberB>
         <ImgBlock>
-        -----------
-          {/* <Image src={Strelka} alt="str2" /> */}
+          <Image src={Strelka} alt="str2" />
         </ImgBlock>
         <NumberB>
           <MtplAdventagesNubmer>

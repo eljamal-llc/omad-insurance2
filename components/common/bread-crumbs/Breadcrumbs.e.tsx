@@ -12,7 +12,8 @@ export const BreadCrumbs = styled.div`
 
   @media (max-width:425px){
     /* display:none; */
-    position: absolute;
+    position: relative;
+    left: 20px;
     top: 70px;
   }
 `;
