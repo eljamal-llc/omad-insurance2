@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import {
@@ -79,6 +79,27 @@ const Partner: FC<NextPage> = () => {
     }
   };
   const { t } = useTranslation();
+  const singleId = Object.values(router.query).toString()
+  
+  const singleTitle = useMemo(() => {
+    switch (singleId) {
+      case '3': return 'ПАРТНЕРАМ'
+      case '8': return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
+      case '9' :  return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
+      case '10' : return 'ДРУГИЕ ПРОГРАММЫ'
+      case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
+      case '13' : return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
+      case '14' : return 'СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ'
+      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ '
+      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
+      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
+      case '17' : return 'Перестрахование'
+      case '18' : return 'Строительство'
+      
+      default: ' Cингл'
+
+    }
+  }, [singleId])
   // test
   return (
     <>
@@ -87,11 +108,11 @@ const Partner: FC<NextPage> = () => {
           <Navbar />
           <BreadcrumbsBlock
             url2={
-              id == '1' ? '/page-person?id=1' : '/page-person?id=1'
+              '/page-person?id=' + singleId 
             }
             url3={""}
             link1="Главная "
-            link2={ id == '1' ?  "Частным лицам" : "Юридическим лицам"}
+            link2={ singleTitle}
             link3=""
           />
 
