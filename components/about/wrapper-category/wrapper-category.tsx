@@ -34,32 +34,34 @@ const HeroCase: FC<WrapperCategoryProps> = ({
     setActiveBtn('')
   }
   return (
-    <Wrapper>
-      <WrapperRow>
-        <WrapperCategories>
+    <Wrapper key=''>
+      <WrapperRow key=''>
+        <WrapperCategories key=''>
           <WrapperCategory
             className={onlineInsure == 1 ? "active" : ""}
             onClick={handlePrivate}
+            key=''
           >
             {t("common:For_individuals")}
           </WrapperCategory>
           <WrapperCategory
             className={onlineInsure == 2 ? "active" : ""}
             onClick={handlePublic}
+            key=''
           >
             {t("common:home_card_title3_Legal_entities")}
           </WrapperCategory>
         </WrapperCategories>
         {id == "shop" ? (
-          <WrapperTags>
-            <a onClick={()=> setActiveBtn('active')}>
-              <TagsTitle className={activeBtn} onClick={() => sortData()}>
+          <WrapperTags key=''>
+            <a key='' onClick={()=> setActiveBtn('active')}>
+              <TagsTitle key='' className={activeBtn} onClick={() => sortData()}>
                 {t("common:All_categories")}
               </TagsTitle>
             </a>
-            <TagsRow>
+            <TagsRow key=''>
               {data?.map((item: any, idx: any) => (
-                <a onClick={removeAct}>
+                <a key='' onClick={removeAct}>
                   <Tag key={idx} onClick={() => sortData(item.id)}>
                   {item.name}
                 </Tag>
