@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
-import NextLink from "next/link";
-import { Link } from "@mui/material";
+import Link from "next/link";
+// import { Link } from "@mui/material";
 
 import { CardProps } from "./card.t";
 import {
@@ -19,31 +19,32 @@ import {
 
 import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
 
-const Card: FC<CardProps> = ({ id }) => {
-  // const test = false;
-  return id == "10" ? (
+const Card: FC<CardProps> = ({ id, item }) => {
+  return id == "shop" ? (
     <Wrapper>
-      <NextLink href="/" passHref>
-        <Link>
-          <SliderTitle>Другие программы</SliderTitle>
-          <SliderList>
+      <Link href={`/mtpl-insurance?id=${item.id}`} passHref>
+        <a>
+          <SliderTitle>{item.name}</SliderTitle>
+          <p>{item.info}</p>
+          {/* <SliderList>
             <SliderListItem>ОСАГО</SliderListItem>
             <SliderListItem>КАСКО</SliderListItem>
             <SliderListItem>КАСКО профессионал</SliderListItem>
             <SliderListItem>Помощ на дороге</SliderListItem>
-          </SliderList>
+          </SliderList> */}
           <SliderImg>
-            <Image src={Slider1} alt="slider-image" />
+            {/* <Image src={Slider1} alt="slider-image" /> */}
+            <img src={item.image} alt={item.name} />
             <SliderLink>Купить онлайн</SliderLink>
           </SliderImg>
-        </Link>
-      </NextLink>
+        </a>
+      </Link>
     </Wrapper>
   ) : (
     <WrapperTag>
       <SliderTitle>Авто</SliderTitle>
       <CardDesc>Узнать, что делать в случае если:</CardDesc>
-      <CardTags>
+      {/* <CardTags>
         <CardTag>
           <NextLink href="/" passHref>
             <Link>Произошло ДТП</Link>
@@ -66,7 +67,7 @@ const Card: FC<CardProps> = ({ id }) => {
         <NextLink href="/" passHref>
           <Link>Противоправное действие третьих лиц </Link>
         </NextLink>
-      </CardTag>
+      </CardTag> */}
 
       <SliderImg>
         <Image src={Slider1} alt="slider-image" />

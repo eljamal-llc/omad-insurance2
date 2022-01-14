@@ -19,55 +19,44 @@ const HeroCase: FC<WrapperCategoryProps> = ({
   id,
   setOnlineInsure,
   onlineInsure,
+  data,
+  sortData,
 }) => {
   const { t } = useTranslation();
   const handlePrivate = () => {
-    setOnlineInsure("fiz");
+    setOnlineInsure(1);
   };
   const handlePublic = () => {
-    setOnlineInsure("yur");
+    setOnlineInsure(2);
   };
   return (
     <Wrapper>
       <WrapperRow>
         <WrapperCategories>
           <WrapperCategory
-            className={onlineInsure == "fiz" ? "active" : ""}
+            className={onlineInsure == 1 ? "active" : ""}
             onClick={handlePrivate}
           >
             {t("common:For_individuals")}
           </WrapperCategory>
           <WrapperCategory
-            className={onlineInsure == "yur" ? "active" : ""}
+            className={onlineInsure == 2 ? "active" : ""}
             onClick={handlePublic}
           >
             {t("common:home_card_title3_Legal_entities")}
           </WrapperCategory>
         </WrapperCategories>
-        {id == "10" ? (
+        {id == "shop" ? (
           <WrapperTags>
-            <TagsTitle>{t("common:All_categories")}</TagsTitle>
+            <TagsTitle onClick={() => sortData()}>
+              {t("common:All_categories")}
+            </TagsTitle>
             <TagsRow>
-              <Tag>
-                <NextLink href="/" passHref>
-                  <Link>{t("common:Health")}</Link>
-                </NextLink>
-              </Tag>
-              <Tag>
-                <NextLink href="/" passHref>
-                  <Link>{t("common:Travels")}</Link>
-                </NextLink>
-              </Tag>
-              <Tag>
-                <NextLink href="/" passHref>
-                  <Link>{t("common:Transport")}</Link>
-                </NextLink>
-              </Tag>
-              <Tag>
-                <NextLink href="/" passHref>
-                  <Link>{t("common:Property")}</Link>
-                </NextLink>
-              </Tag>
+              {data?.map((item: any, idx: any) => (
+                <Tag key={idx} onClick={() => sortData(item.id)}>
+                  {item.name}
+                </Tag>
+              ))}
             </TagsRow>
           </WrapperTags>
         ) : (

@@ -31,64 +31,36 @@ const InsuranceCase: FC<NextPage> = () => {
   const { id } = router.query;
 
   const { t } = useTranslation();
-  const [onlineInsure, setOnlineInsure] = useState(1);
+  const [onlineInsure, setOnlineInsure] = useState("fiz");
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
-  const [footer, setFooter] = useState<any>();
-
   useEffect(() => {
     api
-      .get("insurance/find", { params: { id: onlineInsure } })
+      .get("category-insurance", { params: { type: onlineInsure } })
       .then(async (response) => {
-        await setSliderData(response.data);
+        await setSliderData(response.data.data);
       });
   }, []);
 
   useEffect(() => {
     api
-      .get("insurance/find", { params: { id: onlineInsure } })
+      .get("category-insurance", { params: { type: onlineInsure } })
       .then(async (response) => {
-        // console.log("-->>", response.data);
-        await setSliderData(response.data);
-      });
-      api.get("footer").then((res) => {
-        // console.log("--", res);
-        setFooter(res.data);
+        await setSliderData(response.data.data);
       });
   }, [onlineInsure]);
-
-  const sortWrapperTitle = (itemId: number | undefined) => {
-    if (itemId != undefined) {
-      api
-        .get("insurance/find", {
-          params: { id: onlineInsure, sort_id: itemId },
-        })
-        .then((res) => {
-          setSliderData(res.data);
-        });
-    } else {
-      api
-        .get("insurance/find", { params: { id: onlineInsure } })
-        .then((res) => {
-          setSliderData(res.data);
-        });
-    }
-  };
 
   return (
     <Layout title={t("common:polit_market")}>
       <Wrapper>
         <Navbar onClass="bg-blue" />
-        <HeroCase id="shop" />
+        <HeroCase id={id} />
         <WrapperCategory
           setOnlineInsure={setOnlineInsure}
           onlineInsure={onlineInsure}
-          // @ts-ignore
-          data={sliderData.categories}
-          id="shop"
-          sortData={sortWrapperTitle}
+          id={id && id}
         />
         {/* @ts-ignore */}
-        <CardsCase id="shop" data={sliderData.content} />
+        <CardsCase id={id} data={sliderData} />
         <Footer />
       </Wrapper>
     </Layout>
