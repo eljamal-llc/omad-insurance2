@@ -28,6 +28,7 @@ const YurFacePage: FC<NextPage> = () => {
   const router = useRouter();
   const { id } = router.query;
   const [loading, setLoading] = useState(false);
+  const [footer, setFooter] = useState<any>();
 
   useEffect(() => {
     setLoading(true);
@@ -44,6 +45,10 @@ const YurFacePage: FC<NextPage> = () => {
       .get("insurance", { params: { catInsId: id } })
       .then(async (response) => {
         await setInsurances(response.data.data);
+      });
+      api.get("footer").then((res) => {
+        // console.log("--", res);
+        setFooter(res.data);
       });
   }, []);
   const singleId = Object.values(router.query).toString()
@@ -91,7 +96,7 @@ const YurFacePage: FC<NextPage> = () => {
       )}
 
       <YurFaceCard data={insurances} />
-      <Footer />
+      <Footer data={footer} />
     </Layout>
     ):(<LoadingScreen/>)}
     </>
