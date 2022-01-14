@@ -1,4 +1,4 @@
-import {FC, useEffect} from 'react'
+import {FC, useEffect, useState} from 'react'
 import { BreadcrumbsProps } from './Breadcrumbs.t'
 import {BreadCrumbs,} from './Breadcrumbs.e'
 import { Link } from "@mui/material";
@@ -18,13 +18,16 @@ const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({link1 , link2 , link3 , url2 ,
     console.log(router)
 
     console.log('breeeeddd' +'   ' + id)
+    const [pageData, setPageData] = useState([]);
+
     useEffect(() => {
     
       
     
        
-        // api.get("bread-crimbs", { params: { id: id ? id : 1 } }).then((res) => {
+        // api.get("insurance/find", { params: { id: id ? id : 1 } }).then((res) => {
         //   console.log('ssss' + res.data);
+        //   setPageData(res.data);
          
         // });
       }, []);
