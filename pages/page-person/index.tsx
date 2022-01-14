@@ -83,8 +83,9 @@ const Partner: FC<NextPage> = () => {
   
   const singleTitle = useMemo(() => {
     switch (singleId) {
+      case '1' : return 'ЧАСТНЫЙМ ЛИЦАМ'
       case '3': return 'ПАРТНЕРАМ'
-      case '8': return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
+      case '2': return 'ЮРИДИЕСКИМ ЛИЦАМ'
       case '9' :  return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
       case '10' : return 'ДРУГИЕ ПРОГРАММЫ'
       case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
