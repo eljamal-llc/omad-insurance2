@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const HomeBg = styled.div`
     background: #0D4656;
+    padding-bottom: 47px;
     @media(max-width:425px){
         background-image: url(./home-bg-1.png);
             background-size: cover;
@@ -27,7 +28,7 @@ export const HomeBlock = styled.div`
 `
 export const HomeBgItem = styled.div`
     // padding:110px 60px;
-    width: 659px;
+    width: 739px;
     @media(max-width:1440px){
         padding: 15px 0 0 26px;
     }
