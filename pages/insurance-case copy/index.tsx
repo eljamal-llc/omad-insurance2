@@ -48,7 +48,15 @@ const InsuranceCase: FC<NextPage> = () => {
         await setSliderData(response.data.data);
       });
   }, [onlineInsure]);
-
+  const [footer, setFooter] = useState<any>();
+  useEffect(() => {
+   
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
+    });
+  
+  }, []);
   return (
     <Layout title={t("common:polit_market")}>
       <Wrapper>
@@ -61,7 +69,7 @@ const InsuranceCase: FC<NextPage> = () => {
         />
         {/* @ts-ignore */}
         <CardsCase id={id} data={sliderData} />
-        <Footer />
+      <Footer data={footer} />
       </Wrapper>
     </Layout>
   );

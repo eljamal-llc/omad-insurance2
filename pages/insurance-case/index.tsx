@@ -89,7 +89,8 @@ const InsuranceCase: FC<NextPage> = () => {
         />
         {/* @ts-ignore */}
         <CardsCase id="shop" data={sliderData.content} />
-        <Footer />
+        <Footer data={footer} />
+
       </Wrapper>
     </Layout>
   );
