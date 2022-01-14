@@ -69,6 +69,8 @@ const YurFacePage: FC<NextPage> = () => {
       case '17' : return 'Перестрахование'
       case '18' : return 'Строительство'
       
+
+      case '11' : return 'АВТОСТРАХОВАНИЕ'
       default: ' Cингл'
 
     }
