@@ -32,6 +32,8 @@ const NewsPage: FC<NextPage> = () => {
   const [footer, setFooter] = useState<any>();
 
   const [news, setNews] = useState<INewsData>();
+
+  
   useEffect(() => {
     api.get("news", { params: { id: id } }).then(async (response) => {
       await setNews(response.data.data[0]);
