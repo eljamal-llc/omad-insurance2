@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import type { NextPage } from "next";
 import {
   Layout,
@@ -10,6 +10,7 @@ import {
 } from "../../components";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
+import { api } from "../../services/api";
  
 export async  function getStaticProps({locale}:{locale : string} ) {
   return {
@@ -20,6 +21,15 @@ export async  function getStaticProps({locale}:{locale : string} ) {
     },
   };
 }
+  const [footer, setFooter] = useState<any>();
+useEffect(() => {
+ 
+  api.get("footer").then((res) => {
+    // console.log("--", res);
+    setFooter(res.data);
+  });
+
+}, []);
 export interface PartnerProps {}
 
 const Contacts: FC<NextPage> = () => {
@@ -29,7 +39,8 @@ const Contacts: FC<NextPage> = () => {
       <ContactsHome/>
       <ContactsCards/>
       <News/>
-      <Footer/>
+      <Footer data={footer} />
+
 
     </Layout>
   );

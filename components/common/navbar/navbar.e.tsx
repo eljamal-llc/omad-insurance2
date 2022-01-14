@@ -36,7 +36,7 @@ export const NavbarLeft = styled.div`
 export const NavbarRight = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 306px;
+  max-width: 378px;
   width: 100%;
   @media (max-width: 900px) {
     max-width: 240px;
@@ -178,3 +178,9 @@ export const LangSwitch = styled.option`
   }
 `;
 
+export const TestDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 143px;
+
+`

@@ -33,6 +33,8 @@ const InsuranceCase: FC<NextPage> = () => {
   const { t } = useTranslation();
   const [onlineInsure, setOnlineInsure] = useState("fiz");
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
+  const [footer, setFooter] = useState<any>();
+
   useEffect(() => {
     api
       .get("category-insurance", { params: { type: onlineInsure } })
@@ -46,6 +48,10 @@ const InsuranceCase: FC<NextPage> = () => {
       .get("category-insurance", { params: { type: onlineInsure } })
       .then(async (response) => {
         await setSliderData(response.data.data);
+      });
+      api.get("footer").then((res) => {
+        // console.log("--", res);
+        setFooter(res.data);
       });
   }, [onlineInsure]);
 
@@ -61,7 +67,7 @@ const InsuranceCase: FC<NextPage> = () => {
         />
         {/* @ts-ignore */}
         <CardsCase id={id} data={sliderData} />
-        <Footer />
+        <Footer data={footer} />
       </Wrapper>
     </Layout>
   );

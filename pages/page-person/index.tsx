@@ -35,6 +35,8 @@ const Partner: FC<NextPage> = () => {
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [pageData, setPageData] = useState([]);
   const router = useRouter();
+  const [footer, setFooter] = useState<any>();
+
   const { 
     id } = router.query;
 
@@ -48,6 +50,10 @@ const Partner: FC<NextPage> = () => {
       .get("slider-categories", { params: { id: id } })
       .then(async (response) => {
         await setSliders(response.data.data);
+      });
+      api.get("footer").then((res) => {
+        // console.log("--", res);
+        setFooter(res.data);
       });
 
     api.get("news").then((res) => {
@@ -106,7 +112,7 @@ const Partner: FC<NextPage> = () => {
           {/* @ts-ignore */}
           <SpecialOffers data={pageData.promotions} />
           <News data={news} />
-          <Footer />
+          <Footer data={footer} />
         </Layout>
       ) : (
         <LoadingScreen />

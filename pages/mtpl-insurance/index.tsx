@@ -15,6 +15,7 @@ import { useTranslation } from "next-i18next";
 import { api } from "../../services/api";
 import { MtplInsuranceHomeProps } from "../../components/mtpl-insurance/mtpl-insurance-home/mtpl-insurance-home.t";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
+import { INewsData } from "../../components/common/news/news.t";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -30,7 +31,11 @@ const YurFacePage: FC<NextPage> = () => {
   const { id } = router.query;
   const [insurance, seyInsurance] = useState<MtplInsuranceHomeProps>();
   const singleId = Object.values(router.query).toString()
+  const [footer, setFooter] = useState<any>();
+
+  const [news, setNews] = useState<INewsData>();
   console.log(singleId)
+  
   const singleTitle = useMemo(() => {
     switch (singleId) {
       case '23': return 'СТРОИТЕЛЬНО-МОНТАЖНЫЕ И  ТЕХНИЧЕСКИЕ РИСКИ'
@@ -53,7 +58,16 @@ const YurFacePage: FC<NextPage> = () => {
   useEffect(() => {
     api.get("insurance", { params: { id: id } }).then(async (response) => {
       await seyInsurance(response.data.data[0]);
+
     });
+    api.get("news", { params: { id: id } }).then(async (response) => {
+      await setNews(response.data.data[0]);
+    });
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
+    });
+
   }, []);
   return (
     <Layout title={singleTitle}>
@@ -86,7 +100,7 @@ const YurFacePage: FC<NextPage> = () => {
         />
       )}
 
-      <Footer />
+      <Footer data={footer} />
     </Layout>
   );
 };
