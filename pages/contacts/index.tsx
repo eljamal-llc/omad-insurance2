@@ -21,18 +21,19 @@ export async  function getStaticProps({locale}:{locale : string} ) {
     },
   };
 }
-  const [footer, setFooter] = useState<any>();
-useEffect(() => {
  
-  api.get("footer").then((res) => {
-    // console.log("--", res);
-    setFooter(res.data);
-  });
-
-}, []);
 export interface PartnerProps {}
 
 const Contacts: FC<NextPage> = () => {
+  const [footer, setFooter] = useState<any>();
+  useEffect(() => {
+   
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
+    });
+  
+  }, []);
   return (
     <Layout title="КОНТАКТЫ">
       <Navbar />
