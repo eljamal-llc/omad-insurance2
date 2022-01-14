@@ -1,33 +1,22 @@
 import { FC, useEffect, useState } from "react";
-import Image from "next/image";
-import { useRouter } from "next/router";
 import parse from "html-react-parser";
 import { NewsBodyProps } from "./news-body.t";
 import { Wrapper } from "./news-body.e";
 import { MWrapper } from "../../../styles/global-styles.e";
 import { SectionTitle } from "../..";
 
-import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import FourSlider from "./four-slider/four-slider";
-import { api } from "../../../services/api";
-import { INewsData } from "../../common/news/news.t";
 
-const NewsBody: FC<NewsBodyProps> = () => {
-  const router = useRouter();
-  const { id } = router.query;
-
-  const [news, setNews] = useState<INewsData>();
-  console.log("----->>", id);
-  useEffect(() => {
-    api.get("news", { params: { id: id } }).then(async (response) => {
-      // console.log("---->>>>>>", response.data.data[0]);
-      await setNews(response.data.data[0]);
-    });
-  }, []);
+const NewsBody: FC<NewsBodyProps> = ({ news }) => {
   return (
     <Wrapper>
       <MWrapper>
-        {news && parse(news.text)}
+        {news && (
+          <>
+            <SectionTitle title={news?.title} color="black" classN="title" />
+            {parse(news.text)}
+          </>
+        )}
         {/* <SectionTitle
           title="Lorem non natoque nunc."
           color="black"

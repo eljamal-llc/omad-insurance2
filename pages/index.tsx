@@ -38,6 +38,7 @@ const Home: NextPage = () => {
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [sale, setSale] = useState<ISaleData[] | []>([]);
+  const [footer, setFooter] = useState<any>();
 
   const [onlineInsure, setOnlineInsure] = useState("1");
 
@@ -79,6 +80,10 @@ const Home: NextPage = () => {
       // console.log("--", res);
       setSale(res.data.data);
     });
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
+    });
   }, []);
 
   useEffect(() => {
@@ -103,7 +108,8 @@ const Home: NextPage = () => {
           <WantKnow data={wantKnows} />
           <Sale data={sale} />
           <News data={news} />
-          <Footer  />
+          {/* @ts-ignore */}
+          <Footer data={footer} />
         </Layout>
       ) : (
         <LoadingScreen />

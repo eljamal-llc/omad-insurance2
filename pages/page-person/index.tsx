@@ -100,7 +100,7 @@ const Partner: FC<NextPage> = () => {
             sortData={sortWrapperTitle}
           />
           {/* @ts-ignore */}
-          <MultiSlider data={pageData.content} />
+          <MultiSlider data={pageData.content} link="mtpl-insurance" />
           {/* @ts-ignore */}
           <WantKnowM data={pageData.want_to_know} />
           {/* @ts-ignore */}

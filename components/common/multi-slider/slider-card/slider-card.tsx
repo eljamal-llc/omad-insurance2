@@ -18,11 +18,14 @@ import {
 
 import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
 
-const SliderCard: FC<SliderCardProps> = ({ item }) => {
+const SliderCard: FC<SliderCardProps> = ({ item, link }) => {
   const { name, info, image, id } = item;
   return (
     <Wrapper>
-      <NextLink href={`/page-persons?id=${id}`} passHref>
+      <NextLink
+        href={link ? `/${link}?id=${id}` : `/page-persons?id=${id}`}
+        passHref
+      >
         <Link>
           <div>
             <SliderTitle>{name}</SliderTitle>

@@ -19,9 +19,8 @@ export const Wrapper = styled.div`
     color: white;
   }
   @media (max-width: 768px) {
-    .footer-container .second-column,
-    .third-column,
-    .fourth-column {
+    .footer-container,
+    .c-column {
       display: none;
     }
   }
@@ -86,8 +85,8 @@ export const FooterUL = styled.ul`
       color: white;
       text-decoration: none;
       cursor: pointer;
-      &:hover{
-          color:#f0803d
+      &:hover {
+        color: #f0803d;
       }
     }
   }
@@ -145,7 +144,7 @@ export const FooterBottom = styled.div`
       width: 40%;
     }
   }
-  .khan{
-    display:none
+  .khan {
+    display: none;
   }
 `;
