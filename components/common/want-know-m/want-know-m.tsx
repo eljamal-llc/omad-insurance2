@@ -60,6 +60,12 @@ const WantKnowM: FC<WantKnowMProps> = ({ data }) => {
               <Swiper
                 grabCursor={true}
                 effect={"creative"}
+                speed= {800}
+              //   autoplay={{
+              //     delay: 1000,
+                  
+              //     disableOnInteraction: false
+              // }}
                 creativeEffect={{
                   prev: {
                     shadow: true,
@@ -113,7 +119,9 @@ const WantKnowM: FC<WantKnowMProps> = ({ data }) => {
                         </NextLink>
                       </SliderButton>
                     </WANTbg>
+                    
                   </SwiperSlide>
+                  
                 ))}
               </Swiper>
             </SliderLeft>

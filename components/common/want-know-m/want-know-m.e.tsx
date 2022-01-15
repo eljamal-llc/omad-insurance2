@@ -63,9 +63,9 @@ export const SliderLeft = styled.div`
   .slider-buttons {
     display: flex;
     position: absolute;
-    top: 0;
-    left: 0;
-    display: none ;
+    top: 607px;
+    right: 45px;
+    z-index: 100;
 
     @media (max-width: 900px) {
       display: none;
@@ -294,7 +294,7 @@ export const SliderButton = styled.div`
     }
   }
 `;
-export const WANTbg = styled.div`
-  
+export const WANTbg = styled.div`   
+  height: 600px;
   background-color:  #0d4656;;
 `
