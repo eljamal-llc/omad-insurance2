@@ -71,7 +71,9 @@ const Card: FC<CardBlockProps> = ({ item }) => {
             </CardServiceBlock>
           </CardService>
           <CardBtns>
+          <Link href={`/mtpl-insurance?id=${id}`} passHref>
             <CardButton>{t("common:Get_policy")}</CardButton>
+          </Link>
             <HorizontalSliderButton>
               <Link href={`/mtpl-insurance?id=${id}`} passHref>
                 <a>

@@ -68,6 +68,10 @@ export const Tag = styled.div`
   &:hover {
     background-color: #f0803d;
   }
+  &.active{
+    background-color: #f0803d;
+
+  }
   a {
     font-family: Roboto;
     font-style: normal;

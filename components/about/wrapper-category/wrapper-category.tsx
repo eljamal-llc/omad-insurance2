@@ -30,8 +30,12 @@ const HeroCase: FC<WrapperCategoryProps> = ({
     setOnlineInsure(2);
   };
   const [activeBtn ,setActiveBtn ] = useState('active')
+  const [ Actcat , setActcat ] = useState('')
   const removeAct = ()=>{
     setActiveBtn('')
+      // setActcat('active')
+
+
   }
   return (
     <Wrapper key=''>
@@ -62,7 +66,7 @@ const HeroCase: FC<WrapperCategoryProps> = ({
             <TagsRow key=''>
               {data?.map((item: any, idx: any) => (
                 <a key='' onClick={removeAct}>
-                  <Tag key={idx} onClick={() => sortData(item.id)}>
+                  <Tag className={Actcat} key={idx} onClick={() => sortData(item.id)}>
                   {item.name}
                 </Tag>
                 </a>

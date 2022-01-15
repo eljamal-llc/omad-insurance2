@@ -10,6 +10,7 @@ import {
   Layout,
   Navbar,
   WrapperCategory,
+  LoadingScreen
 } from "../../components";
 import { Wrapper } from "../../styles/global-styles.e";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -42,8 +43,13 @@ const InsuranceCase: FC<NextPage> = () => {
         await setSliderData(response.data);
       });
   }, []);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1200);
     api
       .get("insurance/find", { params: { id: onlineInsure } })
       .then(async (response) => {
@@ -87,8 +93,11 @@ const InsuranceCase: FC<NextPage> = () => {
           id="shop"
           sortData={sortWrapperTitle}
         />
-        {/* @ts-ignore */}
+        {!loading ? (
+          //@ts-ignore
         <CardsCase id="shop" data={sliderData.content} />
+
+        ):( <LoadingScreen />)}
         <Footer data={footer} />
 
       </Wrapper>

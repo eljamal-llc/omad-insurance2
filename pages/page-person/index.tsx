@@ -126,7 +126,10 @@ const Partner: FC<NextPage> = () => {
             sortData={sortWrapperTitle}
           />
           {/* @ts-ignore */}
+          {!loading ? (
+            //@ts-ignore
           <MultiSlider data={pageData.content} link="mtpl-insurance" />
+          ):( <LoadingScreen />)}
           {/* @ts-ignore */}
           <WantKnowM data={pageData.want_to_know} />
           {/* @ts-ignore */}

@@ -107,6 +107,7 @@ const MultiSlider: FC<MultiSliderProps> = ({ data, link }) => {
           </SwiperSlide>
         ))}
         {/* @ts-ignore */}
+        
         {data?.length > 4 ? (
           <SliderBtnRow>
             <SliderBtn
