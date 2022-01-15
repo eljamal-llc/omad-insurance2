@@ -24,19 +24,25 @@ const Card: FC<CardProps> = ({ id, item }) => {
     <Wrapper>
       <Link href={`/mtpl-insurance?id=${item.id}`} passHref>
         <a>
-          <SliderTitle>{item.name}</SliderTitle>
-          <p>{item.info}</p>
+          <div>
+            <SliderTitle>{item.name}</SliderTitle>
+            <p>{item.info}</p>
+          </div>
+         
           {/* <SliderList>
             <SliderListItem>ОСАГО</SliderListItem>
             <SliderListItem>КАСКО</SliderListItem>
             <SliderListItem>КАСКО профессионал</SliderListItem>
             <SliderListItem>Помощ на дороге</SliderListItem>
           </SliderList> */}
-          <SliderImg>
-            {/* <Image src={Slider1} alt="slider-image" /> */}
-            <img src={item.image} alt={item.name} />
-            <SliderLink>Купить онлайн</SliderLink>
-          </SliderImg>
+          <div>
+            <SliderImg>
+              {/* <Image src={Slider1} alt="slider-image" /> */}
+              <img src={item.image} alt={item.name} />
+              <SliderLink>Купить онлайн</SliderLink>
+            </SliderImg>
+          </div>
+          
         </a>
       </Link>
     </Wrapper>

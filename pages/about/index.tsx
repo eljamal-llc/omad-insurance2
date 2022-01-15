@@ -31,6 +31,7 @@ const About: FC<NextPage> = () => {
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [sliders, setSliders] = useState<IData[] | []>([]);
   const [about, setAbout] = useState<any>({});
+  const [footer, setFooter] = useState<any>();
 
   useEffect(() => {
     // setLoading(true);
@@ -44,6 +45,11 @@ const About: FC<NextPage> = () => {
     api.get("about").then((res) => {
       // console.log(res.data);
       setAbout(res.data);
+      
+    });
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
     });
   }, []);
   const router = useRouter()
@@ -60,7 +66,7 @@ const About: FC<NextPage> = () => {
       <Cards data={about.categories} />
       <AboutInfo dataLeft={about.content} dataRight={about.vacancy} />
       <News data={news} />
-      <Footer />
+      <Footer data={footer} />
     </Layout>
   );
 };

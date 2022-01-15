@@ -70,6 +70,9 @@ export const SliderLeft = styled.div`
     @media (max-width: 900px) {
       display: none;
     }
+    &.nav {
+      background-color: red;
+    }
   }
   .nav {
     height: 50px;

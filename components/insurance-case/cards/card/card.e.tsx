@@ -7,9 +7,13 @@ export const Wrapper = styled.div`
   width: 100%;
   a {
     padding: 40px 50px;
-    display: inline-block;
+    display: flex;
+    -webkit-text-decoration: none;
     text-decoration: none;
     position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 
     &::before {
       display: block;
