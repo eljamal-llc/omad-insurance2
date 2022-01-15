@@ -142,9 +142,11 @@ export const Wrapper = styled.div`
       height: 100%;
       width: 1px;
       background-color: rgba(255, 255, 255, 0.5);
+      display: none;
       @media (max-width: 1800px) {
         right: 11%;
       }
+      
       .line {
         position: absolute;
         bottom: 0;
@@ -154,6 +156,7 @@ export const Wrapper = styled.div`
         transition: height 4.5s ease-out;
         /* animation: mymove 2s infinite; */
         /* animation-delay: 3s; */
+        display: none;
       }
       @keyframes mymove {
         from {
