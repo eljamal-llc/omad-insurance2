@@ -294,3 +294,7 @@ export const SliderButton = styled.div`
     }
   }
 `;
+export const WANTbg = styled.div`
+  
+  background-color:  #0d4656;;
+`
