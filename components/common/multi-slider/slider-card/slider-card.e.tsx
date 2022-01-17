@@ -6,10 +6,19 @@ export const Wrapper = styled.div`
   border-right: 2px solid #000;
   a {
     padding: 40px 50px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     flex-direction: column;
-    height: 504px;
+    height: 616px;
+    -webkit-text-decoration: none;
     text-decoration: none;
     position: relative;
     width: 100%;

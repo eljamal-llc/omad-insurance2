@@ -50,7 +50,7 @@ const YurFacePage: FC<NextPage> = () => {
       case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
       case '17' : return 'Перестрахование'
       case '18' : return 'Строительство'
-      
+      case '28' : return ''
       default: ' Cингл'
 
     }
@@ -72,14 +72,18 @@ const YurFacePage: FC<NextPage> = () => {
   return (
     <Layout title={singleTitle}>
       <Navbar />
-      <BreadcrumbsBlock url2={'/page-persons?id=18'} url3={'mtpl-insurance?id=' + singleId} link1="Главная" link2="СТРОИТЕЛЬСТВО" link3={singleTitle} />
-
       {insurance && (
+        <div>
+          <BreadcrumbsBlock url2={'mtpl-insurance?id='  + singleId} url3={'mtpl-insurance?id=' + singleTitle} link1="Главная" link2={insurance.title} link3={singleTitle} />
+
+            
         <MtplInsuranceHome
           title={insurance.title}
           description={insurance.description}
           image={insurance.image}
         />
+        </div>
+      
       )}
       {insurance && (
         <MtplAdventages

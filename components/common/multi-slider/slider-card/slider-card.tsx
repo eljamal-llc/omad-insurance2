@@ -14,7 +14,7 @@ import {
   SliderTitle,
   Wrapper,
   CardContent,
-  CardItem,
+  
 } from './slider-card.e';
 
 import Slider1 from '../../../../assets/images/multi-slider/slider-1.jpg';
