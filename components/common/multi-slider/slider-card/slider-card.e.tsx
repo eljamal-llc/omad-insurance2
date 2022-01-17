@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 
+
 export const Wrapper = styled.div`
   border-right: 2px solid #000;
   a {
     padding: 40px 50px;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 504px;
     text-decoration: none;
     position: relative;
     width: 100%;
