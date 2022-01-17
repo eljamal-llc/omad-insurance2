@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    height: 616px;
+    min-height: 630px;
     -webkit-text-decoration: none;
     text-decoration: none;
     position: relative;
