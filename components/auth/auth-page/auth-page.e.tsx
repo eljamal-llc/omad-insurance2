@@ -27,7 +27,7 @@ export const AuthBlock = styled.div`
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
-    color: #ffffff;
+    color: #ffffff !important;
     padding: 25px 0;
     transition: all 0.4s ease-out;
     text-transform: capitalize;
