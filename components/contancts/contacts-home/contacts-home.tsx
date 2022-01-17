@@ -22,13 +22,7 @@ const ContactsHome: FC<ContactsHomeProps> = ({ data }) => {
       <ContactsHomeBG>
         <ContactsHomeBlock>
           <ContactsBlock>
-            <BreadcrumbsBlock
-              link1="Главная"
-              url3={""}
-              url2={"/contacts"}
-              link2="Контакты"
-              link3=""
-            />
+            
             <ContactsBlockHeading> {data.title}</ContactsBlockHeading>
             <ContactsBlockSlogan>{data.company}</ContactsBlockSlogan>
             <ContactsBlockLokations>
