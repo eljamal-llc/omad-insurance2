@@ -26,7 +26,7 @@ const WrapperTitle: FC<WrapperTitleProps> = ({
   const [activCat , setActivCat] = useState('')
   const [allAc , setAllAc] = useState('All')
   const activeHandler = (item: any)=>{
-    // setActivCat('active')
+    setActivCat('active')
     setAllAc('')
   }
   const setActiveAll = ()=>{
@@ -51,9 +51,10 @@ const WrapperTitle: FC<WrapperTitleProps> = ({
             
             <TagsRow>
               {data?.map((item, idx) => (
+                
                 //@ts-ignore
-                <Tag onClick={activeHandler} id={idx} className={ activCat} key={idx}>
-                  <div onClick={() => sortData(item.id)}>{item.name}</div>
+                <Tag onClick={()=>{setAllAc( item.name)}} id={idx} className={ item.name == allAc ? 'active' : item.name} key={idx}>
+                  <div onClick={() => sortData(item.id)}><p className={item.name} onClick={setActiveAll}>{item.name}</p></div>
 
                   {/* <NextLink href="/" passHref>
                     <Link>{item.name}</Link>

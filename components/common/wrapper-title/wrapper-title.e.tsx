@@ -106,6 +106,10 @@ export const Tag = styled.div`
     display: inline-block;
     text-decoration: none;
     transition: all 0.3s ease-out;
+    p {
+      margin: 0;
+      padding: 0;
+    }
     &:hover {
       background-color: #f0803d;
     }
@@ -113,6 +117,7 @@ export const Tag = styled.div`
       background-color: #f0803d;
 
     }
+    
   a {
     font-family: Roboto;
     font-style: normal;
