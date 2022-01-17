@@ -29,12 +29,15 @@ const HeroCase: FC<WrapperCategoryProps> = ({
   const handlePublic = () => {
     setOnlineInsure(2);
   };
-  const [activeBtn ,setActiveBtn ] = useState('active')
+  // const [activeBtn ,setActiveBtn ] = useState('active')
+  const [allAc , setAllAc] = useState('active')
+  const [activCat , setActivCat] = useState('')
+
+
   const [ Actcat , setActcat ] = useState('')
   const removeAct = ()=>{
-    setActiveBtn('')
-      // setActcat('active')
-
+    setAllAc('active')
+    setActcat('')
 
   }
   return (
@@ -58,20 +61,20 @@ const HeroCase: FC<WrapperCategoryProps> = ({
         </WrapperCategories>
         {id == "shop" ? (
           <WrapperTags key=''>
-            <a key='' onClick={()=> setActiveBtn('active')}>
-              <TagsTitle key='' className={activeBtn} onClick={() => sortData()}>
+            <a key='' onClick={removeAct}>
+              <TagsTitle key='' className={allAc} onClick={() => sortData()}>
                 {t("common:All_categories")}
               </TagsTitle>
             </a>
             <TagsRow key=''>
               {data?.map((item: any, idx: any) => (
-                <a key='' onClick={removeAct}>
-                  <Tag className={Actcat} key={idx} onClick={() => sortData(item.id)}>
+                <a key='' onClick={()=>{setActcat(item.name) ,  setAllAc('')} }>
+                  <Tag className={item.name == Actcat ? 'active' : item.name} key={idx} onClick={() => sortData(item.id)}>
                   {item.name}
                 </Tag>
                 </a>
                 
-              ))}
+              ))} 
             </TagsRow>
           </WrapperTags>
         ) : (
