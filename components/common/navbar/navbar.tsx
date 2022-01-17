@@ -27,6 +27,9 @@ import User from "../../../assets/images/navbar/user.svg";
 // import { ReactComponent as User } from "../../../assets/images/navbar/user.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import { i18n, useTranslation } from "next-i18next";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 const Navbar: FC<NavbarProps> = ({ onClass }) => {
   const { "nextauth.token": token } = parseCookies();
   const [navbarModal, setNavbarModal] = useState(false);
@@ -50,6 +53,15 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
     setLanguage("uz");
   };
   const { t } = useTranslation();
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Wrapper className={onClass}>
@@ -106,14 +118,52 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             </LangSwitch>
 
             {/* </LangSwitchSelect> */}
-            {token ? (
-              <NavbarBtn className="navbar-user toremove avtive">
-                <Link href={"/personal-area"} passHref>
-                  <a>
-                    <Image src={User} alt="admin-user" />
-                  </a>
-                </Link>
-              </NavbarBtn>
+            {!!token ? (
+              <>
+                {/* <Button
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                >
+                  Dashboard
+                </Button> */}
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>
+                    <Link href={"/personal-area"} passHref>
+                      <a>Profile</a>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      logOut();
+                      handleClose();
+                    }}
+                  >
+                    Logout
+                  </MenuItem>
+                </Menu>
+                <NavbarBtn
+                  className="navbar-user toremove avtive"
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                >
+                  <Image src={User} alt="admin-user" />
+                </NavbarBtn>
+              </>
             ) : (
               <NavbarBtn className="navbar-user toremove">
                 <Link href={"/auth"} passHref>
@@ -128,7 +178,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
               {t("common:menu")}
               <MenuIcon />
             </NavbarBtn>
-            <div onClick={() => logOut()}> logOut</div>
+            {/* <div onClick={() => logOut()}> logOut</div> */}
           </NavbarRight>
         </NavbarRow>
       </GWrapper>
