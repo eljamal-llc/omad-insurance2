@@ -1,6 +1,6 @@
 import { Children, createContext, useEffect, useState } from "react";
 import { recoverUserInformation, SignInRequest } from "../services/auth";
-import { parseCookies, setCookie } from "nookies";
+import { parseCookies, setCookie, destroyCookie } from "nookies";
 import Router from "next/router";
 import { api } from "../services/api";
 import { Login } from "@mui/icons-material";
@@ -34,6 +34,7 @@ type AuthContextType = {
   alert: boolean;
   setAlert: any;
   setErrorMsg: any;
+  logOut: any;
 };
 export const AuthContext = createContext({} as AuthContextType);
 
@@ -130,6 +131,12 @@ export function AuthProvider({ children }) {
       });
     Router.push("/personal-area");
   }
+
+  function logOut() {
+    destroyCookie(null, "nextauth.token");
+    Router.push("/");
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -143,6 +150,7 @@ export function AuthProvider({ children }) {
         alert,
         setAlert,
         setErrorMsg,
+        logOut,
       }}
     >
       {children}

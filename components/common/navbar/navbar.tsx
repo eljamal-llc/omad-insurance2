@@ -1,10 +1,11 @@
-import { FC, useState } from "react";
+import { FC, useState, useContext } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
 // import { Link } from "@mui/material";
 import Link from "next/link";
 import NavbarModal from "./navbar-modal/navbar-modal";
 import { parseCookies } from "nookies";
+import { AuthContext } from "../../../context/AuthContext";
 
 import { NavbarProps } from "./navbar.t";
 import { GWrapper } from "../../../styles/global-styles.e";
@@ -34,27 +35,22 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
   //   i18n.changeLanguage(language);
   // };
   const router = useRouter();
-  
+  const { logOut } = useContext(AuthContext);
+
   const handleNavbar = () => {
     setNavbarModal(!navbarModal);
   };
- const setRu = () =>{
-  setLanguage("ru")
-
- }
- const setEn = () =>{
-  console.log(router.locale)
-  
- 
-  
-  
- }
- const setUz = () =>{
-
-  setLanguage("uz")
- }
+  const setRu = () => {
+    setLanguage("ru");
+  };
+  const setEn = () => {
+    console.log(router.locale);
+  };
+  const setUz = () => {
+    setLanguage("uz");
+  };
   const { t } = useTranslation();
-  
+
   return (
     <Wrapper className={onClass}>
       <GWrapper>
@@ -87,24 +83,24 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             <LangSwitch
               onClick={async () => await setRu()}
               value={"ru"}
-              className={router.locale == 'ru'? "active" : ""}
+              className={router.locale == "ru" ? "active" : ""}
             >
               RU
             </LangSwitch>
-            <NextLink href={'/'} locale='en'>
-            <LangSwitch
-              onClick={async () => await setEn()}
-              value={"en"}
-              className={router.locale == 'en'? "active" : ""}
-            >
-              EN
-            </LangSwitch>
+            <NextLink href={"/"} locale="en">
+              <LangSwitch
+                onClick={async () => await setEn()}
+                value={"en"}
+                className={router.locale == "en" ? "active" : ""}
+              >
+                EN
+              </LangSwitch>
             </NextLink>
-            
+
             <LangSwitch
               onClick={async () => await setUz()}
               value={"uz"}
-              className={router.locale == 'uz'? "active" : ""}
+              className={router.locale == "uz" ? "active" : ""}
             >
               UZ
             </LangSwitch>
@@ -113,7 +109,9 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             {token ? (
               <NavbarBtn className="navbar-user toremove avtive">
                 <Link href={"/personal-area"} passHref>
-                  <a ><Image src={User} alt="admin-user" /></a>
+                  <a>
+                    <Image src={User} alt="admin-user" />
+                  </a>
                 </Link>
               </NavbarBtn>
             ) : (
@@ -130,6 +128,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
               {t("common:menu")}
               <MenuIcon />
             </NavbarBtn>
+            <div onClick={() => logOut()}> logOut</div>
           </NavbarRight>
         </NavbarRow>
       </GWrapper>
@@ -139,4 +138,3 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
 };
 
 export default Navbar;
-
