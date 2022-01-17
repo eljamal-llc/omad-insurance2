@@ -109,7 +109,7 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
             {data.map((item, idx) => (
               <SwiperSlide key={idx}>
                 {/* <Image src={SliderImg1} alt="test1" /> */}
-                <img src={item.image} alt={item.title} />
+                <img key={idx} src={item.image} alt={item.title} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -118,18 +118,18 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
           <SectionTitle title={t("common:want_to_know")} color="white" classN="title" />
           <KnowRow>
             <KnowList>
-              <div
+              {/* <div
                 className={`box-out box${activIdx}`}
                 // @ts-ignore
                 top={activIdx}
-              ></div>
+              ></div> */}
               {data.map((item, idx) => (
                 <KnowListItem
                   key={idx}
                   onMouseMove={() => {
-                    toSlide(idx + 1);
+                    toSlide(idx );
                   }}
-                  className={activIdx == idx + 1 ? "list-active" : ""}
+                  className={activIdx == idx  ? "list-active" : ""}
                 >
                   <NextLink href="/" passHref>
                     <Link>

@@ -67,12 +67,12 @@ export const NavbarLink = styled(Link)`
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
-  color: #ffffff;
-  text-decoration: none;
+  color: #ffffff !important;
+  text-decoration: none !important;
   padding: 10px 22px;
   border: 1px solid #fff;
   display: inline-block;
-  margin-right: 50px;
+  margin-right: 50px !important;
   transition: 0.3s all linear;
   &:last-child {
     margin-right: 0;

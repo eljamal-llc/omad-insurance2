@@ -42,7 +42,7 @@ const Home: NextPage = () => {
 
   const [onlineInsure, setOnlineInsure] = useState("1");
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const { t } = useTranslation();
   let [footerHover, setFooterHover] = useState(false);
@@ -56,10 +56,9 @@ const Home: NextPage = () => {
     });
   }, []);
   useEffect(() => {
-    setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 1200);
+    }, 2000);
     api.get("slider-categories").then(async (response) => {
       await setSliders(response.data.data);
     });
