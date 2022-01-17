@@ -3,10 +3,18 @@ import { recoverUserInformation, SignInRequest } from "../services/auth";
 import { parseCookies, setCookie } from "nookies";
 import Router from "next/router";
 import { api } from "../services/api";
+import { Login } from "@mui/icons-material";
 
 type SignInData = {
   email: string;
   password: string;
+};
+type RegisterData = {
+  name: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
 };
 type UserType = {
   name: string;
@@ -19,6 +27,13 @@ type AuthContextType = {
   isAuthenticated: boolean;
   user: UserType | null;
   signIn: (data: SignInData) => Promise<void>;
+  registration: (data: RegisterData) => Promise<void>;
+  open: boolean;
+  setOpen: any;
+  errorMsg: any;
+  alert: boolean;
+  setAlert: any;
+  setErrorMsg: any;
 };
 export const AuthContext = createContext({} as AuthContextType);
 
@@ -26,13 +41,14 @@ export const AuthContext = createContext({} as AuthContextType);
 export function AuthProvider({ children }) {
   const [user, setUser] = useState<UserType | null>(null);
   const isAuthenticated = !!user;
+  const [open, setOpen] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<any>(null);
 
   useEffect(() => {
     const { "nextauth.token": token } = parseCookies();
-    // console.log("_________>>>>>>>>", token);
     if (token) {
       api.get("user-data").then(async (res) => {
-        // console.log("--->>>", res);
         await setUser({
           name: res.data.name,
           surname: res.data.surname,
@@ -40,23 +56,19 @@ export function AuthProvider({ children }) {
           avatar: res.data.avatar,
         });
       });
-      // recoverUserInformation().then((response) => {
-      //   setUser(response.user);
-      // });
     }
   }, []);
 
-  async function signIn(data: SignInData) {
-    // const { token, user } = await SignInRequest(data);
-    // console.log("data==>", data);
-
+  async function registration(data: RegisterData) {
     await api
-      .post("login", {
+      .post("register", {
+        name: data.name,
+        surname: data.lastName,
         login: data.email,
         password: data.password,
+        c_password: data.confirmPassword,
       })
       .then((response) => {
-        // console.log("test====>>>>>>>", response.data);
         if (response.data.success) {
           setUser({
             name: response.data.data.name,
@@ -72,16 +84,67 @@ export function AuthProvider({ children }) {
         api.defaults.headers.common[
           "Authorization"
         ] = `Bearer ${response.data.data.token}`;
+      })
+      .catch((err) => {
+        setAlert(true);
+        setErrorMsg({
+          type: "registration",
+          message: err.response.data.data,
+        });
+        console.log("--->>>", err.response.data);
       });
+    Router.push("/personal-area");
+  }
 
-    // setCookie(undefined, "nextauth.token", token, {
-    //   maxAge: 60 * 60 * 1,
-    // });
-    // setUser(user);
+  async function signIn(data: SignInData) {
+    await api
+      .post("login", {
+        login: data.email,
+        password: data.password,
+      })
+      .then((response) => {
+        if (response.data.success) {
+          setUser({
+            name: response.data.data.name,
+            surname: response.data.data.surname,
+            email: response.data.data.email,
+            avatar: response.data.data.avatar,
+          });
+        }
+        setCookie(undefined, "nextauth.token", response.data.data.token, {
+          maxAge: 60 * 60 * 1,
+        });
+
+        api.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${response.data.data.token}`;
+        setOpen(true);
+      })
+      .catch((err) => {
+        setAlert(true);
+        setErrorMsg({
+          type: "login",
+          message: err.response.data.message,
+        });
+        console.log("--->>>", err.response.data);
+      });
     Router.push("/personal-area");
   }
   return (
-    <AuthContext.Provider value={{ user, signIn, isAuthenticated }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        signIn,
+        isAuthenticated,
+        registration,
+        open,
+        setOpen,
+        errorMsg,
+        alert,
+        setAlert,
+        setErrorMsg,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

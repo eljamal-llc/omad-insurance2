@@ -1,4 +1,4 @@
-import { FC, useContext, useState } from "react";
+import { FC, useContext, useState, forwardRef } from "react";
 
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -9,6 +9,10 @@ import * as Yup from "yup";
 import Link from "next/link";
 import FormGroup from "@mui/material/FormGroup";
 import { AuthContext } from "../../../context/AuthContext";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
 
 import { AuthPageProps } from "./auth-page.t";
 import {
@@ -73,18 +77,73 @@ const SchemaLogIn = Yup.object().shape({
   password: Yup.string().required("This field is required"),
 });
 
+const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const AuthPage: FC<AuthPageProps> = () => {
   const [check, setCheck] = useState(false);
   const [value, setValue] = useState(0);
+  const {
+    signIn,
+    registration,
+    setOpen,
+    open,
+    alert,
+    setAlert,
+    errorMsg,
+    setErrorMsg,
+  } = useContext(AuthContext);
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+    setAlert(false);
+    setErrorMsg(null);
+  };
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const { signIn } = useContext(AuthContext);
 
   return (
     <Wrapper>
+      <Stack spacing={2} sx={{ width: "100%" }}>
+        {/* <Button variant="outlined" onClick={handleClick}>
+          Open success snackbar
+        </Button> */}
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            This is a success message!
+          </Alert>
+        </Snackbar>
+
+        <Snackbar open={alert} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+            {/* @ts-ignore */}
+            {errorMsg && errorMsg.type == "login" && errorMsg.message}
+            {errorMsg &&
+              errorMsg.type == "registration" &&
+              Object.keys(errorMsg.message).map(function (key) {
+                return <div key={key}>{errorMsg.message[key]}</div>;
+              })}
+          </Alert>
+        </Snackbar>
+      </Stack>
       <AuthBlock>
         <Box>
           <Tabs
@@ -106,8 +165,8 @@ const AuthPage: FC<AuthPageProps> = () => {
             name: "",
             lastName: "",
           }}
-          onSubmit={(values) => {
-            // console.log(values);
+          onSubmit={async (values) => {
+            await registration(values);
           }}
           validationSchema={Schema}
         >
