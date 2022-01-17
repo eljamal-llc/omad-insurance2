@@ -33,35 +33,10 @@ const LeftPanel: FC<LeftPanelProps> = ({ dataLeft }) => {
               </LeftWrapperDescription>
             </LeftWrapper>
           ) : item.files.length == 1 ? (
-            <LeftWrapper>
-              <SectionTitle title={item.title} color="black" classN="title" />
-              <LeftWrapperRow>
-                <LeftWrapperDescription>
-                  {parse(item.description)}
-                </LeftWrapperDescription>
-                <LeftWrapperPDF>
-                  <PDFIcon>
-                    <Image src={PDFImage} alt="test2" />
-                  </PDFIcon>
-                  <PDFInfo>
-                    <PDFTitle>{item.title} </PDFTitle>
-                    <PDFData>{item.size} </PDFData>
-                    <PDFData>
-                      {t("common:Updated_at")} {item.updated_at}
-                    </PDFData>
-                    <LeftButton>
-                      <MainBtn
-                        onClass="download"
-                        text={t("common:Download")}
-                        url={item.files[0].file}
-                      />
-                    </LeftButton>
-                  </PDFInfo>
-                </LeftWrapperPDF>
-              </LeftWrapperRow>
-            </LeftWrapper>
-          ) : (
-            <LeftWrapper className="bottom-wrap">
+
+            
+           
+              <LeftWrapper className="bottom-wrap">
               <SectionTitle title={item.title} color="black" classN="title" />
               <LeftWrapperDescription className="description">
                 {parse(item.description)}
@@ -107,7 +82,36 @@ const LeftPanel: FC<LeftPanelProps> = ({ dataLeft }) => {
                   </PDFInfo>
                 </LeftWrapperPDF>
               </LeftWrapperRow>
+              </LeftWrapper>
+          ) : (
+            <LeftWrapper>
+              <SectionTitle title={item.title} color="black" classN="title" />
+              <LeftWrapperRow>
+                <LeftWrapperDescription>
+                  {parse(item.description)}
+                </LeftWrapperDescription>
+                <LeftWrapperPDF>
+                  <PDFIcon>
+                    <Image src={PDFImage} alt="test2" />
+                  </PDFIcon>
+                  <PDFInfo>
+                    <PDFTitle>{item.title} </PDFTitle>
+                    <PDFData>{item.size} </PDFData>
+                    <PDFData>
+                      {t("common:Updated_at")} {item.updated_at}
+                    </PDFData>
+                    <LeftButton>
+                      <MainBtn
+                        onClass="download"
+                        text={t("common:Download")}
+                        url={item.files[0].file}
+                      />
+                    </LeftButton>
+                  </PDFInfo>
+                </LeftWrapperPDF>
+              </LeftWrapperRow>
             </LeftWrapper>
+
           )
       )}
     </Wrapper>

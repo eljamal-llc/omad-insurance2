@@ -111,4 +111,15 @@ export const SliderBtnRow = styled.div`
   background-color: #f1f1f1;
   border-top: 1px solid #000;
   padding: 40px 50px;
+/* 
+  div{
+    width: 6000px;
+  } */
 `;
+export const BlovkButton = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 700px;
+
+`

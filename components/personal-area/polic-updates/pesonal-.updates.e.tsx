@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 export const UptadeSelect = styled.select`
     background: #F1F1F1;
-    padding: 28px 20px;
+    padding: 16px 20px;
     width: 365px;
-    border: none;
-    margin:20px 0 ;
+    border-radius: 3px;
+    border: 1px solid #b9b9b9;
+    margin: 20px 0;
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;

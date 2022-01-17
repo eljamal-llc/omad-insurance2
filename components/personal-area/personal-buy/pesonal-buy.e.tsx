@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import styled from "styled-components";
 
 
@@ -19,7 +20,24 @@ export const FormBody = styled.div`
 `
 export const PageForm = styled.form`
     padding-bottom: 40px;
-    border-bottom:  1px solid #000000;;
+    border-bottom:  1px solid #000000;
+    /* .myInput{
+        background: #F1F1F1;
+    padding: 30px 20px;
+    width: 365px;
+    border: none;
+    margin:20px 0 ;
+    margin-left: 50px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    @media(max-width:425px){
+        width:285px;  
+        margin-left: 0px;
+
+    }
+    } */
 `
 export const FormHeading = styled.h2`
     font-weight: normal;
@@ -34,9 +52,9 @@ export const FormHeading = styled.h2`
         line-height: 19px;  
     }
 `
-export const UserInfoInput = styled.input`
+export const UserInfoInput = styled(TextField)`
     background: #F1F1F1;
-    padding: 30px 20px;
+    /* padding: 30px 20px; */
     width: 780px;
     border: none;
 
@@ -51,9 +69,9 @@ export const UserInfoInput = styled.input`
         width:285px;  
     }
 `
-export const UserNumber = styled.input`
+export const UserNumber = styled(TextField)`
     background: #F1F1F1;
-    padding: 30px 20px;
+    /* padding: 30px 20px; */
     width: 365px;
     border: none;
     margin:20px 0 ;
@@ -66,9 +84,12 @@ export const UserNumber = styled.input`
     }
        
 `
-export const UserEmail = styled.input`
+export const UserEmail = styled(TextField)`
+    .myInput{
+
+    }
     background: #F1F1F1;
-    padding: 30px 20px;
+    /* padding: 30px 20px; */
     width: 365px;
     border: none;
     margin:20px 0 ;
@@ -84,7 +105,7 @@ export const UserEmail = styled.input`
     }
        
 `
-export const ButtonAdd = styled.button`
+export const ButtonAdd = styled.div`
     padding:16px;
     text-align: center;
     width: 181px;
@@ -92,7 +113,13 @@ export const ButtonAdd = styled.button`
     background: transparent;
     border: 1px solid #0D4656;
     margin:20px 0 ;
-
+    transition: 0.5s all linear;
+    cursor: pointer;
+    &:hover{
+        border-color: #f0803d;
+        color:#f0803d ;
+        
+    }
 
 `
 export const FormMessage = styled.textarea`
