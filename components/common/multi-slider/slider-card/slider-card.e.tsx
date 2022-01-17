@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const Wrapper = styled.div`
-  border-right: 2px solid #000;
+  border-right: 1px solid #0d4656;
   a {
     padding: 40px 50px;
     display: -webkit-box;

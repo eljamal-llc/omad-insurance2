@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ButtonProps } from "./multi-slider.t";
 
 export const Wrapper = styled.div`
-  border-top: 1px solid #000;
+  border-top: 1px solid #000 !important;
   .swiper-pagination {
     bottom: 50px;
   }
@@ -67,7 +67,7 @@ export const SliderBtn = styled.button<ButtonProps>`
     opacity: 1;
   }
   .arrow-left {
-    left: -70%;
+    left: -70%; 
   }
   .arrow-right {
     left: 50%;
@@ -76,7 +76,7 @@ export const SliderBtn = styled.button<ButtonProps>`
     &:hover {
       cursor: initial;
     }
-    opacity: 0.5;
+    opacity: 1;
   }
 `;
 export const SliderText = styled.span<ButtonProps>`
@@ -90,7 +90,7 @@ export const SliderText = styled.span<ButtonProps>`
   transform: translate(-50%, -50%);
 `;
 export const SliderBtnWrapper = styled.div`
-  border: 2px solid #0d4656;
+  border: 1px solid #0d4656;
   height: 50px;
   width: 50px;
   position: relative;
@@ -109,7 +109,7 @@ export const SliderBtnRow = styled.div`
   justify-content: center;
   width: 100%;
   background-color: #f1f1f1;
-  border-top: 1px solid #000;
+  border-top: 1px solid #0d4656;
   padding: 40px 50px;
 /* 
   div{

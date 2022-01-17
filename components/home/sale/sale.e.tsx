@@ -81,7 +81,7 @@ export const VerticalSlider = styled.div`
       content: "";
       height: 1px;
       width: 100%;
-      background-color: #f0803d;
+      /* background-color: #f0803d; */
       top: -20px;
       left: 0;
     }
