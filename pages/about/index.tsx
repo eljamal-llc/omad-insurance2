@@ -35,7 +35,7 @@ const About: FC<NextPage> = () => {
 
   useEffect(() => {
     // setLoading(true);
-    api.get("slider-categories").then(async (response) => {
+    api.get("slider-categories?id=4").then(async (response) => {
       await setSliders(response.data.data);
     });
 
