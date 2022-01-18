@@ -95,7 +95,7 @@ const InsuranceCase: FC<NextPage> = () => {
         />
         {!loading ? (
           //@ts-ignore
-        <CardsCase id="shop" data={sliderData.content} />
+        <CardsCase id={id == "shop" ? "shop" :  'insurance-case'} data={sliderData.content} />
 
         ):( <LoadingScreen />)}
         <Footer data={footer} />

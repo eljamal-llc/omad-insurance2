@@ -51,21 +51,21 @@ const BuyPolis: FC<PersonalBuyProps> = () => {
                 <FormControl>
                 <PageForm>
                 <UserInfoInput
-                        id="demo-helper-text-misaligned"
+                        // id="demo-helper-text-misaligned"
                         placeholder="Иванов Иван Иванович"
                         label={t('common:name_data')}
                         /><br/>
                     <UserNumber
                         className='myInput'
                         placeholder="998 90 989-89-89"
-                        id="demo-helper-text-misaligned"
+                        // id="demo-helper-text-misaligned"
                         label={t('common:Phone_number')}
                         
                         />
                     <UserEmail
                         className='myInput'
                         placeholder="status585@mail.ru"
-                        id="demo-helper-text-misaligned"
+                        // id="demo-helper-text-misaligned"
                         label="Email"
                         
                         

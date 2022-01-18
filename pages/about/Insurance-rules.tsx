@@ -9,7 +9,8 @@ import {
   Navbar,
   News,
   WrapperTitle,
-  MissionComp
+  MissionComp,
+  InsuranceRules
 } from "../../components";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
@@ -59,7 +60,7 @@ const {t} = useTranslation()
     <Layout title={t('Правила страхования ')}>
       <Navbar  />
       <BreadcrumbsBlock url2={`/about`} url3={'financial-performance'}  link1="Главная" link2='О нас'link3={t('Правила страхования ')}/>
-      <MissionComp title={t('Правила страхования ')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
+      <InsuranceRules title={t('Правила страхования ')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
       <News data={news}/>
       <Footer data={footer} />
     </Layout>

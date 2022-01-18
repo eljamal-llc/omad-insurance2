@@ -71,7 +71,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
               {/* </NextLink> */}
             </NavbarLogo>
 
-            <NextLink href="/insurance-case?id=polit_market" passHref>
+            <NextLink href="/insurance-case?id=shop" passHref>
               <NavbarLink className="toremove">
                 {t("common:polit_market")}
               </NavbarLink>

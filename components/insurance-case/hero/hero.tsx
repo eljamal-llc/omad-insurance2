@@ -27,17 +27,17 @@ const HeroCase: FC<HeroProps> = () => {
         <BreadcrumbsBlock
           
           url2={
-            id == "polit_market"
-              ? "insurance-case?id=polit_market"
+            id == "shop"
+              ? "insurance-case?id=shop"
               : "insurance-case?id=insurance-case"
           }
           url3={""}
           link1="Главная "
-          link2={id == "polit_market" ? "МАГАЗИН ПОЛИС " : "СТРАХОВОЙ СЛУЧАЙ"}
+          link2={id == "shop" ? "МАГАЗИН ПОЛИС " : "СТРАХОВОЙ СЛУЧАЙ"}
           link3=""
         />
       </BranDPos>
-      {id == "polit_market" ? (
+      {id == "shop" ? (
         <Title>{t("common:polit_market")}</Title>
       ) : (
         <Title onClick={handleClick}>Страховой случай</Title>

@@ -162,7 +162,7 @@ export const NumberB = styled.div`
   text-align: center;
   width: 300px;
   @media (max-width: 768px) {
-    margin: 147px auto 0;
+    margin: 2 70px auto 0;
   }
 `;
 export const ImgBlock = styled.div`
@@ -199,8 +199,8 @@ export const Arrow1 = styled.div`
       & div {
         position: relative;
           top: 20px;
-          width: 214px;
-          height: 3px;
+          width: 314px;
+          height: 2px;
           background-color: #000;
           box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
           left: 0;
@@ -209,10 +209,10 @@ export const Arrow1 = styled.div`
         & div::after {
           content: '';
     position: absolute;
-    width: 40px;
-    height: 3px;
-    top: -15px;
-    right: -5px;
+    width: 11px;
+    height: 2px;
+    top: -4px;
+    right: -3px;
     background-color: #000;
     -webkit-transform: rotate( 
 45deg
@@ -226,31 +226,41 @@ export const Arrow1 = styled.div`
 45deg
  );
     -ms-transform: rotate( 45deg );
+    -webkit-transform: rotate( 
+45deg
+ );
+    -ms-transform: rotate( 45deg );
     transform: rotate( 
 45deg
  );
+}
+
+
         }
         & div::before {
           content: '';
     position: absolute;
-    width: 40px;
-    height: 3px;
-    top: 14px;
-    right: -6px;
+    width: 11px;
+    height: 2px;
+    top: 4px;
+    right: -3px;
     background-color: #000;
     box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
     -webkit-transform: rotate( 
-          -45deg
-          );
-              -ms-transform: rotate(-45deg);
-              -webkit-transform: rotate( 
-          -45deg
-          );
-              -ms-transform: rotate( -45deg );
-              transform: rotate( 
-          -45deg
-          );
-          }
+-45deg
+ );
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate( 
+-45deg
+ );
+    -ms-transform: rotate( -45deg );
+    -webkit-transform: rotate( 
+-45deg
+ );
+    -ms-transform: rotate( -45deg );
+    transform: rotate( 
+-45deg
+ );
         &:hover {
             animation: arrow-1 1s linear infinite;
         }

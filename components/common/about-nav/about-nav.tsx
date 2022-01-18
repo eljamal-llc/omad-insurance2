@@ -39,7 +39,7 @@ const AboutNav: FC<AboutNavProps> = () => {
           <Link href={'/'}>
               <MissionNavItem>  Выплаты</MissionNavItem>
             </Link> 
-          <Link href={'/'}>
+          <Link href={'/about/Insurance-rules'}>
               <MissionNavItem>  Правила страхования</MissionNavItem>
             </Link> 
           <Link href={'/'}>

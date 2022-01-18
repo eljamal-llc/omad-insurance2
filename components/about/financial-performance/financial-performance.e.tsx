@@ -58,7 +58,8 @@ export const FinicialP = styled.p`
 `
 export const  DwBlockBorder = styled.div`
     padding-bottom: 40px;
-    border-bottom: 1px solid #000000;;
+    
+    border-bottom: 1px solid #000000;
 `
 export const DwBtnBlock = styled.div`
     text-align: right;

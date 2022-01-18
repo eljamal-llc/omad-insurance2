@@ -2,7 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // import { Link } from "@mui/material";
-
+import NextLink from 'next/link'
 import { CardProps } from "./card.t";
 import {
   CardDesc,
@@ -50,30 +50,30 @@ const Card: FC<CardProps> = ({ id, item }) => {
     <WrapperTag>
       <SliderTitle>Авто</SliderTitle>
       <CardDesc>Узнать, что делать в случае если:</CardDesc>
-      {/* <CardTags>
+      <CardTags>
         <CardTag>
           <NextLink href="/" passHref>
-            <Link>Произошло ДТП</Link>
+            <Link href="/">Произошло ДТП</Link>
           </NextLink>
         </CardTag>
       </CardTags>
       <CardTag>
         <NextLink href="/" passHref>
-          <Link>ДТП с иностранным ТС</Link>
+          <Link href="/">ДТП с иностранным ТС</Link>
         </NextLink>
       </CardTag>
 
       <CardTag>
         <NextLink href="/" passHref>
-          <Link>ДТП произошло за рубежом</Link>
+          <Link href="/">ДТП произошло за рубежом</Link>
         </NextLink>
       </CardTag>
 
       <CardTag>
         <NextLink href="/" passHref>
-          <Link>Противоправное действие третьих лиц </Link>
+          <Link href={"/"}>Противоправное действие третьих лиц </Link>
         </NextLink>
-      </CardTag> */}
+      </CardTag>
 
       <SliderImg>
         <Image src={Slider1} alt="slider-image" />
