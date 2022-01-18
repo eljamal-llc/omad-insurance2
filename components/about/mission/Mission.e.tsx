@@ -17,6 +17,7 @@ export const MissionNav = styled.div`
     padding: 40px 50px;
     margin: 0 27px;
     border: 1px solid #000;
+    max-height: 1024px;
 `
 export  const MissionNavItem = styled.p`
     font-size: 24px;
