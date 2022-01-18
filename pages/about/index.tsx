@@ -29,7 +29,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
 export interface AboutProps {}
 const About: FC<NextPage> = () => {
   const [news, setNews] = useState<INewsData[] | []>([]);
-  const [sliders, setSliders] = useState<IData[] | []>([]);
+  const [Absliders, setSliders] = useState<IData[] | []>([]);
   const [about, setAbout] = useState<any>({});
   const [footer, setFooter] = useState<any>();
 
@@ -61,7 +61,7 @@ const About: FC<NextPage> = () => {
       <Navbar />
       <BreadcrumbsBlock url2={ '/about?id=' + singleId } url3={''} link1="Главная " link2={'О нас'} link3="" />
 
-      <Hero data={sliders} />
+      <Hero data={Absliders} />
       <WrapperTitle title={t("common:All_about_the_company")} />
       <Cards data={about.categories} />
       <AboutInfo dataLeft={about.content} dataRight={about.vacancy} />
