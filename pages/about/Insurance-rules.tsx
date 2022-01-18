@@ -56,10 +56,10 @@ const Mission: FC<NextPage> = () => {
 const {t} = useTranslation()
 
   return (
-    <Layout title={t('common:Property_insurance')}>
+    <Layout title={t('Правила страхования ')}>
       <Navbar  />
-      <BreadcrumbsBlock url2={`/about`} url3={'financial-performance'}  link1="Главная" link2='О нас'link3={t('common:Financial_performance')}/>
-      <MissionComp title={t('common:Mission')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
+      <BreadcrumbsBlock url2={`/about`} url3={'financial-performance'}  link1="Главная" link2='О нас'link3={t('Правила страхования ')}/>
+      <MissionComp title={t('Правила страхования ')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
       <News data={news}/>
       <Footer data={footer} />
     </Layout>

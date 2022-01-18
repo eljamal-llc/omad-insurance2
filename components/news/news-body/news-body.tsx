@@ -13,9 +13,10 @@ const NewsBody: FC<NewsBodyProps> = ({ news }) => {
       <MWrapper>
         {news && (
           <>
+          {/* @tsignore */}
             <SectionTitle title={news?.title} color="black" classN="title" />
             {parse(news.text)}
-          </>
+          </>   
         )}
         {/* <SectionTitle
           title="Lorem non natoque nunc."

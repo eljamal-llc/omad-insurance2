@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
@@ -29,34 +29,52 @@ const HeroCase: FC<WrapperCategoryProps> = ({
   const handlePublic = () => {
     setOnlineInsure(2);
   };
+  // const [activeBtn ,setActiveBtn ] = useState('active')
+  const [allAc , setAllAc] = useState('active')
+  const [activCat , setActivCat] = useState('')
+
+
+  const [ Actcat , setActcat ] = useState('')
+  const removeAct = ()=>{
+    setAllAc('active')
+    setActcat('')
+
+  }
   return (
-    <Wrapper>
-      <WrapperRow>
-        <WrapperCategories>
+    <Wrapper key=''>
+      <WrapperRow key=''>
+        <WrapperCategories key=''>
           <WrapperCategory
             className={onlineInsure == 1 ? "active" : ""}
             onClick={handlePrivate}
+            key=''
           >
             {t("common:For_individuals")}
           </WrapperCategory>
           <WrapperCategory
             className={onlineInsure == 2 ? "active" : ""}
             onClick={handlePublic}
+            key=''
           >
             {t("common:home_card_title3_Legal_entities")}
           </WrapperCategory>
         </WrapperCategories>
         {id == "shop" ? (
-          <WrapperTags>
-            <TagsTitle onClick={() => sortData()}>
-              {t("common:All_categories")}
-            </TagsTitle>
-            <TagsRow>
+          <WrapperTags key=''>
+            <a key='' onClick={removeAct}>
+              <TagsTitle key='' className={allAc} onClick={() => sortData()}>
+                {t("common:All_categories")}
+              </TagsTitle>
+            </a>
+            <TagsRow key=''>
               {data?.map((item: any, idx: any) => (
-                <Tag key={idx} onClick={() => sortData(item.id)}>
+                <a key='' onClick={()=>{setActcat(item.name) ,  setAllAc('')} }>
+                  <Tag className={item.name == Actcat ? 'active' : item.name} key={idx} onClick={() => sortData(item.id)}>
                   {item.name}
                 </Tag>
-              ))}
+                </a>
+                
+              ))} 
             </TagsRow>
           </WrapperTags>
         ) : (

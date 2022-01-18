@@ -23,6 +23,16 @@ import { useTranslation } from "react-i18next";
 const UserData: FC<UserDataProps> = () => {
     const {t} = useTranslation()
     const [value, setValue] = useState('')
+    const [add , isAdd] = useState('')
+    const [addButt , setAddBut] = useState('yes')
+     const AddHand = () =>{
+        isAdd('addet')
+        setAddBut('')
+    }
+    const RemoveBtn = () =>{
+        isAdd('')
+        setAddBut('yes')
+    }
     return (
         <>
         <BodyForm>
@@ -31,10 +41,20 @@ const UserData: FC<UserDataProps> = () => {
                 <PageForm>
                 
                     <p>
-                        <UserInfoInput placeholder={t('common:name_data')}/>
+                    <UserInfoInput
+                        // id="demo-helper-text-misaligned"
+                        placeholder="Иванов Иван Иванович"
+                        label={t('common:name_data')}
+                        />
                     </p>
                     <p>
-                        <UserNumber type={'number'} placeholder={t('common:birth_data')}/>
+                    <UserNumber
+                        className='myInput'
+                        placeholder="03/03/1999"
+                        // id="demo-helper-text-misaligned"
+                        label={t('common:birth_data')}
+                        
+                        />
                     </p>
                     {/* <p>
                         <UserNumber placeholder=" Номер теефона" type={'tel '}/>
@@ -43,41 +63,115 @@ const UserData: FC<UserDataProps> = () => {
                 <FormHeading>{t('common:Personal_ata')}</FormHeading>
                 <UptadeSelect onChange={(e) => {setValue(e.target.value)}}>
                         <option selected value="Паспорт гражданина">{t('common:Citizens_passport')}</option>
-                        <option  value="Россия">Россия</option>
-                        <option value="Узбекистан">Узбекистан</option>
-                        <option value="США">США</option>
+                        <option  value="Россия">Паспорт</option>
+                        <option value="Узбекистан">ID карта</option>
+                        {/* <option value="США">США</option> */}
                 </UptadeSelect>
-                <SNumber placeholder={t('common:Series_number_pas')}/>
+                <SNumber
+                 className='myInput'
+                //  id="demo-helper-text-misaligned"
+                 label={t('common:Series_number_pas')}
+                placeholder=' Например: 470347034703477'/>
                 <p>
-                    <UserInfoInput placeholder={t('common:Issued_by')}/>
+                    <UserInfoInput 
+                    // id="demo-helper-text-misaligned"
+                    // placeholder="Иванов Иван Иванович"
+                    label={t('common:Issued_by')}
+                    placeholder={t('Например: IIV 3411')}/>
                     
                 </p>
                 <p>
-                    <UserNumber placeholder={t('common:Date_issue')}/>
+                    <UserNumber 
+                     className='myInput'
+                    //  id="demo-helper-text-misaligned"
+                     label={t('common:Date_issue')}
+                    // placeholder=' Например: 470347034703477'
+                    placeholder={t('03/03/1999')}/>
                 </p>
                 <FormHeading>{t('common:Contact_details')}</FormHeading>
                 <p>
-                    <UserNumber placeholder={t('common:Phone_number')}/>
-                    <UserEmail placeholder={t('common:Email')}/>
-                    <ButtonAdd> +{t('common:Add')} </ButtonAdd>
+                <UserNumber
+                            className='myInput'
+                            placeholder="998 90 989-89-89"
+                            // id="demo-helper-text-misaligned"
+                            label={t('common:Phone_number')}
+                        />
+                     <UserEmail 
+                              placeholder="status585@mail.ru"
+                            //   id="demo-helper-text-misaligned"
+                              label="Email"
+                        />
+                      {add == 'addet' ? (
+                            <>
+                             <UserNumber
+                            className='myInput'
+                            // id="demo-helper-text-misaligned"
+                            label={t('common:Phone_number')}
+                            
+                            />
+                        <UserEmail
+                            className='myInput'
+                            // helperText="Please enter your email"
+                            // id="demo-helper-text-misaligned"
+                            label="Email"
+                            
+                            
+                            />
+                            </>
+                           
+                        ): ('')}
+                    <div>
+                         { addButt == 'yes' ? (
+                             
+                            <ButtonAdd onClick={AddHand}> + {t('common:Add')}</ButtonAdd>
+
+                         ): <ButtonAdd onClick={RemoveBtn}>Убрать</ButtonAdd>} 
+                    </div>
                 </p>
                 <FormHeading>{t('common:Residence_address')}</FormHeading>
-                    <UserInfoInput placeholder={t('common:index')}/>
+                    <UserInfoInput
+                    //  id="demo-helper-text-misaligned"
+                     // placeholder="Иванов Иван Иванович"
+                     label={t('common:index')}
+                     placeholder={t('Например : 100012')}/>
                         <UptadeSelect placeholder="Область" onChange={(e) => {setValue(e.target.value)}}>
                             <option selected value="Область">{t('common:Region')}</option>
-                            <option  value="город Ташкент">{t('common:Tashkent_city')}</option>
-                            <option value="город Ташкент">{t('common:Tashkent_city')}</option>
-                            <option value="город Ташкент">{t('common:Tashkent_city')}</option>
+                            <option  value="Андижанская область">{t('Андижанская область')}</option>
+                            <option value="Бухарская область">{t('Бухарская область')}</option>
+                            <option value="Джизакская область">{t('Джизакская область')}</option>
+                            <option value="Кашкадарьинская область">{t('Кашкадарьинская область')}</option>
+                            <option value="Наманганская область">{t('Наманганская область')}</option>
+                            <option value="Самаркандская область">{t('Самаркандская область')}</option>
+                            <option value="Сурхандарьинская область">{t('Сурхандарьинская область')}</option>
+                            <option value="Сырдарьинская область">{t('Сырдарьинская область')}</option>
+                            <option value="Ташкентская область">{t('Ташкентская область')}</option>
+                            <option value="Хорезмская область">{t('Хорезмская область')}</option>
+                            <option value="Республика Каракалпакстан">{t('Республика Каракалпакстан')}</option>
+                            <option value="Город Ташкент">{t('Город Ташкент')}</option>
+
+
+
+
+
                         </UptadeSelect>
                         <UptadeSelectRayon className="rayon" placeholder="Область" onChange={(e) => {setValue(e.target.value)}}>
                             <option selected value="Область">{t('common:District_city')}</option>
-                            <option  value=" Алмазарский район">{t('common:Almazar region')}</option>
-                            <option value=" Алмазарский район"> {t('common:Almazar region')}</option>
-                            <option value=" Алмазарский район"> {t('common:Almazar region')}</option>
+                            <option  value=" Алмазарский район">{t('common:Almazar_region')}</option>
+                            <option value=" Алмазарский район"> {t('common:Almazar_region')}</option>
+                            <option value=" Алмазарский район"> {t('common:Almazar_region')}</option>
                         </UptadeSelectRayon>
-                        <UserInfoInput placeholder={t('common:Street_Quarter')}/>
-                        <UserHome placeholder={t('common:House')}/>
-                        <UserApartment placeholder={t('common:Apartment')}/>
+                        <UserInfoInput 
+                            // id="demo-helper-text-misaligned"
+                            // placeholder="Иванов Иван Иванович"
+                            label={t('common:Street_Quarter')}
+                            placeholder={t('Например :MirzoUlugbek 23')}/>
+                        <UserHome 
+                        label={t('common:House')}
+                        placeholder={t('47')}/>
+                        <UserApartment
+                        label={t('common:Apartment')}
+                        
+                        placeholder={t('9')}/>
                         
                         <ButtonBlock>
                             <CardButton>{t('common:Save')}</CardButton>

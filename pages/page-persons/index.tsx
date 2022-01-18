@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import type { NextPage } from "next";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
@@ -28,6 +28,7 @@ const YurFacePage: FC<NextPage> = () => {
   const router = useRouter();
   const { id } = router.query;
   const [loading, setLoading] = useState(false);
+  const [footer, setFooter] = useState<any>();
 
   useEffect(() => {
     setLoading(true);
@@ -45,16 +46,50 @@ const YurFacePage: FC<NextPage> = () => {
       .then(async (response) => {
         await setInsurances(response.data.data);
       });
+      api.get("footer").then((res) => {
+        // console.log("--", res);
+        setFooter(res.data);
+      });
   }, []);
   const singleId = Object.values(router.query).toString()
-  console.log(singleId)
+  const singleTitle = useMemo(() => {
+  console.log('asfkljsfdjhg rldikhg;lk' + singleId)
+    
+    switch (singleId) {
+      case '7': return 'АВТОСТРАХОВАНИЕ'
+      case '8': return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
+      case '9' :  return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
+      case '10' : return 'ДРУГИЕ ПРОГРАММЫ'
+      case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
+      case '13' : return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
+      case '14' : return 'СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ'
+      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ '
+      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
+      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
+      case '17' : return 'Перестрахование'
+      case '18' : return 'Строительство'
+      
 
+      case '11' : return 'АВТОСТРАХОВАНИЕ'
+      default: ' Cингл'
+
+    }
+  }, [singleId])
+  // let  [SingleTitle , setSingleTitle] = useState(singleId)
+
+  // if( singleId == '7'){
+  //   setSingleTitle('АВТОСТРАХОВАНИЕ')
+  // }
+  // if(singleId == '8') {
+  //   setSingleTitle('СТРАХОВАНИЕ ЗДОРОВЬЯ')
+
+  // }
   return (
     <>
     {!loading ? (
-      <Layout title="АВТОСТРАХОВАНИЕ">
+      <Layout title={singleTitle}>
       <Navbar />
-      <BreadcrumbsBlock link1={"Главная"} link2={"АВТОСТРАХОВАНИЕ"} link3={""} url2={'page-persons?id=' + singleId} url3={''}/>
+      <BreadcrumbsBlock link1={"Главная"} link2={singleTitle} link3={""} url2={'page-persons?id=' + singleId} url3={''}/>
       {pageInfo ? (
         <HeroBg data={pageInfo} />
       ) : (
@@ -64,12 +99,15 @@ const YurFacePage: FC<NextPage> = () => {
       )}
 
       <YurFaceCard data={insurances} />
-      <Footer />
+      <Footer data={footer} />
     </Layout>
     ):(<LoadingScreen/>)}
     </>
     
   );
+ 
+
 };
+
 
 export default YurFacePage;

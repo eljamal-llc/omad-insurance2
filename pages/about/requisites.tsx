@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import type { NextPage } from "next";
 import {
   AboutInfo,
@@ -15,6 +15,10 @@ import {
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
 import {AboutNav} from '../../components/common'
+import { api } from "../../services/api";
+import { INewsData } from "../../components/common/news/news.t";
+import { IData } from "../../components/common/hero/hero.t";
+import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 export async  function getStaticProps({locale}:{locale : string} ) {
   return {
     props:{
@@ -27,13 +31,38 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 export interface AboutProps {}
 const Mission: FC<NextPage> = () => {
 const {t} = useTranslation()
+const [news, setNews] = useState<INewsData[] | []>([]);
+  const [sliders, setSliders] = useState<IData[] | []>([]);
+  const [about, setAbout] = useState<any>({});
+  const [footer, setFooter] = useState<any>();
 
+  useEffect(() => {
+    // setLoading(true);
+    api.get("slider-categories").then(async (response) => {
+      await setSliders(response.data.data);
+    });
+
+    api.get("news").then((res) => {
+      setNews(res.data.data);
+    });
+    api.get("about").then((res) => {
+      // console.log(res.data);
+      setAbout(res.data);
+      
+    });
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
+    });
+  }, []);
   return (
     <Layout title={t('common:Requisites')}>
       <Navbar  />
+      <BreadcrumbsBlock  link1="Главная "  link2="О нас" url2={'/about' }  url3={'/about/requisites'} link3="Реквизиты" />
+
       <Requisites title={t('common:Requisites')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
-      <News />
-      <Footer />
+      <News data={news} />
+      <Footer data={footer} />
     </Layout>
     
   );

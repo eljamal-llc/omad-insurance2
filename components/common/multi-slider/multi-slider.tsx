@@ -9,6 +9,7 @@ import {
   SliderBtnWrapper,
   SliderText,
   Wrapper,
+  BlovkButton
 } from "./multi-slider.e";
 
 // import Swiper core and required modules
@@ -107,40 +108,43 @@ const MultiSlider: FC<MultiSliderProps> = ({ data, link }) => {
           </SwiperSlide>
         ))}
         {/* @ts-ignore */}
+        
         {data?.length > 4 ? (
           <SliderBtnRow>
-            <SliderBtn
-              ref={navigationPrevRef}
-              active={btnPrevHover}
-              onMouseMove={() => {
-                setBtnPrevHover(true);
-              }}
-              onMouseOut={() => {
-                setBtnPrevHover(false);
-              }}
-              className="left-btn"
-            >
-              <SliderBtnWrapper className="slider-wrapper">
-                <ArrowIconLeft fill="#F0803D" class="arrow-left" />
-                <SliderText active={btnPrevHover}>перейти</SliderText>
-              </SliderBtnWrapper>
-            </SliderBtn>
+            <BlovkButton>
+              <SliderBtn
+                ref={navigationPrevRef}
+                active={btnPrevHover}
+                onMouseMove={() => {
+                  setBtnPrevHover(true);
+                }}
+                onMouseOut={() => {
+                  setBtnPrevHover(false);
+                }}
+                className="left-btn"
+              >
+                <SliderBtnWrapper className="slider-wrapper">
+                  <ArrowIconLeft fill="#F0803D" class="arrow-left" />
+                  <SliderText active={btnPrevHover}>перейти</SliderText>
+                </SliderBtnWrapper>
+              </SliderBtn>
 
-            <SliderBtn
-              ref={navigationNextRef}
-              active={btnNextHover}
-              onMouseMove={() => {
-                setBtnNextHover(true);
-              }}
-              onMouseOut={() => {
-                setBtnNextHover(false);
-              }}
-            >
-              <SliderBtnWrapper className="slider-wrapper">
-                <ArrowIconRight fill="#F0803D" class="arrow-right" />
-                <SliderText active={btnNextHover}>перейти</SliderText>
-              </SliderBtnWrapper>
-            </SliderBtn>
+              <SliderBtn
+                ref={navigationNextRef}
+                active={btnNextHover}
+                onMouseMove={() => {
+                  setBtnNextHover(true);
+                }}
+                onMouseOut={() => {
+                  setBtnNextHover(false);
+                }}
+              >
+                <SliderBtnWrapper className="slider-wrapper">
+                  <ArrowIconRight fill="#F0803D" class="arrow-right" />
+                  <SliderText active={btnNextHover}>перейти</SliderText>
+                </SliderBtnWrapper>
+              </SliderBtn>
+              </BlovkButton>
           </SliderBtnRow>
         ) : (
           ""

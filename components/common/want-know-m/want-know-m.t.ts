@@ -7,4 +7,5 @@ export interface IWantDataKnoM {
   slug: string;
   text: string;
   title: string;
+  description : string
 }

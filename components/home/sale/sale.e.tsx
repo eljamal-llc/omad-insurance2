@@ -81,7 +81,7 @@ export const VerticalSlider = styled.div`
       content: "";
       height: 1px;
       width: 100%;
-      background-color: #f0803d;
+      /* background-color: #f0803d; */
       top: -20px;
       left: 0;
     }
@@ -165,6 +165,7 @@ export const HorizontalSliderLeft = styled.div`
 export const HorizontalSliderRight = styled.div`
   max-width: 50%;
   width: 100%;
+  z-index: 100;
   @media (max-width: 1400px) {
     max-width: 40%;
   }

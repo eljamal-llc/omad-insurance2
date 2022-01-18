@@ -14,7 +14,7 @@ export const CardsHeadItem = styled.div`
     display: flex;
     flex-direction: column-reverse  ;
     &:first-child{
-        border-right: 2px solid #fff;
+        border-right: 1px solid #fff;
     }
 `
 export const CardsText = styled.p`

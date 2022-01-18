@@ -69,12 +69,16 @@ export const TagsTitle = styled.div`
   font-size: 16px;
   line-height: 19px;
   color: #ffffff;
-  background-color: #f0803d;
+  /* background-color: #f0803d; */
   padding: 10px 20px;
   margin-bottom: 20px;
+  margin-left : 20px;
   border: 2px solid #f0803d;
   display: inline-block;
-
+  cursor: pointer;
+    &.All{
+      background-color: #f0803d;
+    }
   @media (max-width: 1800px) {
     font-size: calc(14px + 2 * (100vw / 1920));
   }
@@ -88,8 +92,9 @@ export const TagsRow = styled.div`
   flex-wrap: wrap;
 `;
 export const Tag = styled.div`
+  cursor: pointer;
   display: inline-block;
-  margin-right: 20px;
+  margin: 20px 0 0 20px;
   font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -101,9 +106,18 @@ export const Tag = styled.div`
     display: inline-block;
     text-decoration: none;
     transition: all 0.3s ease-out;
+    p {
+      margin: 0;
+      padding: 0;
+    }
     &:hover {
       background-color: #f0803d;
     }
+    &.active{
+      background-color: #f0803d;
+
+    }
+    
   a {
     font-family: Roboto;
     font-style: normal;

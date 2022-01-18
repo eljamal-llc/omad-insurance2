@@ -4,7 +4,7 @@ export interface NewsBodyProps {
 }
 export interface INewsSingleData {
   id: number;
-  title: string;
+  title: string | any ;
   anons: string;
   text: string;
   image: string;

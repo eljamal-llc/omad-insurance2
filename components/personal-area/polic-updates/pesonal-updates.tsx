@@ -34,13 +34,30 @@ const PersonalUdates: FC<PersonalUdatesProps> = () => {
                         <option value="КАСКО">{t('commion:CASCO')}</option>
                 </UptadeSelect>
                 <p>
-                    <UserInfoInput placeholder={t('common:name_data')}/>
+                    <UserInfoInput 
+                          id="demo-helper-text-misaligned"
+                          placeholder="Иванов Иван Иванович"
+                          label={t('common:name_data')}
+                    />
                 </p>
-                    <UserNumber type={'number'} placeholder={t('common:Insurance_policy_series_and_umber')}/>
+                    <UserNumber 
+                               
+                                id="demo-helper-text-misaligned"
+                                label={t('common:Insurance_policy_series_and_umber')}
+                                />
                     {/* <FormMessage placeholder="Сообщение"/> */}
                     <p>
-                        <UserNumber placeholder={t('common:Phone_number')} type={'tel '}/>
-                        <UserEmail placeholder={t('common:Email')}/>
+                        <UserNumber
+                            className='myInput'
+                            placeholder="998 90 989-89-89"
+                            id="demo-helper-text-misaligned"
+                            label={t('common:Phone_number')}
+                        />
+                        <UserEmail 
+                              placeholder="status585@mail.ru"
+                              id="demo-helper-text-misaligned"
+                              label="Email"
+                        />
                     </p>
                     <FormMessage placeholder={t('common:Message')}/>
                     <ButtonBlock>

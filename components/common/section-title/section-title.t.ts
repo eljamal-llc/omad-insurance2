@@ -1,5 +1,5 @@
 export interface SectionTitleProps {
-  title: string;
+  title: string | any;
   color: string;
   classN?: string;
 }

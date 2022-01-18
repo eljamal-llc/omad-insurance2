@@ -1,11 +1,24 @@
 import styled from "styled-components";
 
 
+
 export const Wrapper = styled.div`
-  border-right: 2px solid #000;
+  border-right: 1px solid #0d4656;
   a {
     padding: 40px 50px;
-    display: inline-block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 630px;
+    -webkit-text-decoration: none;
     text-decoration: none;
     position: relative;
     width: 100%;
@@ -30,6 +43,7 @@ export const Wrapper = styled.div`
       }
     }
     @media (max-width: 1680px) {
+      min-height: 449px;
       padding: 20px 30px;
     }
   }

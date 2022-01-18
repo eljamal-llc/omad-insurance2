@@ -12,6 +12,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { api } from "../../services/api";
 import { INewsData } from "../../components/common/news/news.t";
+import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -20,11 +21,14 @@ export async function getStaticProps({ locale }: { locale: string }) {
     },
   };
 }
+
 export interface PartnerProps {}
 
 const Contacts: FC<NextPage> = () => {
   const [contact, setContact] = useState();
   const [news, setNews] = useState<INewsData[] | []>([]);
+  const [footer, setFooter] = useState<any>();
+
   useEffect(() => {
     api.get("contacts").then((res) => {
       // console.log("---------", res);
@@ -33,6 +37,10 @@ const Contacts: FC<NextPage> = () => {
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
+    });
   }, []);
   return (
     <Layout title="КОНТАКТЫ">
@@ -40,6 +48,13 @@ const Contacts: FC<NextPage> = () => {
       {contact && (
         <>
           {" "}
+          <BreadcrumbsBlock
+              link1="Главная"
+              url3={""}
+              url2={"/contacts"}
+              link2="Контакты"
+              link3=""
+            />
           {/* @ts-ignore */}
           <ContactsHome data={contact.main_content} /> {/* @ts-ignore */}
           <ContactsCards data={contact.filials} />
@@ -47,7 +62,7 @@ const Contacts: FC<NextPage> = () => {
       )}
 
       <News data={news} />
-      <Footer />
+      <Footer data={footer} />
     </Layout>
   );
 };

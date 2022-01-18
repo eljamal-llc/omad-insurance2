@@ -46,12 +46,17 @@ export const Wrapper = styled.div`
     padding: 40px 50px;
     @media (max-width: 1800px) {
       max-width: 75%;
+      
     }
     @media (max-width: 1024px) {
       height: auto;
     }
     @media (max-width: 770px) {
       max-width: 100%;
+    }
+    @media(max-width:360px ){
+      padding: 0px 0px 3px 2px !important;
+
     }
     .news-date {
       display: flex;
@@ -142,9 +147,11 @@ export const Wrapper = styled.div`
       height: 100%;
       width: 1px;
       background-color: rgba(255, 255, 255, 0.5);
+      display: none;
       @media (max-width: 1800px) {
         right: 11%;
       }
+      
       .line {
         position: absolute;
         bottom: 0;
@@ -154,6 +161,7 @@ export const Wrapper = styled.div`
         transition: height 4.5s ease-out;
         /* animation: mymove 2s infinite; */
         /* animation-delay: 3s; */
+        display: none;
       }
       @keyframes mymove {
         from {
@@ -235,6 +243,7 @@ export const SliderDescriptionBtn = styled.button`
     background-color: #0d4656;
     @media (max-width: 1366px) {
       height: 30px;
+      
     }
   }
   &:first-child {

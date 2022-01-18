@@ -221,3 +221,6 @@ span.boo {
 #main-nav:checked ~ ul a {
 		height: 50px;
 }
+.SWPdd {
+	 padding: 15px;
+}

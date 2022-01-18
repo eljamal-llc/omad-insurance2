@@ -108,6 +108,8 @@ export const KnowListItem = styled.li`
   }
   &.list-active {
     a {
+      transition: 0.3s all ease-in;
+      color:#f0803d ;
       transform: translateX(65px);
     }
   }

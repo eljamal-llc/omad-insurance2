@@ -36,7 +36,7 @@ export const NavbarLeft = styled.div`
 export const NavbarRight = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 306px;
+  max-width: 378px;
   width: 100%;
   @media (max-width: 900px) {
     max-width: 240px;
@@ -67,12 +67,12 @@ export const NavbarLink = styled(Link)`
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
-  color: #ffffff;
-  text-decoration: none;
+  color: #ffffff !important;
+  text-decoration: none !important;
   padding: 10px 22px;
   border: 1px solid #fff;
   display: inline-block;
-  margin-right: 50px;
+  margin-right: 50px !important;
   transition: 0.3s all linear;
   &:last-child {
     margin-right: 0;
@@ -178,3 +178,11 @@ export const LangSwitch = styled.option`
   }
 `;
 
+export const TestDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 143px;
+
+
+
+`

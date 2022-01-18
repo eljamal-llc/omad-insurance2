@@ -56,14 +56,16 @@ const Hero: FC<HeroProps> = ({ data }) => {
         loop={true}
         parallax={true}
         modules={[Controller]}
+        
         // @ts-ignore
         onSwiper={setControlledSwiper}
         allowTouchMove={false}
       >
         {data?.map((item, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide  key={idx}>
             <HeroTitle>{item.title}</HeroTitle>
             <SliderImg
+            
               data-swiper-parallax="20%"
               data-swiper-parallax-opacity="0"
             >
@@ -82,6 +84,7 @@ const Hero: FC<HeroProps> = ({ data }) => {
           <Swiper
             fadeEffect={{ crossFade: true }}
             effect="fade"
+            className="SWPdd"
             speed={2000}
             loop={true}
             modules={[Controller]}

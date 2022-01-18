@@ -82,7 +82,7 @@ const Footer: FC<FooterProps> = ({ data }) => {
           </div>
           <FooterBottom>
             <Image src={Logo} alt="logo of Omad" className="bottom-logo" />
-            <span>© Lorem ipsum dolor. 2021 Все права защищены</span>
+            <span>© El jamal group все   права защищены</span>
             <small className="khan">© Davidkhan khadjayev</small>
           </FooterBottom>
         </GWrapper>

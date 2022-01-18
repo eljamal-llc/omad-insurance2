@@ -10,6 +10,7 @@ import {
   Layout,
   Navbar,
   WrapperCategory,
+  LoadingScreen
 } from "../../components";
 import { Wrapper } from "../../styles/global-styles.e";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -33,6 +34,8 @@ const InsuranceCase: FC<NextPage> = () => {
   const { t } = useTranslation();
   const [onlineInsure, setOnlineInsure] = useState(1);
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
+  const [footer, setFooter] = useState<any>();
+
   useEffect(() => {
     api
       .get("insurance/find", { params: { id: onlineInsure } })
@@ -40,13 +43,22 @@ const InsuranceCase: FC<NextPage> = () => {
         await setSliderData(response.data);
       });
   }, []);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1200);
     api
       .get("insurance/find", { params: { id: onlineInsure } })
       .then(async (response) => {
         // console.log("-->>", response.data);
         await setSliderData(response.data);
+      });
+      api.get("footer").then((res) => {
+        // console.log("--", res);
+        setFooter(res.data);
       });
   }, [onlineInsure]);
 
@@ -81,9 +93,13 @@ const InsuranceCase: FC<NextPage> = () => {
           id="shop"
           sortData={sortWrapperTitle}
         />
-        {/* @ts-ignore */}
+        {!loading ? (
+          //@ts-ignore
         <CardsCase id="shop" data={sliderData.content} />
-        <Footer />
+
+        ):( <LoadingScreen />)}
+        <Footer data={footer} />
+
       </Wrapper>
     </Layout>
   );

@@ -16,6 +16,9 @@ export const Wrapper = styled.div`
     left: 542px;
     z-index: 5;
   }
+  &.SWPdd {
+    padding: 20px;
+  }
   @media (max-width: 1500px) {
     &::before {
       height: 320px;
@@ -41,9 +44,11 @@ export const Wrapper = styled.div`
     height: 100%;
     background: #0d4656;
   }
+  
   .slider-description {
     width: 680px;
     height: auto;
+
     background: #0d4656;
     position: absolute;
     left: 0;

@@ -71,8 +71,8 @@ export const ConImg = styled.div`
   width: 100%;
   height: 100%;
   img {
-    width: 100%;
-    height: 100%;
+    width: 1344px;
+    height: 690px;
     object-fit: cover;
   }
 `;

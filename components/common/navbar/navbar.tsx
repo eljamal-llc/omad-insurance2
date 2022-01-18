@@ -19,6 +19,7 @@ import {
   NavbarBtn,
   LangSwitch,
   LangSwitchSelect,
+  TestDiv
 } from "./navbar.e";
 import setLanguage from "next-translate/setLanguage";
 import { useRouter } from "next/router";
@@ -92,6 +93,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
           </NavbarLeft>
           <NavbarRight>
             {/* <LangSwitchSelect> */}
+            <TestDiv>
             <LangSwitch
               onClick={async () => await setRu()}
               value={"ru"}
@@ -116,6 +118,8 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             >
               UZ
             </LangSwitch>
+            </TestDiv>
+           
 
             {/* </LangSwitchSelect> */}
             {!!token ? (

@@ -4,7 +4,7 @@ export const MtplAdventagesBlock = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 81%;
+  max-width: 100%;
   flex-wrap: wrap;
   margin: 0 auto;
   @media (max-width: 1024px) {
@@ -76,7 +76,13 @@ export const MtplAdventagesCardText = styled.p`
   color: #ffffff;
 
   &::before {
-    content: "-----";
+    /* content: "";
+    padding: 1px;
+    flex-direction: column;
+    width: 20px;
+    background-color: #fff;
+    display: flex;
+    align-items: center; */
     // border: 2px solid #FFFFFF;
   }
   @media (max-width: 425px) {
@@ -149,16 +155,18 @@ export const NumText = styled.h2`
   padding: 0;
 
   color: #ffffff;
+  @media(max-width:768px){
+  }
 `;
 export const NumberB = styled.div`
   text-align: center;
   width: 300px;
   @media (max-width: 768px) {
-    margin: 100px auto 0;
+    margin: 147px auto 0;
   }
 `;
 export const ImgBlock = styled.div`
-  margin-top: 50px;
+  margin-top: 20px;
   width: 319px;
   @media (max-width: 1440px) {
     width: 130px;
@@ -182,3 +190,79 @@ export const ImgBlock = styled.div`
     left: 110px;
   }
 `;
+export const Arrow1 = styled.div`
+    cursor: pointer;
+    position: relative;
+    width: 80px;
+    height: 50px;
+    margin: 20px;
+      & div {
+        position: relative;
+          top: 20px;
+          width: 214px;
+          height: 3px;
+          background-color: #000;
+          box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+          left: 0;
+          display: block;
+      }
+        & div::after {
+          content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    top: -15px;
+    right: -5px;
+    background-color: #000;
+    -webkit-transform: rotate( 
+45deg
+ );
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate( 
+45deg
+ );
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate( 
+45deg
+ );
+    -ms-transform: rotate( 45deg );
+    transform: rotate( 
+45deg
+ );
+        }
+        & div::before {
+          content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    top: 14px;
+    right: -6px;
+    background-color: #000;
+    box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+    -webkit-transform: rotate( 
+          -45deg
+          );
+              -ms-transform: rotate(-45deg);
+              -webkit-transform: rotate( 
+          -45deg
+          );
+              -ms-transform: rotate( -45deg );
+              transform: rotate( 
+          -45deg
+          );
+          }
+        &:hover {
+            animation: arrow-1 1s linear infinite;
+        }
+        @keyframes arrow-1 {
+            0% {
+                left:0;
+            }
+            50% {
+                left:10px;
+            }
+            100% {
+                left:0;
+            }
+        }
+`

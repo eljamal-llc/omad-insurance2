@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  border-right: 0.3px solid #000;
-  border-bottom: 1px solid #000;
+  border-right: 0.3px solid #0000007b;
+  border-bottom: 0.3px solid #0000007b;
   max-width: 25%;
   width: 100%;
   a {
     padding: 40px 50px;
-    display: inline-block;
+    display: flex;
+    -webkit-text-decoration: none;
     text-decoration: none;
     position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 
     &::before {
       display: block;

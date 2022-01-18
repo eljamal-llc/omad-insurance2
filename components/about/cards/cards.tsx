@@ -13,7 +13,7 @@ const Cards: FC<CardsProps> = ({ data }) => {
           <Card key={idx} item={item} />
         ))}
       </CardsRow>
-    </Wrapper>
+    </Wrapper>  
   );
 };
 

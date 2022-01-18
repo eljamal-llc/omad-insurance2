@@ -22,6 +22,7 @@ import { useTranslation } from "next-i18next";
 import { INewsData } from "../components/common/news/news.t";
 import { useRouter } from "next/router";
 import { ISaleData } from "../components/home/sale/sale.t";
+import { FooterProps } from "../components/common/footer/footer.t";
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -41,14 +42,23 @@ const Home: NextPage = () => {
 
   const [onlineInsure, setOnlineInsure] = useState("1");
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const { t } = useTranslation();
+  let [footerHover, setFooterHover] = useState(false);
+  let [footers, setfooters] = useState<FooterProps[]>();
   useEffect(() => {
-    setLoading(true);
+    api.get("footer").then((response) => {
+      console.log("test", response.data);
+      if (response.data.success) {
+        setfooters(response.data.data);
+      }
+    });
+  }, []);
+  useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1200);
+    }, 2000);
     api.get("slider-categories").then(async (response) => {
       await setSliders(response.data.data);
     });

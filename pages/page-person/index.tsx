@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import {
@@ -35,7 +35,10 @@ const Partner: FC<NextPage> = () => {
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [pageData, setPageData] = useState([]);
   const router = useRouter();
-  const { id } = router.query;
+  const [footer, setFooter] = useState<any>();
+
+  const { 
+    id } = router.query;
 
   useEffect(() => {
     setLoading(true);
@@ -47,6 +50,10 @@ const Partner: FC<NextPage> = () => {
       .get("slider-categories", { params: { id: id } })
       .then(async (response) => {
         await setSliders(response.data.data);
+      });
+      api.get("footer").then((res) => {
+        // console.log("--", res);
+        setFooter(res.data);
       });
 
     api.get("news").then((res) => {
@@ -72,6 +79,28 @@ const Partner: FC<NextPage> = () => {
     }
   };
   const { t } = useTranslation();
+  const singleId = Object.values(router.query).toString()
+  
+  const singleTitle = useMemo(() => {
+    switch (singleId) {
+      case '1' : return 'ЧАСТНЫЙМ ЛИЦАМ'
+      case '3': return 'ПАРТНЕРАМ'
+      case '2': return 'ЮРИДИЕСКИМ ЛИЦАМ'
+      case '9' :  return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
+      case '10' : return 'ДРУГИЕ ПРОГРАММЫ'
+      case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
+      case '13' : return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
+      case '14' : return 'СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ'
+      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ '
+      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
+      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
+      case '17' : return 'Перестрахование'
+      case '18' : return 'Строительство'
+      
+      default: ' Cингл'
+
+    }
+  }, [singleId])
   // test
   return (
     <>
@@ -80,13 +109,11 @@ const Partner: FC<NextPage> = () => {
           <Navbar />
           <BreadcrumbsBlock
             url2={
-              "polit_market"
-                ? "insurance-case?id=polit_market"
-                : "insurance-case?id=insurance-case"
+              '/page-person?id=' + singleId 
             }
             url3={""}
             link1="Главная "
-            link2={"polit_market" ? "МАГАЗИН ПОЛИС " : "СТРАХОВОЙ СЛУЧАЙ"}
+            link2={ singleTitle}
             link3=""
           />
 
@@ -99,13 +126,16 @@ const Partner: FC<NextPage> = () => {
             sortData={sortWrapperTitle}
           />
           {/* @ts-ignore */}
+          {!loading ? (
+            //@ts-ignore
           <MultiSlider data={pageData.content} link="mtpl-insurance" />
+          ):( <LoadingScreen />)}
           {/* @ts-ignore */}
           <WantKnowM data={pageData.want_to_know} />
           {/* @ts-ignore */}
           <SpecialOffers data={pageData.promotions} />
           <News data={news} />
-          <Footer />
+          <Footer data={footer} />
         </Layout>
       ) : (
         <LoadingScreen />

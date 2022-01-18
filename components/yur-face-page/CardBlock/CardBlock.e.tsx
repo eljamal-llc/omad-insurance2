@@ -158,7 +158,7 @@ export const HorizontalSliderButton = styled.div`
     transition: width 0.4s linear;
     position: absolute;
     top: 50%;
-    right: -15%;
+    right: -16px;
     transform: translateY(-50%);
     background-color: #fff;
   }

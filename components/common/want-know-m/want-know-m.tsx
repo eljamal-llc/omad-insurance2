@@ -16,6 +16,7 @@ import {
   SliderRow,
   SliderTitle,
   Wrapper,
+  WANTbg
 } from "./want-know-m.e";
 
 // import Swiper core and required modules
@@ -59,6 +60,12 @@ const WantKnowM: FC<WantKnowMProps> = ({ data }) => {
               <Swiper
                 grabCursor={true}
                 effect={"creative"}
+                speed= {800}
+              //   autoplay={{
+              //     delay: 1000,
+                  
+              //     disableOnInteraction: false
+              // }}
                 creativeEffect={{
                   prev: {
                     shadow: true,
@@ -100,7 +107,7 @@ const WantKnowM: FC<WantKnowMProps> = ({ data }) => {
                 </div>
                 {data.map((item, idx) => (
                   <SwiperSlide key={idx}>
-                    <div>
+                    <WANTbg>
                       <SliderTitle>{item.title}</SliderTitle>
                       <SliderDescription>{item.text}</SliderDescription>
                       <SliderButton>
@@ -111,8 +118,10 @@ const WantKnowM: FC<WantKnowMProps> = ({ data }) => {
                           </Link>
                         </NextLink>
                       </SliderButton>
-                    </div>
+                    </WANTbg>
+                    
                   </SwiperSlide>
+                  
                 ))}
               </Swiper>
             </SliderLeft>
