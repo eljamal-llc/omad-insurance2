@@ -46,12 +46,17 @@ export const Wrapper = styled.div`
     padding: 40px 50px;
     @media (max-width: 1800px) {
       max-width: 75%;
+      
     }
     @media (max-width: 1024px) {
       height: auto;
     }
     @media (max-width: 770px) {
       max-width: 100%;
+    }
+    @media(max-width:360px ){
+      padding: 0px 0px 3px 2px !important;
+
     }
     .news-date {
       display: flex;
@@ -238,6 +243,7 @@ export const SliderDescriptionBtn = styled.button`
     background-color: #0d4656;
     @media (max-width: 1366px) {
       height: 30px;
+      
     }
   }
   &:first-child {

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  border-right: 0.3px solid #000;
-  border-bottom: 1px solid #000;
+  border-right: 0.3px solid #0000007b;
+  border-bottom: 0.3px solid #0000007b;
   max-width: 25%;
   width: 100%;
   a {

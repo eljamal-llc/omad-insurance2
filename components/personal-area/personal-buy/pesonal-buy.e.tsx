@@ -92,7 +92,8 @@ export const UserEmail = styled(TextField)`
     /* padding: 30px 20px; */
     width: 365px;
     border: none;
-    margin:20px 0 ;
+    margin-top:20px  ;
+    margin-bottom: 20px;
     margin-left: 50px;
     font-weight: normal;
     font-size: 18px;

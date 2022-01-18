@@ -162,7 +162,7 @@ export const NumberB = styled.div`
   text-align: center;
   width: 300px;
   @media (max-width: 768px) {
-    margin: 100px auto 0;
+    margin: 147px auto 0;
   }
 `;
 export const ImgBlock = styled.div`
