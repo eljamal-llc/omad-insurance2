@@ -62,7 +62,7 @@ const YurFacePage: FC<NextPage> = () => {
         return "Перестрахование";
       case "18":
         return "Строительство";
-      case "28":
+      case "25":
         return "";
       default:
         " Cингл";
@@ -94,8 +94,9 @@ const YurFacePage: FC<NextPage> = () => {
             url2={"mtpl-insurance?id=" + singleId}
             url3={"mtpl-insurance?id=" + singleTitle}
             link1="Главная"
-            link2={insurance.title}
-            link3={singleTitle}
+            link2={'АВТОСТРАХОВАНИЕ'}
+            //@ts-ignore
+            link3={insurance.main_content.data.title}
           />
 
           <MtplInsuranceHome data={insurance.main_content} />
