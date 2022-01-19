@@ -22,8 +22,8 @@ const FormElements: FC<FormElementsProps> = ({
             placeholder={placeholder}
             className={`form-control ${classN}`}
             name={name}
-            onBlur={onChange}
-            onChange={onBlur}
+            onBlur={onBlur}
+            onChange={onChange}
           />
           <WrapperError>{error}</WrapperError>
         </WrapperInput>
