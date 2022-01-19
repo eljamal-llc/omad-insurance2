@@ -8,9 +8,15 @@ export const RulesSearch = styled(TextField)`
     &::after{
         content: '  ';
         }
+    @media(max-width:425px){
+        width: 350px;
+    }
 `
 export const Slogan = styled.span`
     font-size: 24px;
+    @media(max-width:425px){
+        font-size: 16px;
+    }
 `
 export const Pravila = styled.p`
     font-family: Roboto;
@@ -22,6 +28,9 @@ export const Pravila = styled.p`
     /* oooo */
 
     color: #F0803D;
+    @media(max-width:425px) {
+        font-size:16px
+    }
 `
 export const InfoDoc = styled.p`
     font-family: Roboto;
@@ -32,6 +41,9 @@ export const InfoDoc = styled.p`
     margin: 0;
     padding: 0;
     color: #000000;
+    @media(max-width:425px){
+        font-size:16px
+    }
 `
 export const InfoDocItem = styled.span`
     font-family: Roboto;
@@ -42,6 +54,9 @@ export const InfoDocItem = styled.span`
      margin:0 ;
      padding:0;
     color: rgba(0, 0, 0, 0.5);
+    @media(max-width:425px){
+        font-size:14px
+    }
 `
 export const BlockDocs = styled.div`
     display: flex;

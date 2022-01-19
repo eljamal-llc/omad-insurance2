@@ -6,6 +6,10 @@ export const RequisitesTable = styled.div`
     padding: 40px 0 ;
     border-top: 1px solid #000;
     width: 918px;
+    @media(max-width:768px){
+        width: 400px;
+        flex-direction: column;
+    }
 `
 
 

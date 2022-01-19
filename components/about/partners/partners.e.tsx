@@ -7,6 +7,9 @@ export const SponsrBlock = styled.div`
         width: 107%;
         /* max-width: 990px; */
         padding: 20px;
+        @media(max-width:425px){
+            flex-direction: column;
+}
 `
 export const SponsorTitle = styled.h3`
     font-family: Roboto;
@@ -16,6 +19,12 @@ export const SponsorTitle = styled.h3`
     line-height: 42px;
 
     color: #000000;
+    @media(max-width:425px){
+        line-height: 22px;
+        font-size: 20px;
+        padding: 5px;
+        font-weight: 600;
+    }
 `
 export const SponsorTitleItem = styled.p`
     font-family: Roboto;
@@ -26,4 +35,10 @@ export const SponsorTitleItem = styled.p`
     max-width:697px;    
 
     color: #000000;
+    @media(max-width:425px){
+        font-size: 20px;
+    line-height: 23px;
+    padding: 5px;
+
+    }
 `

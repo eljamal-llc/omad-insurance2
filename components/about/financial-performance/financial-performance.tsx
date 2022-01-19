@@ -8,7 +8,8 @@ import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
 import { MissionBody, MissionContent, MissionNav, MissionNavItem } from "../mission/Mission.e";
 import { SectionTitle, MainBtn , AboutNav } from "../../common";
 import { useTranslation } from "react-i18next";
-import { FinancialYears ,FinancialBlock, FinancialBlockTitle, FinicialBloclContent, DownloadBlock, FinicialP, DwBtnBlock, DwBlockBorder} from "./financial-performance.e";
+import { FinancialYears ,FinancialBlock,YearSpan, FinancialBlockTitle, FinicialBloclContent, DownloadBlock, FinicialP, DwBtnBlock, 
+  DwBlockBorder} from "./financial-performance.e";
 import Image from "next/image";
 // import PDFImage from "../../../../assets/images/about/carbon_document-pdf.png";
 
@@ -43,10 +44,10 @@ const FinancialPerformance: FC<FinancialPerformanceProps> = ({title,description}
         <div>
           <FinancialBlock>
             <FinancialYears onClick={HandlAct} className={active == 'active' ? 'active' : ''}>
-                <span>2020 год</span>
+                <YearSpan>2020 год</YearSpan>
             </FinancialYears>
             <FinancialYears onClick={HandlPrivate} className={active == 'active2' ?  'active' : " "}>
-                <span>2021 год</span>
+                <YearSpan>2021 год</YearSpan>
             </FinancialYears>
             
           </FinancialBlock>
