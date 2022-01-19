@@ -27,37 +27,37 @@ const AboutNav: FC<AboutNavProps> = () => {
           <Link href={'/about/financial-performance'}>
               <MissionNavItem>  Финансовые показатели</MissionNavItem>
             </Link> 
-          <Link href={'/'}>
+          <Link href={'/about/security-policy'}>
                <MissionNavItem>  Политика безопасности</MissionNavItem>
             </Link>
           <Link href={'/about/requisites'}>
               <MissionNavItem>  Реквизиты</MissionNavItem>
             </Link> 
-          <Link href={'/'}>
+          {/* <Link href={'/about/press-center'}>
               <MissionNavItem>  Пресс-центр</MissionNavItem>
-            </Link> 
-          <Link href={'/'}>
+            </Link>  */}
+          <Link href={'/about/payouts'}>
               <MissionNavItem>  Выплаты</MissionNavItem>
             </Link> 
           <Link href={'/about/Insurance-rules'}>
               <MissionNavItem>  Правила страхования</MissionNavItem>
             </Link> 
-          <Link href={'/'}>
+          <Link href={'/about/reinsurance'}>
               <MissionNavItem>  Перестрахование</MissionNavItem>
             </Link> 
-          <Link href={'/'}>
+          <Link href={'/about/types-insurance'}>
               <MissionNavItem>  Виды страхования</MissionNavItem>
             </Link> 
-          <Link href={'/'}>
+          <Link href={'/about/management-members'}>
               <MissionNavItem>  Руководство и участники</MissionNavItem>
             </Link> 
           {/* <Link href={'/'}>
               <MissionNavItem>  Ассоциации и пулы</MissionNavItem>
             </Link>  */}
-          <Link href={'/'}>
+          <Link href={'/about/partners'}>
               <MissionNavItem>  Партнеры</MissionNavItem>
             </Link> 
-          <Link href={'/'}>
+          <Link href={'/about/licenses'}>
               <MissionNavItem>  Лицензии</MissionNavItem>
             </Link> 
           {/* <Link href={'/'}>

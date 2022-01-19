@@ -6,3 +6,4 @@ export {default as FinancialPerformance} from "./financial-performance/financial
 export {default as Requisites} from './requisites/requisites'
 export { default as InsuranceRules} from './Insurance-rules/Insurance-rules'
 export  {default as Partners} from './partners/partners'
+export {default as PressCenter} from  './press-center/press-center'
