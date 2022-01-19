@@ -14,6 +14,17 @@ export const Title = styled.h1`
   padding: 20px 50px ;
   color: #ffffff;
   margin: 109px 0 0 40px;
+  @media(max-width:425px){
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 110%;
+    text-transform: uppercase;
+    /* padding: 20px 50px; */
+    color: #ffffff;
+    margin: 109px 0 0 15px;
+  }
 `;
 export const BranDPos = styled.div`
   padding: 111px 0 0px 45px;

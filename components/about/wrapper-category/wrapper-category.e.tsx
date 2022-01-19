@@ -4,11 +4,17 @@ export const Wrapper = styled.div`
 `;
 export const WrapperRow = styled.div`
   display: flex;
+  @media(max-width:425px){
+    width: 470px;
+  }
 `;
 export const WrapperCategories = styled.div`
   max-width: 25%;
   width: 100%;
   border-right: 1px solid #fff;
+  @media(max-width:425px){
+    max-width: 100%;
+  }
 `;
 export const WrapperCategory = styled.div`
   padding: 30px 50px;
@@ -22,17 +28,24 @@ export const WrapperCategory = styled.div`
   font-size: 24px;
   line-height: 28px;
   color: #ffffff;
+  
   &.active {
     background-color: #f0803d;
   }
   @media (max-width: 1800px) {
     padding: 7% 10%;
   }
+  @media (max-width: 425px) {
+    font-size: 18px;
+  }
 `;
 export const WrapperTags = styled.div`
   padding: 40px 50px;
   @media (max-width: 1800px) {
     padding: 30px 5%;
+  }
+  @media(max-width:425px){
+    width: 300px;
   }
 `;
 export const TagsTitle = styled.div`
@@ -56,6 +69,9 @@ export const TagsRow = styled.div`
   display: flex;
   width: 1200px;
   flex-wrap: wrap;
+  @media(max-width:425px){
+    width: 300px;
+  }
 `;
 export const Tag = styled.div`
   display: inline-block;
