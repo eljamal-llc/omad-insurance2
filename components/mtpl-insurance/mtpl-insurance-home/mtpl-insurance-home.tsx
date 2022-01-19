@@ -17,49 +17,49 @@ import HomeIMg from "../../../assets/images/yur-page/singl-yur-img/home-bg-1.png
 import { GWrapper } from "../../../styles/global-styles.e";
 import BreadcrumbsBlock from "../../common/bread-crumbs/Breadcrumbs";
 import { useTranslation } from "react-i18next";
-const MtplInsuranceHome: FC<MtplInsuranceHomeProps> = ({
-  title,
-  description,
-  image,
-}) => {
+const MtplInsuranceHome: FC<MtplInsuranceHomeProps> = ({ data }) => {
   const { t } = useTranslation();
   return (
     <HomeBg>
       <HomeBlock>
         <HomeBgItem>
           <HomeHeading>
-            {title || "Ответственность товаропроизводителя"}
+            {data.data.title || "Ответственность товаропроизводителя"}
           </HomeHeading>
           <HomeText>
-            {description ||
+            {data.data.description ||
               "Страхование без осмотра автомобиля и похода в офис. Скидки (КБМ) на ОСАГО за безаварийную езду"}
           </HomeText>
           <CardService>
             <CardServiceBlock>
               <CardServiceHeading>
-                {t("common:Fastconvenient")}{" "}
+                {data.data.privilege?.title_1}
               </CardServiceHeading>
               <CardServiceText>
-                {t("common:Calculate_and_pay_3_minutes")}
+                {data.data.privilege?.description_1}
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>{t("common:any_region")}</CardServiceHeading>
+              <CardServiceHeading>
+                {data.data.privilege?.title_2}
+              </CardServiceHeading>
               <CardServiceText>
-                {t("common:Insurance_payments_days")}
+                {data.data.privilege?.description_2}
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>{t("common:Help__24")}</CardServiceHeading>
+              <CardServiceHeading>
+                {data.data.privilege?.title_3}
+              </CardServiceHeading>
               <CardServiceText>
-                {t("common:Live_chat_and_phone_support")}
+                {data.data.privilege?.description_3}
               </CardServiceText>
             </CardServiceBlock>
           </CardService>
         </HomeBgItem>
         <HomeImg>
           {/* <Image src={HomeIMg} alt="test" /> */}
-          <img src={image} alt={title} />
+          <img src={data.data.image} alt={data.data.title} />
         </HomeImg>
       </HomeBlock>
     </HomeBg>
