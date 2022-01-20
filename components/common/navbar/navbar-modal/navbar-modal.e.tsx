@@ -22,7 +22,7 @@ export const ModalRow = styled.div`
 export const ModalMenuList = styled.ul`
   list-style: none;
   padding: 80px 0 100px 0;
-  margin-left:  27%;
+  margin-left:  27.5%;
   position: relative;
 
   &::before {

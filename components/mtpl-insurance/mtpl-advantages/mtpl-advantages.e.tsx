@@ -101,11 +101,11 @@ export const MtplAdventagesInsurance = styled.div`
   }
 `;
 export const CardImage = styled.div`
-  width: 900px;
+  width: 1000px;
   height: 300px;
   padding-left: 20px;
   img {
-    width: 100%;
+    width: 1000px;
     height: 100%;
     object-fit: cover;
   }
@@ -162,7 +162,7 @@ export const NumberB = styled.div`
   text-align: center;
   width: 300px;
   @media (max-width: 768px) {
-    margin: 2 70px auto 0;
+    margin: 270px auto 0;
   }
 `;
 export const ImgBlock = styled.div`
