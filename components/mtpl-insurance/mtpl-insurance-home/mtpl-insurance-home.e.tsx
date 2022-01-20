@@ -10,6 +10,7 @@ export const HomeBg = styled.div`
     }
 `   
 export const HomeImg = styled.div`
+    width: 1000px;
     @media(max-width:425px){
         display: none;
     }
