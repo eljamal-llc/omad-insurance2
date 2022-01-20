@@ -47,6 +47,7 @@ const MtplInsuranceHome: FC<MtplInsuranceHomeProps> = ({ data }) => {
                 {data.data.privilege?.description_2}
               </CardServiceText>
             </CardServiceBlock>
+            
             <CardServiceBlock>
               <CardServiceHeading>
                 {data.data.privilege?.title_3}
