@@ -1,0 +1,1 @@
+export interface Invite_cooperation_formProps {}

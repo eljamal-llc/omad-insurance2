@@ -10,3 +10,6 @@ export { default as WantKnowM } from "./want-know-m/want-know-m";
 export { default as FormElements } from "./forms/form-elements";
 export {default as  PersonalNavBurger} from './personal-nav-burger/pesonal-nav-burger'
 export {default as AboutNav} from './about-nav/about-nav'
+export {default as BanksComp} from '../banks/banks'
+export {default as PartnersComp} from './partners-comp/partners-comp' 
+export {default as InviteCooperationForm} from './Invite-cooperation-form/Invite-cooperation-form'
