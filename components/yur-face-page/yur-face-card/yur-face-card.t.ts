@@ -18,4 +18,10 @@ export interface ICards {
   second_image: string;
   first_life: string;
   second_life: string;
+  description_1:string;
+  description_2:string;
+  description_3:string;
+  title_1:string;
+  title_2:string;
+  title_3:string
 }
