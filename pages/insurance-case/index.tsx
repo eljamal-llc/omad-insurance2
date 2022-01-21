@@ -10,7 +10,7 @@ import {
   Layout,
   Navbar,
   WrapperCategory,
-  LoadingScreen
+  LoadingScreen,
 } from "../../components";
 import { Wrapper } from "../../styles/global-styles.e";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -56,10 +56,10 @@ const InsuranceCase: FC<NextPage> = () => {
         // console.log("-->>", response.data);
         await setSliderData(response.data);
       });
-      api.get("footer").then((res) => {
-        // console.log("--", res);
-        setFooter(res.data);
-      });
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
+    });
   }, [onlineInsure]);
 
   const sortWrapperTitle = (itemId: number | undefined) => {
@@ -84,7 +84,7 @@ const InsuranceCase: FC<NextPage> = () => {
     <Layout title={t("common:polit_market")}>
       <Wrapper>
         <Navbar onClass="bg-blue" />
-        <HeroCase id="shop" />
+        <HeroCase idx="shop" />
         <WrapperCategory
           setOnlineInsure={setOnlineInsure}
           onlineInsure={onlineInsure}
@@ -95,11 +95,11 @@ const InsuranceCase: FC<NextPage> = () => {
         />
         {!loading ? (
           //@ts-ignore
-        <CardsCase id={id == "shop" ? "shop" :  'insurance-case'} data={sliderData.content} />
-
-        ):( <LoadingScreen />)}
+          <CardsCase id="shop" data={sliderData.content} />
+        ) : (
+          <LoadingScreen />
+        )}
         <Footer data={footer} />
-
       </Wrapper>
     </Layout>
   );

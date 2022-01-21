@@ -10,6 +10,7 @@ import {
   Layout,
   Navbar,
   WrapperCategory,
+  LoadingScreen,
 } from "../../components";
 import { Wrapper } from "../../styles/global-styles.e";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -31,45 +32,75 @@ const InsuranceCase: FC<NextPage> = () => {
   const { id } = router.query;
 
   const { t } = useTranslation();
-  const [onlineInsure, setOnlineInsure] = useState("fiz");
+  const [onlineInsure, setOnlineInsure] = useState(1);
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
-  useEffect(() => {
-    api
-      .get("category-insurance", { params: { type: onlineInsure } })
-      .then(async (response) => {
-        await setSliderData(response.data.data);
-      });
-  }, []);
+  const [footer, setFooter] = useState<any>();
 
   useEffect(() => {
     api
-      .get("category-insurance", { params: { type: onlineInsure } })
+      .get("insurance-case/index", {
+        params: { type: onlineInsure },
+      })
       .then(async (response) => {
         await setSliderData(response.data.data);
       });
-  }, [onlineInsure]);
-  const [footer, setFooter] = useState<any>();
-  useEffect(() => {
-   
     api.get("footer").then((res) => {
       // console.log("--", res);
       setFooter(res.data);
     });
-  
   }, []);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1200);
+    api
+      .get("insurance-case/index", {
+        params: { type: onlineInsure },
+      })
+      .then(async (response) => {
+        await setSliderData(response.data.data);
+      });
+  }, [onlineInsure]);
+
+  const sortWrapperTitle = (itemId: number | undefined) => {
+    if (itemId != undefined) {
+      api
+        .get("insurance/find", {
+          params: { id: onlineInsure, sort_id: itemId },
+        })
+        .then((res) => {
+          setSliderData(res.data);
+        });
+    } else {
+      api
+        .get("insurance/find", { params: { id: onlineInsure } })
+        .then((res) => {
+          setSliderData(res.data);
+        });
+    }
+  };
+
   return (
     <Layout title={t("common:polit_market")}>
       <Wrapper>
         <Navbar onClass="bg-blue" />
-        <HeroCase id={id} />
+        <HeroCase idx="case" />
         <WrapperCategory
           setOnlineInsure={setOnlineInsure}
           onlineInsure={onlineInsure}
-          id={id && id}
+          // @ts-ignore
+          id="case"
         />
-        {/* @ts-ignore */}
-        <CardsCase id={id} data={sliderData} />
-      <Footer data={footer} />
+        {!loading ? (
+          //@ts-ignore
+          <CardsCase id="case" data={sliderData.content} />
+        ) : (
+          <LoadingScreen />
+        )}
+        <Footer data={footer} />
       </Wrapper>
     </Layout>
   );

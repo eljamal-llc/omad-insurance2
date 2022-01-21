@@ -19,7 +19,7 @@ import {
   NavbarBtn,
   LangSwitch,
   LangSwitchSelect,
-  TestDiv
+  TestDiv,
 } from "./navbar.e";
 import setLanguage from "next-translate/setLanguage";
 import { useRouter } from "next/router";
@@ -79,13 +79,13 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
               {/* </NextLink> */}
             </NavbarLogo>
 
-            <NextLink href="/insurance-case?id=shop" passHref>
+            <NextLink href="/insurance-case" passHref>
               <NavbarLink className="toremove">
                 {t("common:polit_market")}
               </NavbarLink>
             </NextLink>
 
-            <NextLink href="/insurance-case?id=insurance-case" passHref>
+            <NextLink href="/insurance-cases" passHref>
               <NavbarLink className="toremove">
                 {t("common:Insurance_case")}
               </NavbarLink>
@@ -94,32 +94,31 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
           <NavbarRight>
             {/* <LangSwitchSelect> */}
             <TestDiv>
-            <LangSwitch
-              onClick={async () => await setRu()}
-              value={"ru"}
-              className={router.locale == "ru" ? "active" : ""}
-            >
-              RU
-            </LangSwitch>
-            <NextLink href={"/"} locale="en">
               <LangSwitch
-                onClick={async () => await setEn()}
-                value={"en"}
-                className={router.locale == "en" ? "active" : ""}
+                onClick={async () => await setRu()}
+                value={"ru"}
+                className={router.locale == "ru" ? "active" : ""}
               >
-                EN
+                RU
               </LangSwitch>
-            </NextLink>
+              <NextLink href={"/"} locale="en">
+                <LangSwitch
+                  onClick={async () => await setEn()}
+                  value={"en"}
+                  className={router.locale == "en" ? "active" : ""}
+                >
+                  EN
+                </LangSwitch>
+              </NextLink>
 
-            <LangSwitch
-              onClick={async () => await setUz()}
-              value={"uz"}
-              className={router.locale == "uz" ? "active" : ""}
-            >
-              UZ
-            </LangSwitch>
+              <LangSwitch
+                onClick={async () => await setUz()}
+                value={"uz"}
+                className={router.locale == "uz" ? "active" : ""}
+              >
+                UZ
+              </LangSwitch>
             </TestDiv>
-           
 
             {/* </LangSwitchSelect> */}
             {!!token ? (

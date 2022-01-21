@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import parse from "html-react-parser";
 // import { Link } from "@mui/material";
 import NextLink from 'next/link'
 import { CardProps } from "./card.t";
@@ -20,66 +21,49 @@ import {
 import Slider1 from "../../../../assets/images/multi-slider/slider-1.jpg";
 
 const Card: FC<CardProps> = ({ id, item }) => {
-  return id == "shop" ? (
-    <Wrapper>
-      <Link href={`/mtpl-insurance?id=${item.id}`} passHref>
-        <a>
-          <div>
-            <SliderTitle>{item.name}</SliderTitle>
-            <p>{item.info}</p>
-          </div>
-         
-          {/* <SliderList>
-            <SliderListItem>ОСАГО</SliderListItem>
-            <SliderListItem>КАСКО</SliderListItem>
-            <SliderListItem>КАСКО профессионал</SliderListItem>
-            <SliderListItem>Помощ на дороге</SliderListItem>
-          </SliderList> */}
-          <div>
-            <SliderImg>
-              {/* <Image src={Slider1} alt="slider-image" /> */}
-              <img src={item.image} alt={item.name} />
-              <SliderLink>Купить онлайн</SliderLink>
-            </SliderImg>
-          </div>
-          
-        </a>
-      </Link>
-    </Wrapper>
-  ) : (
-    <WrapperTag>
-      <SliderTitle>Авто</SliderTitle>
-      <CardDesc>Узнать, что делать в случае если:</CardDesc>
-      <CardTags>
-        <CardTag>
-          <NextLink href="/" passHref>
-            <Link href="/">Произошло ДТП</Link>
-          </NextLink>
-        </CardTag>
-      </CardTags>
-      <CardTag>
-        <NextLink href="/" passHref>
-          <Link href="/">ДТП с иностранным ТС</Link>
-        </NextLink>
-      </CardTag>
+  return (
+    <>
+      {id == "shop" && (
+        <Wrapper>
+          <Link href={`/mtpl-insurance?id=${item.id}`} passHref>
+            <a>
+              <div>
+                <SliderTitle>{item.name}</SliderTitle>
+                <p>{item.info}</p>
+              </div>
+              <div>
+                <SliderImg>
+                  {/* <Image src={Slider1} alt="slider-image" /> */}
+                  <img src={item.image} alt={item.name} />
+                  <SliderLink>Купить онлайн</SliderLink>
+                </SliderImg>
+              </div>
+            </a>
+          </Link>
+        </Wrapper>
+      )}
 
-      <CardTag>
-        <NextLink href="/" passHref>
-          <Link href="/">ДТП произошло за рубежом</Link>
-        </NextLink>
-      </CardTag>
+      {id == "case" && (
+        <WrapperTag>
+          <SliderTitle>{item.title}</SliderTitle>
+          <CardDesc>{parse(item.description)}</CardDesc>
+          <CardTags>
+            {item.subCategory?.map((tag: any, tagId: any) => (
+              <CardTag key={tagId}>
+                <Link href="#" passHref>
+                  <a>{tag.title}</a>
+                </Link>
+              </CardTag>
+            ))}
+          </CardTags>
 
-      <CardTag>
-        <NextLink href="/" passHref>
-          <Link href={"/"}>Противоправное действие третьих лиц </Link>
-        </NextLink>
-      </CardTag>
-
-      <SliderImg>
-        <Image src={Slider1} alt="slider-image" />
-        <SliderLink>Купить онлайн</SliderLink>
-      </SliderImg>
-    </WrapperTag>
+          <SliderImg>
+            <Image src={Slider1} alt="slider-image" />
+            {/* <SliderLink>Купить онлайн</SliderLink> */}
+          </SliderImg>
+        </WrapperTag>
+      )}
+    </>
   );
 };
 
