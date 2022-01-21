@@ -42,10 +42,15 @@ const Schema = Yup.object().shape({
 const UserData: FC<UserDataProps> = () => {
   const [regions, setRegions] = useState([]);
   const [districts, setDistricts] = useState([]);
-
+  const [userInfo, setUserInfo] = useState<any>({});
   useEffect(() => {
     api.get("cabinet/regions-list").then((res) => {
       setRegions(res.data.data);
+    });
+
+    api.get("cabinet/user/get").then((res) => {
+      // console.log(res);
+      setUserInfo(res.data.data);
     });
   }, []);
 
@@ -53,7 +58,7 @@ const UserData: FC<UserDataProps> = () => {
   const [value, setValue] = useState("");
   const [add, isAdd] = useState("");
   const [addButt, setAddBut] = useState("yes");
-  const [userInfo, setUserInfo] = useState<any>({});
+
   const AddHand = () => {
     isAdd("addet");
     setAddBut("");
@@ -62,7 +67,17 @@ const UserData: FC<UserDataProps> = () => {
     isAdd("");
     setAddBut("yes");
   };
-  const handleSubmit = (e: any) => {};
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    api
+      .post("cabinet/user/post", userInfo)
+      .then((res) => {
+        console.log("object ==>", res);
+      })
+      .catch((err) => {
+        console.log("object ==>", err.response.data);
+      });
+  };
   const handleChange = (event: any, field: any) => {
     setUserInfo((prevState: any) => ({
       ...prevState,
@@ -91,8 +106,12 @@ const UserData: FC<UserDataProps> = () => {
                 label={t("common:name_data")}
                 onChange={(e) => handleChange(e, "full_name")}
                 name="full_name"
+                value={userInfo.full_name}
                 required
                 id="full_name"
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
             </p>
             <p>
@@ -106,6 +125,7 @@ const UserData: FC<UserDataProps> = () => {
                 type="date"
                 id="data_birthday"
                 defaultValue="00-00-2000"
+                value={userInfo.data_birthday}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -121,22 +141,37 @@ const UserData: FC<UserDataProps> = () => {
               required
               id="documentTypeId"
               onChange={(e) => handleChange(e, "documentTypeId")}
+              value={userInfo.documentTypeId}
             >
               <option selected>{t("common:Citizens_passport")}</option>
               <option value={1}>Паспорт</option>
               <option value={2}>ID карта</option>
               {/* <option value="США">США</option> */}
             </UptadeSelect>
-            <SNumber
-              className="myInput"
-              //  id="demo-helper-text-misaligned"
-              label={t("common:Series_number_pas")}
+
+            <UserInfoInput
               placeholder=" Например: 470347034703477"
+              label={t("common:Series_number_pas")}
               onChange={(e) => handleChange(e, "documentSerieAndNumber")}
               name="documentSerieAndNumber"
               required
               id="documentSerieAndNumber"
+              value={userInfo.documentSerieAndNumber}
+              // InputLabelProps={{
+              //   shrink: true,
+              // }}
             />
+            {/* <SNumber
+              className="myInput"
+              //  id="demo-helper-text-misaligned"
+
+              id="documentSerieAndNumber"
+              value={userInfo.documentSerieAndNumber}
+              type="text"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            /> */}
             <p>
               <UserInfoInput
                 label={t("common:Issued_by")}
@@ -145,6 +180,10 @@ const UserData: FC<UserDataProps> = () => {
                 name="documentIssuedBy"
                 required
                 id="documentIssuedBy"
+                value={userInfo.documentIssuedBy}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
             </p>
             <p>
@@ -162,6 +201,7 @@ const UserData: FC<UserDataProps> = () => {
                   shrink: true,
                 }}
                 required
+                value={userInfo.documentDateOfIsue}
               />
             </p>
             <FormHeading>{t("common:Contact_details")}</FormHeading>
@@ -174,6 +214,10 @@ const UserData: FC<UserDataProps> = () => {
                 name="tel1"
                 required
                 id="tel1"
+                value={userInfo.tel1}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
               <UserEmail
                 placeholder="status585@mail.ru"
@@ -182,6 +226,10 @@ const UserData: FC<UserDataProps> = () => {
                 name="email1"
                 required
                 id="email1"
+                value={userInfo.email1}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
               {add == "addet" ? (
                 <>
@@ -192,6 +240,10 @@ const UserData: FC<UserDataProps> = () => {
                     onChange={(e) => handleChange(e, "tel2")}
                     name="tel2"
                     id="tel2"
+                    value={userInfo.tel2}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
                   />
                   <UserEmail
                     className="myInput"
@@ -201,6 +253,10 @@ const UserData: FC<UserDataProps> = () => {
                     onChange={(e) => handleChange(e, "email2")}
                     name="email2"
                     id="email2"
+                    value={userInfo.email2}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
                   />
                 </>
               ) : (
@@ -222,6 +278,10 @@ const UserData: FC<UserDataProps> = () => {
               name="box_index"
               required
               id="box_index"
+              value={userInfo.box_index}
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
             <UptadeSelect
               placeholder="Область"
@@ -262,6 +322,10 @@ const UserData: FC<UserDataProps> = () => {
               onChange={(e) => handleChange(e, "street")}
               name="street"
               id="street"
+              value={userInfo.street}
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
             <UserHome
               label={t("common:House")}
@@ -269,6 +333,10 @@ const UserData: FC<UserDataProps> = () => {
               onChange={(e) => handleChange(e, "home")}
               name="home"
               id="home"
+              value={userInfo.home}
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
             <UserApartment
               label={t("common:Apartment")}
@@ -276,6 +344,10 @@ const UserData: FC<UserDataProps> = () => {
               onChange={(e) => handleChange(e, "flat")}
               name="flat"
               id="flat"
+              value={userInfo.flat}
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
 
             <ButtonBlock>

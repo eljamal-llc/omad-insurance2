@@ -1,3 +1,3 @@
 export interface HeroProps {
-  id?: any;
+  idx?: any;
 }

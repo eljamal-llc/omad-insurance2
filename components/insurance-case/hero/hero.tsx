@@ -9,39 +9,43 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useTranslation } from "next-i18next";
 import { ContainerHero } from "../../yur-face-page/hero-bg/hero-bg.e";
 const main_image = "/bg-avto-str.png";
-const HeroCase: FC<HeroProps> = () => {
+const HeroCase: FC<HeroProps> = ({ idx }) => {
   const { t } = useTranslation();
-  
-  const router = useRouter()
-  const id:any  = Object.values(   router.query) 
-  console.log('asdafadddddddlhsdsa' + id)
+
+  const router = useRouter();
+  const id: any = Object.values(router.query);
+  console.log("asdafadddddddlhsdsa" + id);
   function handleClick(event: any) {
     event.preventDefault();
     console.info("You clicked a breadcrumb.");
-  console.log('asdafadddddddlhsdsa' + '  ' + id)
-
+    console.log("asdafadddddddlhsdsa" + "  " + id);
   }
   return (
     <ContainerHero imgUrl={main_image}>
       <BranDPos>
         <BreadcrumbsBlock
-          
           url2={
-            id == "polit_market"
-              ? "insurance-case?id=polit_market"
-              : "insurance-case?id=insurance-case"
+            idx == "shop"
+              ? "insurance-case"
+              : idx == "case"
+              ? "insurance-cases"
+              : ""
           }
           url3={""}
           link1="Главная "
-          link2={id == "polit_market" ? "МАГАЗИН ПОЛИС " : "СТРАХОВОЙ СЛУЧАЙ"}
+          link2={
+            idx == "shop"
+              ? "МАГАЗИН ПОЛИС "
+              : idx == "case"
+              ? "СТРАХОВОЙ СЛУЧАЙ"
+              : ""
+          }
           link3=""
         />
       </BranDPos>
-      {id == "polit_market" ? (
-        <Title>{t("common:polit_market")}</Title>
-      ) : (
-        <Title onClick={handleClick}>Страховой случай</Title>
-      )}
+
+      {idx == "shop" && <Title>{t("common:polit_market")}</Title>}
+      {idx == "case" && <Title onClick={handleClick}>Страховой случай</Title>}
     </ContainerHero>
   );
 };
