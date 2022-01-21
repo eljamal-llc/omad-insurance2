@@ -65,7 +65,7 @@ export const FormInfo = styled.p`
 
     color: #000000;
 
-    opacity: 0.5;
+    /* opacity: 0.5; */
 `
 export const FormContainer = styled.div`
     display: flex;
@@ -114,8 +114,12 @@ export const CostS = styled.div`
     height: 6px;
     background: #F0803D;
 
-    &.active{
-    width: 163px;
+    &.80{
+    width: 173px;
+
+    }
+    &.100{
+    width: 100%;
 
     }
 `
@@ -140,7 +144,7 @@ export const ModelCar = styled(TextField)`
 export const Engine = styled(TextField)`
     background: #F1F1F1;
     width: 100%;
-    margin: 40px 0;
+    margin: 10px 0;
 `
 export const RegionUsage = styled(TextField)`
     width: 100%;
@@ -201,7 +205,7 @@ export const Avto = styled.div`
 export const InfoUser = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    /* padding: 20px 0; */
     flex-wrap: wrap;
     align-items: center;
 `
@@ -210,12 +214,49 @@ export const FormsUser = styled(TextField)`
     background-color: #f1f1f1;
     margin: 10px 0 ;
 `
+export const FormUserD = styled(TextField)`
+    background-color: #f1f1f1;
+    margin: 10px 0 ;
+    width: 100% ;
+`
 export const CheckDTp = styled.p`
     padding: 7px 58px;
     border-radius: 3px;
     display: flex;
+    width: 360px;
 
     border: 1px solid #000;
     align-items: center;
     justify-content: space-between;
+`
+export const UserStr = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+export const UserNumber = styled(TextField)`
+    background: #F1F1F1;
+    /* padding: 30px 20px; */
+    width: 365px;
+    border: none;
+    margin:20px 0  !important;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    @media(max-width:425px){
+        width:285px;  
+    }
+       
+`
+export const FormsDrop = styled.select`
+    width: 365px;
+    padding: 16px 5px;
+    background: #F1F1F1;
+    border-radius: 3px;
+    border: 1px solid #b9b9b9;
+
+
+
+
 `
