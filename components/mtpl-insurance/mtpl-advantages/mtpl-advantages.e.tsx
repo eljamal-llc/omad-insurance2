@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+export const ERBg = styled.div`
+  background-color: #f1f1f1;
+`
 export const MtplAdventagesBlock = styled.div`
   display: flex;
   justify-content: center;
@@ -22,7 +25,9 @@ export const MtplAdventagesBlock = styled.div`
     padding: 0;
   }
 `;
-
+export const AS = styled.div`
+  padding: 100px;
+`
 export const MtplAdventagesHeading = styled.h2`
   font-size: 36px;
   line-height: 42px;
@@ -30,7 +35,9 @@ export const MtplAdventagesHeading = styled.h2`
   font-style: normal;
   font-weight: normal;
   text-align: center;
-  margin-top: 120px;
+  margin-top: 0;
+  margin-bottom:40px ;
+  padding-top: 120px;
   @media (max-width: 425px) {
     font-size: 16px;
     text-align: left;
