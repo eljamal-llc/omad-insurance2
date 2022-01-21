@@ -100,7 +100,7 @@ export const MtplAdventagesCardText = styled.p`
 export const MtplAdventagesInsurance = styled.div`
   display: flex;
   max-width: 75%;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   margin: 30px auto;
   @media (max-width: 1024px) {
@@ -119,10 +119,11 @@ export const CardImage = styled.div`
 `;
 export const MtplAdventagesInsuranceTwo = styled.div`
   display: flex;
-  max-width: 75%;
-  align-items: center;
+  max-width: 82%;
+  /* align-items: center; */
   width: 100%;
   margin: 30px auto;
+  justify-content: space-between;
   @media (max-width: 1024px) {
     flex-direction: column;
   }
