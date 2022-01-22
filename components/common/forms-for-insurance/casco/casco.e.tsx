@@ -114,11 +114,11 @@ export const CostS = styled.div`
     height: 6px;
     background: #F0803D;
 
-    &.80{
+    &.i80{
     width: 173px;
 
     }
-    &.100{
+    &.i100{
     width: 100%;
 
     }

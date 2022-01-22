@@ -54,31 +54,16 @@ import { CardButton } from "../../../yur-face-page/CardBlock/CardBlock.e";
 import { UserApartment, UserHome } from "../../../personal-area/user-data/user-data.e";
 import { UptadeSelect, UptadeSelectRayon } from "../../../personal-area/polic-updates/pesonal-.updates.e";
 import { api } from "../../../../services/api";
-import * as Yup from "yup";
 
 
 const Casco: FC<CascoProps> = () => {
-    const Schema = Yup.object().shape({
-        full_name: Yup.string().required("This field is required"),
-        data_birthday: Yup.string().required("This field is required"),
-        contacts: Yup.array().required("This field is required"),
-        documentTypeId: Yup.number().required("This field is required"),
-        documentSerieAndNumber: Yup.string().required("This field is required"),
-        documentIssuedBy: Yup.string().required("This field is required"),
-        documentDateOfIsue: Yup.string().required("This field is required"),
-        region_id: Yup.number().required("This field is required"),
-        district_id: Yup.number().required("This field is required"),
-        street: Yup.string().nullable(true),
-        home: Yup.string().nullable(true),
-        flat: Yup.string().nullable(true),
-      });
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const [check, setCheck] = useState(false);
-  const [addButt, setAddBut] = useState("yes");
-  const [districts, setDistricts] = useState([]);
-  const [regions, setRegions] = useState([]);
-const {t} = useTranslation()
-const getDistrict = (id: any) => {
+    const [addButt, setAddBut] = useState("yes");
+    const [districts, setDistricts] = useState([]);
+    const [regions, setRegions] = useState([]);
+    const {t} = useTranslation()
+    const getDistrict = (id: any) => {
     api
       .get("cabinet/district-list", {
         params: { regionId: id },
@@ -128,24 +113,24 @@ const getDistrict = (id: any) => {
         setPropgres('80')
         console.log()
   }
-  const handleChange = (event: any, field: any) => {
-    setUserInfo((prevState: any) => ({
-      ...prevState,
-      [field]: event.target.value,
-    }));
-  };
-  const prevAV = () =>{
-    setAvto('avto')
-    setInsuranse('')
-    setPropgres('40')
-    setCheck(false)
-    setStep(1)
-      
-  }
+    const handleChange = (event: any, field: any) => {
+        setUserInfo((prevState: any) => ({
+        ...prevState,
+        [field]: event.target.value,
+        }));
+    };
+    const prevAV = () =>{
+        setAvto('avto')
+        setInsuranse('')
+        setPropgres('40')
+        setCheck(false)
+        setStep(1)
+        
+    }
 
-  const CheckCredit = () =>{
+    const CheckCredit = () =>{
     setCredit(!credit)
-  }
+    }
     const NoIns =  () =>{
         setInsuranse('')
         setPropgres('100')
@@ -644,8 +629,13 @@ const getDistrict = (id: any) => {
                         <CostBlock>
                             <ThisCost>Заполните до показа стоимости:</ThisCost>
                             <CostValue>{progres}%</CostValue>
-                            <CostS className={progres}/>
-                            <CostInfo>+40% за заполнение следующего шага</CostInfo>
+                            <CostS className={'i' + progres}/>
+                            {progres == '100' ?(
+                                    ''
+                            ): (
+                                <CostInfo>    {progres == '80' ? '+20%' : '+40% '}      за заполнение следующего шага</CostInfo>
+
+                            )}
                         </CostBlock>
                     </FormContainer>
                    
