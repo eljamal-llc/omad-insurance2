@@ -40,7 +40,8 @@ import {
     UserNumber,
     FormUserD,
     FormsDrop,
-    UserDataBlock
+    UserDataBlock,
+    FlexBlock
 } from './casco.e'
 import MenuItem from '@mui/material/MenuItem';
 import { CascoProps } from "./casco.t";
@@ -174,7 +175,7 @@ const Casco: FC<CascoProps> = () => {
                                             label='Двигатьель*'
                                             placeholder="2.0 (250.00 л.с.)"
                                         />
-
+                            <p></p>
                                         <RegionUsage
                                             label='Регион использование*'
                                             placeholder="Ташкент и ТО"
@@ -237,7 +238,8 @@ const Casco: FC<CascoProps> = () => {
                                                 value={userInfo.documentDateOfIsue}
                                             />
                                              <FormInfo>Автомобиль</FormInfo>
-                                                <FormUserD
+                                             <FlexBlock>
+                                             <FormUserD
                                                     label='VIN*'
                                                     placeholder=" На пример :  X9L212300A0287536  "
                                                     id="tel"
@@ -249,6 +251,8 @@ const Casco: FC<CascoProps> = () => {
                                                     placeholder="Если есть  "
                                                     id="tel"
                                                 />
+                                             </FlexBlock>
+                                                
                                             <InfoUser>
                                                 
                                                

@@ -50,7 +50,8 @@ export const FormTitle = styled.h3`
 
     color: #000000;
     @media(max-width:425px){
-    font-size: 20px;
+        font-size: 20px;
+        width: 232px;
 
     }
 
@@ -74,6 +75,9 @@ export const FormContainer = styled.div`
 // Заполните до показа стоимости:
 export const CostBlock = styled.div`
     width:  280px;
+    @media(max-width:760px){
+        display: none;
+    }
 `
 export const ThisCost = styled.p`
     font-family: Roboto;
@@ -131,25 +135,43 @@ export const AvtoModel = styled(TextField)`
 export const CarsBlock = styled.div`
     display: flex;
     justify-content: space-between;
+    @media(max-width:425px){
+        flex-direction: column;
+    }
 `
 
 export const  BrandCar =  styled(TextField)`
     background: #F1F1F1;
     width: 227px;
+    @media(max-widtH:425px){
+        margin: 5px 0 !important;
+    }
 `
 export const ModelCar = styled(TextField)`
      background: #F1F1F1;
     width: 227px;
+    @media(max-widtH:425px){
+        margin: 5px 0 !important;
+    }
 `
 export const Engine = styled(TextField)`
     background: #F1F1F1;
     width: 100%;
     margin: 10px 0 !important;
+    @media(max-widtH:425px){
+        margin: 5px 0 !important;
+        width: 225px;
+
+    }
 `
 export const RegionUsage = styled(TextField)`
     width: 100%;
     background: #F1F1F1;
     margin:20px 0 40px 0 ;
+    @media(max-widtH:425px){
+        width: 225px;
+
+    }
 `
 export const FormButtonBlock = styled.div`
     border-top: 1px solid #000000;;
@@ -213,11 +235,17 @@ export const FormsUser = styled(TextField)`
     width: 365px;
     background-color: #f1f1f1;
     margin: 10px 0 ;
+        @media(max-width:428px){
+            width: 225px;
+        }
 `
 export const FormUserD = styled(TextField)`
     background-color: #f1f1f1;
     margin: 10px 0 !important ;
     width: 100% ;
+    @media(max-width:425px){
+        width: 248px;
+    }
 `
 export const CheckDTp = styled.p`
     padding: 7px 58px;
@@ -228,11 +256,19 @@ export const CheckDTp = styled.p`
     border: 1px solid #000;
     align-items: center;
     justify-content: space-between;
+    @media(max-width:428px){
+            width: 225px;
+            padding: 0px 18px;
+
+        }
 `
 export const UserStr = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media(max-width:425px){
+        display: block;
+}
 `
 export const UserNumber = styled(TextField)`
     background: #F1F1F1;
@@ -245,7 +281,7 @@ export const UserNumber = styled(TextField)`
     line-height: 21px;
     color: #000000;
     @media(max-width:425px){
-        width:285px;  
+        width:248px;  
     }
        
 `
@@ -256,7 +292,9 @@ export const FormsDrop = styled.select`
     border-radius: 3px;
     border: 1px solid #b9b9b9;
 
-
+    @media(max-width:425px){
+        width: 248px;
+    }
 
 
 `
@@ -264,4 +302,11 @@ export const UserDataBlock = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+`
+export const FlexBlock = styled.div`
+    display: flex;
+    justify-content: space-between;
+    @media(max-width:425px){
+        flex-direction: column;
+    }
 `
