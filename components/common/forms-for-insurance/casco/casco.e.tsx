@@ -144,7 +144,7 @@ export const ModelCar = styled(TextField)`
 export const Engine = styled(TextField)`
     background: #F1F1F1;
     width: 100%;
-    margin: 10px 0;
+    margin: 10px 0 !important;
 `
 export const RegionUsage = styled(TextField)`
     width: 100%;
@@ -216,7 +216,7 @@ export const FormsUser = styled(TextField)`
 `
 export const FormUserD = styled(TextField)`
     background-color: #f1f1f1;
-    margin: 10px 0 ;
+    margin: 10px 0 !important ;
     width: 100% ;
 `
 export const CheckDTp = styled.p`
@@ -259,4 +259,9 @@ export const FormsDrop = styled.select`
 
 
 
+`
+export const UserDataBlock = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `

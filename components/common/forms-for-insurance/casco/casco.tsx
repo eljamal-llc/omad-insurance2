@@ -39,7 +39,8 @@ import {
     UserStr,
     UserNumber,
     FormUserD,
-    FormsDrop
+    FormsDrop,
+    UserDataBlock
 } from './casco.e'
 import MenuItem from '@mui/material/MenuItem';
 import { CascoProps } from "./casco.t";
@@ -53,8 +54,24 @@ import { CardButton } from "../../../yur-face-page/CardBlock/CardBlock.e";
 import { UserApartment, UserHome } from "../../../personal-area/user-data/user-data.e";
 import { UptadeSelect, UptadeSelectRayon } from "../../../personal-area/polic-updates/pesonal-.updates.e";
 import { api } from "../../../../services/api";
+import * as Yup from "yup";
+
 
 const Casco: FC<CascoProps> = () => {
+    const Schema = Yup.object().shape({
+        full_name: Yup.string().required("This field is required"),
+        data_birthday: Yup.string().required("This field is required"),
+        contacts: Yup.array().required("This field is required"),
+        documentTypeId: Yup.number().required("This field is required"),
+        documentSerieAndNumber: Yup.string().required("This field is required"),
+        documentIssuedBy: Yup.string().required("This field is required"),
+        documentDateOfIsue: Yup.string().required("This field is required"),
+        region_id: Yup.number().required("This field is required"),
+        district_id: Yup.number().required("This field is required"),
+        street: Yup.string().nullable(true),
+        home: Yup.string().nullable(true),
+        flat: Yup.string().nullable(true),
+      });
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const [check, setCheck] = useState(false);
   const [addButt, setAddBut] = useState("yes");
@@ -145,7 +162,7 @@ const getDistrict = (id: any) => {
                                     <Avto>
                                         {avto == 'avto' ? (
                                             <>
-                    <HeIs>КАСКО <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
+                    <HeIs>КАСКО <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3    </StepIn> </HeIs>
 
                                             <FormTitle>Заполните информацию о автомобиле</FormTitle>
                                         
@@ -461,9 +478,10 @@ const getDistrict = (id: any) => {
                                                     value={userInfo.documentDateOfIsue}
                                                 />
                                                 </p>
-                                                <FormHeading>{t("common:Contact_details")}</FormHeading>
+                                                    <FormHeading>{t("common:Contact_details")}</FormHeading>
                                                 <p>
-                                                <UserNumber
+                                                <UserDataBlock>
+                                                     <UserNumber
                                                     className="myInput"
                                                     placeholder="998 90 989-89-89"
                                                     label={t("common:Phone_number")}
@@ -488,34 +506,36 @@ const getDistrict = (id: any) => {
                                                     shrink: true,
                                                     }}
                                                 />
+                                                </UserDataBlock>
+                                               
                                                 {add == "addet" ? (
-                                                    <>
-                                                    <UserNumber
-                                                        className="myInput"
-                                                        // id="demo-helper-text-misaligned"
-                                                        label={t("common:Phone_number")}
-                                                        onChange={(e) => handleChange(e, "tel2")}
-                                                        name="tel2"
-                                                        id="tel2"
-                                                        value={userInfo.tel2}
-                                                        InputLabelProps={{
-                                                        shrink: true,
-                                                        }}
-                                                    />
-                                                    <UserEmail
-                                                        className="myInput"
-                                                        // helperText="Please enter your email"
-                                                        // id="demo-helper-text-misaligned"
-                                                        label="Email"
-                                                        onChange={(e) => handleChange(e, "email2")}
-                                                        name="email2"
-                                                        id="email2"
-                                                        value={userInfo.email2}
-                                                        InputLabelProps={{
-                                                        shrink: true,
-                                                        }}
-                                                    />
-                                                    </>
+                                                   <UserDataBlock>
+                                                   <UserNumber
+                                                  className="myInput"
+                                                  placeholder="998 90 989-89-89"
+                                                  label={t("common:Phone_number")}
+                                                //   onChange={(e) => handleChange(e, "tel1")}
+                                                  name="tel1"
+                                                  required
+                                                  id="tel1"
+                                                //   value={userInfo.tel1}
+                                                  InputLabelProps={{
+                                                  shrink: true,
+                                                  }}
+                                              />
+                                              <UserEmail
+                                                  placeholder="status585@mail.ru"
+                                                  label="Email"
+                                                //   onChange={(e) => handleChange(e, "email1")}
+                                                  name="email1"
+                                                  required
+                                                  id="email1"
+                                                //   value={userInfo.email1}    
+                                                  InputLabelProps={{
+                                                  shrink: true,
+                                                  }}
+                                              />
+                                              </UserDataBlock>
                                                 ) : (
                                                     ""
                                                 )}
