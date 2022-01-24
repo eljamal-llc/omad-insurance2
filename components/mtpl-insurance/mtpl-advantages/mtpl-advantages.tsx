@@ -57,6 +57,8 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
       case '30' : return 'СТРАХОВАНИЕ КВАРТИРЫ '
       case '25' : return 'КАСКО'
       case '26'  : return 'КАСКО'
+      case '27'  : return 'Осаго'
+
       case '4': return 'КАСКО'
       case  '7'  : return 'КАСКО'
       case  '1' : return 'КАСКО'
@@ -239,15 +241,16 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
                 <Health title={singleTitle}/>
               
             ):''}
-                {singleTitle == 'КАСКО' ? (
+                {singleTitle === 'КАСКО' ? (
                 //@ts-ignore
                 <Casco title={singleTitle}/>
               
             ):''}
-            {typePolis == '30' || '31' ? (
+            
+            {singleTitle === 'СТРАХОВАНИЕ ИМУЩЕСТВА' ||   'СТРАХОВАНИЕ КВАРТИРЫ'    ? (
                 //@ts-ignore
               <Property title={singleTitle}/>
-            ): ''}
+            ): null}
 
            
           </AS>

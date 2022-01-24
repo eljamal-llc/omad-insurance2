@@ -209,7 +209,39 @@ const Health: FC<HealthProps> = ({title}) => {
                                                 required/>
                                                
                                         </CarsBlock>
+                                        {add == 'addet' ? (
+                                            <CarsBlock>
+                                            <FormsUser
 
+                                                label='Фамилия, имя и отчество*'
+                                                placeholder="Иванов Иван Иванович"
+                                                type={''}
+                                                id=""
+                                                />
+                                                <UserNumber
+                                                className="myInput"
+                                                placeholder="Дата рождения*"
+                                                // id="demo-helper-text-misaligned"
+                                                label={t("Дата начала действия")}
+                                                onChange={(e) => handleChange(e, "documentDateOfIsue")}
+                                                name="documentDateOfIsue"
+                                                type="date"
+                                                id="date health"
+                                                defaultValue="Дата начала действия"
+                                                InputLabelProps={{
+                                                shrink: true,
+                                                }}
+                                                required/>
+                                               
+                                        </CarsBlock>
+                                        ) : ''}
+                                            <div>
+                                                    {addButt == "yes" ? (
+                                                    <ButtonAdd onClick={AddHand}> + {t("common:Add")}</ButtonAdd>
+                                                    ) : (
+                                                    <ButtonAdd onClick={RemoveBtn}>Убрать</ButtonAdd>
+                                                    )}
+                                                </div>
                                        
                                                  
                                         <FormButtonBlock>
