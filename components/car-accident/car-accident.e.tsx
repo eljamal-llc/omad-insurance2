@@ -7,6 +7,9 @@ export const FireLine = styled.div`
     max-height: 650px;
     background-color: #fff;
     padding: 40px 50px;
+    @media(max-width:425px){
+        min-width: auto;
+    }
 `
 export const LineNumber = styled.p`
     font-family: Roboto;
@@ -18,7 +21,9 @@ export const LineNumber = styled.p`
     /* oooo */
 
     color: #F0803D;
-
+    @media(max-width:425px){
+        font-size: 20px;
+}
 `
 export const Danger = styled.h4`
     font-family: Roboto;
@@ -45,6 +50,10 @@ export const Punkts = styled.div`
     display: flex;
     max-width: 1200px;
     /* align-items: center; */
+    @media(max-width:425px){
+        flex-direction: column;
+        justify-content: space-between;
+    }
 `
 export const Punkt = styled.div`
     width: 100px;
@@ -63,6 +72,17 @@ export const Punkt = styled.div`
     display: flex;
     justify-content:space-between;
     flex-direction: column;
+    @media(max-width:425px){
+        font-size: 40px;
+        height: 60px;
+        width: 160px;
+        line-height: 52px;
+
+        &::after{
+        content: '';
+        display: none;
+    }
+    }
     &::after{
         content: '';
         display: flex;
@@ -71,6 +91,9 @@ export const Punkt = styled.div`
         text-align: center;
         transform: rotate(90deg);
         height: 1000px;
+        @media(max-width:425px){
+            display: none;
+        }
     }
 `
 export const PunktDes = styled.p`
@@ -81,6 +104,9 @@ export const PunktDes = styled.p`
     line-height: 28px;
     color: #000000;
     max-width: 700px;
+    @media(max-width:425px){
+        font-size: 18px;
+    }
 
 `
 export const CHtototTam = styled.div`
@@ -106,6 +132,9 @@ export const DowBlock = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin:70px;
+    @media(max-width:425px){
+        width: auto;
+    }
 
 `
 export const DowDiv = styled.div`
