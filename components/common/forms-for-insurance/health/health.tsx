@@ -148,7 +148,8 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
                                     <Avto>
                                         {health == 'health' ? (
                                             <>
-                                    <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 2    </StepIn> </HeIs>
+                            <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+
 
                                             <FormTitle>Выберите параметры страховки</FormTitle>
                                         
@@ -266,7 +267,8 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
                                         ):''}
                                         {insuranse== 'insuranse' ? (
                                              <>
-                                             <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+                        <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+
                                             {yurFace == false ? (
                                                 <BodyForm>
                                                  <FormBody>

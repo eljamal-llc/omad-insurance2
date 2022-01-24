@@ -75,7 +75,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
     }
   }, [typePolis])
   let isYur = false 
-  if(typePolis == '11'){
+  if(typePolis == '11' || typePolis == '6' || typePolis == '7'  || typePolis == '8' ||typePolis == '36'|| typePolis == '39'|| typePolis == '40'){
     isYur = true
   }
   return (

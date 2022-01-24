@@ -148,7 +148,8 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                     <Avto>
                                         {avto == 'avto' ? (
                                             <>
-                    <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3    </StepIn> </HeIs>
+                                           <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+
 
                                             <FormTitle>Заполните информацию о автомобиле</FormTitle>
                                         
@@ -215,7 +216,8 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                         ):''}
                                         {insuranse== 'insuranse' ? (
                                             <>
-                    <HeIs>{title}  &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
+                                          <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+
 
                                              <FormTitle>Период страхования</FormTitle>
                                         
@@ -364,7 +366,9 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                             
                                         {calc  == 'calc' ? (
                                        <>
-                                        <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
+                  <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+
+
 
                                         {yurFace == false ? (
                                             <BodyForm>

@@ -149,7 +149,8 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
                                     <Avto>
                                         {avto == 'avto' ? (
                                             <>
-                    <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3    </StepIn> </HeIs>
+                                          <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+
 
                                             <FormTitle>Укажите адрес недвижимости</FormTitle>
                                         
@@ -237,7 +238,8 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
                                         ):''}
                                         {insuranse== 'insuranse' ? (
                                             <>
-                    <HeIs>{title}  &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
+                                           <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+
 
                                         
                                              {/* <FormInfo>Выберите значение из списка, используя поиск по буквам</FormInfo> */}
@@ -312,7 +314,8 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
                                         ): ('')}
                                      {calc  == 'calc' ? (
                                        <>
-                                        <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
+                                   <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+
 
                                         {yurFace == false ? (
                                             <BodyForm>
