@@ -15,7 +15,9 @@ export const GlobalFormBody = styled.div`
 
     }
 `
-
+export const PrBlock = styled.div`
+    width: 600px;
+`
 export const HeIs = styled.h1`
     font-size: 36px;
     line-height: 42px;
@@ -309,7 +311,12 @@ export const FormsDrop = styled.select`
     @media(max-width:425px){
         width: 248px;
     }
-
+    &.high {
+        width: 680px;
+        @media(max-width:425px){
+        width: 248px;
+    }
+    }
 
 `
 export const UserDataBlock = styled.div`
@@ -322,5 +329,8 @@ export const FlexBlock = styled.div`
     justify-content: space-between;
     @media(max-width:425px){
         flex-direction: column;
+    }
+    &.low{
+        width: 600px;
     }
 `

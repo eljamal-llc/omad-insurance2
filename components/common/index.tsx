@@ -16,3 +16,4 @@ export {default as InviteCooperationForm} from './Invite-cooperation-form/Invite
 export {default as AgentsBrokers} from '../agents-brokers/agents-brokers'
 export {default as Casco} from './forms-for-insurance/casco/casco'
 export {default as Health} from './forms-for-insurance/health/health'
+export {default as Property} from './forms-for-insurance/property/property'

@@ -27,7 +27,7 @@ import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
 import Strelka from "/strlka.png";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { Casco , Health } from "../..";
+import { Casco , Health, Property } from "../..";
 import { useRouter } from "next/router";
 const MtplAdventages: FC<MtplAdventagesProps> = ({
   dataAdvantage,
@@ -54,7 +54,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
       case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
       case '17' : return 'Перестрахование'
       case '18' : return 'Строительство'
-      case '30' : return 'Страхование имущества '
+      case '30' : return 'СТРАХОВАНИЕ КВАРТИРЫ '
       case '25' : return 'КАСКО'
       case '26'  : return 'КАСКО'
       case '4': return 'КАСКО'
@@ -62,7 +62,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
       case  '1' : return 'КАСКО'
       case  '3' : return 'КАСКО'
       case  '28' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
-
+      case '31' : return 'СТРАХОВАНИЕ ДОМА'
 
 
 
@@ -239,12 +239,15 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
                 <Health title={singleTitle}/>
               
             ):''}
-                {/* @ts-ignore */}
                 {singleTitle == 'КАСКО' ? (
                 //@ts-ignore
                 <Casco title={singleTitle}/>
               
             ):''}
+            {typePolis == '30' || '31' ? (
+                //@ts-ignore
+              <Property title={singleTitle}/>
+            ): ''}
 
            
           </AS>
