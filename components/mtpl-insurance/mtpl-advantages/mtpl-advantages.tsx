@@ -39,6 +39,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   const router  = useRouter()
   const {id} = router.query
   const typePolis = Object.values(router.query).toString()
+
   const singleTitle = useMemo(() => {
   console.log('asfkljsfdjhg rldikhg;lk' + typePolis)
     
@@ -73,6 +74,10 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
 
     }
   }, [typePolis])
+  let isYur = false 
+  if(typePolis == '11'){
+    isYur = true
+  }
   return (
     // <GWrapper>
     <ERBg>
@@ -238,18 +243,18 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
           <AS>
             {singleTitle == 'СТРАХОВАНИЕ ЗДОРОВЬЯ' ? (
                 //@ts-ignore
-                <Health title={singleTitle}/>
+                <Health yurFace={isYur} title={singleTitle}/>
               
             ):''}
                 {singleTitle === 'КАСКО' ? (
                 //@ts-ignore
-                <Casco yurFace={true} title={singleTitle}/>
+                <Casco yurFace={isYur} title={singleTitle}/>
               
             ):''}
             
             {singleTitle === 'СТРАХОВАНИЕ ИМУЩЕСТВА' || typePolis == '30'  ? (
                 //@ts-ignore
-              <Property yurFace={true} title={singleTitle}/>
+              <Property yurFace={isYur} title={singleTitle}/>
             ): ''}
 
            

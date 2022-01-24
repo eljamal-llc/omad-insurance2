@@ -632,13 +632,64 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                             </FormBody>
                                             </BodyForm>
                                         ):(
-                                            <h1>AM</h1>
+                                            <>
+                                                 <FormBody>
+                                                    <FormHeading>Данные для оформления</FormHeading>
+                                                    <UserInfoInput
+                                                    placeholder="Khans"
+                                                    label={'Название компании'}
+                                                    name="full_name"
+                                                    required
+                                                    id="company_name"
+                                                    InputLabelProps={{
+                                                    shrink: true,
+                                                    }}
+                                                /><br/><br/>
+                                                <UserInfoInput
+                                                    placeholder=""
+                                                    label={'Юридический адрес'}
+                                                    name="full_name"
+                                                    required
+                                                    id="yur_adress"
+                                                    InputLabelProps={{
+                                                    shrink: true,
+                                                    }}
+                                                /><br/><br/>
+                                                    <UserInfoInput
+                                                    placeholder="10855430604947"
+                                                    label={'Свидетельство'}
+                                                    name="guvoh"
+                                                    required
+                                                    id="guvohnima"
+                                                    InputLabelProps={{
+                                                    shrink: true,
+                                                    }}
+                                                /><br/><br/>
+                                                <UserInfoInput
+                                                    placeholder="10855430604947"
+                                                    label={'ИНН'}
+                                                    name="full_name"
+                                                    required
+                                                    id="inn"
+                                                    InputLabelProps={{
+                                                    shrink: true,
+                                                    }}
+                                                /><br/><br/>
+                                                
+                                                 
+                                                <ButtonBlock>
+                                                <CardButton type="submit">{t("common:Save")}</CardButton>
+                                                </ButtonBlock>
+                                                </FormBody>
+                                            </>
                                         )}
 
                                        
                                        </>
 
-                                        ):''}
+                                        ):(
+                                           ''
+                                        )}
                                         </div>
                                     
                                         
