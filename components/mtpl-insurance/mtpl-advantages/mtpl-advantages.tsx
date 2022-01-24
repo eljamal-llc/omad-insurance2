@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import { GWrapper } from "../../../styles/global-styles.e";
 import { MtplAdventagesProps } from "./mtpl-advantages.t";
 import parse from "html-react-parser";
@@ -28,7 +28,7 @@ import Strelka from "/strlka.png";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { Casco } from "../..";
-
+import { useRouter } from "next/router";
 const MtplAdventages: FC<MtplAdventagesProps> = ({
   dataAdvantage,
   dataCardImage,
@@ -36,7 +36,41 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   dataSteps,
 }) => {
   const { t } = useTranslation();
-  
+  const router  = useRouter()
+  const {id} = router.query
+  const typePolis = Object.values(router.query).toString()
+  const singleTitle = useMemo(() => {
+  console.log('asfkljsfdjhg rldikhg;lk' + typePolis)
+    
+    switch (typePolis) {
+      case '8': return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
+      case '9' :  return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
+      case '10' : return 'ДРУГИЕ ПРОГРАММЫ'
+      case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
+      case '13' : return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
+      case '14' : return 'СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ'
+      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ '
+      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
+      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
+      case '17' : return 'Перестрахование'
+      case '18' : return 'Строительство'
+      case '30' : return 'Страхование имущества '
+      case '25' : return 'КАСКО'
+      case '26'  : return 'КАСКО'
+      case '4': return 'КАСКО'
+      case  '7'  : return 'КАСКО'
+      case  '1' : return 'КАСКО'
+      case  '3' : return 'КАСКО'
+
+
+
+
+
+      case '2' : return 'ОСАГО'
+      default: 'КАСКО'
+
+    }
+  }, [typePolis])
   return (
     // <GWrapper>
     <ERBg>
@@ -200,7 +234,8 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
             </NumberB>
           </MtplAdventagesBlock>
           <AS>
-            <Casco/>
+                {/* @ts-ignore */}
+            <Casco title={singleTitle}/>
           </AS>
         </ERBg>
       )}

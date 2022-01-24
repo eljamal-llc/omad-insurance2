@@ -57,7 +57,7 @@ import { UptadeSelect, UptadeSelectRayon } from "../../../personal-area/polic-up
 import { api } from "../../../../services/api";
 
 
-const Casco: FC<CascoProps> = () => {
+const Casco: FC<CascoProps> = ({title}) => {
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const [check, setCheck] = useState(false);
     const [addButt, setAddBut] = useState("yes");
@@ -148,7 +148,7 @@ const Casco: FC<CascoProps> = () => {
                                     <Avto>
                                         {avto == 'avto' ? (
                                             <>
-                    <HeIs>КАСКО <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3    </StepIn> </HeIs>
+                    <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3    </StepIn> </HeIs>
 
                                             <FormTitle>Заполните информацию о автомобиле</FormTitle>
                                         
@@ -215,7 +215,7 @@ const Casco: FC<CascoProps> = () => {
                                         ):''}
                                         {insuranse== 'insuranse' ? (
                                             <>
-                    <HeIs>КАСКО  &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
+                    <HeIs>{title}  &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
 
                                              <FormTitle>Период страхования</FormTitle>
                                         
@@ -300,22 +300,27 @@ const Casco: FC<CascoProps> = () => {
                                                 {ogrV == false ? (
                                                     <>
                                                      <FormInfo>Укажите данные водителя</FormInfo>
-                                            <FormsUser
+                                                <FlexBlock>
+                                                <FormsUser
 
-                                                    label='Фамилия, имя и отчество*'
-                                                    placeholder="Иванов Иван Иванович"
-                                                    type={''}
-                                                    id="emailUser"
-                                                />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                  <FormsUser
+                                                        label='Фамилия, имя и отчество*'
+                                                        placeholder="Иванов Иван Иванович"
+                                                        type={''}
+                                                        id="emailUser"
+                                                        />
+
+                                                    <FormsUser
 
                                                     label='Дата рождения*'
                                                     placeholder="Дата рождения"
                                                     type={''}
                                                     id="emailUser"
                                                     />
+                                                </FlexBlock>
+                                           
+                                                
                                                      {add == "addet" ? (
-                                                <>
+                                                <FlexBlock>
                                                 <FormsUser
 
                                                     label='Фамилия, имя и отчество*'
@@ -330,13 +335,13 @@ const Casco: FC<CascoProps> = () => {
                                                         type={''}
                                                         id="emailUser"
                                                         />
-                                                </>
+                                                </FlexBlock>
                                             ) : (
                                                 ""
                                             )}
                                                     <div>
                                                         {addButt == "yes" ? (
-                                                        <ButtonAdd onClick={AddHand}> + Добавить  {t("common:Add")}</ButtonAdd>
+                                                        <ButtonAdd onClick={AddHand}>     {t("common:Add")}</ButtonAdd>
                                                         ) : (
                                                         <ButtonAdd onClick={RemoveBtn}>Убрать</ButtonAdd>
                                                         )}
@@ -357,7 +362,7 @@ const Casco: FC<CascoProps> = () => {
                                     {calc  == 'calc' ? (
                                        
                                        <>
-                                        <HeIs>КАСКО <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
+                                        <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
 
                                         <BodyForm>
                                             <FormBody>

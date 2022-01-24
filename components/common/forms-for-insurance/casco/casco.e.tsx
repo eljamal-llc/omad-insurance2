@@ -9,7 +9,7 @@ export const GlobalFormBody = styled.div`
     margin-top: 50px;
     background-color: #ffff;
     @media(max-width:425px){
-        width: 300px;
+        width: 330px;
         padding: 20px 25px;
         border-top: 2px solid #000000;
 
@@ -65,6 +65,10 @@ export const FormInfo = styled.p`
     line-height: 28px;
 
     color: #000000;
+    @media(max-width:425px){
+        font-size: 20px;
+
+    }
 
     /* opacity: 0.5; */
 `
@@ -112,6 +116,9 @@ export const CostInfo = styled.p`
 //  Заполните до показа стоимости:
 export const FormBlock = styled.div`
     width: 781px;
+    @media(max-width:425px){
+        width: 300px;
+    }
 `
 export const CostS = styled.div`
     width: 93px;
@@ -181,6 +188,9 @@ export const FormButtonBlock = styled.div`
     width: 100%;
     max-width: 780px;
     /* padding: 40px 0; */
+    @media(max-width:425px){
+        width: 250px;
+    }
 `
 export const FormBtnCheck = styled.span`
   display: flex;
@@ -230,6 +240,10 @@ export const InfoUser = styled.div`
     /* padding: 20px 0; */
     flex-wrap: wrap;
     align-items: center;
+    @media(max-width:425px){
+        flex-direction: column;
+        width: 200px;
+    }
 `
 export const FormsUser = styled(TextField)`
     width: 365px;

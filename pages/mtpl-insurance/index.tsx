@@ -86,7 +86,7 @@ const YurFacePage: FC<NextPage> = () => {
     });
   }, []);
   return (
-    <Layout title={singleTitle || 'СТРАХОВАНИЕ ОСАГО'}>
+    <Layout title={insurance.main_content.data.title }>
       <Navbar />
       {insurance && (
         <div>

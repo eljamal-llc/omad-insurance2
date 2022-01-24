@@ -1,1 +1,3 @@
-export interface CascoProps {}
+export interface CascoProps {
+    title : string
+}
