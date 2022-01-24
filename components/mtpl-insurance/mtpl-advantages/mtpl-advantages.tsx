@@ -247,10 +247,10 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
               
             ):''}
             
-            {singleTitle === 'СТРАХОВАНИЕ ИМУЩЕСТВА' ||   'СТРАХОВАНИЕ КВАРТИРЫ'    ? (
+            {singleTitle === 'СТРАХОВАНИЕ ИМУЩЕСТВА'   ? (
                 //@ts-ignore
               <Property title={singleTitle}/>
-            ): null}
+            ): ''}
 
            
           </AS>
