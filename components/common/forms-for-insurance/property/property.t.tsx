@@ -1,3 +1,4 @@
 export interface PropertyProps {
-    title : string
+    title : string;
+    yurFace:boolean
 }

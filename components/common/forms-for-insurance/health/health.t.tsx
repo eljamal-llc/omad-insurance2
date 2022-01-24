@@ -1,3 +1,4 @@
 export interface HealthProps {
-    title : string
+    title : string;
+    yurFace:boolean
 }

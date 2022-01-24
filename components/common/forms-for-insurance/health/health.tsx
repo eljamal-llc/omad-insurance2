@@ -57,7 +57,7 @@ import { UptadeSelect, UptadeSelectRayon } from "../../../personal-area/polic-up
 import { api } from "../../../../services/api";
 
 
-const Health: FC<HealthProps> = ({title}) => {
+const Health: FC<HealthProps> = ({title ,yurFace}) => {
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const [check, setCheck] = useState(false);
     const [addButt, setAddBut] = useState("yes");
@@ -267,8 +267,8 @@ const Health: FC<HealthProps> = ({title}) => {
                                         {insuranse== 'insuranse' ? (
                                              <>
                                              <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
-     
-                                             <BodyForm>
+                                            {yurFace == false ? (
+                                                <BodyForm>
                                                  <FormBody>
                                                  <FormHeading>{t("common:Personal_ata")}</FormHeading>
                                                  <PageForm onSubmit={handleSubmit}>
@@ -532,6 +532,10 @@ const Health: FC<HealthProps> = ({title}) => {
                                                  
                                                  </FormBody>
                                              </BodyForm>
+                                            ):(
+                                                <h1>AM ins</h1>
+                                            )}
+                                             
                                             </>
                                         ): ('')}
                                   

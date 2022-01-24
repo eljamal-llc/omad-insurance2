@@ -58,7 +58,7 @@ import { UptadeSelect, UptadeSelectRayon } from "../../../personal-area/polic-up
 import { api } from "../../../../services/api";
 
 
-const Property: FC<PropertyProps> = ({title}) => {
+const Property: FC<PropertyProps> = ({title , yurFace }) => {
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const [check, setCheck] = useState(false);
     const [addButt, setAddBut] = useState("yes");
@@ -310,12 +310,12 @@ const Property: FC<PropertyProps> = ({title}) => {
                                      </FormButtonBlock>
                                      </>
                                         ): ('')}
-                                    {calc  == 'calc' ? (
-                                       
+                                     {calc  == 'calc' ? (
                                        <>
                                         <HeIs>{title} <small></small> &nbsp;  &nbsp;  &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
 
-                                        <BodyForm>
+                                        {yurFace == false ? (
+                                            <BodyForm>
                                             <FormBody>
                                             <FormHeading>{t("common:Personal_ata")}</FormHeading>
                                             <PageForm onSubmit={handleSubmit}>
@@ -426,7 +426,7 @@ const Property: FC<PropertyProps> = ({title}) => {
                                                     <FormHeading>{t("common:Contact_details")}</FormHeading>
                                                 <p>
                                                 <UserDataBlock>
-                                                     <UserNumber
+                                                    <UserNumber
                                                     className="myInput"
                                                     placeholder="998 90 989-89-89"
                                                     label={t("common:Phone_number")}
@@ -452,35 +452,35 @@ const Property: FC<PropertyProps> = ({title}) => {
                                                     }}
                                                 />
                                                 </UserDataBlock>
-                                               
+                                                
                                                 {add == "addet" ? (
-                                                   <UserDataBlock>
-                                                   <UserNumber
-                                                  className="myInput"
-                                                  placeholder="998 90 989-89-89"
-                                                  label={t("common:Phone_number")}
+                                                    <UserDataBlock>
+                                                    <UserNumber
+                                                className="myInput"
+                                                placeholder="998 90 989-89-89"
+                                                label={t("common:Phone_number")}
                                                 //   onChange={(e) => handleChange(e, "tel1")}
-                                                  name="tel1"
-                                                  required
-                                                  id="tel1"
+                                                name="tel1"
+                                                required
+                                                id="tel1"
                                                 //   value={userInfo.tel1}
-                                                  InputLabelProps={{
-                                                  shrink: true,
-                                                  }}
-                                              />
-                                              <UserEmail
-                                                  placeholder="status585@mail.ru"
-                                                  label="Email"
+                                                InputLabelProps={{
+                                                shrink: true,
+                                                }}
+                                            />
+                                            <UserEmail
+                                                placeholder="status585@mail.ru"
+                                                label="Email"
                                                 //   onChange={(e) => handleChange(e, "email1")}
-                                                  name="email1"
-                                                  required
-                                                  id="email1"
+                                                name="email1"
+                                                required
+                                                id="email1"
                                                 //   value={userInfo.email1}    
-                                                  InputLabelProps={{
-                                                  shrink: true,
-                                                  }}
-                                              />
-                                              </UserDataBlock>
+                                                InputLabelProps={{
+                                                shrink: true,
+                                                }}
+                                            />
+                                            </UserDataBlock>
                                                 ) : (
                                                     ""
                                                 )}
@@ -578,10 +578,15 @@ const Property: FC<PropertyProps> = ({title}) => {
                                             </PageForm>
                                             
                                             </FormBody>
-                                        </BodyForm>
+                                            </BodyForm>
+                                        ):(
+                                            <h1>AM</h1>
+                                        )}
+
+                                       
                                        </>
 
-                                    ):''}
+                                        ):''}
                                         
                                     </Avto>
                                 </FormBlock>    

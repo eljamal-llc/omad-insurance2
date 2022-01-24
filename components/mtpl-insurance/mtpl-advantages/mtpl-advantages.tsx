@@ -243,13 +243,13 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
             ):''}
                 {singleTitle === 'КАСКО' ? (
                 //@ts-ignore
-                <Casco title={singleTitle}/>
+                <Casco yurFace={true} title={singleTitle}/>
               
             ):''}
             
-            {singleTitle === 'СТРАХОВАНИЕ ИМУЩЕСТВА'   ? (
+            {singleTitle === 'СТРАХОВАНИЕ ИМУЩЕСТВА' || typePolis == '30'  ? (
                 //@ts-ignore
-              <Property title={singleTitle}/>
+              <Property yurFace={true} title={singleTitle}/>
             ): ''}
 
            
