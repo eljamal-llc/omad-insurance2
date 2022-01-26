@@ -246,7 +246,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
                 <Health yurFace={isYur} title={singleTitle}/>
               
             ):''}
-                {singleTitle === 'КАСКО' ? (
+                {singleTitle === 'КАСКО'|| singleTitle == 'ОСАГО' ? (
                 //@ts-ignore
                 <Casco yurFace={isYur} title={singleTitle}/>
               

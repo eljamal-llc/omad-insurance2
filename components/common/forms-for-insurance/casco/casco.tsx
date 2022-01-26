@@ -84,6 +84,8 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
     const [sobs , setSobs] = useState(false)
     const [ogrV , setOgrV] = useState(false)
   const [add, isAdd] = useState("");
+  const [add2, isAdd2] = useState("");
+  const [addButt2  , setaddButt2] = useState('yes')
 
     const handleChangeE= (event:any) => {
       setAge(event.target.value);
@@ -103,11 +105,21 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
         isAdd("addet");
         setAddBut("");
       };
+      const AddHand2 = () => {
+        isAdd2("addet");
+       
+        setaddButt2("");
+      };
       const RemoveBtn = () => {
         isAdd("");
         setAddBut("yes");
       };
-    const NoAvto = ()=>{
+      const RemoveBtn2 = () => {
+        isAdd2("");
+        setaddButt2("yes");
+      };
+    const NoAvto = (e:any)=>{
+        e.preventDefault();
         setAvto('')
         setInsuranse('insuranse')
         setStep(2)
@@ -132,25 +144,22 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
     const CheckCredit = () =>{
     setCredit(!credit)
     }
-    const NoIns =  () =>{
-        setInsuranse('')
+    const NoIns =  (e:any) =>{
+        e.preventDefault();
         setPropgres('100')
         setStep(3)
-
+        
         setCalc('calc')
 
     }
         return (
             <GlobalFormBody>
                     <FormContainer>
-                            <form action="">
+                    <PageForm onSubmit={handleSubmit}>
                                 <FormBlock>
                                     <Avto>
-                                        {avto == 'avto' ? (
                                             <>
-                                           <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
-
-
+                                           <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
                                             <FormTitle>Заполните информацию о автомобиле</FormTitle>
                                         
 
@@ -213,10 +222,9 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                             
                                         </FormButtonBlock>
                                         </>
-                                        ):''}
                                         {insuranse== 'insuranse' ? (
                                             <>
-                                          <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+                                          <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small></HeIs>
 
 
                                              <FormTitle>Период страхования</FormTitle>
@@ -353,9 +361,7 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                 ):''}
                                            
                                      <FormButtonBlock>
-                                             <FormBtnCheck>
-                                                     <a onClick={prevAV}>Назад</a>
-                                             </FormBtnCheck>
+                                                <div></div>
                                              <FormInsBtn onClick={NoIns} >Далее </FormInsBtn>
                                          
                                      </FormButtonBlock>
@@ -366,7 +372,7 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                             
                                         {calc  == 'calc' ? (
                                        <>
-                  <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+                  <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small>  </HeIs>
 
 
 
@@ -374,7 +380,6 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                             <BodyForm>
                                             <FormBody>
                                             <FormHeading>{t("common:Personal_ata")}</FormHeading>
-                                            <PageForm onSubmit={handleSubmit}>
                                                 <p>
                                                 <UserInfoInput
                                                     placeholder="Иванов Иван Иванович"
@@ -509,7 +514,7 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                 />
                                                 </UserDataBlock>
                                                 
-                                                {add == "addet" ? (
+                                                {add2 == "addet" ? (
                                                     <UserDataBlock>
                                                     <UserNumber
                                                 className="myInput"
@@ -541,10 +546,10 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                     ""
                                                 )}
                                                 <div>
-                                                    {addButt == "yes" ? (
-                                                    <ButtonAdd onClick={AddHand}> + {t("common:Add")}</ButtonAdd>
+                                                    {addButt2 == "yes" ? (
+                                                    <ButtonAdd onClick={AddHand2}> + {t("common:Add")}</ButtonAdd>
                                                     ) : (
-                                                    <ButtonAdd onClick={RemoveBtn}>Убрать</ButtonAdd>
+                                                    <ButtonAdd onClick={RemoveBtn2}>Убрать</ButtonAdd>
                                                     )}
                                                 </div>
                                                 </p>
@@ -631,7 +636,6 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                 <ButtonBlock>
                                                 <CardButton type="submit">{t("common:Save")}</CardButton>
                                                 </ButtonBlock>
-                                            </PageForm>
                                             
                                             </FormBody>
                                             </BodyForm>
@@ -682,7 +686,7 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                 
                                                  
                                                 <ButtonBlock>
-                                                <CardButton type="submit">{t("common:Save")}</CardButton>
+                                                <CardButton type="submit">Отправить</CardButton>
                                                 </ButtonBlock>
                                                 </FormBody>
                                             </>
@@ -699,7 +703,7 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                         
                                     </Avto>
                                 </FormBlock>    
-                            </form>
+                        </PageForm>
                         <CostBlock>
                             <ThisCost>Заполните до показа стоимости:</ThisCost>
                             <CostValue>{progres}%</CostValue>
