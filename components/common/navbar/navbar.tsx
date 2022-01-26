@@ -90,6 +90,11 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
                 {t("common:Insurance_case")}
               </NavbarLink>
             </NextLink>
+            <NextLink href="/polis-chack" passHref>
+              <NavbarLink className="toremove">
+                {t("Проверка полиса")}
+              </NavbarLink>
+            </NextLink>
           </NavbarLeft>
           <NavbarRight>
             {/* <LangSwitchSelect> */}
