@@ -41,10 +41,11 @@ import {
     FormUserD,
     FormsDrop,
     UserDataBlock,
-    FlexBlock
-} from './casco.e'
+    FlexBlock,
+    PrBlock
+} from './property.e'
 import MenuItem from '@mui/material/MenuItem';
-import { CascoProps } from "./casco.t";
+import { PropertyProps } from "./property.t";
 import Link from "next/link";
 import { CheckBlock, FormButton, FormSog, UserEmail } from "../../Invite-cooperation-form/Invite-cooperation-form.e";
 import { useTranslation } from "react-i18next";
@@ -57,7 +58,7 @@ import { UptadeSelect, UptadeSelectRayon } from "../../../personal-area/polic-up
 import { api } from "../../../../services/api";
 
 
-const Casco: FC<CascoProps> = ({title , yurFace}) => {
+const Property: FC<PropertyProps> = ({title , yurFace }) => {
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const [check, setCheck] = useState(false);
     const [addButt, setAddBut] = useState("yes");
@@ -84,8 +85,6 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
     const [sobs , setSobs] = useState(false)
     const [ogrV , setOgrV] = useState(false)
   const [add, isAdd] = useState("");
-  const [add2, isAdd2] = useState("");
-  const [addButt2  , setaddButt2] = useState('yes')
 
     const handleChangeE= (event:any) => {
       setAge(event.target.value);
@@ -105,21 +104,13 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
         isAdd("addet");
         setAddBut("");
       };
-      const AddHand2 = () => {
-        isAdd2("addet");
-       
-        setaddButt2("");
-      };
       const RemoveBtn = () => {
         isAdd("");
         setAddBut("yes");
       };
-      const RemoveBtn2 = () => {
-        isAdd2("");
-        setaddButt2("yes");
-      };
     const NoAvto = (e:any)=>{
         e.preventDefault();
+
         setAvto('')
         setInsuranse('insuranse')
         setStep(2)
@@ -146,9 +137,10 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
     }
     const NoIns =  (e:any) =>{
         e.preventDefault();
+
         setPropgres('100')
         setStep(3)
-        
+
         setCalc('calc')
 
     }
@@ -156,52 +148,76 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
             <GlobalFormBody>
                     <FormContainer>
                     <PageForm onSubmit={handleSubmit}>
+
                                 <FormBlock>
                                     <Avto>
                                             <>
-                                           <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
-                                            <FormTitle>Заполните информацию о автомобиле</FormTitle>
-                                        
+                                          <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
 
-                                        <CarsBlock>
-                                                <BrandCar
-                                                    label='Марка*'
-                                                    placeholder="Chevrolet"
-                                                />
-                                                <ModelCar
-                                                    label='Модель*'
-                                                    placeholder="Spark"
-                                                />
-                                                <ModelCar
-                                                    // type={'date'}
-                                                    label='Год*'
-                                                    placeholder="2018"
-                                                />
-                                                 
-                                        </CarsBlock>
-                                      
-                                               
-                                        <Engine
-                                            label='Двигатьель*'
-                                            placeholder="2.0 (250.00 л.с.)"
-                                        />
-                            <p></p>
-                                        <RegionUsage
-                                            label='Регион использование*'
-                                            placeholder="Ташкент и ТО"
-                                        />
-                                        <UserStr>
-                                            <FormsUser
-                                                        label='Страховых случаев за год*'
-                                                        placeholder="Страховых случаев за год* "
+
+                                            <FormTitle>Укажите адрес недвижимости</FormTitle>
+                                        
+                                            <PrBlock>
+                                            <Engine
+                                                        label='Регион*'
+                                                        placeholder=" Ташкент"
                                                         id="strahavoy-za-god"
-                                                    />
-                                                    
-                                                    <CheckDTp>  
-                                                        <Checkbox {...label}  /> Были ДТП за прошлый год
-                                                        
-                                                    </CheckDTp>
-                                        </UserStr>
+                                                    /><br/><br/>
+                                                
+                                                <Engine
+                                                        label='Район или город*'
+                                                        placeholder="Ташкент область "
+                                                        id="strahavoy-za-god"
+                                                    /><br/><br/>
+
+                                                    <Engine
+                                                        label='Населенный пункт*'
+                                                        placeholder="Чирчик "
+                                                        id="strahavoy-za-god"
+                                                    /><br/><br/>
+                                                      <Engine
+                                                        label='Улица*'
+                                                        placeholder="Бердиева "
+                                                        id="strahavoy-za-god"
+                                                    /><br/><br/>
+                                                <FlexBlock>
+                                                <UserHome
+                                                label={'Квартал*'}
+                                                placeholder={t("47")}
+                                                onChange={(e) => handleChange(e, "home")}
+                                                name="home"
+                                                id="home"
+                                                value={userInfo.home}
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}/>
+                                                <UserHome
+                                                label={'Дом'}
+                                                placeholder={t("18")}
+                                                onChange={(e) => handleChange(e, "home")}
+                                                name="home"
+                                                id="home"
+                                                value={userInfo.home}
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}/>
+                                                <UserHome
+                                                label={'Квартира*'}
+                                                placeholder={t("03")}
+                                                onChange={(e) => handleChange(e, "home")}
+                                                name="home"
+                                                id="home"
+                                                value={userInfo.home}
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}/>
+                                                </FlexBlock>
+                                                 
+                                            </PrBlock>
+                                                  
+                                               
+                                       
+                        
                                                  
                                         <FormButtonBlock>
                                                 <FormBtnCheck>
@@ -224,13 +240,11 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                         </>
                                         {insuranse== 'insuranse' ? (
                                             <>
-                                          <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small></HeIs>
+                                           <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> </HeIs>
 
 
-                                             <FormTitle>Период страхования</FormTitle>
                                         
                                              {/* <FormInfo>Выберите значение из списка, используя поиск по буквам</FormInfo> */}
-                                             <p>Дата начала действия КАСКО</p>
                                              <UserNumber
                                                 className="myInput"
                                                 placeholder="Дата начала действия КАСКО"
@@ -247,133 +261,62 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                 required
                                                 value={userInfo.documentDateOfIsue}
                                             />
-                                             <FormInfo>Автомобиль</FormInfo>
-                                             <FlexBlock>
-                                             <FormUserD
-                                                    label='VIN*'
-                                                    placeholder=" На пример :  X9L212300A0287536  "
-                                                    id="tel"
-                                                />
-                                                 <FormUserD
-                                                    disabled={!credit} 
-
-                                                    label='Госномер*'
-                                                    placeholder="Если есть  "
-                                                    id="tel"
-                                                />
-                                             </FlexBlock>
-                                                
-                                            <InfoUser>
-                                                
-                                               
-                                                <FormsDrop
+                                             {/* <FormsDrop
                                                     // label='Мин. возраст водителя*'
                                                     disabled={!credit} 
-                                                    placeholder="Тип документа* "
+                                                    placeholder="Тип оплаты* "
                                                     id="vozrast"
                                                 >
                                                     <option>Тип документа*</option>
-                                                    <option>СТС</option>
-                                                    <option>ПТС</option>
+                                                    <option>Годовой</option>
+                                                    <option>Годовой</option>
+
+
+                                                </FormsDrop> */}
+                                             <FormInfo>Характеристики</FormInfo>
+                                             <FlexBlock>
+                                             <FormsDrop className="high"
+                                                    // label='Мин. возраст водителя*'
+                                                    placeholder=" перектытия* "
+                                                    id="vozrast"
+                                                >
+                                                    <option>Деревянные перектытия</option>
+                                                    <option>Железо беттоные перектытия</option>
+                                                    <option>Метолическое перектытия</option>
 
 
                                                 </FormsDrop>
-                                                <FormsUser
-                                                    disabled={!credit} 
-
-                                                    label='Серия и номер*'
-                                                    placeholder=""
-                                                    type={'email'}
-                                                    id="emailUser"
-                                                />
-                                                 <Engine
-                                                    disabled={!credit} 
-                                                    label='Дата выдачи*'
-                                                    id="Дата выдачи*"
-                                                    placeholder=""
-                                                />
-                                               <div>
-                                                    <Checkbox {...label} onClick={CheckCredit}  /> Автомобиль взят в кредит
-                                               </div>
+                                                 
+                                             </FlexBlock>
+                                                
+                                            
+                                              
                                                         
                                                         
-                                            </InfoUser>
                                             {/* <FormInfo>Собственник</FormInfo>
                                             <div>
                                                     <Checkbox {...label}   /> Собственник является страхователем
                                             </div> */}
-                                            <FormInfo>Водитель</FormInfo>
-                                            <div>
-                                                    <Checkbox {...label} onClick={()=> setOgrV(!ogrV)}   /> Без ограничений на водителей
+                                            <FormInfo>Аренда жилья</FormInfo>
+                                            <FlexBlock className="low">
+                                                   <p><Checkbox {...label}  id="Сдаю в аренду" />Сдаю в аренду</p> 
+                                                    <p><Checkbox {...label}   id="Снимаю жильё" />Снимаю жильё</p>
 
-                                            </div>
-                                                {ogrV == false ? (
-                                                    <>
-                                                     <FormInfo>Укажите данные водителя</FormInfo>
-                                                <FlexBlock>
-                                                <FormsUser
-
-                                                        label='Фамилия, имя и отчество*'
-                                                        placeholder="Иванов Иван Иванович"
-                                                        type={''}
-                                                        id="emailUser"
-                                                        />
-
-                                                    <FormsUser
-
-                                                    label='Дата рождения*'
-                                                    placeholder="Дата рождения"
-                                                    type={''}
-                                                    id="emailUser"
-                                                    />
-                                                </FlexBlock>
-                                           
+                                            </FlexBlock>
                                                 
-                                                     {add == "addet" ? (
-                                                <FlexBlock>
-                                                <FormsUser
-
-                                                    label='Фамилия, имя и отчество*'
-                                                    placeholder="Иванов Иван Иванович"
-                                                    type={''}
-                                                    id="emailUser"
-                                                    />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <FormsUser
-
-                                                        label='Дата рождения*'
-                                                        placeholder="Дата рождения"
-                                                        type={''}
-                                                        id="emailUser"
-                                                        />
-                                                </FlexBlock>
-                                            ) : (
-                                                ""
-                                            )}
-                                                    <div>
-                                                        {addButt == "yes" ? (
-                                                        <ButtonAdd onClick={AddHand}>     {t("common:Add")}</ButtonAdd>
-                                                        ) : (
-                                                        <ButtonAdd onClick={RemoveBtn}>Убрать</ButtonAdd>
-                                                        )}
-                                                    </div>
-                                                            
-                                                    </>
-                                                ):''}
                                            
                                      <FormButtonBlock>
-                                                <div></div>
+                                             <FormBtnCheck>
+                                                     <a onClick={prevAV}>Назад</a>
+                                             </FormBtnCheck>
                                              <FormInsBtn onClick={NoIns} >Далее </FormInsBtn>
                                          
                                      </FormButtonBlock>
                                      </>
                                         ): ('')}
-                                       
-                                        <div>
-                                                            
-                                        {calc  == 'calc' ? (
+                                     {calc  == 'calc' ? (
                                        <>
-                  <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small>  </HeIs>
-
+                                   <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small></HeIs>
 
 
                                         {yurFace == false ? (
@@ -514,7 +457,7 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                 />
                                                 </UserDataBlock>
                                                 
-                                                {add2 == "addet" ? (
+                                                {add == "addet" ? (
                                                     <UserDataBlock>
                                                     <UserNumber
                                                 className="myInput"
@@ -546,10 +489,10 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                     ""
                                                 )}
                                                 <div>
-                                                    {addButt2 == "yes" ? (
-                                                    <ButtonAdd onClick={AddHand2}> + {t("common:Add")}</ButtonAdd>
+                                                    {addButt == "yes" ? (
+                                                    <ButtonAdd onClick={AddHand}> + {t("common:Add")}</ButtonAdd>
                                                     ) : (
-                                                    <ButtonAdd onClick={RemoveBtn2}>Убрать</ButtonAdd>
+                                                    <ButtonAdd onClick={RemoveBtn}>Убрать</ButtonAdd>
                                                     )}
                                                 </div>
                                                 </p>
@@ -640,8 +583,7 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                             </FormBody>
                                             </BodyForm>
                                         ):(
-                                            <>
-                                                 <FormBody>
+                                            <FormBody>
                                                     <FormHeading>Данные для оформления</FormHeading>
                                                     <UserInfoInput
                                                     placeholder="Khans"
@@ -686,24 +628,20 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
                                                 
                                                  
                                                 <ButtonBlock>
-                                                <CardButton type="submit">Отправить</CardButton>
+                                                <CardButton type="submit">{t("common:Save")}</CardButton>
                                                 </ButtonBlock>
                                                 </FormBody>
-                                            </>
                                         )}
 
                                        
                                        </>
 
-                                        ):(
-                                           ''
-                                        )}
-                                        </div>
-                                    
+                                        ):''}
                                         
                                     </Avto>
                                 </FormBlock>    
-                        </PageForm>
+                                </PageForm>
+
                         <CostBlock>
                             <ThisCost>Заполните до показа стоимости:</ThisCost>
                             <CostValue>{progres}%</CostValue>
@@ -722,4 +660,4 @@ const Casco: FC<CascoProps> = ({title , yurFace}) => {
         )
 };
 
-export default Casco;
+export default Property;

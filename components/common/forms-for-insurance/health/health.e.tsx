@@ -142,6 +142,7 @@ export const AvtoModel = styled(TextField)`
 export const CarsBlock = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     @media(max-width:425px){
         flex-direction: column;
     }
@@ -320,6 +321,7 @@ export const UserDataBlock = styled.div`
 export const FlexBlock = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     @media(max-width:425px){
         flex-direction: column;
     }

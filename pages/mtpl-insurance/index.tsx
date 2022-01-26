@@ -85,13 +85,17 @@ const YurFacePage: FC<NextPage> = () => {
       setFooter(res.data);
     });
   }, []);
+    //@ts-ignore
+  // const dataTitle = insurance.main_content.data.title
   return (
-    <Layout title={singleTitle || 'СТРАХОВАНИЕ ОСАГО'}>
+    //@ts-ignore
+
+    <Layout title={'Страхование'}>
       <Navbar />
       {insurance && (
         <div>
           <BreadcrumbsBlock
-            url2={"mtpl-insurance?id=" + singleId}
+            url2={"page-persons?id=" + singleId}
             url3={"mtpl-insurance?id=" + singleTitle}
             link1="Главная"
             link2={'АВТОСТРАХОВАНИЕ'}

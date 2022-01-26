@@ -11,7 +11,7 @@ export const FinancialYears  = styled.div`
     display: flex;
     /* align-items: center; */
     flex-direction: column;
-
+    cursor: pointer;
     font-style: normal;
     font-weight: normal;
     font-size: 36px;

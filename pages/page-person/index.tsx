@@ -96,7 +96,7 @@ const Partner: FC<NextPage> = () => {
       case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
       case '17' : return 'Перестрахование'
       case '18' : return 'Строительство'
-      
+      case '28' : return 'Страхование здаровья'
       default: ' Cингл'
 
     }

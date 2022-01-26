@@ -27,6 +27,9 @@ export const MtplAdventagesBlock = styled.div`
 `;
 export const AS = styled.div`
   padding: 100px;
+  @media(max-width:768px){
+    padding: 0;
+  }
 `
 export const MtplAdventagesHeading = styled.h2`
   font-size: 36px;
