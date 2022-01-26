@@ -65,9 +65,9 @@ const BuyPolis: FC<PersonalBuyProps> = () => {
     setErrorMsg,
   } = useContext(AuthContext);
   //   const router = useRouter();
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    api
+    await api
       .post("/cabinet/contact-us", contact)
       .then((res) => {
         console.log("object ==>", res);
@@ -76,13 +76,13 @@ const BuyPolis: FC<PersonalBuyProps> = () => {
         Router.push("/personal-area/buy");
       })
       .catch((err) => {
-        // console.log("object ==>", err.response.data);
+        console.log("object ==>", err.response.data);
         setAlert(true);
-        // console.log(err.response.data);
         setErrorMsg({
           type: "contact",
           message: err.response.data,
         });
+        console.log(errorMsg);
       });
   };
   const handleChange = (event: any, field: any) => {
@@ -119,7 +119,7 @@ const BuyPolis: FC<PersonalBuyProps> = () => {
           {/* {errorMsg && errorMsg.type == "polis" && errorMsg.message} */}
 
           {errorMsg &&
-            errorMsg.type == "polis" &&
+            errorMsg.type == "contact" &&
             // @ts-ignore
             errorMsg.message.map((item, idx) => {
               <div key={idx}>{item}</div>;

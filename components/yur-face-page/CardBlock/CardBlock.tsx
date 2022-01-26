@@ -40,7 +40,7 @@ const Card: FC<CardBlockProps> = ({ item }) => {
       />
     </svg>
   );
-  const { main_title, main_description, main_image, id } = item;
+  const { main_title, main_description, main_image, id ,title_1 ,title_2, title_3,description_1 , description_3,description_2} = item;
   const { t } = useTranslation();
   return (
     <CardBody>
@@ -51,22 +51,23 @@ const Card: FC<CardBlockProps> = ({ item }) => {
           <CardService>
             <CardServiceBlock>
               <CardServiceHeading>
-                {t("common:Quick_calculation")}
+                {title_1}
               </CardServiceHeading>
               <CardServiceText>
-                {t("common:Calculate_and_pay_3_minutes")}
+                { description_1}
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>{t("common:any_region")}</CardServiceHeading>
+              <CardServiceHeading>{title_2}</CardServiceHeading>
               <CardServiceText>
-                {t("common:Insurance_payments_days")}
+              {description_2}
+
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>{t("common:Help__24")}</CardServiceHeading>
+              <CardServiceHeading>{title_3}</CardServiceHeading>
               <CardServiceText>
-                {t("common:Live_chat_and_phone_support")}
+                {description_3}
               </CardServiceText>
             </CardServiceBlock>
           </CardService>

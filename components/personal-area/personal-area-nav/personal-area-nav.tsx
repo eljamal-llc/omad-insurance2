@@ -36,7 +36,7 @@ const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
                     <NextLink href='/personal-area/buy'>{t('common:buy_online')}</NextLink>
                 </PersonalAreaUserNavLi>
                 <PersonalAreaUserNavLi>
-                    <NextLink href='/personal-area/polic-updates'>{t('common:renew_policy')}</NextLink>
+                    <NextLink href='/personal-area/polic-updates'>{t('common:ubdate_onliine')}</NextLink>
                 </PersonalAreaUserNavLi>
             </PersonalAreaUserNav>
             <PersonalAreaSettings> <NextLink href='/personal-area/settings'>{t('common:settings')}</NextLink></PersonalAreaSettings>

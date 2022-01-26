@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { GWrapper } from "../../../styles/global-styles.e";
 import { MtplAdventagesProps } from "./mtpl-advantages.t";
 import parse from "html-react-parser";
@@ -18,6 +18,8 @@ import {
   MtplAdventagesInsuranceTwo,
   CardImage,
   Arrow1,
+  ERBg,
+  AS
 } from "./mtpl-advantages.e";
 import NoutImg from "../../../assets/images/yur-page/singl-yur-img/nout.png";
 import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
@@ -25,6 +27,7 @@ import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
 import Strelka from "/strlka.png";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { Casco } from "../..";
 
 const MtplAdventages: FC<MtplAdventagesProps> = ({
   dataAdvantage,
@@ -33,11 +36,13 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   dataSteps,
 }) => {
   const { t } = useTranslation();
+  
   return (
     // <GWrapper>
-    <>
+    <ERBg>
       {dataAdvantage?.status !== 0 && (
-        <>
+        <ERBg>
+          
           <MtplAdventagesHeading>{dataAdvantage.title}</MtplAdventagesHeading>
           <MtplAdventagesBlock>
             <MtplAdventagesCard>
@@ -73,10 +78,13 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
               </MtplAdventagesCardText>
             </MtplAdventagesCard>
           </MtplAdventagesBlock>
-        </>
+          </ERBg>
+
       )}
       {dataCardImage?.status !== 0 && (
-        <>
+        <ERBg>
+        
+
           <MtplAdventagesHeading>{dataCardImage.title}</MtplAdventagesHeading>
           <MtplAdventagesInsurance>
             <div>
@@ -119,7 +127,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
               </MtplAdventagesInsuranceText>
             </div>
           </MtplAdventagesInsuranceTwo>
-        </>
+          </ERBg>
       )}
       {dataCards?.status !== 0 && (
         <>
@@ -151,7 +159,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
         </>
       )}
       {dataSteps?.status !== 0 && (
-        <>
+        <ERBg>
           <MtplAdventagesHeading>{dataSteps.title}</MtplAdventagesHeading>
           <MtplAdventagesBlock>
             <NumberB>
@@ -191,9 +199,12 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
               </MtplAdventagesInsuranceText>
             </NumberB>
           </MtplAdventagesBlock>
-        </>
+          <AS>
+            <Casco/>
+          </AS>
+        </ERBg>
       )}
-    </>
+    </ERBg>
 
     // </GWrapper>
   );

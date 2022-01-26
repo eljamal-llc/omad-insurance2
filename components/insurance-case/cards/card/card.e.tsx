@@ -5,6 +5,9 @@ export const Wrapper = styled.div`
   border-bottom: 0.3px solid #0000007b;
   max-width: 25%;
   width: 100%;
+  @media(max-width:425px){
+    max-width: 100%;
+  }
   a {
     padding: 40px 50px;
     display: flex;
@@ -36,6 +39,7 @@ export const Wrapper = styled.div`
     }
     @media (max-width: 1680px) {
       padding: 20px 30px;
+      
     }
   }
 `;
@@ -46,6 +50,11 @@ export const WrapperTag = styled.div`
   max-width: 25%;
   width: 100%;
   padding: 40px 50px;
+  @media (max-width: 425px) {
+    padding: 20px 30px;
+    max-width: 100%;
+
+  }
   @media (max-width: 1680px) {
     padding: 20px 30px;
   }

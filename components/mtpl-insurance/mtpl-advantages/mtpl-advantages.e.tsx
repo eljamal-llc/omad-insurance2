@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+export const ERBg = styled.div`
+  background-color: #f1f1f1;
+`
 export const MtplAdventagesBlock = styled.div`
   display: flex;
   justify-content: center;
@@ -22,7 +25,9 @@ export const MtplAdventagesBlock = styled.div`
     padding: 0;
   }
 `;
-
+export const AS = styled.div`
+  padding: 100px;
+`
 export const MtplAdventagesHeading = styled.h2`
   font-size: 36px;
   line-height: 42px;
@@ -30,7 +35,9 @@ export const MtplAdventagesHeading = styled.h2`
   font-style: normal;
   font-weight: normal;
   text-align: center;
-  margin-top: 120px;
+  margin-top: 0;
+  margin-bottom:40px ;
+  padding-top: 120px;
   @media (max-width: 425px) {
     font-size: 16px;
     text-align: left;
@@ -93,7 +100,7 @@ export const MtplAdventagesCardText = styled.p`
 export const MtplAdventagesInsurance = styled.div`
   display: flex;
   max-width: 75%;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   margin: 30px auto;
   @media (max-width: 1024px) {
@@ -101,21 +108,22 @@ export const MtplAdventagesInsurance = styled.div`
   }
 `;
 export const CardImage = styled.div`
-  width: 900px;
+  width: 1000px;
   height: 300px;
   padding-left: 20px;
   img {
-    width: 100%;
+    width: 1000px;
     height: 100%;
     object-fit: cover;
   }
 `;
 export const MtplAdventagesInsuranceTwo = styled.div`
   display: flex;
-  max-width: 75%;
-  align-items: center;
+  max-width: 82%;
+  /* align-items: center; */
   width: 100%;
   margin: 30px auto;
+  justify-content: space-between;
   @media (max-width: 1024px) {
     flex-direction: column;
   }
@@ -162,7 +170,7 @@ export const NumberB = styled.div`
   text-align: center;
   width: 300px;
   @media (max-width: 768px) {
-    margin: 147px auto 0;
+    margin: 270px auto 0;
   }
 `;
 export const ImgBlock = styled.div`
@@ -199,8 +207,8 @@ export const Arrow1 = styled.div`
       & div {
         position: relative;
           top: 20px;
-          width: 214px;
-          height: 3px;
+          width: 314px;
+          height: 2px;
           background-color: #000;
           box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
           left: 0;
@@ -209,10 +217,10 @@ export const Arrow1 = styled.div`
         & div::after {
           content: '';
     position: absolute;
-    width: 40px;
-    height: 3px;
-    top: -15px;
-    right: -5px;
+    width: 11px;
+    height: 2px;
+    top: -4px;
+    right: -3px;
     background-color: #000;
     -webkit-transform: rotate( 
 45deg
@@ -226,31 +234,41 @@ export const Arrow1 = styled.div`
 45deg
  );
     -ms-transform: rotate( 45deg );
+    -webkit-transform: rotate( 
+45deg
+ );
+    -ms-transform: rotate( 45deg );
     transform: rotate( 
 45deg
  );
+}
+
+
         }
         & div::before {
           content: '';
     position: absolute;
-    width: 40px;
-    height: 3px;
-    top: 14px;
-    right: -6px;
+    width: 11px;
+    height: 2px;
+    top: 4px;
+    right: -3px;
     background-color: #000;
     box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
     -webkit-transform: rotate( 
-          -45deg
-          );
-              -ms-transform: rotate(-45deg);
-              -webkit-transform: rotate( 
-          -45deg
-          );
-              -ms-transform: rotate( -45deg );
-              transform: rotate( 
-          -45deg
-          );
-          }
+-45deg
+ );
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate( 
+-45deg
+ );
+    -ms-transform: rotate( -45deg );
+    -webkit-transform: rotate( 
+-45deg
+ );
+    -ms-transform: rotate( -45deg );
+    transform: rotate( 
+-45deg
+ );
         &:hover {
             animation: arrow-1 1s linear infinite;
         }

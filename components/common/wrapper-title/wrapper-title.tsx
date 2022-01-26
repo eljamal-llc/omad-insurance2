@@ -15,6 +15,7 @@ import {
 import { SectionTitle } from "../index";
 import { t } from "i18next";
 import { useState } from "react";
+import { useRouter } from "next/router";
 const WrapperTitle: FC<WrapperTitleProps> = ({
   title,
   onClass,
@@ -25,7 +26,10 @@ const WrapperTitle: FC<WrapperTitleProps> = ({
   const [showBtn, setShowBtb] = useState("show");
   const [activCat , setActivCat] = useState('')
   const [allAc , setAllAc] = useState('All')
+  const router = useRouter()
+  const{id} = router.query
   const activeHandler = (item: any)=>{
+
     setActivCat('active')
     setAllAc('')
   }
@@ -40,32 +44,41 @@ const WrapperTitle: FC<WrapperTitleProps> = ({
         <WrapperCategories className="wrapper-categories">
           <SectionTitle color="white" title={title} />
         </WrapperCategories>
-        {/* @ts-ignore */}
-        {data?.length > 0 ? (
-          <WrapperTags className="wrapper-tags">
-            <div onClick={setActiveAll} >
-              <TagsTitle className={allAc} onClick={() => sortData()}>
-                {t("common:All_categories")}
-              </TagsTitle>
-            </div>
+      {id !== '3' ? (
+ <>
+ {/* @ts-ignore */}
+ {data?.length > 0 ? (
+   <>
+      <WrapperTags className="wrapper-tags">
+        <div onClick={setActiveAll} >
+          <TagsTitle className={allAc} onClick={() => sortData()}>
+            {t("common:All_categories")}
+          </TagsTitle>
+        </div>
+        
+        <TagsRow>
+          {data?.map((item, idx) => (
             
-            <TagsRow>
-              {data?.map((item, idx) => (
-                
-                //@ts-ignore
-                <Tag onClick={()=>{setAllAc( item.name)}} id={idx} className={ item.name == allAc ? 'active' : item.name} key={idx}>
-                  <div onClick={() => sortData(item.id)}><p className={item.name} onClick={setActiveAll}>{item.name}</p></div>
+            //@ts-ignore
+            <Tag onClick={()=>{setAllAc( item.name)}} id={idx} className={ item.name == allAc ? 'active' : item.name} key={idx}>
+              <div onClick={() => sortData(item.id)}><p className={item.name} onClick={setActiveAll}>{item.name}</p></div>
 
-                  {/* <NextLink href="/" passHref>
-                    <Link>{item.name}</Link>
-                  </NextLink> */}
-                </Tag>
-              ))}
-            </TagsRow>
-          </WrapperTags>
-        ) : (
-          <></>
-        )}
+              {/* <NextLink href="/" passHref>
+                <Link>{item.name}</Link>
+              </NextLink> */}
+            </Tag>
+          ))}
+        </TagsRow>
+      </WrapperTags>
+      </>
+      
+    ) : (
+      <></>
+    )}
+    </>
+      ):('')}
+       
+      
       </TitleRow>
     </Wrapper>
   );

@@ -33,26 +33,27 @@ const MtplInsuranceHome: FC<MtplInsuranceHomeProps> = ({ data }) => {
           <CardService>
             <CardServiceBlock>
               <CardServiceHeading>
-                {data.data.privilege?.title_1}
+                {data.privilege?.title_1}
               </CardServiceHeading>
               <CardServiceText>
-                {data.data.privilege?.description_1}
+                {data.privilege?.description_1}
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
               <CardServiceHeading>
-                {data.data.privilege?.title_2}
+                {data.privilege?.title_2}
               </CardServiceHeading>
               <CardServiceText>
-                {data.data.privilege?.description_2}
+                {data.privilege?.description_2}
               </CardServiceText>
             </CardServiceBlock>
+            
             <CardServiceBlock>
               <CardServiceHeading>
-                {data.data.privilege?.title_3}
+                {data.privilege?.title_3}
               </CardServiceHeading>
               <CardServiceText>
-                {data.data.privilege?.description_3}
+                {data.privilege?.description_3}
               </CardServiceText>
             </CardServiceBlock>
           </CardService>

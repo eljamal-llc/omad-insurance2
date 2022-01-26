@@ -8,4 +8,10 @@ export const Wrapper = styled.div`
 export const CardsRow = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  @media(max-width:425px){
+    flex-direction: column;
+  flex-wrap: nowrap;
+
+  }
 `;

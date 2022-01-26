@@ -175,7 +175,6 @@ const PersonalUdates: FC<PersonalUdatesProps> = () => {
               placeholder={t("common:Message")}
               onChange={(e) => handleChange(e, "text")}
               name="text"
-              required
               value={insurance.text}
             />
             <ButtonBlock>

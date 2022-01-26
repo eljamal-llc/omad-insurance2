@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
 // import { Link } from "@mui/material";
-
+import NextLink from 'next/link'
 import { CardProps } from "./card.t";
 import {
   CardDesc,

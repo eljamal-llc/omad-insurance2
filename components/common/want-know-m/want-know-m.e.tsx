@@ -296,5 +296,8 @@ export const SliderButton = styled.div`
 `;
 export const WANTbg = styled.div`   
   height: 600px;
-  background-color:  #0d4656;;
+  background-color:  #0d4656;
+  @media(max-width:425px){
+    height: inherit;
+  }
 `

@@ -2,14 +2,18 @@ import styled from 'styled-components'
 
 export const MissionBody = styled.div`
     background-color: #E5E5E5;
-    padding: 50px 60px ;
-    height: 200vh;
+    padding: 150px 20px ;
+    /* height: 200vh; */
 `   
 export const MissionContent = styled.div`
      display: flex;
     justify-content: space-between;
     max-width: 1500px;
     margin: 0 auto;
+    @media(max-width:775px){
+        flex-direction: column;
+    justify-content: center;
+    }
 `
 export const MissionNav = styled.div`
     width: 480px;
@@ -17,6 +21,22 @@ export const MissionNav = styled.div`
     padding: 40px 50px;
     margin: 0 27px;
     border: 1px solid #000;
+    max-height: 1024px;
+    @media(max-width:425px){
+        margin: 0;
+       max-width: 386px;
+
+    }
+    @media(max-width:395px){
+        margin: 0;
+       max-width: 335px;
+
+    }
+    @media(max-width:320px){
+        margin: 0;
+       max-width: 250px;
+
+    }
 `
 export  const MissionNavItem = styled.p`
     font-size: 24px;
@@ -26,6 +46,14 @@ export  const MissionNavItem = styled.p`
     transition: 0.3s all linear;
     &:hover{
         color: #F0803D;;
+    }
+    @media(max-width:425px){
+       
+
+    }
+    @media(max-width:375px){
+        font-size : 20px;
+
     }
     
 `

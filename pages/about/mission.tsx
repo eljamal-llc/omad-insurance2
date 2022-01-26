@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import {
   AboutInfo,
   Cards,
@@ -9,21 +10,19 @@ import {
   Navbar,
   News,
   WrapperTitle,
-  MissionComp
+  MissionComp,
 } from "../../components";
-import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
-import {useTranslation} from 'next-i18next'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 import { INewsData } from "../../components/common/news/news.t";
 import { IData } from "../../components/common/hero/hero.t";
 import { api } from "../../services/api";
- 
-export async  function getStaticProps({locale}:{locale : string} ) {
+
+export async function getStaticProps({ locale }: { locale: string }) {
   return {
-    props:{
-     ...(await serverSideTranslations(locale, [
-        'common'
-      ]))
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }
@@ -33,6 +32,9 @@ const Mission: FC<NextPage> = () => {
   const [sliders, setSliders] = useState<IData[] | []>([]);
   const [about, setAbout] = useState<any>({});
   const [footer, setFooter] = useState<any>();
+  const [page, setPage] = useState<any>();
+  const router = useRouter();
+  const { id } = router.query;
 
   useEffect(() => {
     // setLoading(true);
@@ -46,21 +48,39 @@ const Mission: FC<NextPage> = () => {
     api.get("about").then((res) => {
       // console.log(res.data);
       setAbout(res.data);
-      
     });
     api.get("footer").then((res) => {
       // console.log("--", res);
       setFooter(res.data);
     });
+    api
+      .get("about/find", { params: { catId: id } })
+      .then((res) => {
+        setPage(res.data.data);
+      })
+      .catch((err) => {});
   }, []);
-const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
-    <Layout title={t('common:Property_insurance')}>
-      <Navbar  />
-      <BreadcrumbsBlock url2={`/about`} url3={'financial-performance'}  link1="Главная" link2='О нас'link3={t('common:Financial_performance')}/>
-      <MissionComp title={t('common:Mission')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
-      <News data={news}/>
+    <Layout title={t("common:Mission")}>
+      <Navbar />
+      <BreadcrumbsBlock
+        url2={`/about`}
+        url3={"mission"}
+        link1="Главная"
+        link2="О нас"
+        link3={t("common:Mission")}
+      />
+      {!!page && (
+        <MissionComp
+          title={page.head.title}
+          data={page.content}
+          sidebars={page.sidebar}
+        />
+      )}
+
+      <News data={news} />
       <Footer data={footer} />
     </Layout>
   );

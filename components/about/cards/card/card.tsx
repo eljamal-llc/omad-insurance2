@@ -26,7 +26,7 @@ const Card: FC<CardProps> = ({ item }) => {
       <CardTags>
         {item?.subCategories?.map((itemD, idx) => (
           <CardTag key={idx}>
-            <NextLink href={itemD.slug} passHref>
+            <NextLink href={`about/${itemD.slug}?id=${itemD.id}`} passHref>
               <a>{itemD.title}</a>
             </NextLink>
           </CardTag>

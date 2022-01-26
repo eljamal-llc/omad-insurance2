@@ -49,6 +49,9 @@ export const FormCheck = styled.span`
     line-height: 21px;
     color: #000000;
   }
+  @media(max-width:425px){
+    flex-direction: column-reverse;
+  }
   a {
     text-decoration: underline;
   }
