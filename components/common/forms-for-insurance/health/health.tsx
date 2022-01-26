@@ -61,6 +61,8 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const [check, setCheck] = useState(false);
     const [addButt, setAddBut] = useState("yes");
+    const [addButt2, setAddBut2] = useState("yes");
+    
     const [districts, setDistricts] = useState([]);
     const [regions, setRegions] = useState([]);
     const {t} = useTranslation()
@@ -76,6 +78,7 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
     const [step , setStep] = useState(1)
     const [userInfo, setUserInfo] = useState<any>({});
     const [age, setAge] = useState('');
+    
     const [health , setHealth] = useState('health')
     const [insuranse , setInsuranse] = useState('')
     const [calc , setCalc] = useState('')
@@ -84,6 +87,8 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
     const [sobs , setSobs] = useState(false)
     const [ogrV , setOgrV] = useState(false)
   const [add, isAdd] = useState("");
+  const [add2, isAdd2] = useState("");
+
 
     const handleChangeE= (event:any) => {
       setAge(event.target.value);
@@ -107,7 +112,17 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
         isAdd("");
         setAddBut("yes");
       };
-    const NoAvto = ()=>{
+      const AddHand2 = () => {
+        isAdd2("addet");
+        setAddBut2("");
+      };
+      const RemoveBtn2 = () => {
+        isAdd2("");
+        setAddBut2("yes");
+      };
+    const NoAvto = (e:any)=>{
+        e.preventDefault();
+
         setHealth('')
         setInsuranse('insuranse')
         setStep(2)
@@ -143,10 +158,11 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
         return (
             <GlobalFormBody>
                     <FormContainer>
-                            <form action="">
+                    <PageForm onSubmit={handleSubmit}>
+
                                 <FormBlock>
                                     <Avto>
-                                        {health == 'health' ? (
+                                      
                                             <>
                             <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
 
@@ -264,16 +280,14 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
                                             
                                         </FormButtonBlock>
                                         </>
-                                        ):''}
                                         {insuranse== 'insuranse' ? (
                                              <>
-                        <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+                        <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> </HeIs>
 
                                             {yurFace == false ? (
                                                 <BodyForm>
                                                  <FormBody>
                                                  <FormHeading>{t("common:Personal_ata")}</FormHeading>
-                                                 <PageForm onSubmit={handleSubmit}>
                                                      <p>
                                                      <UserInfoInput
                                                          placeholder="Иванов Иван Иванович"
@@ -408,7 +422,7 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
                                                      />
                                                      </UserDataBlock>
                                                     
-                                                     {add == "addet" ? (
+                                                     {add2 == "addet" ? (
                                                         <UserDataBlock>
                                                         <UserNumber
                                                        className="myInput"
@@ -440,10 +454,10 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
                                                          ""
                                                      )}
                                                      <div>
-                                                         {addButt == "yes" ? (
-                                                         <ButtonAdd onClick={AddHand}> + {t("common:Add")}</ButtonAdd>
+                                                         {addButt2 == "yes" ? (
+                                                         <ButtonAdd onClick={AddHand2}> + {t("common:Add")}</ButtonAdd>
                                                          ) : (
-                                                         <ButtonAdd onClick={RemoveBtn}>Убрать</ButtonAdd>
+                                                         <ButtonAdd onClick={RemoveBtn2}>Убрать</ButtonAdd>
                                                          )}
                                                      </div>
                                                      </p>
@@ -530,7 +544,6 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
                                                      <ButtonBlock>
                                                      <CardButton type="submit">{t("common:Save")}</CardButton>
                                                      </ButtonBlock>
-                                                 </PageForm>
                                                  
                                                  </FormBody>
                                              </BodyForm>
@@ -591,7 +604,8 @@ const Health: FC<HealthProps> = ({title ,yurFace}) => {
                                   
                                     </Avto>
                                 </FormBlock>    
-                            </form>
+                                </PageForm>
+
                         <CostBlock>
                             <ThisCost>Заполните до показа стоимости:</ThisCost>
                             <CostValue>{progres}%</CostValue>
