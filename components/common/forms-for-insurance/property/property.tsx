@@ -108,7 +108,9 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
         isAdd("");
         setAddBut("yes");
       };
-    const NoAvto = ()=>{
+    const NoAvto = (e:any)=>{
+        e.preventDefault();
+
         setAvto('')
         setInsuranse('insuranse')
         setStep(2)
@@ -133,8 +135,9 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
     const CheckCredit = () =>{
     setCredit(!credit)
     }
-    const NoIns =  () =>{
-        setInsuranse('')
+    const NoIns =  (e:any) =>{
+        e.preventDefault();
+
         setPropgres('100')
         setStep(3)
 
@@ -144,12 +147,12 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
         return (
             <GlobalFormBody>
                     <FormContainer>
-                            <form action="">
+                    <PageForm onSubmit={handleSubmit}>
+
                                 <FormBlock>
                                     <Avto>
-                                        {avto == 'avto' ? (
                                             <>
-                                          <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+                                          <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 3</StepIn> </HeIs>
 
 
                                             <FormTitle>Укажите адрес недвижимости</FormTitle>
@@ -235,10 +238,9 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
                                             
                                         </FormButtonBlock>
                                         </>
-                                        ):''}
                                         {insuranse== 'insuranse' ? (
                                             <>
-                                           <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+                                           <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> </HeIs>
 
 
                                         
@@ -314,14 +316,13 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
                                         ): ('')}
                                      {calc  == 'calc' ? (
                                        <>
-                                   <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small> &nbsp; &nbsp;  <StepIn>Шаг <span>{step} </span>из 2</StepIn> </HeIs>
+                                   <HeIs>{title}<small> { yurFace == true ?  '(Юр.чицо)' : '(Физ.лицо)'}</small></HeIs>
 
 
                                         {yurFace == false ? (
                                             <BodyForm>
                                             <FormBody>
                                             <FormHeading>{t("common:Personal_ata")}</FormHeading>
-                                            <PageForm onSubmit={handleSubmit}>
                                                 <p>
                                                 <UserInfoInput
                                                     placeholder="Иванов Иван Иванович"
@@ -578,7 +579,6 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
                                                 <ButtonBlock>
                                                 <CardButton type="submit">{t("common:Save")}</CardButton>
                                                 </ButtonBlock>
-                                            </PageForm>
                                             
                                             </FormBody>
                                             </BodyForm>
@@ -640,7 +640,8 @@ const Property: FC<PropertyProps> = ({title , yurFace }) => {
                                         
                                     </Avto>
                                 </FormBlock>    
-                            </form>
+                                </PageForm>
+
                         <CostBlock>
                             <ThisCost>Заполните до показа стоимости:</ThisCost>
                             <CostValue>{progres}%</CostValue>
