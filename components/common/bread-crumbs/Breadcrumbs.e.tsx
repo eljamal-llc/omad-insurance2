@@ -10,6 +10,9 @@ export const BreadCrumbs = styled.div`
     z-index: 2;
     padding: 0px;
 
+    &.black {
+      color: #000;
+    }
   @media (max-width:425px){
     /* display:none; */
     position: relative;
