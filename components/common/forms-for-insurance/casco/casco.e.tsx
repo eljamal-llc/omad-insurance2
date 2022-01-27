@@ -296,6 +296,9 @@ export const UserNumber = styled(TextField)`
     color: #000000;
     @media(max-width:425px){
         width:248px;  
+        &.chack {
+            width: 285px;
+        }
     }
        
 `
@@ -320,6 +323,10 @@ export const UserDataBlock = styled.div`
 export const FlexBlock = styled.div`
     display: flex;
     justify-content: space-between;
+
+    &.al-center {
+        align-items: center;
+    }
     @media(max-width:425px){
         flex-direction: column;
     }

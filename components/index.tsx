@@ -12,3 +12,4 @@ export * from './not-found';
 export * from './auth';
 export * from './personal-area';
 export * from './loading/index';
+export * from './polis-chack/index'

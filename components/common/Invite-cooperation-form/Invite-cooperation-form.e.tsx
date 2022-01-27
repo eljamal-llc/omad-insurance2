@@ -55,7 +55,9 @@ export const UserEmail = styled(TextField)`
 
     @media(max-width:425px){
         width: 300px;
-
+        &.chack {
+            width: 285px;
+        }
     }
 `
 export const FormsContainer = styled.div`

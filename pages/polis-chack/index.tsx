@@ -1,11 +1,10 @@
 import { FC } from "react";
 import type { GetServerSideProps, NextPage } from "next";
-import { AuthPage, Layout, Navbar } from "../../components";
+import { AuthPage, Layout, Navbar ,PolisChack } from "../../components";
 import { Wrapper } from "../../styles/global-styles.e";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { parseCookies } from "nookies";
-
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -20,7 +19,7 @@ const Auth: FC<NextPage> = () => {
     <Layout title="Страхование имущества">
       <Wrapper>
         <Navbar onClass="bg-blue" />
-        <AuthPage />
+        <PolisChack />
       </Wrapper>
     </Layout>
   );
