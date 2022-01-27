@@ -34,6 +34,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   dataCardImage,
   dataCards,
   dataSteps,
+  forms,
 }) => {
   const { t } = useTranslation();
   const router = useRouter();

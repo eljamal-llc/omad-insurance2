@@ -85,12 +85,12 @@ const YurFacePage: FC<NextPage> = () => {
       setFooter(res.data);
     });
   }, []);
-    //@ts-ignore
+  //@ts-ignore
   // const dataTitle = insurance.main_content.data.title
   return (
     //@ts-ignore
 
-    <Layout title={'Страхование'}>
+    <Layout title={"Страхование"}>
       <Navbar />
       {insurance && (
         <div>
@@ -98,7 +98,7 @@ const YurFacePage: FC<NextPage> = () => {
             url2={"page-persons?id=" + singleId}
             url3={"mtpl-insurance?id=" + singleTitle}
             link1="Главная"
-            link2={'АВТОСТРАХОВАНИЕ'}
+            link2={"АВТОСТРАХОВАНИЕ"}
             //@ts-ignore
             link3={insurance.main_content.data.title}
           />
@@ -112,6 +112,7 @@ const YurFacePage: FC<NextPage> = () => {
           dataCardImage={insurance.card_image}
           dataCards={insurance.cards}
           dataSteps={insurance.steps}
+          forms={insurance.forms}
         />
       )}
 
