@@ -217,7 +217,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
               ""
             )}
 
-            {forms.type == "estates" || typePolis == "30" ? (
+            {forms.type == "estates" ? (
               //@ts-ignore
               <Property yurFace={yur} title={forms.title} />
             ) : (
