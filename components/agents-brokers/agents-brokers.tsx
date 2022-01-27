@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 import {AgentsBrokProps} from './agents-brokers.t'
 import { FC } from 'react';
 import Image from 'next/dist/client/image';
-import { AggentsTable, AgentsTd, AgentsTR, TableDes, TitleTable, DesTitle, SecontTable, NumTable, TdTitle, ResponseTable } from './agents-brokers.e';
+import { AggentsTable, AgentsTd, AgentsTR, TableDes, TitleTable, DesTitle, SecontTable, NumTable, TdTitle, ResponseTable, СenterМ } from './agents-brokers.e';
 // import { Link } from "@mui/icons-material";
 const main_image = '/slider1.jpg'
 const AgentsBrokers: FC<AgentsBrokProps> = ({description, title}) => {
