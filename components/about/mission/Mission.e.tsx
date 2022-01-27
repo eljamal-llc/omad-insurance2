@@ -64,6 +64,10 @@ export const MissionContentTitle = styled.h2`
     line-height: 42px;
 
     color: #000000;
+    @media(max-width:375px){
+        font-size : 30px;
+
+    }
 
 `
 export const MissionContentAbout = styled.p`

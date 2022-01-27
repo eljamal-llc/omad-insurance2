@@ -43,6 +43,8 @@ export const PageHeading = styled.h2`
   }
   @media (max-width: 750px) {
     font-size: 24px;
+  line-height: 25px;
+
   }
 `;
 export const PageText = styled.p`
@@ -53,5 +55,7 @@ export const PageText = styled.p`
 
   @media (max-width: 350px) {
     font-size: 14px;
+  line-height: 21px;
+
   }
 `;

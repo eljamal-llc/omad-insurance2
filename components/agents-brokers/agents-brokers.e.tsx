@@ -5,7 +5,7 @@ export const AggentsTable = styled.table`
     height: 391px;
     border-collapse: collapse;
     margin-bottom: 220px;
-    @media(max-width:425px){
+    @media(max-width:750px){
         display:none;
     }
 
@@ -14,7 +14,9 @@ export const AgentsTd = styled.td`
     border: 1px solid #000;
     margin: 0;
     padding: 0 0  0 50px  ;
-    
+    @media(max-width:750px){
+        padding:  0 20px;
+    }
     &.oneT {
         width: 726px;
         height: 152px;
@@ -27,6 +29,11 @@ export const AgentsTd = styled.td`
     &.threeT{
         width: 376px;
         
+    }
+    @media(max-width:425px){
+        .none {
+            display: none;
+        }
     }
 `
 export const AgentsTR = styled.tr`
@@ -46,6 +53,10 @@ export const TableDes  = styled.p`
     &.title {
         max-width: 218px;
         margin:0 auto;
+    }
+    @media(max-width:750px){
+        max-width: 0;
+        font-size: 20px;
     }
 `
 export const TitleTable = styled.p`
@@ -82,8 +93,20 @@ export const SecontTable  = styled.table`
     margin-bottom: 220px;
     @media(max-width:425px){
         display:none;
+        
     }
 
+
+`
+export const ResponseTable = styled.table`
+    width: 343px;
+     border-collapse: collapse;
+     margin:0 auto;
+    margin-bottom: 20px;
+    display: none;
+    @media(max-width:750px){
+        display: block;
+    }
 `
 export const NumTable = styled.span`
     font-family: Roboto;
@@ -108,6 +131,9 @@ export const TdTitle = styled.p`
 
     &.Nocenter {
         text-align: left;
+    }
+    @media(max-width:425px){
+        font-size: 20px;
     }
 
 `

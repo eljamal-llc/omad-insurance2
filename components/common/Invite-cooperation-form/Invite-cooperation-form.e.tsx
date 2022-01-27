@@ -18,7 +18,9 @@ export const FormTitle = styled.div`
     font-size: 28px;
     line-height: 33px;
     /* identical to box height */
-
+    @media(max-width:425px){
+        font-size: 20px;
+    }
 
     color: #000000;
 `
