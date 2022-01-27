@@ -3,4 +3,5 @@ export interface MtplAdventagesProps {
   dataCardImage?: any;
   dataCards?: any;
   dataSteps?: any;
+  forms?: any;
 }

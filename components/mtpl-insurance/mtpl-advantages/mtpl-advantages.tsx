@@ -19,7 +19,7 @@ import {
   CardImage,
   Arrow1,
   ERBg,
-  AS
+  AS,
 } from "./mtpl-advantages.e";
 import NoutImg from "../../../assets/images/yur-page/singl-yur-img/nout.png";
 import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
@@ -27,63 +27,91 @@ import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
 import Strelka from "/strlka.png";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { Casco , Health, Property } from "../..";
+import { Casco, Health, Property } from "../..";
 import { useRouter } from "next/router";
 const MtplAdventages: FC<MtplAdventagesProps> = ({
   dataAdvantage,
   dataCardImage,
   dataCards,
   dataSteps,
+  forms,
 }) => {
   const { t } = useTranslation();
-  const router  = useRouter()
-  const {id} = router.query
-  const typePolis = Object.values(router.query).toString()
+  const router = useRouter();
+  const { id } = router.query;
+  const typePolis = Object.values(router.query).toString();
 
   const singleTitle = useMemo(() => {
-  console.log('asfkljsfdjhg rldikhg;lk' + typePolis)
-    
+    console.log("asfkljsfdjhg rldikhg;lk" + typePolis);
+
     switch (typePolis) {
-      case '8': return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
-      case '9' :  return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
-      case '10' : return 'ДРУГИЕ ПРОГРАММЫ'
-      case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
-      case '13' : return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
-      case '14' : return 'СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ'
-      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ '
-      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
-      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
-      case '17' : return 'Перестрахование'
-      case '18' : return 'Строительство'
-      case '30' : return 'СТРАХОВАНИЕ КВАРТИРЫ '
-      case '25' : return 'КАСКО'
-      case '26'  : return 'КАСКО'
-      case '27'  : return 'Осаго'
+      case "8":
+        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
+      case "9":
+        return "СТРАХОВАНИЕ ИМУЩЕСТВА";
+      case "10":
+        return "ДРУГИЕ ПРОГРАММЫ";
+      case "12":
+        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
+      case "13":
+        return "СТРАХОВАНИЕ ИМУЩЕСТВА";
+      case "14":
+        return "СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ";
+      case "15":
+        return "ТРАНСПОРТ И ПЕРЕВОЗКИ ";
+      case "16":
+        return "ОТРАСЛЕВЫЕ ПРОДУКТЫ";
+      case "16":
+        return "ОТРАСЛЕВЫЕ ПРОДУКТЫ";
+      case "17":
+        return "Перестрахование";
+      case "18":
+        return "Строительство";
+      case "30":
+        return "СТРАХОВАНИЕ КВАРТИРЫ ";
+      case "25":
+        return "КАСКО";
+      case "26":
+        return "КАСКО";
+      case "27":
+        return "Осаго";
 
-      case '4': return 'КАСКО'
-      case  '7'  : return 'КАСКО'
-      case  '1' : return 'КАСКО'
-      case  '3' : return 'КАСКО'
-      case  '28' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
-      case '31' : return 'СТРАХОВАНИЕ ДОМА'
+      case "4":
+        return "КАСКО";
+      case "7":
+        return "КАСКО";
+      case "1":
+        return "КАСКО";
+      case "3":
+        return "КАСКО";
+      case "28":
+        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
+      case "31":
+        return "СТРАХОВАНИЕ ДОМА";
 
-
-
-      case '2' : return 'ОСАГО'
-      default: 'КАСКО'
-
+      case "2":
+        return "ОСАГО";
+      default:
+        "КАСКО";
     }
-  }, [typePolis])
-  let isYur = false 
-  if(typePolis == '11' || typePolis == '6' || typePolis == '7'  || typePolis == '8' ||typePolis == '36'|| typePolis == '39'|| typePolis == '40'){
-    isYur = true
+  }, [typePolis]);
+  let isYur = false;
+  if (
+    typePolis == "11" ||
+    typePolis == "6" ||
+    typePolis == "7" ||
+    typePolis == "8" ||
+    typePolis == "36" ||
+    typePolis == "39" ||
+    typePolis == "40"
+  ) {
+    isYur = true;
   }
   return (
     // <GWrapper>
     <ERBg>
       {dataAdvantage?.status !== 0 && (
         <ERBg>
-          
           <MtplAdventagesHeading>{dataAdvantage.title}</MtplAdventagesHeading>
           <MtplAdventagesBlock>
             <MtplAdventagesCard>
@@ -119,13 +147,10 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
               </MtplAdventagesCardText>
             </MtplAdventagesCard>
           </MtplAdventagesBlock>
-          </ERBg>
-
+        </ERBg>
       )}
       {dataCardImage?.status !== 0 && (
         <ERBg>
-        
-
           <MtplAdventagesHeading>{dataCardImage.title}</MtplAdventagesHeading>
           <MtplAdventagesInsurance>
             <div>
@@ -168,7 +193,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
               </MtplAdventagesInsuranceText>
             </div>
           </MtplAdventagesInsuranceTwo>
-          </ERBg>
+        </ERBg>
       )}
       {dataCards?.status !== 0 && (
         <>
@@ -241,23 +266,25 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
             </NumberB>
           </MtplAdventagesBlock>
           <AS>
-            {singleTitle == 'СТРАХОВАНИЕ ЗДОРОВЬЯ' ? (
-                //@ts-ignore
-                <Health yurFace={isYur} title={singleTitle}/>
-              
-            ):''}
-                {singleTitle === 'КАСКО'|| singleTitle == 'ОСАГО' ? (
-                //@ts-ignore
-                <Casco yurFace={isYur} title={singleTitle}/>
-              
-            ):''}
-            
-            {singleTitle === 'СТРАХОВАНИЕ ИМУЩЕСТВА' || typePolis == '30'  ? (
-                //@ts-ignore
-              <Property yurFace={isYur} title={singleTitle}/>
-            ): ''}
+            {singleTitle == "СТРАХОВАНИЕ ЗДОРОВЬЯ" ? (
+              //@ts-ignore
+              <Health yurFace={isYur} title={singleTitle} />
+            ) : (
+              ""
+            )}
+            {singleTitle === "КАСКО" || singleTitle == "ОСАГО" ? (
+              //@ts-ignore
+              <Casco yurFace={isYur} title={singleTitle} />
+            ) : (
+              ""
+            )}
 
-           
+            {singleTitle === "СТРАХОВАНИЕ ИМУЩЕСТВА" || typePolis == "30" ? (
+              //@ts-ignore
+              <Property yurFace={isYur} title={singleTitle} />
+            ) : (
+              ""
+            )}
           </AS>
         </ERBg>
       )}
