@@ -454,8 +454,6 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                       disabled={!credit}
                       label="Серия и номер*"
                       placeholder=""
-                      type={"email"}
-                      id="emailUser"
                       onChange={(e) => handleChange(e, "serie_and_number")}
                       name="serie_and_number"
                       value={userInfo.serie_and_number}

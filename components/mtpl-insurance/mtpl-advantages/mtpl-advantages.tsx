@@ -40,73 +40,11 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   const router = useRouter();
   const { id } = router.query;
   const typePolis = Object.values(router.query).toString();
+  const [yur , setYur] = useState(false)
+  if(forms.cat == 'yur'){
+    setYur(true)
+  } 
 
-  const singleTitle = useMemo(() => {
-    console.log("asfkljsfdjhg rldikhg;lk" + typePolis);
-
-    switch (typePolis) {
-      case "8":
-        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
-      case "9":
-        return "СТРАХОВАНИЕ ИМУЩЕСТВА";
-      case "10":
-        return "ДРУГИЕ ПРОГРАММЫ";
-      case "12":
-        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
-      case "13":
-        return "СТРАХОВАНИЕ ИМУЩЕСТВА";
-      case "14":
-        return "СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ";
-      case "15":
-        return "ТРАНСПОРТ И ПЕРЕВОЗКИ ";
-      case "16":
-        return "ОТРАСЛЕВЫЕ ПРОДУКТЫ";
-      case "16":
-        return "ОТРАСЛЕВЫЕ ПРОДУКТЫ";
-      case "17":
-        return "Перестрахование";
-      case "18":
-        return "Строительство";
-      case "30":
-        return "СТРАХОВАНИЕ КВАРТИРЫ ";
-      case "25":
-        return "КАСКО";
-      case "26":
-        return "КАСКО";
-      case "27":
-        return "Осаго";
-
-      case "4":
-        return "КАСКО";
-      case "7":
-        return "КАСКО";
-      case "1":
-        return "КАСКО";
-      case "3":
-        return "КАСКО";
-      case "28":
-        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
-      case "31":
-        return "СТРАХОВАНИЕ ДОМА";
-
-      case "2":
-        return "ОСАГО";
-      default:
-        "КАСКО";
-    }
-  }, [typePolis]);
-  let isYur = false;
-  if (
-    typePolis == "11" ||
-    typePolis == "6" ||
-    typePolis == "7" ||
-    typePolis == "8" ||
-    typePolis == "36" ||
-    typePolis == "39" ||
-    typePolis == "40"
-  ) {
-    isYur = true;
-  }
   return (
     // <GWrapper>
     <ERBg>
@@ -266,22 +204,22 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
             </NumberB>
           </MtplAdventagesBlock>
           <AS>
-            {singleTitle == "СТРАХОВАНИЕ ЗДОРОВЬЯ" ? (
+            {forms.type == "health" ? (
               //@ts-ignore
-              <Health yurFace={isYur} title={singleTitle} />
+              <Health yurFace={yur} title={forms.title} />
             ) : (
               ""
             )}
-            {singleTitle === "КАСКО" || singleTitle == "ОСАГО" ? (
+            {forms.type == "avto" ? (
               //@ts-ignore
-              <Casco yurFace={isYur} title={singleTitle} />
+              <Casco yurFace={yur} title={forms.title} />
             ) : (
               ""
             )}
 
-            {singleTitle === "СТРАХОВАНИЕ ИМУЩЕСТВА" || typePolis == "30" ? (
+            {forms.type == "estates" || typePolis == "30" ? (
               //@ts-ignore
-              <Property yurFace={isYur} title={singleTitle} />
+              <Property yurFace={yur} title={forms.title} />
             ) : (
               ""
             )}
