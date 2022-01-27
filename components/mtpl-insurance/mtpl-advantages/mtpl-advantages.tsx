@@ -44,7 +44,7 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   if(forms.cat == 'yur'){
     setYur(true)
   } 
-
+  console.log(forms.cat)
   return (
     // <GWrapper>
     <ERBg>

@@ -10,4 +10,6 @@ export interface INewsData {
   image: string;
   meta_title: string;
   meta_description: string;
+  forms?: any;
+
 }

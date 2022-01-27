@@ -70,7 +70,6 @@ export const MtplAdventagesCardHeading = styled.h3`
   font-weight: normal;
   font-size: 24px;
   line-height: 28px;
-
   color: #ffffff;
   @media (max-width: 425px) {
     font-size: 14px;
@@ -138,7 +137,6 @@ export const MtplAdventagesInsuranceHeading = styled.h2`
   font-size: 24px;
   line-height: 28px;
   padding: 0 0 0 20px;
-
   color: #000000;
 `;
 export const MtplAdventagesInsuranceText = styled.p`

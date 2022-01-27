@@ -110,7 +110,7 @@ export const CardServiceHeading = styled.h3`
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
-
+    width: 200px;
     color: #fff;
     @media (max-width:425px){
        font-size:14px
