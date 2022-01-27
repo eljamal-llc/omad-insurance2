@@ -31,7 +31,7 @@ const InviteCooperationForm: FC<Invite_cooperation_formProps> = () => {
     const [check, setCheck] = useState(false);
   
         return (
-            <div>
+            <form>
                 <InviteFormBody>
                     <FormTitle>Пригласить к сотрудничеству</FormTitle>
                     <FormsContainer>
@@ -81,7 +81,7 @@ const InviteCooperationForm: FC<Invite_cooperation_formProps> = () => {
                             
                         </CheckBlock>
                 </InviteFormBody>
-            </div>
+            </form>
         )
 };
 

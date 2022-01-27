@@ -13,11 +13,11 @@ export const AggentsTable = styled.table`
 export const AgentsTd = styled.td`
     border: 1px solid #000;
     margin: 0;
-    padding: 0;
+    padding: 0 0  0 50px  ;
+    
     &.oneT {
         width: 726px;
         height: 152px;
-        padding: 0 0  0 50px  ;
 
     }
     &.twoT{
@@ -82,6 +82,32 @@ export const SecontTable  = styled.table`
     margin-bottom: 220px;
     @media(max-width:425px){
         display:none;
+    }
+
+`
+export const NumTable = styled.span`
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 75px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+`
+export const TdTitle = styled.p`
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+
+    &.Nocenter {
+        text-align: left;
     }
 
 `
