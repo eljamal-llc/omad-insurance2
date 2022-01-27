@@ -137,3 +137,6 @@ export const TdTitle = styled.p`
     }
 
 `
+export const СenterМ = styled.span`
+    text-align: center;
+`

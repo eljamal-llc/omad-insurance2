@@ -118,18 +118,18 @@ return (
             <AgentsTd ><TableDes className='title'>Регулярные тренинги и профессиональное обучение </TableDes></AgentsTd>
           </AgentsTR>
           <AgentsTR >
-            <AgentsTd ><TdTitle > Стандартный агентский договор </TdTitle><center><Image  src={yes} height={40} width={40}/></center></AgentsTd>
+            <AgentsTd ><TdTitle > Стандартный агентский договор </TdTitle><СenterМ><Image  src={yes} height={40} width={40}/></СenterМ></AgentsTd>
           </AgentsTR>
           <AgentsTR >
             <AgentsTd ><TableDes className='title'>Регулярные тренинги и профессиональное обучение </TableDes></AgentsTd>
           </AgentsTR>
           <AgentsTR >
-            <AgentsTd ><TdTitle > Стандартный агентский договор </TdTitle><center><Image  src={yes} height={40} width={40}/></center></AgentsTd>
+            <AgentsTd ><TdTitle > Стандартный агентский договор </TdTitle><СenterМ><Image  src={yes} height={40} width={40}/></СenterМ></AgentsTd>
           </AgentsTR> <AgentsTR >
             <AgentsTd ><TableDes className='title'>Регулярные тренинги и профессиональное обучение </TableDes></AgentsTd>
           </AgentsTR>
           <AgentsTR >
-            <AgentsTd ><TdTitle > Стандартный агентский договор </TdTitle><center><Image  src={yes} height={40} width={40}/></center></AgentsTd>
+            <AgentsTd ><TdTitle > Стандартный агентский договор </TdTitle><СenterМ><Image  src={yes} height={40} width={40}/></СenterМ></AgentsTd>
           </AgentsTR>
         </tbody>
     </ResponseTable>
