@@ -225,7 +225,7 @@ const AuthPage: FC<AuthPageProps> = () => {
                   </FormGroup>
                   <span className="label">
                     Я согласен с
-                    <Link href="/blog/hello-world" passHref>
+                    <Link href="/politics"  passHref>
                       <a>пользовательским соглашением</a>
                     </Link>
                   </span>

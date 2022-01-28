@@ -10,11 +10,19 @@ export const Wrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 85px;
+    @media(max-width:750px){
+      flex-direction: column;
+      width: 100%;
+    }
     &__item {
       display: flex;
       max-width: 45%;
       width: 100%;
       margin-bottom: 35px;
+      @media(max-width:750px){
+      flex-direction: column;
+      max-width: 100%;
+    }
     }
     &__number {
       font-family: Roboto;
@@ -45,6 +53,10 @@ export const Wrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     padding-bottom: 85px;
+    @media(max-width:750px){
+      flex-direction: column;
+      max-width: 100%;
+    }
     .section__name {
       color: #ffffff;
     }
@@ -75,6 +87,9 @@ export const Wrapper = styled.div`
       background-color: #0d4656;
       padding: 40px 50px;
       margin-bottom: 35px;
+      @media(max-width:750px){
+      max-width: 100%;
+    }
     }
   }
   .section__name {
@@ -100,11 +115,18 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 120px;
+    @media(max-width:750px){
+      flex-direction: column;
+    }
     .section__content {
       margin-bottom: 20px;
     }
     &__left {
       max-width: 60%;
+      @media(max-width:750px){
+        max-width: 100%;
+
+    }
     }
     &__right {
       max-width: 35%;

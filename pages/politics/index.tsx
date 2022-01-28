@@ -12,6 +12,8 @@ import {
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from 'next-i18next'
 import { api } from "../../services/api";
+import { INewsData } from "../../components/common/news/news.t";
+import { IData } from "../../components/common/hero/hero.t";
  
 export async  function getStaticProps({locale}:{locale : string} ) {
   return {
@@ -24,21 +26,28 @@ export async  function getStaticProps({locale}:{locale : string} ) {
 }
 const Politics: FC<NextPage> = () => {
   const [footer, setFooter] = useState<any>();
+  const [news, setNews] = useState<INewsData[] | []>([]);
+  const [sliders, setSliders] = useState<IData[] | []>([]);
 
   useEffect(() => {
-  
+    api.get("news").then((res) => {
+      setNews(res.data.data);
+    });
       api.get("footer").then((res) => {
         // console.log("--", res);
         setFooter(res.data);
+      });
+      api.get("slider-categories").then(async (response) => {
+        await setSliders(response.data.data);
       });
   }, []);
   const {t} = useTranslation()
   return (
     <Layout title={t('common:privacy_policy')}>
       <Navbar />
-      <Hero />
+      <Hero data={sliders}/>
       <PoliticsBody />
-      <News />
+      <News data={news} />
       <Footer data={footer} />
     </Layout>
   );
