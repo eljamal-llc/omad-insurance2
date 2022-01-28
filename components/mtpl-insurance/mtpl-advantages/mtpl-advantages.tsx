@@ -23,7 +23,6 @@ import {
 } from "./mtpl-advantages.e";
 import NoutImg from "../../../assets/images/yur-page/singl-yur-img/nout.png";
 import CarImg from "../../../assets/images/yur-page/singl-yur-img/car.png";
-// import Strelka from "../../../assets/strlka.png";
 import Strelka from "/strlka.png";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
@@ -40,13 +39,8 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   const router = useRouter();
   const { id } = router.query;
   const typePolis = Object.values(router.query).toString();
-  const [yur, setYur] = useState(false);
-  if (forms.cat == "yur") {
-    setYur(true);
-  } else {
-    setYur(false);
-  }
-
+  const yur = true;
+  const fiz = false;
   return (
     // <GWrapper>
     <ERBg>
@@ -208,20 +202,29 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
           <AS>
             {forms.type == "health" ? (
               //@ts-ignore
-              <Health yurFace={yur} title={forms.title} />
+              <Health
+                yurFace={forms.cat == "yur" ? yur : fiz}
+                title={forms.title}
+              />
             ) : (
               ""
             )}
             {forms.type == "avto" ? (
               //@ts-ignore
-              <Casco yurFace={yur} title={forms.title} />
+              <Casco
+                yurFace={forms.cat == "yur" ? yur : fiz}
+                title={forms.title}
+              />
             ) : (
               ""
             )}
 
             {forms.type == "estates" ? (
               //@ts-ignore
-              <Property yurFace={yur} title={forms.title} />
+              <Property
+                yurFace={forms.cat == "yur" ? yur : fiz}
+                title={forms.title}
+              />
             ) : (
               ""
             )}

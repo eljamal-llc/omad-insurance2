@@ -69,16 +69,17 @@ const YurFacePage: FC<NextPage> = () => {
     }
   }, [singleId]);
   useEffect(() => {
-    api
-      .get("insurance/full", { params: { id: id } })
-      .then(async (response) => {
-        await seyInsurance(response.data);
+   
+    api.get("insurance/full", { params: { id: id } })
+      .then( (response) => {
+         seyInsurance(response.data);
+         
       })
       .catch((err) => {
         console.log(err);
       });
-    api.get("news", { params: { id: id } }).then(async (response) => {
-      await setNews(response.data.data[0]);
+    api.get("news", { params: { id: id } }).then( (response) => {
+       setNews(response.data.data[0]);
     });
     api.get("footer").then((res) => {
       // console.log("--", res);
