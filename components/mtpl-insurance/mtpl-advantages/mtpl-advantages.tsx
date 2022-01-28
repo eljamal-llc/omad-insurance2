@@ -40,10 +40,12 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   const router = useRouter();
   const { id } = router.query;
   const typePolis = Object.values(router.query).toString();
-  const [yur , setYur] = useState(false)
-  if(forms.cat == 'yur'){
-    setYur(true)
-  } 
+  const [yur, setYur] = useState(false);
+  if (forms.cat == "yur") {
+    setYur(true);
+  } else {
+    setYur(false);
+  }
 
   return (
     // <GWrapper>

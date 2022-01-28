@@ -34,7 +34,7 @@ const YurFacePage: FC<NextPage> = () => {
   const [footer, setFooter] = useState<any>();
 
   const [news, setNews] = useState<INewsData>();
-  console.log(singleId);
+  // console.log(singleId);
 
   const singleTitle = useMemo(() => {
     switch (singleId) {
@@ -112,7 +112,7 @@ const YurFacePage: FC<NextPage> = () => {
           dataCardImage={insurance.card_image}
           dataCards={insurance.cards}
           dataSteps={insurance.steps}
-          forms={insurance.forms}
+          forms={!!insurance.forms && insurance.forms}
         />
       )}
 
