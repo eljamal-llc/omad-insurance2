@@ -261,8 +261,8 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
             {/* @ts-ignore */}
             {/* {errorMsg && errorMsg.type == "login" && errorMsg.message} */}
             {errorMsg &&
-              errorMsg.type == "registration" &&
-              errorMsg.message.map((item: any, idx: any) => (
+               errorMsg.message.length > 0 &&
+             errorMsg.message.map((item: any, idx: any) => (
                 <div key={idx}>{item}</div>
               ))}
           </Alert>
@@ -448,7 +448,7 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
                         onChange={(e) => handleChange(e, "sdayu_arendu")}
                         name="sdayu_arendu"
                         value={userInfo.sdayu_arendu}
-                        required
+
                       />
                       Сдаю в аренду
                     </p>
@@ -459,7 +459,6 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
                         onChange={(e) => handleChange(e, "snimayu_jily")}
                         name="snimayu_jily"
                         value={userInfo.snimayu_jily}
-                        required
                       />
                       Снимаю жильё
                     </p>

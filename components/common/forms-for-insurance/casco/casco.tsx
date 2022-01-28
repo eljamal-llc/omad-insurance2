@@ -336,7 +336,8 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                       onChange={(e) => handleChange(e, "was_be_dtp")}
                       name="was_be_dtp"
                       value={userInfo.was_be_dtp}
-                      required
+                      required={false}
+
                     />{" "}
                     Были ДТП за прошлый год
                   </CheckDTp>
@@ -407,11 +408,10 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                       disabled={!credit}
                       label="Госномер*"
                       placeholder="Если есть  "
-                      id="tel"
+                      id="gov number"
                       onChange={(e) => handleChange(e, "gov_number")}
                       name="gov_number"
                       value={userInfo.gov_number}
-                      required
                     />
                   </FlexBlock>
 
@@ -420,11 +420,11 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                       // label='Мин. возраст водителя*'
                       disabled={!credit}
                       placeholder="Тип документа* "
-                      id="vozrast"
+                      id="type doc"
+
                       onChange={(e) => handleChange(e, "type_document")}
                       name="type_document"
                       value={userInfo.type_document}
-                      required
                     >
                       <option selected>Тип документа*</option>
                       <option value="1">СТС</option>
@@ -436,18 +436,19 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                       placeholder=""
                       onChange={(e) => handleChange(e, "serie_and_number")}
                       name="serie_and_number"
+                      id="seriya_avto"
                       value={userInfo.serie_and_number}
-                      required
                     />
                     <Engine
                       disabled={!credit}
                       label="Дата выдачи*"
                       id="Дата выдачи*"
                       placeholder=""
+
+                      type="date"
                       onChange={(e) => handleChange(e, "given_time")}
                       name="given_time"
                       value={userInfo.given_time}
-                      required
                     />
                     <div>
                       <Checkbox
@@ -456,7 +457,6 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                         onChange={(e) => handleChange(e, "avto_credit")}
                         name="avto_credit"
                         value={userInfo.avto_credit}
-                        required
                       />{" "}
                       Автомобиль взят в кредит
                     </div>
