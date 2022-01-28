@@ -80,31 +80,6 @@ import {
 } from "../../../personal-area/polic-updates/pesonal-.updates.e";
 import { api } from "../../../../services/api";
 
-const Schema = Yup.object().shape({
-  email: Yup.string().required("This field is required"),
-
-  marka: Yup.string().required("This field is required"),
-  model: Yup.string().required("This field is required"),
-  year: Yup.string().required("This field is required"),
-  dvigatel: Yup.string().required("This field is required"),
-  was_be_dtp: Yup.string().required("This field is required"),
-  insurance_year: Yup.string().required("This field is required"),
-  region_useges: Yup.string().required("This field is required"),
-  start_action: Yup.string().required("This field is required"),
-  gov_number: Yup.string().required("This field is required"),
-  vin: Yup.string().required("This field is required"),
-  type_document: Yup.string().required("This field is required"),
-  serie_and_number: Yup.string().required("This field is required"),
-  given_time: Yup.string().required("This field is required"),
-  avto_credit: Yup.number().required("This field is required"),
-  sobsvennik_straxovatel: Yup.number().required("This field is required"),
-  bez_ogranacheniya_voditel: Yup.number().required("This field is required"),
-  voditel_full_name1: Yup.string().required("This field is required"),
-  voditel_date_rojdeniya1: Yup.string().required("This field is required"),
-  voditel_full_name2: Yup.string().required("This field is required"),
-  voditel_date_rojdeniya2: Yup.string().required("This field is required"),
-});
-
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
   ref
@@ -157,9 +132,6 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
   const [alert, setAlert] = useState(false);
   const [errorMsg, setErrorMsg] = useState<any>(null);
 
-  const handleChangeE = (event: any) => {
-    setAge(event.target.value);
-  };
   const handleSubmit = (e: any) => {
     e.preventDefault();
     api
@@ -213,13 +185,21 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
         ...prevState,
         [field]: event.target.checked,
       }));
+    } else if (field == "type") {
+      setUserInfo((prevState: any) => ({
+        ...prevState,
+        [field]: event,
+      }));
     } else {
       setUserInfo((prevState: any) => ({
         ...prevState,
         [field]: event.target.value,
+        type: yurFace ? "yur" : "fiz",
       }));
     }
   };
+  // handleChange(yurFace, "type");
+
   const prevAV = () => {
     setAvto("avto");
     setInsuranse("");
@@ -842,48 +822,44 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                           <UserInfoInput
                             placeholder="Khans"
                             label={"Название компании"}
-                            name="full_name"
-                            required
+                            name="company_name"
                             id="company_name"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
+                            onChange={(e) => handleChange(e, "company_name")}
+                            value={userInfo.company_name}
+                            required
                           />
                           <br />
                           <br />
                           <UserInfoInput
                             placeholder=""
                             label={"Юридический адрес"}
-                            name="full_name"
+                            name="yuridik_address"
+                            id="yuridik_address"
+                            onChange={(e) => handleChange(e, "yuridik_address")}
+                            value={userInfo.yuridik_address}
                             required
-                            id="yur_adress"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
                           />
                           <br />
                           <br />
                           <UserInfoInput
                             placeholder="10855430604947"
                             label={"Свидетельство"}
-                            name="guvoh"
+                            name="svidetolsva"
+                            id="svidetolsva"
+                            onChange={(e) => handleChange(e, "svidetolsva")}
+                            value={userInfo.svidetolsva}
                             required
-                            id="guvohnima"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
                           />
                           <br />
                           <br />
                           <UserInfoInput
                             placeholder="10855430604947"
                             label={"ИНН"}
-                            name="full_name"
-                            required
+                            name="inn"
                             id="inn"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
+                            onChange={(e) => handleChange(e, "inn")}
+                            value={userInfo.inn}
+                            required
                           />
                           <br />
                           <br />

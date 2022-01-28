@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState, forwardRef } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import {
   AuthBlock,
@@ -74,7 +74,17 @@ import {
   UptadeSelectRayon,
 } from "../../../personal-area/polic-updates/pesonal-.updates.e";
 import { api } from "../../../../services/api";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
 
+const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 const Health: FC<HealthProps> = ({ title, yurFace }) => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const [check, setCheck] = useState(false);
@@ -83,7 +93,22 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
 
   const [districts, setDistricts] = useState([]);
   const [regions, setRegions] = useState([]);
+
+  const [open, setOpen] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<any>(null);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    api
+      .get("cabinet/regions-list")
+      .then((res) => {
+        setRegions(res.data.data);
+      })
+      .catch((err) => {
+        console.log("err", err.response.data);
+      });
+  }, []);
   const getDistrict = (id: any) => {
     api
       .get("cabinet/district-list", {
@@ -107,18 +132,21 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
   const [add, isAdd] = useState("");
   const [add2, isAdd2] = useState("");
 
-  const handleChangeE = (event: any) => {
-    setAge(event.target.value);
-  };
   const handleSubmit = (e: any) => {
     e.preventDefault();
     api
-      .post("cabinet/user/post", userInfo)
+      .post("/forms/health", userInfo)
       .then((res) => {
-        console.log("object ==>", res);
+        // console.log("object ==>", res);
+        setOpen(true);
       })
       .catch((err) => {
-        console.log("object ==>", err.response.data);
+        // console.log("objectERROR ==>", err.response.data);
+        setAlert(true);
+        setErrorMsg({
+          type: "registration",
+          message: err.response.data,
+        });
       });
   };
   const AddHand = () => {
@@ -147,31 +175,66 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
     console.log();
   };
   const handleChange = (event: any, field: any) => {
-    setUserInfo((prevState: any) => ({
-      ...prevState,
-      [field]: event.target.value,
-    }));
-  };
-  const prevAV = () => {
-    setHealth("health");
-    setInsuranse("");
-    setPropgres("40");
-    setCheck(false);
-    setStep(1);
+    // console.log("==>>", event.target.checked);
+    if (
+      field == "was_be_dtp" ||
+      field == "avto_credit" ||
+      field == "bez_ogranacheniya_voditel"
+    ) {
+      setUserInfo((prevState: any) => ({
+        ...prevState,
+        [field]: event.target.checked,
+      }));
+    } else if (field == "type") {
+      setUserInfo((prevState: any) => ({
+        ...prevState,
+        [field]: event,
+      }));
+    } else {
+      setUserInfo((prevState: any) => ({
+        ...prevState,
+        [field]: event.target.value,
+        type: yurFace ? "yur" : "fiz",
+      }));
+    }
   };
 
-  const CheckCredit = () => {
-    setCredit(!credit);
-  };
-  const NoIns = () => {
-    setInsuranse("");
-    setPropgres("100");
-    setStep(3);
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
 
-    setCalc("calc");
+    setOpen(false);
+    setAlert(false);
+    setErrorMsg(null);
   };
+
   return (
     <GlobalFormBody>
+      <Stack spacing={2} sx={{ width: "100%" }}>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            This is a success message!
+          </Alert>
+        </Snackbar>
+
+        <Snackbar open={alert} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+            {errorMsg &&
+              errorMsg.type == "registration" &&
+              errorMsg.message.map((item: any, idx: any) => (
+                <div key={idx}>{item}</div>
+              ))}
+          </Alert>
+        </Snackbar>
+      </Stack>
       <FormContainer>
         <PageForm onSubmit={handleSubmit}>
           <FormBlock>
@@ -195,23 +258,28 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                   <BrandCar
                     label="Срок страхования *"
                     type="number"
-                    placeholder="Chevrolet"
+                    placeholder="srok"
+                    onChange={(e) => handleChange(e, "srok")}
+                    name="srok"
+                    value={userInfo.srok}
+                    required
+                    id="srok"
                   />
                   <UserNumber
                     className="myInput"
                     placeholder="Дата начала действия "
                     // id="demo-helper-text-misaligned"
                     label={t("Дата начала действия")}
-                    onChange={(e) => handleChange(e, "documentDateOfIsue")}
-                    name="documentDateOfIsue"
                     type="date"
-                    id="date health"
                     defaultValue="Дата рождения*"
                     InputLabelProps={{
                       shrink: true,
                     }}
+                    onChange={(e) => handleChange(e, "data_nachala")}
+                    name="data_nachala"
+                    value={userInfo.data_nachala}
                     required
-                    value={userInfo.documentDateOfIsue}
+                    id="data_nachala"
                   />
                 </CarsBlock>
 
@@ -222,22 +290,27 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                     label="Фамилия, имя и отчество*"
                     placeholder="Иванов Иван Иванович"
                     type={""}
-                    id=""
+                    onChange={(e) => handleChange(e, "fullname1")}
+                    name="fullname1"
+                    value={userInfo.fullname1}
+                    required
+                    id="fullname1"
                   />
                   <UserNumber
                     className="myInput"
                     placeholder="Дата рождения*"
                     // id="demo-helper-text-misaligned"
                     label={t("Дата начала действия")}
-                    onChange={(e) => handleChange(e, "documentDateOfIsue")}
-                    name="documentDateOfIsue"
                     type="date"
-                    id="date health"
                     defaultValue="Дата начала действия"
                     InputLabelProps={{
                       shrink: true,
                     }}
+                    onChange={(e) => handleChange(e, "date1")}
+                    name="date1"
+                    value={userInfo.date1}
                     required
+                    id="date1"
                   />
                 </CarsBlock>
                 {add == "addet" ? (
@@ -246,22 +319,25 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                       label="Фамилия, имя и отчество*"
                       placeholder="Иванов Иван Иванович"
                       type={""}
-                      id=""
+                      onChange={(e) => handleChange(e, "fullname2")}
+                      name="fullname2"
+                      value={userInfo.fullname2}
+                      id="fullname2"
                     />
                     <UserNumber
                       className="myInput"
                       placeholder="Дата рождения*"
                       // id="demo-helper-text-misaligned"
                       label={t("Дата начала действия")}
-                      onChange={(e) => handleChange(e, "documentDateOfIsue")}
-                      name="documentDateOfIsue"
                       type="date"
-                      id="date health"
                       defaultValue="Дата начала действия"
                       InputLabelProps={{
                         shrink: true,
                       }}
-                      required
+                      onChange={(e) => handleChange(e, "date2")}
+                      name="date2"
+                      value={userInfo.date2}
+                      id="date2"
                     />
                   </CarsBlock>
                 ) : (
@@ -313,14 +389,11 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                           <UserInfoInput
                             placeholder="Иванов Иван Иванович"
                             label={t("common:name_data")}
-                            onChange={(e) => handleChange(e, "full_name")}
-                            name="full_name"
-                            value={userInfo.full_name}
+                            onChange={(e) => handleChange(e, "fullname")}
+                            name="fullname"
+                            value={userInfo.fullname}
                             required
-                            id="full_name"
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
+                            id="fullname"
                           />
                         </p>
                         <p>
@@ -329,16 +402,16 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                             placeholder="01/01/2000"
                             // id="demo-helper-text-misaligned"
                             label={t("common:birth_data")}
-                            onChange={(e) => handleChange(e, "data_birthday")}
-                            name="data_birthday"
+                            onChange={(e) => handleChange(e, "data_rojdeniya")}
+                            name="data_rojdeniya"
                             type="date"
-                            id="data_birthday"
+                            id="data_rojdeniya"
                             defaultValue="00-00-2000"
-                            value={userInfo.data_birthday}
+                            value={userInfo.data_rojdeniya}
+                            required
                             InputLabelProps={{
                               shrink: true,
                             }}
-                            required
                           />
                         </p>
                         <FormHeading>{t("common:Personal_ata")}</FormHeading>
@@ -346,11 +419,11 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                           // onChange={(e) => {
                           //   setValue(e.target.value);
                           // }}
-                          name="documentTypeId"
+                          name="type_document_id"
                           required
-                          id="documentTypeId"
-                          onChange={(e) => handleChange(e, "documentTypeId")}
-                          value={userInfo.documentTypeId}
+                          id="type_document_id"
+                          onChange={(e) => handleChange(e, "type_document_id")}
+                          value={userInfo.type_document_id}
                         >
                           <option selected>
                             {t("common:Citizens_passport")}
@@ -363,42 +436,22 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                         <UserInfoInput
                           placeholder=" Например: 470347034703477"
                           label={t("common:Series_number_pas")}
-                          onChange={(e) =>
-                            handleChange(e, "documentSerieAndNumber")
-                          }
-                          name="documentSerieAndNumber"
+                          onChange={(e) => handleChange(e, "serie_and_number")}
+                          name="serie_and_number"
                           required
-                          id="documentSerieAndNumber"
-                          value={userInfo.documentSerieAndNumber}
-                          // InputLabelProps={{
-                          //   shrink: true,
-                          // }}
+                          id="serie_and_number"
+                          value={userInfo.serie_and_number}
                         />
-                        {/* <SNumber
-                                                     className="myInput"
-                                                     //  id="demo-helper-text-misaligned"
-     
-                                                     id="documentSerieAndNumber"
-                                                     value={userInfo.documentSerieAndNumber}
-                                                     type="text"
-                                                     InputLabelProps={{
-                                                         shrink: true,
-                                                     }}
-                                                     /> */}
+
                         <p>
                           <UserInfoInput
                             label={t("common:Issued_by")}
                             placeholder={t("Например: IIV 3411")}
-                            onChange={(e) =>
-                              handleChange(e, "documentIssuedBy")
-                            }
-                            name="documentIssuedBy"
+                            onChange={(e) => handleChange(e, "given_place")}
+                            name="given_place"
                             required
-                            id="documentIssuedBy"
-                            value={userInfo.documentIssuedBy}
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
+                            id="given_place"
+                            value={userInfo.given_place}
                           />
                         </p>
                         <p>
@@ -407,18 +460,16 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                             placeholder="01/01/2000"
                             // id="demo-helper-text-misaligned"
                             label={t("common:Date_issue")}
-                            onChange={(e) =>
-                              handleChange(e, "documentDateOfIsue")
-                            }
-                            name="documentDateOfIsue"
+                            onChange={(e) => handleChange(e, "given_time")}
+                            name="given_time"
                             type="date"
-                            id="documentDateOfIsue"
+                            id="given_time"
                             defaultValue="00-00-2000"
                             InputLabelProps={{
                               shrink: true,
                             }}
                             required
-                            value={userInfo.documentDateOfIsue}
+                            value={userInfo.given_time}
                           />
                         </p>
                         <FormHeading>{t("common:Contact_details")}</FormHeading>
@@ -428,14 +479,11 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                               className="myInput"
                               placeholder="998 90 989-89-89"
                               label={t("common:Phone_number")}
-                              onChange={(e) => handleChange(e, "tel1")}
-                              name="tel1"
+                              onChange={(e) => handleChange(e, "phonenumber1")}
+                              name="phonenumber1"
                               required
-                              id="tel1"
-                              value={userInfo.tel1}
-                              InputLabelProps={{
-                                shrink: true,
-                              }}
+                              id="phonenumber1"
+                              value={userInfo.phonenumber1}
                             />
                             <UserEmail
                               placeholder="status585@mail.ru"
@@ -445,9 +493,6 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                               required
                               id="email1"
                               value={userInfo.email1}
-                              InputLabelProps={{
-                                shrink: true,
-                              }}
                             />
                           </UserDataBlock>
 
@@ -457,26 +502,20 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                                 className="myInput"
                                 placeholder="998 90 989-89-89"
                                 label={t("common:Phone_number")}
-                                //   onChange={(e) => handleChange(e, "tel1")}
-                                name="tel1"
-                                required
-                                id="tel1"
-                                //   value={userInfo.tel1}
-                                InputLabelProps={{
-                                  shrink: true,
-                                }}
+                                onChange={(e) =>
+                                  handleChange(e, "phonenumber2")
+                                }
+                                name="phonenumber2"
+                                id="phonenumber2"
+                                value={userInfo.phonenumber2}
                               />
                               <UserEmail
                                 placeholder="status585@mail.ru"
                                 label="Email"
-                                //   onChange={(e) => handleChange(e, "email1")}
-                                name="email1"
-                                required
-                                id="email1"
-                                //   value={userInfo.email1}
-                                InputLabelProps={{
-                                  shrink: true,
-                                }}
+                                onChange={(e) => handleChange(e, "email2")}
+                                name="email2"
+                                id="email2"
+                                value={userInfo.email2}
                               />
                             </UserDataBlock>
                           ) : (
@@ -499,22 +538,19 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                         <UserInfoInput
                           label={t("common:index")}
                           placeholder={t("Например : 100012")}
-                          onChange={(e) => handleChange(e, "box_index")}
-                          name="box_index"
+                          onChange={(e) => handleChange(e, "indeks")}
+                          name="indeks"
                           required
-                          id="box_index"
-                          value={userInfo.box_index}
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
+                          id="indeks"
+                          value={userInfo.indeks}
                         />
                         <UptadeSelect
                           placeholder="Область"
                           onChange={(e) => {
-                            handleChange(e, "region_id");
+                            handleChange(e, "oblast_id");
                             getDistrict(e.target.value);
                           }}
-                          name="region_id"
+                          name="oblast_id"
                           required
                         >
                           <option selected>{t("common:Region")}</option>
@@ -528,9 +564,10 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                           className="rayon"
                           placeholder="Область"
                           onChange={(e) => {
-                            handleChange(e, "district_id");
+                            handleChange(e, "region_id");
                           }}
                           name="region_id"
+                          required
                         >
                           <option selected value="Область">
                             {t("common:District_city")}
@@ -548,31 +585,22 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                           name="street"
                           id="street"
                           value={userInfo.street}
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
                         />
                         <UserHome
                           label={t("common:House")}
                           placeholder={t("47")}
-                          onChange={(e) => handleChange(e, "home")}
-                          name="home"
-                          id="home"
-                          value={userInfo.home}
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
+                          onChange={(e) => handleChange(e, "dom")}
+                          name="dom"
+                          id="dom"
+                          value={userInfo.dom}
                         />
                         <UserApartment
                           label={t("common:Apartment")}
                           placeholder={t("9")}
-                          onChange={(e) => handleChange(e, "flat")}
-                          name="flat"
-                          id="flat"
-                          value={userInfo.flat}
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
+                          onChange={(e) => handleChange(e, "home")}
+                          name="home"
+                          id="home"
+                          value={userInfo.home}
                         />
 
                         <ButtonBlock>
@@ -583,63 +611,59 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
                       </FormBody>
                     </BodyForm>
                   ) : (
-                    <FormBody>
-                      <FormHeading>Данные для оформления</FormHeading>
-                      <UserInfoInput
-                        placeholder="Khans"
-                        label={"Название компании"}
-                        name="full_name"
-                        required
-                        id="company_name"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                      <br />
-                      <br />
-                      <UserInfoInput
-                        placeholder=""
-                        label={"Юридический адрес"}
-                        name="full_name"
-                        required
-                        id="yur_adress"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                      <br />
-                      <br />
-                      <UserInfoInput
-                        placeholder="10855430604947"
-                        label={"Свидетельство"}
-                        name="guvoh"
-                        required
-                        id="guvohnima"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                      <br />
-                      <br />
-                      <UserInfoInput
-                        placeholder="10855430604947"
-                        label={"ИНН"}
-                        name="full_name"
-                        required
-                        id="inn"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                      <br />
-                      <br />
+                    <>
+                      <FormBody>
+                        <FormHeading>Данные для оформления</FormHeading>
+                        <UserInfoInput
+                          placeholder="Khans"
+                          label={"Название компании"}
+                          name="company_name"
+                          id="company_name"
+                          onChange={(e) => handleChange(e, "company_name")}
+                          value={userInfo.company_name}
+                          required
+                        />
+                        <br />
+                        <br />
+                        <UserInfoInput
+                          placeholder=""
+                          label={"Юридический адрес"}
+                          name="yuridik_address"
+                          id="yuridik_address"
+                          onChange={(e) => handleChange(e, "yuridik_address")}
+                          value={userInfo.yuridik_address}
+                          required
+                        />
+                        <br />
+                        <br />
+                        <UserInfoInput
+                          placeholder="10855430604947"
+                          label={"Свидетельство"}
+                          name="svidetolsva"
+                          id="svidetolsva"
+                          onChange={(e) => handleChange(e, "svidetolsva")}
+                          value={userInfo.svidetolsva}
+                          required
+                        />
+                        <br />
+                        <br />
+                        <UserInfoInput
+                          placeholder="10855430604947"
+                          label={"ИНН"}
+                          name="inn"
+                          id="inn"
+                          onChange={(e) => handleChange(e, "inn")}
+                          value={userInfo.inn}
+                          required
+                        />
+                        <br />
+                        <br />
 
-                      <ButtonBlock>
-                        <CardButton type="submit">
-                          {t("common:Save")}
-                        </CardButton>
-                      </ButtonBlock>
-                    </FormBody>
+                        <ButtonBlock>
+                          <CardButton type="submit">Отправить</CardButton>
+                        </ButtonBlock>
+                      </FormBody>
+                    </>
                   )}
                 </>
               ) : (

@@ -39,8 +39,8 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
   const router = useRouter();
   const { id } = router.query;
   const typePolis = Object.values(router.query).toString();
-  const yur  = true
-  const fiz = false
+  const yur = true;
+  const fiz = false;
   return (
     // <GWrapper>
     <ERBg>
@@ -202,20 +202,29 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
           <AS>
             {forms.type == "health" ? (
               //@ts-ignore
-              <Health yurFace={yur ? forms.cat == 'yur' : fiz}title={forms.title} />
+              <Health
+                yurFace={forms.cat == "yur" ? yur : fiz}
+                title={forms.title}
+              />
             ) : (
               ""
             )}
             {forms.type == "avto" ? (
               //@ts-ignore
-              <Casco yurFace={yur ? forms.cat == 'yur' : fiz} title={forms.title} />
+              <Casco
+                yurFace={forms.cat == "yur" ? yur : fiz}
+                title={forms.title}
+              />
             ) : (
               ""
             )}
 
             {forms.type == "estates" ? (
               //@ts-ignore
-              <Property yurFace={yur ? forms.cat == 'yur' : fiz} title={forms.title} />
+              <Property
+                yurFace={forms.cat == "yur" ? yur : fiz}
+                title={forms.title}
+              />
             ) : (
               ""
             )}
