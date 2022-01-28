@@ -157,7 +157,7 @@ const Sale: FC<SaleProps> = ({ data }) => {
                           </HorizontalSliderDescription>
 
                           <HorizontalSliderButton>
-                            <NextLink href="/" passHref>
+                            <NextLink href="/special-offers-single" passHref>
                               <Link>
                                 <span>Узнать подробнее</span>
                                 <ArrowIcon fill="#F0803D" class="arrow-right" />
