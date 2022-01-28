@@ -69,8 +69,8 @@ const YurFacePage: FC<NextPage> = () => {
     }
   }, [singleId]);
   useEffect(() => {
-    api
-      .get("insurance/full", { params: { id: id } })
+   
+    api.get("insurance/full", { params: { id: id } })
       .then( (response) => {
          seyInsurance(response.data);
          
