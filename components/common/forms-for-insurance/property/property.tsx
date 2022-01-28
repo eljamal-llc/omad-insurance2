@@ -252,7 +252,7 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
             severity="success"
             sx={{ width: "100%" }}
           >
-            This is a success message!
+            Сообщение отправлено успешно !
           </Alert>
         </Snackbar>
 
