@@ -2,7 +2,6 @@ import { TextField } from '@mui/material'
 import styled from 'styled-components'
 
 export const ComponentBody = styled.div`
-    border: 1px solid #000000;
     @media(max-width:425px){
     width: 302px;
     margin:0 auto;

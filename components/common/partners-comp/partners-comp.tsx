@@ -37,7 +37,7 @@ const hanF =()=>{
   return (
   <>
     <ComponentBody>
-        <ComponentHigh>
+        {/* <ComponentHigh>
             <CompHightTitle>Проверить агента или брокера</CompHightTitle>
             <HowFace>
                 <FaceFiz  onClick={hanF} className={isAct}>Физ.лицо</FaceFiz>
@@ -52,7 +52,7 @@ const hanF =()=>{
                     <MainBtn  onClass="white" text={'Поиск'} url="/"/>
 
                 </BTNblock>
-        </ComponentHigh>
+        </ComponentHigh> */}
 
         <ComponentLow>
             <ComponentLowTitile>Получить подробную информацию и ответы на вопросы</ComponentLowTitile>
