@@ -93,13 +93,31 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
   const [addButt, setAddBut] = useState("yes");
   const [districts, setDistricts] = useState([]);
   const [regions, setRegions] = useState([]);
+  const [typeDocumentList, setTypeDocumentList] = useState([]);
+  const [docTypes, setDocTypes] = useState([]);
   const { t } = useTranslation();
 
   useEffect(() => {
     api
+      .get("cabinet/typeDocuments")
+      .then((res) => {
+        setDocTypes(res.data.data);
+      })
+      .catch((err) => {
+        console.log("err", err.response.data);
+      });
+    api
       .get("cabinet/regions-list")
       .then((res) => {
         setRegions(res.data.data);
+      })
+      .catch((err) => {
+        console.log("err", err.response.data);
+      });
+    api
+      .get("forms/typeDocumentList")
+      .then((res) => {
+        setTypeDocumentList(res.data.data);
       })
       .catch((err) => {
         console.log("err", err.response.data);
@@ -139,6 +157,7 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
       .then((res) => {
         // console.log("object ==>", res);
         setOpen(true);
+        setTimeout(() => window.location.reload(), 3000);
       })
       .catch((err) => {
         // console.log("objectERROR ==>", err.response.data);
@@ -241,7 +260,7 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
             severity="success"
             sx={{ width: "100%" }}
           >
-           Сообщение отправлено успешно !
+            Сообщение отправлено успешно !
           </Alert>
         </Snackbar>
 
@@ -249,8 +268,8 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
           <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
             {/* @ts-ignore */}
             {/* {errorMsg && errorMsg.type == "login" && errorMsg.message} */}
-            {errorMsg &&
-              errorMsg.type == "registration" &&
+            {!!errorMsg &&
+              errorMsg.message.length > 0 &&
               errorMsg.message.map((item: any, idx: any) => (
                 <div key={idx}>{item}</div>
               ))}
@@ -337,7 +356,6 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                       name="was_be_dtp"
                       value={userInfo.was_be_dtp}
                       required={false}
-
                     />{" "}
                     Были ДТП за прошлый год
                   </CheckDTp>
@@ -421,34 +439,38 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                       disabled={!credit}
                       placeholder="Тип документа* "
                       id="type doc"
-
-                      onChange={(e) => handleChange(e, "type_document")}
-                      name="type_document"
-                      value={userInfo.type_document}
+                      onChange={(e) => handleChange(e, "type_document_avto")}
+                      name="type_document_avto"
+                      value={userInfo.type_document_avto}
                     >
                       <option selected>Тип документа*</option>
-                      <option value="1">СТС</option>
-                      <option value="2">ПТС</option>
+                      {typeDocumentList?.map((item: any, idx: any) => (
+                        <option value={item.id} key={idx}>
+                          {item.title}
+                        </option>
+                      ))}
                     </FormsDrop>
                     <FormsUser
                       disabled={!credit}
                       label="Серия и номер*"
                       placeholder=""
-                      onChange={(e) => handleChange(e, "serie_and_number")}
-                      name="serie_and_number"
-                      id="seriya_avto"
-                      value={userInfo.serie_and_number}
+                      onChange={(e) => handleChange(e, "serie_and_number_avto")}
+                      name="serie_and_number_avto"
+                      id="serie_and_number_avto"
+                      value={userInfo.serie_and_number_avto}
                     />
                     <Engine
                       disabled={!credit}
                       label="Дата выдачи*"
                       id="Дата выдачи*"
                       placeholder=""
-
                       type="date"
-                      onChange={(e) => handleChange(e, "given_time")}
-                      name="given_time"
-                      value={userInfo.given_time}
+                      onChange={(e) => handleChange(e, "given_time_avto")}
+                      name="given_time_avto"
+                      value={userInfo.given_time_avto}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
                     />
                     <div>
                       <Checkbox
@@ -607,6 +629,9 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                               defaultValue="00-00-2000"
                               value={userInfo.data_rojdeniya}
                               required
+                              InputLabelProps={{
+                                shrink: true,
+                              }}
                             />
                           </p>
                           <FormHeading>{t("common:Personal_ata")}</FormHeading>
@@ -625,8 +650,11 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
                             <option selected>
                               {t("common:Citizens_passport")}
                             </option>
-                            <option value={1}>Паспорт</option>
-                            <option value={2}>ID карта</option>
+                            {docTypes?.map((item: any, idx: any) => (
+                              <option value={item.id} key={idx}>
+                                {item.title}
+                              </option>
+                            ))}
                             {/* <option value="США">США</option> */}
                           </UptadeSelect>
 

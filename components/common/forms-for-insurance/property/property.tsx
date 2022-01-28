@@ -93,12 +93,21 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
   const [districts, setDistricts] = useState([]);
   const [regions, setRegions] = useState([]);
   const [specifications, setSpecifications] = useState([]);
+  const [docTypes, setDocTypes] = useState([]);
 
   useEffect(() => {
     api
       .get("cabinet/regions-list")
       .then((res) => {
         setRegions(res.data.data);
+      })
+      .catch((err) => {
+        console.log("err", err.response.data);
+      });
+    api
+      .get("cabinet/typeDocuments")
+      .then((res) => {
+        setDocTypes(res.data.data);
       })
       .catch((err) => {
         console.log("err", err.response.data);
@@ -159,6 +168,7 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
       .then((res) => {
         // console.log("object ==>", res);
         setOpen(true);
+        setTimeout(() => window.location.reload(), 3000);
       })
       .catch((err) => {
         // console.log("objectERROR ==>", err.response.data);
@@ -260,9 +270,9 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
           <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
             {/* @ts-ignore */}
             {/* {errorMsg && errorMsg.type == "login" && errorMsg.message} */}
-            {errorMsg &&
-               errorMsg.message.length > 0 &&
-             errorMsg.message.map((item: any, idx: any) => (
+            {!!errorMsg &&
+              errorMsg.message.length > 0 &&
+              errorMsg.message.map((item: any, idx: any) => (
                 <div key={idx}>{item}</div>
               ))}
           </Alert>
@@ -448,7 +458,6 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
                         onChange={(e) => handleChange(e, "sdayu_arendu")}
                         name="sdayu_arendu"
                         value={userInfo.sdayu_arendu}
-
                       />
                       Сдаю в аренду
                     </p>
@@ -531,9 +540,11 @@ const Property: FC<PropertyProps> = ({ title, yurFace }) => {
                           <option selected>
                             {t("common:Citizens_passport")}
                           </option>
-                          <option value={1}>Паспорт</option>
-                          <option value={2}>ID карта</option>
-                          {/* <option value="США">США</option> */}
+                          {docTypes?.map((item: any, idx: any) => (
+                            <option value={item.id} key={idx}>
+                              {item.title}
+                            </option>
+                          ))}
                         </UptadeSelect>
 
                         <UserInfoInput
