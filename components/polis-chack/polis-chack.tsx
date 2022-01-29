@@ -27,7 +27,7 @@ const PolisChack: FC<PolisChackProps> = () => {
                 <PolisNum
                     label='Номер полиса    '
                     placeholder='1234567-123456789/20-ТФ'
-                />
+                /><br/><br/>
                 <UserInfoInput
                     label='Фамилия, имя и отчество*' 
                     placeholder="Иванов Иван Иванович"
