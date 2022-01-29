@@ -125,7 +125,7 @@ const MultiSlider: FC<MultiSliderProps> = ({ data, link }) => {
               >
                 <SliderBtnWrapper className="slider-wrapper">
                   <ArrowIconLeft fill="#F0803D" class="arrow-left" />
-                  <SliderText active={btnPrevHover}>перейти</SliderText>
+                  <SliderText active={btnPrevHover}><span className="preyti"> перейти</span></SliderText>
                 </SliderBtnWrapper>
               </SliderBtn>
 
@@ -141,7 +141,7 @@ const MultiSlider: FC<MultiSliderProps> = ({ data, link }) => {
               >
                 <SliderBtnWrapper className="slider-wrapper">
                   <ArrowIconRight fill="#F0803D" class="arrow-right" />
-                  <SliderText active={btnNextHover}>перейти</SliderText>
+                  <SliderText active={btnNextHover}><span className="preyti"> перейти</span></SliderText>
                 </SliderBtnWrapper>
               </SliderBtn>
               </BlovkButton>

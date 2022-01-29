@@ -5,6 +5,9 @@ export const Wrapper = styled.div`
   border-top: 1px solid #000 !important;
   .swiper-pagination {
     bottom: 50px;
+    @media(max-width:425px){
+      display: none;
+    }
   }
   .swiper-pagination-bullet {
     height: 25px;
@@ -88,6 +91,10 @@ export const SliderText = styled.span<ButtonProps>`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media(max-width:425px){
+    display: none;
+  }
+  
 `;
 export const SliderBtnWrapper = styled.div`
   border: 1px solid #0d4656;
@@ -115,6 +122,9 @@ export const SliderBtnRow = styled.div`
   div{
     width: 6000px;
   } */
+  @media(max-width:425px){
+    padding: 36px 26px;
+  }
 `;
 export const BlovkButton = styled.div`
   display: flex;
