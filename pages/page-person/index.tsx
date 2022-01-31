@@ -39,8 +39,7 @@ const Partner: FC<NextPage> = () => {
   const router = useRouter();
   const [footer, setFooter] = useState<any>();
 
-  const { 
-    id } = router.query;
+  const { id } = router.query;
 
   useEffect(() => {
     setLoading(true);
@@ -88,26 +87,7 @@ const Partner: FC<NextPage> = () => {
   const { t } = useTranslation();
   const singleId = Object.values(router.query).toString()
   
-  const singleTitle = useMemo(() => {
-    switch (singleId) {
-      case '1' : return 'ЧАСТНЫЙМ ЛИЦАМ'
-      case '3': return 'ПАРТНЕРАМ'
-      case '2': return 'ЮРИДИЕСКИМ ЛИЦАМ'
-      case '9' :  return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
-      case '10' : return 'ДРУГИЕ ПРОГРАММЫ'
-      case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
-      case '13' : return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
-      case '14' : return 'СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ'
-      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ '
-      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
-      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
-      case '17' : return 'Перестрахование'
-      case '18' : return 'Строительство'
-      case '28' : return 'Страхование здаровья'
-      default: ' Cингл'
-
-    }
-  }, [singleId])
+ 
   // test
   return (
     <>
