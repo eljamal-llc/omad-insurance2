@@ -76,6 +76,7 @@ const Banks: FC<NextPage> = () => {
     <Layout title={t("Агентам и брокерам")}>
       <Navbar />
       <BreadcrumbsBlock
+      //@ts-ignore
         breadcrumb={table.breadcrumb}
       />
       {!!pageInfo && (
