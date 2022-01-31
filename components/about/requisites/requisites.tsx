@@ -1,6 +1,7 @@
 import { FC } from "react";
 import type { NextPage } from "next";
 import { requisitesProps } from "./requisites.t";
+import parse from "html-react-parser";
 import {
   MissionBody,
   MissionNav,
@@ -44,31 +45,15 @@ const Requisites: FC<requisitesProps> = ({
       <MissionBody>
         <MissionContent>
           <div>
-            <RequisitesTable>
-              <MissionContentAbout>Наименование</MissionContentAbout>
-              <RequisitesTableText>
-                Общество с ограниченной ответственностью «Страховая Компания
-                ОMAD»
-              </RequisitesTableText>
-            </RequisitesTable>
-            <RequisitesTable>
-              <MissionContentAbout>
-                Сокращенное наименование
-              </MissionContentAbout>
-              <RequisitesTableText>ООО «СК «ОMAD»</RequisitesTableText>
-            </RequisitesTable>
-            <RequisitesTable>
-              <MissionContentAbout>
-                Сокращенное наименование
-              </MissionContentAbout>
-              <RequisitesTableText>ООО «СК «ОMAD»</RequisitesTableText>
-            </RequisitesTable>
-            <RequisitesTable>
-              <MissionContentAbout>
-                Сокращенное наименование
-              </MissionContentAbout>
-              <RequisitesTableText>ООО «СК «ОMAD»</RequisitesTableText>
-            </RequisitesTable>
+            {data.length > 0 &&
+              data.map((item: any, idx: any) => (
+                <RequisitesTable key={idx}>
+                  <MissionContentAbout>{item.title}</MissionContentAbout>
+                  <RequisitesTableText>
+                    {parse(item.description)}
+                  </RequisitesTableText>
+                </RequisitesTable>
+              ))}
           </div>
           <AboutNav sidebars={sidebars} />
         </MissionContent>

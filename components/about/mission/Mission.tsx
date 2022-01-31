@@ -46,17 +46,17 @@ const MissionComp: FC<MissionProps> = ({
       </ContainerHero>
       <MissionBody>
         <MissionContent>
-          {!!data[0] ? (
-            <div>
-              <MissionContentTitle>{data[0].title}</MissionContentTitle>
-              <MissionContentAbout></MissionContentAbout>
-              <MissionContentAbItem>
-                {parse(data[0].description)}
-              </MissionContentAbItem>
-            </div>
-          ) : (
-            <div></div>
-          )}
+          {data.length > 0 &&
+            data.map((item: any, idx: any) => (
+              <div key={idx}>
+                <MissionContentTitle>{item.title}</MissionContentTitle>
+                <MissionContentAbout></MissionContentAbout>
+                <MissionContentAbItem>
+                  {parse(item.description)}
+                </MissionContentAbItem>
+              </div>
+            ))}
+
           <AboutNav sidebars={sidebars} />
         </MissionContent>
       </MissionBody>
