@@ -94,7 +94,7 @@ const Partner: FC<NextPage> = () => {
       {!loading ? (
         <Layout title={t("common:Property_insurance")}>
           <Navbar />
-          <BreadcrumbsBlock
+          <BreadcrumbsBlock key={1}
     // @ts-ignore
             breadcrumb={pageData?.breadcrumb}
           />
