@@ -66,7 +66,7 @@ const About: FC<NextPage> = () => {
       <Navbar />
         <BreadcrumbsBlock
         // @ts-ignore
-        breadcrumb={insurance?.breadcrumb  }
+        breadcrumb={about?.breadcrumb  }
         />
 
       <Hero data={Absliders} />

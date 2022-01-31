@@ -115,14 +115,8 @@ const Partner: FC<NextPage> = () => {
         <Layout title={t("common:Property_insurance")}>
           <Navbar />
           <BreadcrumbsBlock
-            // url2={
-            //   '/page-person?id=' + singleId 
-            // }
-            // url3={""}
-            // link1="Главная "
-            // link2={ singleTitle}
-            // link3=""
-            breadcrumb={insurance.breadcrumb}
+    // @ts-ignore
+            breadcrumb={pageData?.breadcrumb}
           />
 
           <Hero data={sliders} />

@@ -35,11 +35,7 @@ const Contacts: FC<NextPage> = () => {
 
 
   useEffect(() => {
-    api.get("insurance/full", { params: { id: id } })
-      .then( (response) => {
-         seyInsurance(response.data);
-        
-      });
+  
     api.get("contacts").then((res) => {
       // console.log("---------", res);
       setContact(res.data);
@@ -60,8 +56,8 @@ const Contacts: FC<NextPage> = () => {
         <>
           {" "}
           <BreadcrumbsBlock
-            
-            breadcrumb={insurance?.breadcrumps}
+            // @ts-ignore
+            breadcrumb={contact?.breadcrumb}
             />
           {/* @ts-ignore */}
           <ContactsHome data={contact.main_content} /> {/* @ts-ignore */}

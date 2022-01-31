@@ -76,7 +76,7 @@ const Mission: FC<NextPage> = () => {
       <Navbar />
       <BreadcrumbsBlock
           
-          breadcrumb={insurance?.breadcrumb }
+          breadcrumb={about?.breadcrumb }
         />
       {!!page && (
         <InsuranceRules

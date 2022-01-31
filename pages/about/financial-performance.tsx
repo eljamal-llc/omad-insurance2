@@ -16,6 +16,7 @@ import { useTranslation } from "next-i18next";
 import { INewsData } from "../../components/common/news/news.t";
 import { api } from "../../services/api";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
+import About from ".";
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -56,7 +57,7 @@ const Values: FC<NextPage> = () => {
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore
-       breadcrumb={insurance?.breadcrumb }
+       breadcrumb={page?.breadcrumb }
       />
 
       {!!page && (

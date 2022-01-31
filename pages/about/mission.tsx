@@ -75,9 +75,11 @@ const Mission: FC<NextPage> = () => {
   return (
     <Layout title={t("common:Mission")}>
       <Navbar />
+      {!!page && (
       <BreadcrumbsBlock
-            breadcrumb={insurance?.breadcrumb }
+            breadcrumb={page.breadcrumb }
           />
+      )}
       {!!page && (
         <MissionComp
           title={page.head.title}

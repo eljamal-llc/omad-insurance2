@@ -30,7 +30,7 @@ const NewsPage: FC<NextPage> = () => {
   const router = useRouter();
   const { id } = router.query;
   const [footer, setFooter] = useState<any>();
-  const [insurance, seyInsurance] = useState<any>();
+
 
   const [news, setNews] = useState<INewsData>();
 
@@ -43,11 +43,7 @@ const NewsPage: FC<NextPage> = () => {
       // console.log("--", res);
       setFooter(res.data);
     });
-    api.get("insurance/full", { params: { id: id } })
-      .then( (response) => {
-         seyInsurance(response.data);
-        
-      })
+
   }, []);
 
   return (
@@ -55,7 +51,8 @@ const NewsPage: FC<NextPage> = () => {
       <Wrapper>
         <Navbar />
         <BreadcrumbsBlock
-            breadcrumb={insurance?.breadcrumb }
+        // @ts-ignore
+            breadcrumb={news?.breadcrumb }
           />
         <HeroBg
           // @ts-ignore
