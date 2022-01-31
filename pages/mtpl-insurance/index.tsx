@@ -34,46 +34,14 @@ const YurFacePage: FC<NextPage> = () => {
   const [footer, setFooter] = useState<any>();
 
   const [news, setNews] = useState<INewsData>();
-  // console.log(singleId);
 
-  const singleTitle = useMemo(() => {
-    switch (singleId) {
-      case "23":
-        return "СТРОИТЕЛЬНО-МОНТАЖНЫЕ И  ТЕХНИЧЕСКИЕ РИСКИ";
-      case "8":
-        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
-      case "9":
-        return "СТРАХОВАНИЕ ИМУЩЕСТВА";
-      case "10":
-        return "ДРУГИЕ ПРОГРАММЫ";
-      case "12":
-        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
-      case "13":
-        return "СТРАХОВАНИЕ ИМУЩЕСТВА";
-      case "14":
-        return "СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ";
-      case "15":
-        return "ТРАНСПОРТ И ПЕРЕВОЗКИ ";
-      case "16":
-        return "ОТРАСЛЕВЫЕ ПРОДУКТЫ";
-      case "16":
-        return "ОТРАСЛЕВЫЕ ПРОДУКТЫ";
-      case "17":
-        return "Перестрахование";
-      case "18":
-        return "Строительство";
-      case "25":
-        return "";
-      default:
-        " Cингл";
-    }
-  }, [singleId]);
+ 
   useEffect(() => {
    
     api.get("insurance/full", { params: { id: id } })
       .then( (response) => {
          seyInsurance(response.data);
-         
+        
       })
       .catch((err) => {
         console.log(err);
@@ -88,6 +56,7 @@ const YurFacePage: FC<NextPage> = () => {
   }, []);
   //@ts-ignore
   // const dataTitle = insurance.main_content.data.title
+  console.log(insurance )
   return (
     //@ts-ignore
 
@@ -96,12 +65,7 @@ const YurFacePage: FC<NextPage> = () => {
       {insurance && (
         <div>
           <BreadcrumbsBlock
-            url2={"page-persons?id=" + singleId}
-            url3={"mtpl-insurance?id=" + singleTitle}
-            link1="Главная"
-            link2={"АВТОСТРАХОВАНИЕ"}
-            //@ts-ignore
-            link3={insurance.main_content.data.title}
+            breadcrumb={insurance?.breadcrumb }
           />
 
           <MtplInsuranceHome data={insurance.main_content} />

@@ -33,13 +33,22 @@ const Mission: FC<NextPage> = () => {
   const [footer, setFooter] = useState<any>();
   const [page, setPage] = useState<any>();
   const router = useRouter();
+  const [insurance, seyInsurance] = useState<any>();
+
   const { id } = router.query;
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
       await setSliders(response.data.data);
     });
-
+    api.get("insurance/full", { params: { id: id } })
+    .then( (response) => {
+       seyInsurance(response.data);
+      
+    })
+    .catch((err) => {
+      console.log(err);
+    });
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
@@ -64,12 +73,8 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("Партнеры ")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"partners"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("Партнеры")}
-      />
+            breadcrumb={insurance?.breadcrumb }
+          />
       {!!page && (
         <Partners
           title={page.head.title}

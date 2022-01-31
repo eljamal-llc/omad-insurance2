@@ -13,6 +13,7 @@ import { useTranslation } from "next-i18next";
 import { api } from "../../services/api";
 import { INewsData } from "../../components/common/news/news.t";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -25,11 +26,20 @@ export async function getStaticProps({ locale }: { locale: string }) {
 export interface PartnerProps {}
 
 const Contacts: FC<NextPage> = () => {
+  const router = useRouter();
+  const { id } = router.query;
   const [contact, setContact] = useState();
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [footer, setFooter] = useState<any>();
+  const [insurance, seyInsurance] = useState<any>();
+
 
   useEffect(() => {
+    api.get("insurance/full", { params: { id: id } })
+      .then( (response) => {
+         seyInsurance(response.data);
+        
+      });
     api.get("contacts").then((res) => {
       // console.log("---------", res);
       setContact(res.data);
@@ -41,6 +51,7 @@ const Contacts: FC<NextPage> = () => {
       // console.log("--", res);
       setFooter(res.data);
     });
+    
   }, []);
   return (
     <Layout title="КОНТАКТЫ">
@@ -49,11 +60,8 @@ const Contacts: FC<NextPage> = () => {
         <>
           {" "}
           <BreadcrumbsBlock
-              link1="Главная"
-              url3={""}
-              url2={"/contacts"}
-              link2="Контакты"
-              link3=""
+            
+            breadcrumb={insurance?.breadcrumps}
             />
           {/* @ts-ignore */}
           <ContactsHome data={contact.main_content} /> {/* @ts-ignore */}

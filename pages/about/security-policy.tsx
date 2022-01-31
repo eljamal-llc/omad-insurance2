@@ -35,6 +35,8 @@ const Mission: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
+  const [insurance, seyInsurance] = useState<any>();
+
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
@@ -47,6 +49,14 @@ const Mission: FC<NextPage> = () => {
     api.get("about").then((res) => {
       // console.log(res.data);
       setAbout(res.data);
+    });
+    api.get("insurance/full", { params: { id: id } })
+    .then( (response) => {
+       seyInsurance(response.data);
+      
+    })
+    .catch((err) => {
+      console.log(err);
     });
     api.get("footer").then((res) => {
       // console.log("--", res);
@@ -65,12 +75,8 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("common:Политика безопасности")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"security-policy"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("Политика безопасности")}
-      />
+            breadcrumb={insurance?.breadcrumb }
+          />
       {!!page && (
         <MissionComp
           title={page.head.title}

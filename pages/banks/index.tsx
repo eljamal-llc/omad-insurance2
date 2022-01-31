@@ -17,6 +17,7 @@ import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 import { INewsData } from "../../components/common/news/news.t";
 import { IData } from "../../components/common/hero/hero.t";
 import { api } from "../../services/api";
+import { useRouter } from "next/router";
  
 export async  function getStaticProps({locale}:{locale : string} ) {
   return {
@@ -33,7 +34,9 @@ const Banks: FC<NextPage> = () => {
   const [sliders, setSliders] = useState<IData[] | []>([]);
   const [about, setAbout] = useState<any>({});
   const [footer, setFooter] = useState<any>();
-
+  const [insurance, seyInsurance] = useState<any>();
+  const router = useRouter();
+  const { id } = router.query;
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
@@ -52,13 +55,20 @@ const Banks: FC<NextPage> = () => {
       // console.log("--", res);
       setFooter(res.data);
     });
+    api.get("insurance/full", { params: { id: id } })
+      .then( (response) => {
+         seyInsurance(response.data);
+        
+      })
   }, []);
 const {t} = useTranslation()
 
   return (
     <Layout title={t('common:Банкам')}>
       <Navbar  />
-      <BreadcrumbsBlock url2={`/page-person?id=3`} url3={'/banks'}  link1="Главная" link2='Партнерам'link3={t('Банкам')}/>
+      <BreadcrumbsBlock
+          breadcrumb={insurance?.breadcrumb }
+        />
       <BanksComp title={t('Банкам')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
       <News data={news}/>
       <Footer data={footer} />

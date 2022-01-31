@@ -26,6 +26,7 @@ export interface PartnerProps {}
 const YurFacePage: FC<NextPage> = () => {
   const [pageInfo, setPageInfo] = useState();
   const [insurances, setInsurances] = useState<ICards[]>([]);
+  const [insurance, seyInsurance] = useState<any>();
 
   const router = useRouter();
   const { id } = router.query;
@@ -48,6 +49,11 @@ const YurFacePage: FC<NextPage> = () => {
       .then(async (response) => {
         await setInsurances(response.data.data);
       });
+      api.get("insurance/full", { params: { id: id } })
+      .then( (response) => {
+         seyInsurance(response.data);
+        
+      })
       api.get("footer").then((res) => {
         // console.log("--", res);
         setFooter(res.data);
@@ -91,7 +97,9 @@ const YurFacePage: FC<NextPage> = () => {
     {!loading ? (
       <Layout title={'АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ'}>
       <Navbar />
-      <BreadcrumbsBlock link1={"Главная"} link2={'АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ'} link3={""} url2={'offers'} url3={''}/>
+      <BreadcrumbsBlock
+            breadcrumb={insurance?.breadcrumb }
+          />
         <HeroBgOf />
         {/* <Stack spacing={1}>
           <Skeleton variant="rectangular" height={600} />

@@ -31,9 +31,15 @@ const Values: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
+  const [insurance, seyInsurance] = useState<any>();
+
   useEffect(() => {
     // setLoading(true);
-
+    api.get("insurance/full", { params: { id: id } })
+    .then( (response) => {
+       seyInsurance(response.data);
+      
+    })
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
@@ -49,12 +55,10 @@ const Values: FC<NextPage> = () => {
     <Layout title={t("common:Financial_performance")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"financial-performance"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("common:Financial_performance")}
+      // @ts-ignore
+       breadcrumb={insurance?.breadcrumb }
       />
+
       {!!page && (
         <FinancialPerformance
           title={page.head.title}

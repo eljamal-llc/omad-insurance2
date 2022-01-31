@@ -25,6 +25,8 @@ const YurFacePage: FC<NextPage> = () => {
   const [pageInfo, setPageInfo] = useState();
   const [insurances, setInsurances] = useState<ICards[]>([]);
 
+  const [insurance, seyInsurance] = useState<any>();
+
   const router = useRouter();
   const { id } = router.query;
   const [loading, setLoading] = useState(false);
@@ -35,11 +37,17 @@ const YurFacePage: FC<NextPage> = () => {
     setTimeout(()=>{
       setLoading(false)
     },1200)
+
     api
       .get("category-insurance", { params: { id: id } })
       .then(async (response) => {
         // console.log("---->>>>>>", response);
         await setPageInfo(response.data.data);
+      });
+      api.get("insurance/full", { params: { id: id } })
+      .then( (response) => {
+         seyInsurance(response.data);
+        
       });
     api
       .get("insurance", { params: { catInsId: id } })
@@ -89,7 +97,10 @@ const YurFacePage: FC<NextPage> = () => {
     {!loading ? (
       <Layout title={singleTitle}>
       <Navbar />
-      <BreadcrumbsBlock link1={"Главная"} link2={singleTitle} link3={""} url2={'page-persons?id=' + singleId} url3={''}/>
+      <BreadcrumbsBlock
+            
+            breadcrumb={insurance?.breadcrumb}
+            />
       {pageInfo ? (
         <HeroBg data={pageInfo} />
       ) : (

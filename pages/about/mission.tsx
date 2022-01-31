@@ -35,6 +35,8 @@ const Mission: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
+  const [insurance, seyInsurance] = useState<any>();
+
 
   useEffect(() => {
     // setLoading(true);
@@ -45,6 +47,14 @@ const Mission: FC<NextPage> = () => {
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
+    api.get("insurance/full", { params: { id: id } })
+      .then( (response) => {
+         seyInsurance(response.data);
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     api.get("about").then((res) => {
       // console.log(res.data);
       setAbout(res.data);
@@ -66,12 +76,8 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("common:Mission")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"mission"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("common:Mission")}
-      />
+            breadcrumb={insurance?.breadcrumb }
+          />
       {!!page && (
         <MissionComp
           title={page.head.title}
