@@ -71,7 +71,7 @@ const YurFacePage: FC<NextPage> = () => {
 {/* @ts-ignore   */}
       {pageInfo?.map((element:any) => { // use map
       return (
-        <BreadcrumbsBlock
+        <BreadcrumbsBlock key={1}
         breadcrumb={element.breadcrumb}
             />
       );
