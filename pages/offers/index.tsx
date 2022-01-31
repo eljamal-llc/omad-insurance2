@@ -32,7 +32,7 @@ const YurFacePage: FC<NextPage> = () => {
   const { id } = router.query;
   const [loading, setLoading] = useState(false);
   const [footer, setFooter] = useState<any>();
-
+  const [bred , setBred ] = useState<any>()
   useEffect(() => {
     setLoading(true);
     setTimeout(()=>{
@@ -49,14 +49,14 @@ const YurFacePage: FC<NextPage> = () => {
       .then(async (response) => {
         await setInsurances(response.data.data);
       });
-      api.get("insurance/full", { params: { id: id } })
-      .then( (response) => {
-         seyInsurance(response.data);
-        
-      })
+    
       api.get("footer").then((res) => {
         // console.log("--", res);
         setFooter(res.data);
+      });
+      api.get("promotions-offers/breadcrumbIndex").then((res) => {
+        setBred(res.data);
+
       });
   }, []);
   const singleId = Object.values(router.query).toString()
@@ -98,7 +98,7 @@ const YurFacePage: FC<NextPage> = () => {
       <Layout title={'АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ'}>
       <Navbar />
       <BreadcrumbsBlock
-            breadcrumb={insurance?.breadcrumb }
+            breadcrumb={bred }
           />
         <HeroBgOf />
         {/* <Stack spacing={1}>

@@ -50,14 +50,7 @@ const Mission: FC<NextPage> = () => {
       // console.log(res.data);
       setAbout(res.data);
     });
-    api.get("insurance/full", { params: { id: id } })
-    .then( (response) => {
-       seyInsurance(response.data);
-      
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
     api.get("footer").then((res) => {
       // console.log("--", res);
       setFooter(res.data);
@@ -75,8 +68,9 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("common:Политика безопасности")}>
       <Navbar />
       <BreadcrumbsBlock
-            breadcrumb={insurance?.breadcrumb }
-          />
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
+      />
       {!!page && (
         <MissionComp
           title={page.head.title}

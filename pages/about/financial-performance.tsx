@@ -36,11 +36,7 @@ const Values: FC<NextPage> = () => {
 
   useEffect(() => {
     // setLoading(true);
-    api.get("insurance/full", { params: { id: id } })
-    .then( (response) => {
-       seyInsurance(response.data);
-      
-    })
+
     api.get("news").then((res) => {
       setNews(res.data.data);
     });

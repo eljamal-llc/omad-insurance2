@@ -42,14 +42,7 @@ const Mission: FC<NextPage> = () => {
     api.get("slider-categories").then(async (response) => {
       await setSliders(response.data.data);
     });
-    api.get("insurance/full", { params: { id: id } })
-    .then( (response) => {
-       seyInsurance(response.data);
-      
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
@@ -74,8 +67,9 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("common:Property_insurance")}>
       <Navbar />
       <BreadcrumbsBlock
-            breadcrumb={insurance?.breadcrumb }
-          />
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
+      />
       {!!page && (
         <MissionComp
           title={page.head.title}

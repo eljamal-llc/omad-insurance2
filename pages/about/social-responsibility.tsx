@@ -37,14 +37,7 @@ const Values: FC<NextPage> = () => {
 
   useEffect(() => {
     // setLoading(true);
-    api.get("insurance/full", { params: { id: id } })
-    .then( (response) => {
-       seyInsurance(response.data);
-      
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
@@ -59,8 +52,9 @@ const Values: FC<NextPage> = () => {
     <Layout title={t("common:Social_responsibility")}>
       <Navbar />
       <BreadcrumbsBlock
-            breadcrumb={insurance?.breadcrumb }
-          />
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
+      />
       {!!page && (
         <MissionComp
           title={page.head.title}
