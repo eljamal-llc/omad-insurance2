@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import type { NextPage } from "next";
 import { RulesProps } from "./Insurance-rules.t";
 import Link from "next/dist/client/link";
+import parse from "html-react-parser";
 import {
   ContainerHero,
   HeroBgItem,
@@ -85,133 +86,90 @@ const InsuranceRules: FC<RulesProps> = ({
                 <Slogan>Архив </Slogan>
               </FinancialYears>
             </FinancialBlock>
-            <FinancialBlockTitle>
-              Информация для подаци заявок
-            </FinancialBlockTitle>
-            <FinicialBloclContent>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo
-              consectetur est facilisis tristique dolor. Congue massa vitae
-              feugiat egestas cras tempus. Ac proin lacus id placerat quis nunc,
-              leo pellentesque. Eros, etiam dui risus non massa tortor at eros.
-              Varius nulla magnis habitant feugiat tortor.
-            </FinicialBloclContent>
-            {/* <DwBlockBorder>
-            <DownloadBlock>
-              <Image src={PDFImage} alt='s' width={100} height={100}/>
-              <FinicialBloclContent>Консолидированная финансовая отчетность за 2020 год.pdf <FinicialP>2.32 МБ</FinicialP> <FinicialP>Обновлено 24.05.2021 в 14:00</FinicialP></FinicialBloclContent>
-            </DownloadBlock>
-            <DwBtnBlock>
-              <MainBtn onClass="download" text={t('common:Download')} url="/" />
-            </DwBtnBlock>
-          </DwBlockBorder> */}
-            {/* <DwBlockBorder>
-          <FinancialBlockTitle>Отчетность по ГОС стандартам</FinancialBlockTitle>
-            <DownloadBlock>
-              <Image src={PDFImage} alt='s' width={100} height={100}/>
-              <FinicialBloclContent>Консолидированная финансовая отчетность за 2020 год.pdf <FinicialP>2.32 МБ</FinicialP> <FinicialP>Обновлено 24.05.2021 в 14:00</FinicialP></FinicialBloclContent>
-              <Image src={PDFImage} alt='s' width={100} height={100}/>
-              <FinicialBloclContent>Консолидированная финансовая отчетность за 2020 год.pdf <FinicialP>2.32 МБ</FinicialP> <FinicialP>Обновлено 24.05.2021 в 14:00</FinicialP></FinicialBloclContent>
 
-            </DownloadBlock>
-            <DwBtnBlock>
-              <MainBtn onClass="download" text={t('common:Download')} url="/" />
-            </DwBtnBlock>
-          </DwBlockBorder> */}
-            <FinancialBlockTitle>Текущие закупки</FinancialBlockTitle>
-            <RulesSearch
-              placeholder="lorem lorem "
-              label={t("Найти правила")}
-              type={"search"}
-            />
-            <Pravila>
-              № 3 Правила добровольного медицинского страхования
-            </Pravila>
-            <BlockDocs>
-              <div>
-                <Image src={PDFImage} width={85} height={82} />
-                <InfoDoc>Актуарное заключение за 2020 год.pdf</InfoDoc>
-                <InfoDocItem> 19.31 МБ Обновлено 24.05.2021 в 14:0</InfoDocItem>
-                <Suk>
-                  <MainBtn
-                    onClass="download"
-                    text={t("common:Download")}
-                    url={null} // url={item.files[0].file}
-                  />
-                </Suk>
-              </div>
-              <div>
-                <Image src={PDFImage} width={85} height={82} />
-                <InfoDoc>Актуарное заключение за 2020 год.pdf</InfoDoc>
-                <InfoDocItem> 19.31 МБ Обновлено 24.05.2021 в 14:0</InfoDocItem>
-                <Suk>
-                  <MainBtn
-                    onClass="download"
-                    text={t("common:Download")}
-                    url={null} // url={item.files[0].file}
-                  />
-                </Suk>
-              </div>
-            </BlockDocs>
-            <Pravila>
-              № 3 Правила добровольного медицинского страхования
-            </Pravila>
-
-            <BlockDocs>
-              <div>
-                <Image src={PDFImage} width={85} height={82} />
-                <InfoDoc>Актуарное заключение за 2020 год.pdf</InfoDoc>
-                <InfoDocItem> 19.31 МБ Обновлено 24.05.2021 в 14:0</InfoDocItem>
-                <Suk>
-                  <MainBtn
-                    onClass="download"
-                    text={t("common:Download")}
-                    url={null} // url={item.files[0].file}
-                  />
-                </Suk>
-              </div>
-              <div>
-                <Image src={PDFImage} width={85} height={82} />
-                <InfoDoc>Актуарное заключение за 2020 год.pdf</InfoDoc>
-                <InfoDocItem> 19.31 МБ Обновлено 24.05.2021 в 14:0</InfoDocItem>
-                <Suk>
-                  <MainBtn
-                    onClass="download"
-                    text={t("common:Download")}
-                    url={null} // url={item.files[0].file}
-                  />
-                </Suk>
-              </div>
-            </BlockDocs>
-            <Pravila>
-              № 3 Правила добровольного медицинского страхования
-            </Pravila>
-
-            <BlockDocs>
-              <div>
-                <Image src={PDFImage} width={85} height={82} />
-                <InfoDoc>Актуарное заключение за 2020 год.pdf</InfoDoc>
-                <InfoDocItem> 19.31 МБ Обновлено 24.05.2021 в 14:0</InfoDocItem>
-                <Suk>
-                  <MainBtn
-                    onClass="download"
-                    text={t("common:Download")}
-                    url={null} // url={item.files[0].file}
-                  />
-                </Suk>
-              </div>
-              <div>
-                <Image src={PDFImage} width={85} height={82} />
-                <InfoDoc>Актуарное заключение за 2020 год.pdf</InfoDoc>
-                <InfoDocItem> 19.31 МБ Обновлено 24.05.2021 в 14:0</InfoDocItem>
-                <Suk>
-                  <MainBtn
-                    onClass="download"
-                    text={t("common:Download")}
-                    url={null} // url={item.files[0].file}
-                  />
-                </Suk>
-              </div>
-            </BlockDocs>
+            {active === "active" ? (
+              <>
+                <FinancialBlockTitle>Текущие закупки</FinancialBlockTitle>
+                <RulesSearch
+                  placeholder="lorem lorem "
+                  label={t("Найти правила")}
+                  type={"search"}
+                />
+                {data.length > 0 &&
+                  data.map((item: any, idx: any) =>
+                    item.files.length > 0 && item.code == "pravila" ? (
+                      <>
+                        <Pravila>{item.title}</Pravila>
+                        <BlockDocs>
+                          {item.files.map((data: any, id: any) => (
+                            <div key={id}>
+                              <Image src={PDFImage} width={85} height={82} />
+                              <InfoDoc>{data.title}</InfoDoc>
+                              <InfoDocItem>
+                                {data.size} Обновлено {data.updated_at}
+                              </InfoDocItem>
+                              <Suk>
+                                <MainBtn
+                                  onClass="download"
+                                  text={t("common:Download")}
+                                  url={data.file} // url={item.files[0].file}
+                                />
+                              </Suk>
+                            </div>
+                          ))}
+                        </BlockDocs>
+                      </>
+                    ) : item.code !== "arxiv" ? (
+                      <>
+                        <FinancialBlockTitle>{item.title}</FinancialBlockTitle>
+                        <FinicialBloclContent>
+                          {parse(item.description)}
+                        </FinicialBloclContent>
+                      </>
+                    ) : (
+                      ""
+                    )
+                  )}
+              </>
+            ) : (
+              <>
+                {data.length > 0 &&
+                  data.map((item: any, idx: any) =>
+                    item.files.length > 0 && item.code == "arxiv" ? (
+                      <>
+                        <Pravila>{item.title}</Pravila>
+                        <BlockDocs>
+                          {item.files.map((data: any, id: any) => (
+                            <div key={id}>
+                              <Image src={PDFImage} width={85} height={82} />
+                              <InfoDoc>{data.title}</InfoDoc>
+                              <InfoDocItem>
+                                {data.size} Обновлено {data.updated_at}
+                              </InfoDocItem>
+                              <Suk>
+                                <MainBtn
+                                  onClass="download"
+                                  text={t("common:Download")}
+                                  url={data.file} // url={item.files[0].file}
+                                />
+                              </Suk>
+                            </div>
+                          ))}
+                        </BlockDocs>
+                      </>
+                    ) : item.code == "arxiv" ? (
+                      <>
+                        <FinancialBlockTitle>{item.title}</FinancialBlockTitle>
+                        <FinicialBloclContent>
+                          {parse(item.description)}
+                        </FinicialBloclContent>
+                      </>
+                    ) : (
+                      ""
+                    )
+                  )}
+              </>
+            )}
           </div>
           <AboutNav sidebars={sidebars} />
         </MissionContent>

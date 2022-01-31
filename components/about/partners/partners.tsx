@@ -8,6 +8,7 @@ import {
   PageHeading,
   PageText,
 } from "../../yur-face-page/hero-bg/hero-bg.e";
+import parse from "html-react-parser";
 import { GWrapper } from "../../../styles/global-styles.e";
 import {
   MissionBody,
@@ -29,7 +30,12 @@ import {
 } from "../financial-performance/financial-performance.e";
 import Image from "next/image";
 
-import { SponsrBlock, SponsorTitle, SponsorTitleItem } from "./partners.e";
+import {
+  SponsrBlock,
+  SponsorTitle,
+  SponsorTitleItem,
+  ImageCard,
+} from "./partners.e";
 import {
   RulesSearch,
   Slogan,
@@ -72,79 +78,23 @@ const Partners: FC<PartnersProps> = ({
       <MissionBody>
         <MissionContent>
           <div>
-            <SponsrBlock>
-              <div>
-                <Image src={"/sp.png"} width={200} height={200} />
-              </div>
-              <div>
-                <SponsorTitle>
-                  Russian Automotive Marker Research <br /> (НАПИ)
-                </SponsorTitle>
-                <SponsorTitleItem>
-                  Аналитическое автомобильное агентство (с 1995г) представляет
-                  новый продукт: КАЛЬКУЛЯТОР СТОИМОСТИ ВЛАДЕНИЯ АВТОМОБИЛЕЙ
-                  (ТСО) по легковым автомобилям, грузовым автомобилям, LCV:
-                  https://dv-tco.ru/ <br />
-                  <br />
-                  Стоимость владения - сумма расходов на эксплуатацию автомобиля
-                  и потери стоимости автомобиля за период владения.
-                  <br />
-                  <br />
-                  Стоимость владения рассчитывается на конкретную модель
-                  автомобиля. Размер расходов на автомобиль зависит от
-                  технических характеристик автомобиля, региона регистрации
-                  владельца автомобиля и др.
-                </SponsorTitleItem>
-              </div>
-            </SponsrBlock>
-            <SponsrBlock>
-              <div>
-                <Image src={"/mkb.png"} width={200} height={200} />
-              </div>
-              <div>
-                <SponsorTitle>МКБ </SponsorTitle>
-                <SponsorTitleItem>
-                  ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК» работает на российском рынке
-                  банковских услуг с 1992 года. Банк предоставляет полный
-                  перечень услуг для корпоративных клиентов и для частных лиц,
-                  предлагая универсальные продукты и услуги для широкой
-                  аудитории, а также разрабатывая специальные программы с учетом
-                  индивидуальных потребностей и пожеланий Клиентов.
-                </SponsorTitleItem>
-              </div>
-            </SponsrBlock>
-            <SponsrBlock>
-              <div>
-                <Image src={"/mkb.png"} width={200} height={200} />
-              </div>
-              <div>
-                <SponsorTitle>МКБ </SponsorTitle>
-                <SponsorTitleItem>
-                  ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК» работает на российском рынке
-                  банковских услуг с 1992 года. Банк предоставляет полный
-                  перечень услуг для корпоративных клиентов и для частных лиц,
-                  предлагая универсальные продукты и услуги для широкой
-                  аудитории, а также разрабатывая специальные программы с учетом
-                  индивидуальных потребностей и пожеланий Клиентов.
-                </SponsorTitleItem>
-              </div>
-            </SponsrBlock>
-            <SponsrBlock>
-              <div>
-                <Image src={"/mkb.png"} width={200} height={200} />
-              </div>
-              <div>
-                <SponsorTitle>МКБ </SponsorTitle>
-                <SponsorTitleItem>
-                  ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК» работает на российском рынке
-                  банковских услуг с 1992 года. Банк предоставляет полный
-                  перечень услуг для корпоративных клиентов и для частных лиц,
-                  предлагая универсальные продукты и услуги для широкой
-                  аудитории, а также разрабатывая специальные программы с учетом
-                  индивидуальных потребностей и пожеланий Клиентов.
-                </SponsorTitleItem>
-              </div>
-            </SponsrBlock>
+            {data.length > 0 &&
+              data.map((item: any, idx: any) => (
+                <SponsrBlock key={idx}>
+                  <div>
+                    {/* <Image src={"/sp.png"} width={200} height={200} /> */}
+                    <ImageCard>
+                      <img src={item.image} alt={item.title} />
+                    </ImageCard>
+                  </div>
+                  <div>
+                    <SponsorTitle>{item.title}</SponsorTitle>
+                    <SponsorTitleItem>
+                      {parse(item.description)}
+                    </SponsorTitleItem>
+                  </div>
+                </SponsrBlock>
+              ))}
           </div>
 
           <AboutNav sidebars={sidebars} />

@@ -78,42 +78,18 @@ const FinancialPerformance: FC<FinancialPerformanceProps> = ({
                 <YearSpan>2021 год</YearSpan>
               </FinancialYears>
             </FinancialBlock>
-            {!!data[0] && (
-              <>
-                <FinancialBlockTitle>{data[0].title}</FinancialBlockTitle>
-                <FinicialBloclContent>
-                  {parse(data[0].description)}
-                </FinicialBloclContent>
-                {!!data[0].files[0] && (
-                  <DwBlockBorder>
-                    <DownloadBlock>
-                      <Image src={PDFImage} alt="s" width={100} height={100} />
-                      <FinicialBloclContent>
-                        {data[0].files[0].title}
-                        <FinicialP>{data[0].files[0].size}</FinicialP>{" "}
-                        <FinicialP>
-                          Обновлено {data[0].files[0].updated_at}
-                        </FinicialP>
-                      </FinicialBloclContent>
-                    </DownloadBlock>
-                    <DwBtnBlock>
-                      <MainBtn
-                        onClass="download"
-                        text={t("common:Download")}
-                        url={data[0].files[0].file}
-                      />
-                    </DwBtnBlock>
-                  </DwBlockBorder>
-                )}
-              </>
-            )}
-            {!!data[1] && (
-              <DwBlockBorder>
-                <FinancialBlockTitle>{data[1].title}</FinancialBlockTitle>
-                <DownloadBlock>
-                  {!!data[1].files &&
-                    data[1].files.map((item: any, idx: any) => (
-                      <div key={idx}>
+
+            {data.length > 0 &&
+              data.map((item: any, idx: any) =>
+                item.files.length == 1 ? (
+                  <>
+                    <FinancialBlockTitle>{item.title}</FinancialBlockTitle>
+                    <FinicialBloclContent>
+                      {parse(item.description)}
+                    </FinicialBloclContent>
+
+                    {item.files.map((DATA: any, idx: any) => (
+                      <DwBlockBorder key={idx}>
                         <DownloadBlock>
                           <Image
                             src={PDFImage}
@@ -122,23 +98,55 @@ const FinancialPerformance: FC<FinancialPerformanceProps> = ({
                             height={100}
                           />
                           <FinicialBloclContent>
-                            {item.title}
-                            <FinicialP>{item.size}</FinicialP>{" "}
-                            <FinicialP>Обновлено {item.updated_at}</FinicialP>
+                            {DATA.title}
+                            <FinicialP>{DATA.size}</FinicialP>{" "}
+                            <FinicialP>Обновлено {DATA.updated_at}</FinicialP>
                           </FinicialBloclContent>
                         </DownloadBlock>
                         <DwBtnBlock>
                           <MainBtn
                             onClass="download"
                             text={t("common:Download")}
-                            url={item.file}
+                            url={DATA.file}
                           />
                         </DwBtnBlock>
-                      </div>
+                      </DwBlockBorder>
                     ))}
-                </DownloadBlock>
-              </DwBlockBorder>
-            )}
+                  </>
+                ) : item.files.length == 2 ? (
+                  <DwBlockBorder>
+                    <FinancialBlockTitle>{data[1].title}</FinancialBlockTitle>
+                    <DownloadBlock>
+                      {item.files.map((DATA: any, idx: any) => (
+                        <div key={idx}>
+                          <DownloadBlock>
+                            <Image
+                              src={PDFImage}
+                              alt="s"
+                              width={100}
+                              height={100}
+                            />
+                            <FinicialBloclContent>
+                              {DATA.title}
+                              <FinicialP>{DATA.size}</FinicialP>{" "}
+                              <FinicialP>Обновлено {DATA.updated_at}</FinicialP>
+                            </FinicialBloclContent>
+                          </DownloadBlock>
+                          <DwBtnBlock>
+                            <MainBtn
+                              onClass="download"
+                              text={t("common:Download")}
+                              url={DATA.file}
+                            />
+                          </DwBtnBlock>
+                        </div>
+                      ))}
+                    </DownloadBlock>
+                  </DwBlockBorder>
+                ) : (
+                  ""
+                )
+              )}
           </div>
           <AboutNav sidebars={sidebars} />
         </MissionContent>
