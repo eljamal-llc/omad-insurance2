@@ -34,10 +34,9 @@ const Partner: FC<NextPage> = () => {
   const [sliders, setSliders] = useState<IData[] | []>([]);
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [pageData, setPageData] = useState([]);
-  const [insurance, seyInsurance] = useState<any>();
-
   const router = useRouter();
   const [footer, setFooter] = useState<any>();
+  const [partnerCategory, setPartnerCategory] = useState<any>();
 
   const { id } = router.query;
 
@@ -47,6 +46,10 @@ const Partner: FC<NextPage> = () => {
       setLoading(false);
     }, 1200);
     // setLoading(true);
+    api.get("partners/index").then(async (response) => {
+      // console.log("->aa ", response);
+      await setPartnerCategory(response.data.data);
+    });
     api
       .get("slider-categories", { params: { id: id } })
       .then(async (response) => {
@@ -64,11 +67,6 @@ const Partner: FC<NextPage> = () => {
       console.log(res.data);
       setPageData(res.data);
     });
-    api.get("insurance/full", { params: { id: id } })
-      .then( (response) => {
-         seyInsurance(response.data);
-        
-      })
   }, []);
 
   const sortWrapperTitle = (itemId: number | undefined) => {
@@ -85,9 +83,42 @@ const Partner: FC<NextPage> = () => {
     }
   };
   const { t } = useTranslation();
-  const singleId = Object.values(router.query).toString()
-  
- 
+  const singleId = Object.values(router.query).toString();
+
+  const singleTitle = useMemo(() => {
+    switch (singleId) {
+      case "1":
+        return "ЧАСТНЫЙМ ЛИЦАМ";
+      case "3":
+        return "ПАРТНЕРАМ";
+      case "2":
+        return "ЮРИДИЕСКИМ ЛИЦАМ";
+      case "9":
+        return "СТРАХОВАНИЕ ИМУЩЕСТВА";
+      case "10":
+        return "ДРУГИЕ ПРОГРАММЫ";
+      case "12":
+        return "СТРАХОВАНИЕ ЗДОРОВЬЯ";
+      case "13":
+        return "СТРАХОВАНИЕ ИМУЩЕСТВА";
+      case "14":
+        return "СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ";
+      case "15":
+        return "ТРАНСПОРТ И ПЕРЕВОЗКИ ";
+      case "16":
+        return "ОТРАСЛЕВЫЕ ПРОДУКТЫ";
+      case "16":
+        return "ОТРАСЛЕВЫЕ ПРОДУКТЫ";
+      case "17":
+        return "Перестрахование";
+      case "18":
+        return "Строительство";
+      case "28":
+        return "Страхование здаровья";
+      default:
+        " Cингл";
+    }
+  }, [singleId]);
   // test
   return (
     <>
@@ -95,8 +126,11 @@ const Partner: FC<NextPage> = () => {
         <Layout title={t("common:Property_insurance")}>
           <Navbar />
           <BreadcrumbsBlock
-    // @ts-ignore
-            breadcrumb={pageData?.breadcrumb}
+            url2={"/page-person?id=" + singleId}
+            url3={""}
+            link1="Главная "
+            link2={singleTitle}
+            link3=""
           />
 
           <Hero data={sliders} />
@@ -110,7 +144,7 @@ const Partner: FC<NextPage> = () => {
           {/* @ts-ignore */}
           {!loading ? (
             //@ts-ignore
-            <MultiSlider data={pageData.content} link="mtpl-insurance" />
+            <MultiSlider data={partnerCategory} link="mtpl-insurance" />
           ) : (
             <LoadingScreen />
           )}

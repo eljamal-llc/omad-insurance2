@@ -9,7 +9,7 @@ import {
   SliderBtnWrapper,
   SliderText,
   Wrapper,
-  BlovkButton
+  BlovkButton,
 } from "./multi-slider.e";
 
 // import Swiper core and required modules
@@ -108,7 +108,7 @@ const MultiSlider: FC<MultiSliderProps> = ({ data, link }) => {
           </SwiperSlide>
         ))}
         {/* @ts-ignore */}
-        
+
         {data?.length > 4 ? (
           <SliderBtnRow>
             <BlovkButton>
@@ -144,7 +144,7 @@ const MultiSlider: FC<MultiSliderProps> = ({ data, link }) => {
                   <SliderText active={btnNextHover}><span className="preyti"> перейти</span></SliderText>
                 </SliderBtnWrapper>
               </SliderBtn>
-              </BlovkButton>
+            </BlovkButton>
           </SliderBtnRow>
         ) : (
           ""
