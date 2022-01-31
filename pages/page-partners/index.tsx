@@ -36,6 +36,7 @@ const Partner: FC<NextPage> = () => {
   const [pageData, setPageData] = useState([]);
   const router = useRouter();
   const [footer, setFooter] = useState<any>();
+  const [partnerCategory, setPartnerCategory] = useState<any>();
 
   const { id } = router.query;
 
@@ -45,6 +46,10 @@ const Partner: FC<NextPage> = () => {
       setLoading(false);
     }, 1200);
     // setLoading(true);
+    api.get("partners/index").then(async (response) => {
+      // console.log("->aa ", response);
+      await setPartnerCategory(response.data.data);
+    });
     api
       .get("slider-categories", { params: { id: id } })
       .then(async (response) => {
@@ -139,7 +144,7 @@ const Partner: FC<NextPage> = () => {
           {/* @ts-ignore */}
           {!loading ? (
             //@ts-ignore
-            <MultiSlider data={pageData.content} link="mtpl-insurance" />
+            <MultiSlider data={partnerCategory} link="mtpl-insurance" />
           ) : (
             <LoadingScreen />
           )}
