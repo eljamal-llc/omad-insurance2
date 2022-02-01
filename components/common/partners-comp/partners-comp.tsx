@@ -3,40 +3,39 @@ import type { NextPage } from "next";
 
 import Link from "next/dist/client/link";
 import {
-    ComponentBody,
-    ComponentHigh,
-    CompHightTitle,
-    HowFace,
-    FaceFiz,
-    FaceYur,
-    CompHighInput,
-    ComponentLow,
-    ComponentLowTitile,
-    LowDes,
-    BTNblock
-
-} from './partners-comp.e'
-import { SectionTitle, MainBtn  } from "../../common";
+  ComponentBody,
+  ComponentHigh,
+  CompHightTitle,
+  HowFace,
+  FaceFiz,
+  FaceYur,
+  CompHighInput,
+  ComponentLow,
+  ComponentLowTitile,
+  LowDes,
+  BTNblock,
+} from "./partners-comp.e";
+import { SectionTitle, MainBtn } from "../../common";
 import Image from "next/dist/client/image";
 import { MissionNav, MissionNavItem } from "../../about/mission/Mission.e";
 import { PartnersCompProps } from "./partners-comp.t";
 // import { Link } from "@mui/icons-material";
-const main_image = '/slider1.jpg'
-const PartnersComp: FC<PartnersCompProps> = () => {
-const [isAct , setAct] = useState('active')
-const [YurAct , setYur] =  useState('')
+const main_image = "/slider1.jpg";
+const PartnersComp: FC<PartnersCompProps> = ({ data }) => {
+  const [isAct, setAct] = useState("active");
+  const [YurAct, setYur] = useState("");
   // console.log("inner ->>>>", data[0]);
-const hanY = ()=>{
-    setYur('activeY')
-    setAct('')
-}
-const hanF =()=>{
-    setYur('')
-    setAct('active')
-}
+  const hanY = () => {
+    setYur("activeY");
+    setAct("");
+  };
+  const hanF = () => {
+    setYur("");
+    setAct("active");
+  };
   return (
-  <>
-    <ComponentBody>
+    <>
+      <ComponentBody>
         {/* <ComponentHigh>
             <CompHightTitle>Проверить агента или брокера</CompHightTitle>
             <HowFace>
@@ -55,30 +54,15 @@ const hanF =()=>{
         </ComponentHigh> */}
 
         <ComponentLow>
-            <ComponentLowTitile>Получить подробную информацию и ответы на вопросы</ComponentLowTitile>
-                    <Image
-                        src='/phone.png'
-                        width={95}
-                        height={93}
-                    />
-                    <LowDes>Свяжитесь с менеджером по телефону +7 495 739-01-01</LowDes>
-                    <Image
-                        src='/pochta.png'
-                        width={90}
-                        height={70}
-                    />
-                    <LowDes>
-                    Направьте письмо по электронной почте intour@soglasie.ru
-                    </LowDes>
+          <ComponentLowTitile>{!!data && data.title}</ComponentLowTitile>
+          <Image src="/phone.png" width={95} height={93} />
+          <LowDes>{!!data && data.phone}</LowDes>
+          <Image src="/pochta.png" width={90} height={70} />
+          <LowDes>{!!data && data.email}</LowDes>
         </ComponentLow>
-    </ComponentBody>
-       
-  </>
-   
-    
+      </ComponentBody>
+    </>
   );
-
-
 };
 
 export default PartnersComp;

@@ -81,15 +81,17 @@ const Banks: FC<NextPage> = () => {
         link2="Партнерам"
         link3={t("Агентам и брокерам")}
       />
-      {!!pageInfo && (
+      {!!pageInfo && !!table ? (
         <AgentsBrokers
-          title={t("Агентам и брокерам")}
-          description={t(
-            "common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. "
-          )}
+          title={pageInfo.data.head.title}
+          // description={t(
+          //   "common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. "
+          // )}
           data={pageInfo.data}
           table={table.data}
         />
+      ) : (
+        ""
       )}
 
       <News data={news} />
