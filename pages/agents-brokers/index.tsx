@@ -53,10 +53,10 @@ const Banks: FC<NextPage> = () => {
       // console.log(res.data);
       setAbout(res.data);
     });
-    api.get("footer").then((res) => {
-      // console.log("--", res);
-      setFooter(res.data);
-    });
+      api.get("footer").then((res) => {
+        // console.log("--", res);
+        setFooter(res.data);
+      });
     api
       .get("partners/find", { params: { id: id } })
       .then((res) => {
