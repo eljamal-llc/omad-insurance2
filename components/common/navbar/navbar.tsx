@@ -49,6 +49,8 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
   };
   const setEn = () => {
     console.log(router.locale);
+    setLanguage("en");
+
   };
   const setUz = () => {
     setLanguage("uz");
