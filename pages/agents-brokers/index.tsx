@@ -76,11 +76,8 @@ const Banks: FC<NextPage> = () => {
     <Layout title={t("Агентам и брокерам")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/page-person?id=3`}
-        url3={"/agents-brokers"}
-        link1="Главная"
-        link2="Партнерам"
-        link3={t("Агентам и брокерам")}
+      // @ts-ignore
+        breadcrumb={pageInfo?.data?.breadcrumb}
       />
       {!!pageInfo && !!table ? (
         <AgentsBrokers
