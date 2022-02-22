@@ -5,7 +5,7 @@ import axios from "axios";
 import { api } from "../../../../services/api";
 import { IMenus, NavbarModalProps } from "./navbar-modal.t";
 import {useTranslation} from 'next-i18next'
-
+import slugify from "slugify";
 import {
   ModalMenuItem,
   ModalMenuList,
@@ -24,7 +24,6 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
   let [menus, setMenus] = useState<IMenus[]>();
   useEffect(() => {
     api.get("categories").then((response) => {
-      // console.log("test", response.data);
       if (response.data.success) {
         setMenus(response.data.data);
       }
@@ -43,7 +42,7 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                 onMouseMove={() => setMenuHover(true)}
                 onMouseLeave={() => setMenuHover(false)}
               >
-                <NextLink href={`/${item.link}?id=${item.id}`} passHref>
+                <NextLink href={`/catalog/${item.id}/${slugify(item.name)}`} passHref>
                   <Link>
                     {item.name}
                     {item.isSubMenu && (

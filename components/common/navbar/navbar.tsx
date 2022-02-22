@@ -31,13 +31,12 @@ import { i18n, useTranslation } from "next-i18next";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+
+
 const Navbar: FC<NavbarProps> = ({ onClass }) => {
   const { "nextauth.token": token } = parseCookies();
   const [navbarModal, setNavbarModal] = useState(false);
-  // const { t, i18n } = useTranslation()
-  // const changeLanguage = (language: string | undefined) => {
-  //   i18n.changeLanguage(language);
-  // };
+ 
   const router = useRouter();
   const { logOut } = useContext(AuthContext);
 
@@ -83,7 +82,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
 
             <NextLink href="/insurance-case" passHref>
               <NavbarLink className="toremove">
-                {t("common:polit_market")}
+                {t("common:polit_market")} 
               </NavbarLink>
             </NextLink>
 
@@ -127,18 +126,10 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
               </LangSwitch>
             </TestDiv>
 
-            {/* </LangSwitchSelect> */}
+
             {!!token ? (
               <>
-                {/* <Button
-                  id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleClick}
-                >
-                  Dashboard
-                </Button> */}
+    
                 <Menu
                   id="basic-menu"
                   anchorEl={anchorEl}
