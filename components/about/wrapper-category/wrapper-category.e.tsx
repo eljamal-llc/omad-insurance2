@@ -35,6 +35,10 @@ export const WrapperCategory = styled.div`
   @media (max-width: 1800px) {
     padding: 7% 10%;
   }
+  @media(max-width:1600px){
+    padding: 50px ;
+
+  }
   @media (max-width: 425px) {
     font-size: 18px;
   }
@@ -72,6 +76,10 @@ export const TagsRow = styled.div`
   display: flex;
   width: 1200px;
   flex-wrap: wrap;
+  width: 100%;
+  /* @media(max-width:1300px){
+    flex-wrap: wrap;
+  } */
   @media(max-width:425px){
     width: 300px;
   }

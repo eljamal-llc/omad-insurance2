@@ -13,8 +13,13 @@ export const Wrapper = styled.div`
     max-width: 44px;
     width: 100%;
   }
+
   &.active {
     background:  #0D4656;
+  }
+  @media(max-width:1600px){
+    margin: -58px 0;
+    top:50px;
   }
 `;
 export const NavbarRow = styled.div`
@@ -77,10 +82,19 @@ export const NavbarLink = styled(Link)`
   &:last-child {
     margin-right: 0;
   }
+  @media(max-width:1600px){
+    padding: 10px 10px;
+  }
+  @media(max-width:1400px){
+    padding: 10px 10px;
+    font-size: 16px;
+
+  }
+ 
   @media (max-width: 1120px) {
     font-size: 14px;
     line-height: 100%;
-    padding: 10px 15px;
+    padding: 5px 10px;
     margin-right: 5%;
   }
   &:hover {
@@ -116,6 +130,8 @@ export const NavbarBtn = styled.button`
   }
   svg {
     margin-left: 20px;
+  }
+  @media(max-width:1600px){
   }
   @media (max-width: 1120px) {
     font-size: 14px;
