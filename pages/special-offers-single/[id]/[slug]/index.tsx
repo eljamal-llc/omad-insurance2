@@ -11,16 +11,16 @@ import {
   News,
   WrapperTitle,
   MissionComp,
-} from "../../components";
+} from "../../../../components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
-import { INewsData } from "../../components/common/news/news.t";
-import { IData } from "../../components/common/hero/hero.t";
-import { api } from "../../services/api";
-import SpecialOffersSingle from "../../components/common/special-offers-single/special-offers-single";
+import BreadcrumbsBlock from "../../../../components/common/bread-crumbs/Breadcrumbs";
+import { INewsData } from "../../../../components/common/news/news.t";
+import { IData } from "../../../../components/common/hero/hero.t";
+import { api } from "../../../../services/api";
+import SpecialOffersSingle from "../../../../components/common/special-offers-single/special-offers-single";
 
-export async function getStaticProps({ locale }: { locale: string }) {
+export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"])),
@@ -36,7 +36,7 @@ const Mission: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
-
+  const [offer , setOffer] = useState<any>()
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
@@ -54,12 +54,15 @@ const Mission: FC<NextPage> = () => {
       // console.log("--", res);
       setFooter(res.data);
     });
+    api.get('promotions-offers',{ params: { id: router.query.id }}).then((response)=>{
+      setOffer(response.data)
+    })
     
   }, []);
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("Копите мили «Аэрофлот Бонус» ")}>
+    <Layout title={offer?.content[0]?.title}>
       <Navbar onClass="active" />
       {/* <BreadcrumbsBlock
         url2={`/about`}
@@ -69,7 +72,7 @@ const Mission: FC<NextPage> = () => {
         link3={t("common:Mission")}
       /> */}
       
-    <SpecialOffersSingle title="khan" description="asab asab asab"/>
+    <SpecialOffersSingle data={offer?.content[0]}/>
       {/* <News data={news} /> */}
       <Footer data={footer} />
     </Layout>
