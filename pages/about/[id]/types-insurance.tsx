@@ -1,0 +1,95 @@
+import { FC, useEffect, useState } from "react";
+import type { GetStaticPaths, NextPage } from "next";
+import {
+  AboutInfo,
+  Cards,
+  Footer,
+  Hero,
+  Layout,
+  Navbar,
+  News,
+  WrapperTitle,
+  MissionComp,
+} from "../../../components";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import BreadcrumbsBlock from "../../../components/common/bread-crumbs/Breadcrumbs";
+import { INewsData } from "../../../components/common/news/news.t";
+import { IData } from "../../../components/common/hero/hero.t";
+import { api } from "../../../services/api";
+import { useRouter } from "next/router";
+export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
+  return {
+      paths: [
+      ], //indicates that no page needs be created at build time
+      fallback: 'blocking' //indicates the type of fallback
+  }
+}
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+}
+export interface AboutProps {}
+const Mission: FC<NextPage> = () => {
+  const [news, setNews] = useState<INewsData[] | []>([]);
+  const [sliders, setSliders] = useState<IData[] | []>([]);
+  const [about, setAbout] = useState<any>({});
+  const [footer, setFooter] = useState<any>();
+  const [page, setPage] = useState<any>();
+  const router = useRouter();
+<<<<<<< HEAD:pages/about/[id]/types-insurance.tsx
+=======
+  const { id } = router.query;
+  const [insurance, seyInsurance] = useState<any>();
+
+>>>>>>> b089f178532a14f4a5e4cdc0bb67c94248984e0c:pages/about/types-insurance.tsx
+  useEffect(() => {
+    // setLoading(true);
+    api.get("slider-categories").then(async (response) => {
+      await setSliders(response.data.data);
+    });
+
+    api.get("news").then((res) => {
+      setNews(res.data.data);
+    });
+    api.get("about").then((res) => {
+      // console.log(res.data);
+      setAbout(res.data);
+    });
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
+    });
+    api
+      .get("about/find", { params: { catId: router.query.id } })
+      .then((res) => {
+        setPage(res.data.data);
+      })
+      .catch((err) => {});
+  }, []);
+  const { t } = useTranslation();
+
+  return (
+    <Layout title={t("Виды страхования")}>
+      <Navbar />
+      <BreadcrumbsBlock
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
+      />
+      {!!page && (
+        <MissionComp
+          title={page.head.title}
+          data={page.content}
+          sidebars={page.sidebar}
+        />
+      )}
+      <News data={news} />
+      <Footer data={footer} />
+    </Layout>
+  );
+};
+
+export default Mission;

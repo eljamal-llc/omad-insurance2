@@ -42,8 +42,8 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                 onMouseMove={() => setMenuHover(true)}
                 onMouseLeave={() => setMenuHover(false)}
               >
-                <NextLink href={`/catalog/${item.id}/${slugify(item.name)}`} passHref>
-                  <Link>
+                <a href={`/catalog/${item.link}/${item.id}/${slugify(item.name)}`} >
+                  <Link >
                     {item.name}
                     {item.isSubMenu && (
                       <>
@@ -57,13 +57,13 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                       </>
                     )}
                   </Link>
-                </NextLink>
+                </a>
                 {item.isSubMenu && (
                   <ModalSubInnerMenu className="inner-menu">
                     {item.sub?.map((itemChild, idx) => (
                       <ModalSubMenuItem key={idx}>
                         <NextLink
-                          href={`/${itemChild.link}?id=${itemChild.id}`}
+                          href={`/${itemChild.link}/${itemChild.id}/${slugify(itemChild.name)}`}
                           passHref
                         >
                           <Link>{itemChild.name}</Link>

@@ -28,7 +28,7 @@ import User from "../../../assets/images/navbar/user.svg";
 // import { ReactComponent as User } from "../../../assets/images/navbar/user.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import { i18n, useTranslation } from "next-i18next";
-import Button from "@mui/material/Button";
+
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
