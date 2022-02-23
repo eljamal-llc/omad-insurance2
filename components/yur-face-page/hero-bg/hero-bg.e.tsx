@@ -35,7 +35,7 @@ export const PageHeading = styled.h2`
   font-size: 72px;
   line-height: 84px;
   text-transform: uppercase;
-  margin-top: 30px ;
+  margin-top: 60px ;
   padding-bottom: 10px;
   border-bottom: 1px solid #ffff;
   @media (max-width: 880px) {

@@ -45,7 +45,6 @@ const Footer: FC<FooterProps> = ({ data }) => {
             <FooterColumn className="last-column">
               <ul className="social-net">
                 {Object.keys(data.social_networks).map(function (key) {
-                  console.log(data.social_networks[key]);
                   return (
                     <li key={key}>
                       <Link href={data.social_networks[key].url}>
