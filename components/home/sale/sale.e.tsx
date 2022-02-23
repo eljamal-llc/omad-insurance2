@@ -149,6 +149,10 @@ export const HorizontalSlider = styled.div`
 `;
 export const HorizontalSliderRow = styled.div`
   display: flex;
+
+  @media(max-width:500px){
+    flex-direction: column-reverse;
+  }
 `;
 export const HorizontalSliderLeft = styled.div`
   max-width: 50%;
@@ -161,6 +165,10 @@ export const HorizontalSliderLeft = styled.div`
   @media (max-width: 1300px) {
     padding: 4% 2.5%;
   }
+  @media(max-width:500px){
+    max-width: 100%;
+    padding: 0 0 200px 0;
+  }
 `;
 export const HorizontalSliderRight = styled.div`
   max-width: 50%;
@@ -168,6 +176,10 @@ export const HorizontalSliderRight = styled.div`
   z-index: 100;
   @media (max-width: 1400px) {
     max-width: 40%;
+  }
+  @media (max-width: 500px) {
+    max-width: 100%;
+    padding: 0 0 30px 0;
   }
 `;
 export const HorizontalSliderTitle = styled.h3`
@@ -268,6 +280,7 @@ export const HorizontalSliderImage = styled.div`
   @media (max-width: 1024px) {
     height: 350px;
   }
+  
   span {
     height: 100% !important;
   }

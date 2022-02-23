@@ -51,12 +51,6 @@ links
           <MissionContentTitle>{data?.title}</MissionContentTitle>
                 <MissionContentAbout>{data?.text}</MissionContentAbout>
           </div>
-              
-                {/* <MissionContentAbItem>
-                 test
-                </MissionContentAbItem> */}
-
-          {/* <AboutNav sidebars={sidebars} /> */}
           <MissionNav>
             {links?.map((item:any , idx:any)=>(
                 <a href={`/want-to-know/${item.id}/${slugify(item.title)}`}  key={idx}>
