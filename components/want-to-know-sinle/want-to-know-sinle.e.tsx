@@ -6,6 +6,8 @@ export const MissionBody = styled.div`
     /* height: 200vh; */
 `   
 export const MissionContent = styled.div`
+     display: flex;
+    justify-content: space-between;
     max-width: 1500px;
     margin: 0 auto;
     @media(max-width:775px){

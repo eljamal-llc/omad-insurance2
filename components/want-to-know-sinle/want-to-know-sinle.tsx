@@ -24,10 +24,12 @@ import { GWrapper } from "../../styles/global-styles.e";
 import BreadcrumbsBlock from "../common/bread-crumbs/Breadcrumbs";
 import { AboutNav } from "../common";
 import { useTranslation } from "react-i18next";
+import slugify from "slugify";
 // import { Link } from "@mui/icons-material";
 const main_image = "/slider1.jpg";
 const WnatKnowS: FC<MissionProps> = ({
-data
+data,
+links
 }) => {
   const { t } = useTranslation();
 
@@ -45,13 +47,24 @@ data
       </ContainerHero>
       <MissionBody>
         <MissionContent>
-                <MissionContentTitle>{data?.title}</MissionContentTitle>
+          <div>
+          <MissionContentTitle>{data?.title}</MissionContentTitle>
                 <MissionContentAbout>{data?.text}</MissionContentAbout>
+          </div>
+              
                 {/* <MissionContentAbItem>
                  test
                 </MissionContentAbItem> */}
 
           {/* <AboutNav sidebars={sidebars} /> */}
+          <MissionNav>
+            {links?.map((item:any , idx:any)=>(
+                <a href={`/want-to-know/${item.id}/${slugify(item.title)}`}  key={idx}>
+                  <MissionNavItem> {item.title}</MissionNavItem>
+                </a>
+            ))}
+       
+      </MissionNav>
           
         </MissionContent>
       </MissionBody>

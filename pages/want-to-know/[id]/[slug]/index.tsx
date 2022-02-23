@@ -39,7 +39,7 @@ const Mission: FC<NextPage> = () => {
   const { id } = router.query;
   const [insurance, seyInsurance] = useState<any>();
   const [want  , setWant] = useState<any>()
-
+  const [links , setLinks] = useState<any>()
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
@@ -69,6 +69,10 @@ const Mission: FC<NextPage> = () => {
     .then((response) => {
       setWant(response.data)
     });
+    api.get("want-to-know").then(async (response) => {
+      await setLinks(response.data.data);
+    });
+    
     api
       .get("about/find", { params: { catId: id } })
       .then((res) => {
@@ -86,7 +90,7 @@ const Mission: FC<NextPage> = () => {
             breadcrumb={want?.breadcrumb }
           />
       )}
-        <WnatKnowS     data={want?.content[0]}/>
+        <WnatKnowS links={links} data={want?.content[0]}/>
 
       <News data={news} />
       <Footer data={footer} />
