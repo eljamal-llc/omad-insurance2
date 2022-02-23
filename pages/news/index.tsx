@@ -47,7 +47,7 @@ const NewsPage: FC<NextPage> = () => {
   }, []);
 
   return (
-    <Layout title="Страхование имущества">
+    <Layout title="Новости">
       <Wrapper>
         <Navbar />
         <BreadcrumbsBlock
