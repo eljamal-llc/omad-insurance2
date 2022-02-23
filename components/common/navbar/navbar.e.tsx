@@ -192,6 +192,12 @@ export const LangSwitch = styled.option`
     line-height: 100%;
     padding: 4px 6px;
   }
+  
+  @media (max-width: 500px) {
+      margin: 0 9px 0 0;
+
+    }
+
 `;
 
 export const TestDiv = styled.div`
