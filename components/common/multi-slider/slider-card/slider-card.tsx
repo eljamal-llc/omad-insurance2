@@ -3,7 +3,7 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import { Link } from '@mui/material';
 import parse from 'html-react-parser';
-
+import slugify from 'slugify';
 import { SliderCardProps } from './slider-card.t';
 
 import {
@@ -23,7 +23,7 @@ const SliderCard: FC<SliderCardProps> = ({ item, link }) => {
   const { name, info, image, id } = item;
   return (
     <Wrapper>
-      <NextLink href={link ? `/${link}?id=${id}` : `/page-persons?id=${id}`} passHref>
+      <NextLink href={`/individuals/${id}/${slugify(name)}`} passHref>
         <Link>
             <div>
               <SliderTitle>{name}</SliderTitle>
