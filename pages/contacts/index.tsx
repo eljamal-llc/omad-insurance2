@@ -65,7 +65,7 @@ const Contacts: FC<NextPage> = () => {
         </>
       )}
 
-      <News data={news} />
+      {/* <News data={news} /> */}
       <Footer data={footer} />
     </Layout>
   );

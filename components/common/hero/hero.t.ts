@@ -7,4 +7,5 @@ export interface IData {
   anons: string;
   text: string;
   image: string;
+  url : string
 }
