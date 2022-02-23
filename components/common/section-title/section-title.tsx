@@ -5,7 +5,7 @@ import { Title } from "./section-title.e";
 const SectionTitle: FC<SectionTitleProps> = ({ color, classN, title }) => {
   return (
     <Title color={color} className={classN}>
-      {title}
+      {title} 
     </Title>
   );
 };

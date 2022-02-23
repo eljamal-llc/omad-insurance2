@@ -72,8 +72,27 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                     ))}
                   </ModalSubInnerMenu>
                 )}
+                
               </ModalMenuItem>
-            ))}
+            ))
+            }
+            <ModalMenuItem>
+            <a href={`/news`} >
+            <Link >
+              новости              
+            </Link>
+          </a>
+          </ModalMenuItem>
+          <ModalMenuItem>
+            <a href={`/contacts`} >
+            <Link >
+              Контакты              
+            </Link>
+          </a>
+          </ModalMenuItem>
+            
+
+    
           </ModalMenuList>
         </ModalRow>
       </GWrapper>
