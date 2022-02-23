@@ -31,6 +31,7 @@ const NewsPage: FC<NextPage> = () => {
   const { id } = router.query;
   const [footer, setFooter] = useState<any>();
 
+
   const [news, setNews] = useState<INewsData>();
 
 
@@ -42,6 +43,7 @@ const NewsPage: FC<NextPage> = () => {
       // console.log("--", res);
       setFooter(res.data);
     });
+
   }, []);
 
   return (
@@ -49,13 +51,9 @@ const NewsPage: FC<NextPage> = () => {
       <Wrapper>
         <Navbar />
         <BreadcrumbsBlock
-          url3={""}
-          url2={""}
-          link1="Главная"
-          link2="News"
-          // @ts-ignore
-          link3={news?.title}
-        />
+        // @ts-ignore
+            breadcrumb={news?.breadcrumb }
+          />
         <HeroBg
           // @ts-ignore
           data={[

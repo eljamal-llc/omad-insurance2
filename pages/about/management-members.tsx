@@ -33,6 +33,8 @@ const Mission: FC<NextPage> = () => {
   const [about, setAbout] = useState<any>({});
   const [footer, setFooter] = useState<any>();
   const [page, setPage] = useState<any>();
+  const [insurance, seyInsurance] = useState<any>();
+
   const router = useRouter();
   const { id } = router.query;
   useEffect(() => {
@@ -52,6 +54,7 @@ const Mission: FC<NextPage> = () => {
       // console.log("--", res);
       setFooter(res.data);
     });
+ 
     api
       .get("about/find", { params: { catId: id } })
       .then((res) => {
@@ -65,11 +68,8 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("Руководство и участники")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"management-members"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("Руководство и участники")}
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
       />
       {!!page && (
         <MissionComp

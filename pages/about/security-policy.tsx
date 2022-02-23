@@ -35,6 +35,8 @@ const Mission: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
+  const [insurance, seyInsurance] = useState<any>();
+
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
@@ -48,6 +50,7 @@ const Mission: FC<NextPage> = () => {
       // console.log(res.data);
       setAbout(res.data);
     });
+
     api.get("footer").then((res) => {
       // console.log("--", res);
       setFooter(res.data);
@@ -65,11 +68,8 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("common:Политика безопасности")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"security-policy"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("Политика безопасности")}
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
       />
       {!!page && (
         <MissionComp

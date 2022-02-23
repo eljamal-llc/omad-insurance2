@@ -13,36 +13,36 @@ import { FormGroup, Checkbox } from "@mui/material";
 import Link from "next/link";
 
 
-
 const PolisChack: FC<PolisChackProps> = () => {
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const [check, setCheck] = useState(false);
-
+    const {t} = useTranslation()
+  
   return (
     <Wrapper>
-        <ChackTitle>Проверка полиса</ChackTitle>   
+        <ChackTitle>{t("common:Policy_check")}</ChackTitle>   
         <CheckBlock>
             <CheckForm>
-                <FormTitle>Данные по полису</FormTitle>
+                <FormTitle>{t("common:danniye")}</FormTitle>
                 <PolisNum
-                    label='Номер полиса    '
+                    label={t('common:polis_number')}
                     placeholder='1234567-123456789/20-ТФ'
-                />
+                /><br/><br/>
                 <UserInfoInput
-                    label='Фамилия, имя и отчество*' 
+                    label={t('common:name_data')} 
                     placeholder="Иванов Иван Иванович"
                 />
-                <FormTitle>Контактные данные</FormTitle>
+                <FormTitle>{t("common:contact")}</FormTitle>
                 <FlexBlock className="al-center ">
                     <UserNumber
                     className="chack"
-                    label='Номер теефона'
+                    label={t('common:number_tel')}
                     placeholder="998 90 989-89-89"
                     />
                     <UserEmail
                     className="chack"
 
-                        label='Электронная почта'
+                        label={t('common:Email')}
                         placeholder="status585@mail.ru"
                     />
                 </FlexBlock>
@@ -52,13 +52,13 @@ const PolisChack: FC<PolisChackProps> = () => {
                                 <Checkbox {...label} onClick={() => setCheck(!check)} />
                             </FormGroup>
                             <FormSog className="label">
-                            Подтверждаю согласие на обработку моих персональных данных. Я даю согласие на обработку указанных мной персональных данных в соответствии с Политикой в области обработки и защиты персональных данных ООО «СК «OMAD»
+                                {t('common:policy_conf')}
                                 <Link href="" passHref>
                                 <a></a>
                                 </Link>
                             </FormSog>
                             <FormInsBtn type="submit"   disabled={!check}>
-                            Отправить
+                          {t('common:send')}
                             </FormInsBtn>
                         </FormBtnCheck>
                             

@@ -7,8 +7,12 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import { api } from '../../../services/api';
 import { useRouter } from 'next/router';
+import parse from "html-react-parser";
 
-const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({link1 , link2 , link3 , url2 , url3}) => {
+
+const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({
+    breadcrumb
+}) => {
     // function handleClick(event: any) {
     //     event.preventDefault();
     //     console.info("You clicked a breadcrumb.");
@@ -21,9 +25,8 @@ const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({link1 , link2 , link3 , url2 ,
     const [pageData, setPageData] = useState([]);
 
     useEffect(() => {
-    
       
-    
+    // console.log(breadcrumb.bread.slug  + 'dsfsd sfsd')
        
         // api.get("insurance/find", { params: { id: id ? id : 1 } }).then((res) => {
         //   console.log('ssss' + res.data);
@@ -31,48 +34,42 @@ const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({link1 , link2 , link3 , url2 ,
          
         // });
       }, []);
-    
+      
       return (
         <BreadCrumbs>
             <Stack spacing={2}>
             <Breadcrumbs separator="›" aria-label="breadcrumb">
-                <Link
-                underline="hover"
-                key="1"
-                color="#ffff"
-                href="/"
-                // onClick={handleClick}
-                >
-                    <a>
-                        {link1}
-                    </a>
-                </Link>
-
-                <Link
-                underline="hover"
-                key="2"
-                color="#ffff"
-                href={url2}
+                    {/* @ts-ignore */}
+                   {breadcrumb?.map((value:any , index:any) => 
+                       
+                            (
+                                    <Link
+                                    underline="hover"
+                                    key="1"
+                                    color="#ffff"
+                                    // @ts-ignore
+                                    href={value.slug + '?id=' + value.id}
+                                    // onClick={handleClick}
+                                    >
+                                        {/* @ts-ignore */}
+                                        <a>
+                                        {parse(value.title)}
+                                        </a>
+                                    </Link>
+                                    
+                                
+                            )
+                        )
+                        }
+                    
+                   
                 
-            
-                >
-                    <a>
-                        {link2}
-                    </a>
-                </Link>
-                <Link
-                underline="hover"
-                color="#ffff"
-                key="2"
-                href={url3}
-        
-                >
-               {link3}
-                </Link>
+
               
             </Breadcrumbs>
             </Stack>
       </BreadCrumbs>
+      
       )
    
 }

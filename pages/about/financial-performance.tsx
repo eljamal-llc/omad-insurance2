@@ -16,6 +16,7 @@ import { useTranslation } from "next-i18next";
 import { INewsData } from "../../components/common/news/news.t";
 import { api } from "../../services/api";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
+import About from ".";
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -31,6 +32,8 @@ const Values: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
+  const [insurance, seyInsurance] = useState<any>();
+
   useEffect(() => {
     // setLoading(true);
 
@@ -49,12 +52,10 @@ const Values: FC<NextPage> = () => {
     <Layout title={t("common:Financial_performance")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"financial-performance"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("common:Financial_performance")}
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
       />
+
       {!!page && (
         <FinancialPerformance
           title={page.head.title}

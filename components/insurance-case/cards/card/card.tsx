@@ -50,7 +50,7 @@ const Card: FC<CardProps> = ({ id, item }) => {
           <CardTags>
             {item.subCategory?.map((tag: any, tagId: any) => (
               <CardTag key={tagId}>
-                <Link href="#" passHref>
+                <Link href={`insurance-cases/car-accident?id=${item.id}`} passHref>
                   <a>{tag.title}</a>
                 </Link>
               </CardTag>

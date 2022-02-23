@@ -48,6 +48,8 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
   };
   const setEn = () => {
     console.log(router.locale);
+    setLanguage("en");
+
   };
   const setUz = () => {
     setLanguage("uz");
@@ -91,7 +93,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
             </NextLink>
             <NextLink href="/polis-chack" passHref>
               <NavbarLink className="toremove">
-                {t("Проверка полиса")}
+                {t("common:Policy_check")}
               </NavbarLink>
             </NextLink>
           </NavbarLeft>

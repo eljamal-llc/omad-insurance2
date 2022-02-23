@@ -143,7 +143,7 @@ export const LangSwitchSelect = styled.select`
   }
 `
 export const LangSwitch = styled.option`
- font-family: Roboto;
+  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

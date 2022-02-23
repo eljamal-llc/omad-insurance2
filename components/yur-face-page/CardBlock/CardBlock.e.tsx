@@ -67,7 +67,14 @@ export const CardText = styled.p`
     width: 280px;
   }
 `;
-export const CardImage = styled.div``;
+export const CardImage = styled.div`
+  .image{
+ 
+    @media(max-width:425px){
+      width: 320px;
+    }
+  }
+`;
 export const CardService = styled.div`
   display: flex;
   max-width: 860px;
@@ -76,6 +83,7 @@ export const CardService = styled.div`
   //     flex-direction: column;
   //     align-items: baseline;
   // }
+  
 `;
 export const CardServiceBlock = styled.div`
   @media (max-width: 1060px) {

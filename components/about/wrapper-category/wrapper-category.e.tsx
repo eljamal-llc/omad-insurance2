@@ -42,7 +42,7 @@ export const WrapperCategory = styled.div`
 export const WrapperTags = styled.div`
   padding: 40px 50px;
   @media (max-width: 1800px) {
-    padding: 30px 5%;
+    padding: 27px 2%;
   }
   @media(max-width:425px){
     width: 300px;
@@ -63,6 +63,9 @@ export const TagsTitle = styled.div`
   &.active{
   background-color: #f0803d;
 
+  }
+  @media(max-width:425px){
+    font-size: 12px;
   }
 `;
 export const TagsRow = styled.div`
@@ -104,5 +107,8 @@ export const Tag = styled.div`
     &:hover {
       background-color: #f0803d;
     }
+  }
+  @media(max-width:425px){
+    font-size: 12px;
   }
 `;

@@ -36,12 +36,14 @@ const Mission: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
+
+  const [insurance, seyInsurance] = useState<any>();
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
       await setSliders(response.data.data);
     });
-
+  
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
@@ -66,11 +68,8 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("Правила страхования ")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"Insurance-rules"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("Правила страхования ")}
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
       />
       {!!page && (
         <InsuranceRules

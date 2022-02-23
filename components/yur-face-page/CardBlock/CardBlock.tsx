@@ -88,7 +88,7 @@ const Card: FC<CardBlockProps> = ({ item }) => {
         <CardImage>
           {/* <Image src={car} alt="image-test" />
            */}
-          <img src={main_image} alt={main_title} />
+          <img className="image" src={main_image} alt={main_title} />
         </CardImage>
       </CardBodyContent>
     </CardBody>

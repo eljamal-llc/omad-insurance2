@@ -17,6 +17,7 @@ import { useTranslation } from "next-i18next";
 import { INewsData } from "../../components/common/news/news.t";
 import { api } from "../../services/api";
 import { useRouter } from "next/router";
+import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -32,6 +33,7 @@ const Values: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
+  const [insurance, seyInsurance] = useState<any>();
 
   useEffect(() => {
     // setLoading(true);
@@ -49,6 +51,10 @@ const Values: FC<NextPage> = () => {
   return (
     <Layout title={t("common:Social_responsibility")}>
       <Navbar />
+      <BreadcrumbsBlock
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
+      />
       {!!page && (
         <MissionComp
           title={page.head.title}

@@ -97,6 +97,9 @@ const Home: NextPage = () => {
     <>
       {!loading ? (
         <Layout title="Страхование имущества">
+          <head>
+          <meta property="og:title" content="Страхование имущества" key="title" />
+          </head>
           <Navbar />
           <Hero data={sliders} />
           <WantInsure
