@@ -43,6 +43,8 @@ const Partner: FC<NextPage> = () => {
   const [sliders, setSliders] = useState<IData[] | []>([]);
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [pageData, setPageData] = useState([]);
+  const [insurance, seyInsurance] = useState<any>();
+
   const router = useRouter();
   const [footer, setFooter] = useState<any>();
 
@@ -64,6 +66,11 @@ const Partner: FC<NextPage> = () => {
     api.get("insurance/find", { params: { id: router.query.id } }).then((res) => {
       setPageData(res.data);
     });
+    api.get("insurance/full", { params: { id: router.query.id } })
+      .then( (response) => {
+         seyInsurance(response.data);
+        
+      })
   }, []);
 
 
@@ -128,12 +135,9 @@ const Partner: FC<NextPage> = () => {
       {!loading ? (
         <Layout title={t("common:Property_insurance")}>
           <Navbar />
-          <BreadcrumbsBlock
-            url2={"/page-person?id=" + singleId}
-            url3={""}
-            link1="Главная "
-            link2={singleTitle}
-            link3=""
+          <BreadcrumbsBlock key={1}
+    // @ts-ignore
+            breadcrumb={pageData?.breadcrumb}
           />
 
           <Hero data={sliders} />

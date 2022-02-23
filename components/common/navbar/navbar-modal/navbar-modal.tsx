@@ -42,7 +42,7 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                 onMouseMove={() => setMenuHover(true)}
                 onMouseLeave={() => setMenuHover(false)}
               >
-                <a href={`/catalog/${item.link}/${item.id}/${slugify(item.name)}`} passHref>
+                <a href={`/catalog/${item.link}/${item.id}/${slugify(item.name)}`} >
                   <Link >
                     {item.name}
                     {item.isSubMenu && (

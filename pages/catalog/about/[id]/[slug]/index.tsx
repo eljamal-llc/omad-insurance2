@@ -39,13 +39,20 @@ const About: FC<NextPage> = () => {
   const [Absliders, setSliders] = useState<IData[] | []>([]);
   const [about, setAbout] = useState<any>({});
   const [footer, setFooter] = useState<any>();
+  const [insurance, seyInsurance] = useState<any>();
+  const router = useRouter();
+  const { id } = router.query;
 
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories?id=4").then(async (response) => {
       await setSliders(response.data.data);
     });
-
+    api.get("insurance/full", { params: { id: id } })
+    .then( (response) => {
+       seyInsurance(response.data);
+      
+    })
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
@@ -59,14 +66,15 @@ const About: FC<NextPage> = () => {
       setFooter(res.data);
     });
   }, []);
-  const router = useRouter()
   const { t } = useTranslation();
-  const singleId = Object.values(router.query).toString()
 
   return (
     <Layout title={t("common:Property_insurance")}>
       <Navbar />
-      <BreadcrumbsBlock url2={ '/about?id=' + singleId } url3={''} link1="Главная " link2={'О нас'} link3="" />
+        <BreadcrumbsBlock
+        // @ts-ignore
+        breadcrumb={about?.breadcrumb  }
+        />
 
       <Hero data={Absliders} />
       <WrapperTitle title={t("common:All_about_the_company")} />

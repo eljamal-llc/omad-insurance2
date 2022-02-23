@@ -39,6 +39,8 @@ const Mission: FC<NextPage> = () => {
   const [about, setAbout] = useState<any>({});
   const [footer, setFooter] = useState<any>();
   const [page, setPage] = useState<any>();
+  const [insurance, seyInsurance] = useState<any>();
+
   const router = useRouter();
   const { id } = router.query;
   useEffect(() => {
@@ -71,11 +73,8 @@ const Mission: FC<NextPage> = () => {
     <Layout title={t("common:Property_insurance")}>
       <Navbar />
       <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"reinsurance"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("Перестрахование")}
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
       />
       {!!page && (
         <MissionComp

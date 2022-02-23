@@ -27,8 +27,7 @@ import { PageTitle, PageDes, MiniTitle, CardBlock, HighBlock, Kopite, SpecBlock,
 // import { Link } from "@mui/icons-material";
 const main_image = "/slider1.jpg";
 const SpecialOffersSingle: FC<SpecialOffersSingleProps> = ({
-  title,
-  description,
+  data
 }) => {
   const { t } = useTranslation();
 
@@ -55,24 +54,24 @@ const SpecialOffersSingle: FC<SpecialOffersSingleProps> = ({
         </MissionContent> */}
         <HighBlock>
             <Kopite>
-                <PageTitle>Копите мили «Аэрофлот Бонус»</PageTitle>
-                <PageDes>Теперь участники программы «Аэрофлот Бонус» могут получать мили при оформлении полиса КАСКО, полиса выезжающих за рубеж, а также при страховании имущества на сайте страховой компании «Согласие» и во всех офисах продаж.</PageDes>
-                <MiniTitle>Условия начислений:</MiniTitle>
+                <PageTitle>{data?.title}</PageTitle>
+                <PageDes>{data?.text}</PageDes>
+                {/* <MiniTitle>Условия начислений:</MiniTitle>
                 <Uslovs>1 миля за каждые потраченные 25 ₽ при оформлении полиса страхования выезжающих за рубеж</Uslovs>
                 <Uslovs>1 миля за каждые потраченные 25 ₽ при оформлении полиса страхования выезжающих за рубеж</Uslovs>
                 <Uslovs>1 миля за каждые потраченные 25 ₽ при оформлении полиса страхования выезжающих за рубеж</Uslovs>
                 <Uslovs>Мили за оформление первичного полиса КАСКО начисляются только при обращении в офис продаж.</Uslovs>
-                <Uslovs>Для начисления миль предъявите Вашу карту участника программы «Аэрофлот Бонус» в офисах продаж или введите номер карты на сайте страховой компании «OMAD».</Uslovs>
+                <Uslovs>Для начисления миль предъявите Вашу карту участника программы «Аэрофлот Бонус» в офисах продаж или введите номер карты на сайте страховой компании «OMAD».</Uslovs> */}
 
             </Kopite>
 
             <CardBlock>
-                <Image src={main_image}  height='300px' width='500' />
-                <CardTitle>Копите мили «Аэрофлот Бонус»</CardTitle>
-                <PageDes>Теперь участники программы «Аэрофлот Бонус» могут получать мили при оформлении полиса в страховой компании «Согласие»</PageDes>
+                <img src={data?.image} />
+                {/* <CardTitle>{data?.title}</CardTitle>
+                <PageDes>{data?.text}</PageDes> */}
             </CardBlock>
         </HighBlock>
-        <CenterTitle>*Перечень партнеров можно уточнить в контактном центре СК «OMAD» 8 800 755 00 01</CenterTitle>
+        {/* <CenterTitle>*Перечень партнеров можно уточнить в контактном центре СК «OMAD» 8 800 755 00 01</CenterTitle> */}
         
       </SpecBlock>
     </>

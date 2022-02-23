@@ -17,6 +17,7 @@ import { useTranslation } from "next-i18next";
 import { INewsData } from "../../../components/common/news/news.t";
 import { api } from "../../../services/api";
 import { useRouter } from "next/router";
+<<<<<<< HEAD:pages/about/[id]/social-responsibility.tsx
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   return {
       paths: [
@@ -24,6 +25,9 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
       fallback: 'blocking' //indicates the type of fallback
   }
 }
+=======
+import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
+>>>>>>> b089f178532a14f4a5e4cdc0bb67c94248984e0c:pages/about/social-responsibility.tsx
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -38,7 +42,12 @@ const Values: FC<NextPage> = () => {
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [page, setPage] = useState<any>();
   const router = useRouter();
+<<<<<<< HEAD:pages/about/[id]/social-responsibility.tsx
 
+=======
+  const { id } = router.query;
+  const [insurance, seyInsurance] = useState<any>();
+>>>>>>> b089f178532a14f4a5e4cdc0bb67c94248984e0c:pages/about/social-responsibility.tsx
 
   useEffect(() => {
     // setLoading(true);
@@ -56,6 +65,10 @@ const Values: FC<NextPage> = () => {
   return (
     <Layout title={t("common:Social_responsibility")}>
       <Navbar />
+      <BreadcrumbsBlock
+      // @ts-ignore
+       breadcrumb={page?.breadcrumb }
+      />
       {!!page && (
         <MissionComp
           title={page.head.title}

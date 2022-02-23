@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { HeroProps } from "./hero.t";
-
+import NextLink from 'next/link'
 import { GWrapper } from "../../../styles/global-styles.e";
 import { Wrapper, SliderImg, SliderDescriptionBtn, HeroTitle } from "./hero.e";
 
@@ -126,8 +126,13 @@ const Hero: FC<HeroProps> = ({ data }) => {
             {data?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <div className="slider-description-item">
-                  <h4 className="slider-description__title">{item.anons}</h4>
-                  <p className="slider-description__content">{item.text}</p>
+                  <NextLink href={item?.url ? item?.url :  '/contacts' }>
+                    <a>
+                      <h4 className="slider-description__title">{item.anons } {console.log(item)}</h4>
+                      <p className="slider-description__content">{item.text}</p>
+                    </a>
+                  </NextLink>
+                  
                 </div>
               </SwiperSlide>
             ))}

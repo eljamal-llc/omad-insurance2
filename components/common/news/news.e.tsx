@@ -139,6 +139,9 @@ export const Wrapper = styled.div`
       @media (max-width: 1800px) {
         font-size: calc(14px + 4 * (100vw / 1920));
       }
+      @media (max-width: 500px) {
+        display: none;
+      }
     }
     &__line {
       position: absolute;

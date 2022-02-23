@@ -28,24 +28,28 @@ export async function getStaticProps({ locale }: { locale: string }) {
 export interface PartnerProps {}
 
 const YurFacePage: FC<NextPage> = () => {
-  const [pageInfo, setPageInfo] = useState();
+  const [pageInfo, setPageInfo] = useState<any>();
   const [insurances, setInsurances] = useState<ICards[]>([]);
+
+  const [insurance, seyInsurance] = useState<any>();
 
   const router = useRouter();
   const { id } = router.query;
   const [loading, setLoading] = useState(false);
   const [footer, setFooter] = useState<any>();
-
   useEffect(() => {
     setLoading(true);
     setTimeout(()=>{
       setLoading(false)
     },1200)
+
     api
       .get("category-insurance", { params: { id: id } })
       .then(async (response) => {
         await setPageInfo(response.data.data);
+        const p = JSON.parse(pageInfo);
       });
+     
     api
       .get("insurance", { params: { catInsId: id } })
       .then(async (response) => {
@@ -80,9 +84,19 @@ const YurFacePage: FC<NextPage> = () => {
   return (
     <>
     {!loading ? (
-      <Layout title={singleTitle}>
+      <Layout title={'Cтахование'}>
       <Navbar />
-      <BreadcrumbsBlock link1={"Главная"} link2={singleTitle} link3={""} url2={'page-persons?id=' + singleId} url3={''}/>
+      
+  
+{/* @ts-ignore   */}
+      {pageInfo?.map((element:any) => { // use map
+      return (
+        <BreadcrumbsBlock key={1}
+        breadcrumb={element.breadcrumb}
+            />
+      );
+    })}
+      
       {pageInfo ? (
         <HeroBg data={pageInfo} />
       ) : (

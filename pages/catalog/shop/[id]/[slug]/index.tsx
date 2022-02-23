@@ -51,22 +51,22 @@ const InsuranceCase: FC<NextPage> = () => {
   }, []);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1200);
-    api
-      .get("insurance/find", { params: { id: onlineInsure } })
-      .then(async (response) => {
-        // console.log("-->>", response.data);
-        await setSliderData(response.data);
+    useEffect(() => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1200);
+      api
+        .get("insurance/find", { params: { id: onlineInsure } })
+        .then(async (response) => {
+          // console.log("-->>", response.data);
+          await setSliderData(response.data);
+        });
+      api.get("footer").then((res) => {
+        // console.log("--", res);
+        setFooter(res.data);
       });
-    api.get("footer").then((res) => {
-      // console.log("--", res);
-      setFooter(res.data);
-    });
-  }, [onlineInsure]);
+    }, [onlineInsure]);
 
   const sortWrapperTitle = (itemId: number | undefined) => {
     if (itemId != undefined) {

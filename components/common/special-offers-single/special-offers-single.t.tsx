@@ -1,5 +1,9 @@
 export interface SpecialOffersSingleProps {
-    title:string,
-  description:string,
-
+    
+    data:Content
+}
+export interface Content {
+  title:string,
+  image : string | any ,
+  text : string
 }

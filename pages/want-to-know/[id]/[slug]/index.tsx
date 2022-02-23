@@ -11,20 +11,21 @@ import {
   News,
   WrapperTitle,
   MissionComp,
-} from "../../components";
+  WnatKnowS
+} from "../../../../components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
-import { INewsData } from "../../components/common/news/news.t";
-import { IData } from "../../components/common/hero/hero.t";
-import { api } from "../../services/api";
-import SpecialOffersSingle from "../../components/common/special-offers-single/special-offers-single";
+import BreadcrumbsBlock from "../../../../components/common/bread-crumbs/Breadcrumbs";
+import { INewsData } from "../../../../components/common/news/news.t";
+import { IData } from "../../../../components/common/hero/hero.t";
+import { api } from "../../../../services/api";
 
-export async function getStaticProps({ locale }: { locale: string }) {
+export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    
   };
 }
 export interface AboutProps {}
@@ -36,7 +37,9 @@ const Mission: FC<NextPage> = () => {
   const [page, setPage] = useState<any>();
   const router = useRouter();
   const { id } = router.query;
-
+  const [insurance, seyInsurance] = useState<any>();
+  const [want  , setWant] = useState<any>()
+  const [links , setLinks] = useState<any>()
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
@@ -46,6 +49,14 @@ const Mission: FC<NextPage> = () => {
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
+    api.get("insurance/full", { params: { id: id } })
+      .then( (response) => {
+         seyInsurance(response.data);
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     api.get("about").then((res) => {
       // console.log(res.data);
       setAbout(res.data);
@@ -54,23 +65,34 @@ const Mission: FC<NextPage> = () => {
       // console.log("--", res);
       setFooter(res.data);
     });
+    api.get('want-to-know' ,{ params: { id: router.query.id }})
+    .then((response) => {
+      setWant(response.data)
+    });
+    api.get("want-to-know").then(async (response) => {
+      await setLinks(response.data.data);
+    });
     
+    api
+      .get("about/find", { params: { catId: id } })
+      .then((res) => {
+        setPage(res.data.data);
+      })
+      .catch((err) => {});
   }, []);
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("Копите мили «Аэрофлот Бонус» ")}>
-      <Navbar onClass="active" />
-      {/* <BreadcrumbsBlock
-        url2={`/about`}
-        url3={"mission"}
-        link1="Главная"
-        link2="О нас"
-        link3={t("common:Mission")}
-      /> */}
-      
-    <SpecialOffersSingle title="khan" description="asab asab asab"/>
-      {/* <News data={news} /> */}
+    <Layout title={want?.content[0]?.title}>
+      <Navbar />
+      {!!page && (
+      <BreadcrumbsBlock
+            breadcrumb={want?.breadcrumb }
+          />
+      )}
+        <WnatKnowS links={links} data={want?.content[0]}/>
+
+      <News data={news} />
       <Footer data={footer} />
     </Layout>
   );

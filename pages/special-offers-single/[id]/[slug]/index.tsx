@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import type { GetStaticPaths, NextPage } from "next";
+import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import {
   AboutInfo,
   Cards,
@@ -10,22 +11,16 @@ import {
   News,
   WrapperTitle,
   MissionComp,
-} from "../../../components";
+} from "../../../../components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import BreadcrumbsBlock from "../../../components/common/bread-crumbs/Breadcrumbs";
-import { INewsData } from "../../../components/common/news/news.t";
-import { IData } from "../../../components/common/hero/hero.t";
-import { useRouter } from "next/router";
-import { api } from "../../../services/api";
-export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
-  return {
-      paths: [
-      ], //indicates that no page needs be created at build time
-      fallback: 'blocking' //indicates the type of fallback
-  }
-}
-export async function getStaticProps({ locale }: { locale: string }) {
+import BreadcrumbsBlock from "../../../../components/common/bread-crumbs/Breadcrumbs";
+import { INewsData } from "../../../../components/common/news/news.t";
+import { IData } from "../../../../components/common/hero/hero.t";
+import { api } from "../../../../services/api";
+import SpecialOffersSingle from "../../../../components/common/special-offers-single/special-offers-single";
+
+export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"])),
@@ -39,10 +34,9 @@ const Mission: FC<NextPage> = () => {
   const [about, setAbout] = useState<any>({});
   const [footer, setFooter] = useState<any>();
   const [page, setPage] = useState<any>();
-  const [insurance, seyInsurance] = useState<any>();
-
   const router = useRouter();
   const { id } = router.query;
+  const [offer , setOffer] = useState<any>()
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
@@ -60,31 +54,26 @@ const Mission: FC<NextPage> = () => {
       // console.log("--", res);
       setFooter(res.data);
     });
- 
-    api
-      .get("about/find", { params: { catId: router.query.id } })
-      .then((res) => {
-        setPage(res.data.data);
-      })
-      .catch((err) => {});
+    api.get('promotions-offers',{ params: { id: router.query.id }}).then((response)=>{
+      setOffer(response.data)
+    })
+    
   }, []);
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("Руководство и участники")}>
-      <Navbar />
-      <BreadcrumbsBlock
-      // @ts-ignore
-       breadcrumb={page?.breadcrumb }
-      />
-      {!!page && (
-        <MissionComp
-          title={page.head.title}
-          data={page.content}
-          sidebars={page.sidebar}
-        />
-      )}
-      <News data={news} />
+    <Layout title={offer?.content[0]?.title}>
+      <Navbar onClass="active" />
+      {/* <BreadcrumbsBlock
+        url2={`/about`}
+        url3={"mission"}
+        link1="Главная"
+        link2="О нас"
+        link3={t("common:Mission")}
+      /> */}
+      
+    <SpecialOffersSingle data={offer?.content[0]}/>
+      {/* <News data={news} /> */}
       <Footer data={footer} />
     </Layout>
   );

@@ -32,7 +32,7 @@ import {
   VerticalSlider,
   Wrapper,
 } from "./sale.e";
-
+import slugify from "slugify";
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
@@ -157,7 +157,7 @@ const Sale: FC<SaleProps> = ({ data }) => {
                           </HorizontalSliderDescription>
 
                           <HorizontalSliderButton>
-                            <NextLink href="/special-offers-single" passHref>
+                            <NextLink href={`/special-offers-single/${item.id}/${item.title}`} passHref>
                               <Link>
                                 <span>Узнать подробнее</span>
                                 <ArrowIcon fill="#F0803D" class="arrow-right" />

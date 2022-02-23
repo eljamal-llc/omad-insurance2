@@ -23,9 +23,9 @@ import {
   WrapperMob,
 } from "./want-know.e";
 import {useTranslation} from 'next-i18next'
-
+import { useRouter } from "next/router";
 import { GWrapper } from "../../../styles/global-styles.e";
-
+import slugify from "slugify";
 import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
@@ -44,12 +44,12 @@ SwiperCore.use([
 const WantKnow: FC<WantKnowProps> = ({ data }) => {
   const swiperRef = useRef(null);
   const buttonRef = useRef(null);
-  let [activIdx, setActiveIdx] = useState(1);
+  let [activIdx, setActiveIdx] = useState(0);
 
   const toSlide = (num: number) => {
     setActiveIdx(num);
     // @ts-ignore
-    swiperRef.current?.swiper.slideTo(num);
+    swiperRef.current?.swiper.slideTo(num + 3);
   };
   const { t } = useTranslation()
 
@@ -75,6 +75,8 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
       name: "Реестр агентов",
     },
   ];
+  const router = useRouter()
+  const {id} = router.query
   return (
     <>
       <Wrapper>
@@ -131,7 +133,7 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
                   }}
                   className={activIdx == idx  ? "list-active" : ""}
                 >
-                  <NextLink href="/" passHref>
+                  <NextLink href={`/want-to-know/${item.id}/${slugify(item.title)}`} passHref>
                     <Link>
                       <span className="box"></span>
                       {item.title}
@@ -151,3 +153,4 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
 };
 
 export default WantKnow;
+ 
