@@ -25,6 +25,7 @@ import {
 import { FormElements } from "../..";
 
 import Checkbox from "@mui/material/Checkbox";
+import i18next from "i18next";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -32,7 +33,6 @@ interface TabPanelProps {
   value: number;
 }
 
-export const t = useTranslation()
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
