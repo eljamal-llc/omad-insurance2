@@ -61,26 +61,7 @@ const YurFacePage: FC<NextPage> = () => {
       });
   }, [router.query.id]);
   
-  const singleId = Object.values(router.query).toString()
-  const singleTitle = useMemo(() => {
-    switch (singleId) {
-      case '7': return 'АВТОСТРАХОВАНИЕ'
-      case '8': return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
-      case '9' :  return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
-      case '10' : return 'ДРУГИЕ ПРОГРАММЫ'
-      case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
-      case '13' : return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
-      case '14' : return 'СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ'
-      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ '
-      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
-      case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
-      case '17' : return 'Перестрахование'
-      case '18' : return 'Строительство'
-      case '11' : return 'АВТОСТРАХОВАНИЕ'
-      default: ' Cингл'
 
-    }
-  }, [singleId])
   return (
     <>
     {!loading ? (
