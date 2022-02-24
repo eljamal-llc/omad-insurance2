@@ -52,6 +52,10 @@ const PersonalAreaInfo: FC<PersonalAreaInfoProps> = () => {
     </GWrapper>
     </PersonalAreaBodyBg>
     )
+    
+
+
+    
 
 }
 

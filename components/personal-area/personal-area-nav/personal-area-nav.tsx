@@ -12,11 +12,13 @@ import {HeaderNavBody,
 import { slide as Menu } from 'react-burger-menu'
 import PersonalNavBurger from '../../common/personal-nav-burger/pesonal-nav-burger'
 import { useTranslation } from "react-i18next";
+import { GWrapper } from "../../../styles/global-styles.e";
 const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
     const {t} = useTranslation()
     return (
         <>
         <HeaderNavBody/>
+        <GWrapper>
         <PersonalAreaNavbar>
             <NavBurger>
               <PersonalNavBurger/>
@@ -41,8 +43,7 @@ const PersonalAreaNav: FC<PersonalAreaNavProps> = () => {
             </PersonalAreaUserNav>
             <PersonalAreaSettings> <NextLink href='/personal-area/settings'>{t('common:settings')}</NextLink></PersonalAreaSettings>
         </PersonalAreaNavbar>
-
-
+        </GWrapper>
         </>
 
     )

@@ -45,6 +45,9 @@ export const PersonalAreaBodyCardBody = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin-top: 90px    ;
+    @media(max-width:1600px){
+        margin: 0;
+    }
 `
 export const PersonalAreaBodyCardHeading = styled.h3`
     margin:0;
