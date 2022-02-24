@@ -18,7 +18,8 @@ export const Wrapper = styled.div`
     background:  #0D4656;
   }
   @media(max-width:1600px){
-    margin: -58px 0;
+    margin: -55px 0;
+    padding: 20px 0  40px 0;
     top:50px;
   }
 `;

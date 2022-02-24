@@ -136,7 +136,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
                   </MenuItem>
                 </Menu>
                 <NavbarBtn
-                  className="navbar-user toremove avtive"
+                  className="navbar-user  avtive"
                   id="basic-button"
                   aria-controls={open ? "basic-menu" : undefined}
                   aria-haspopup="true"

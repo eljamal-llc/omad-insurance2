@@ -108,6 +108,7 @@ export const Wrapper = styled.div`
       padding-top: 45px;
       @media (max-width: 1800px) {
         max-width: 80%;
+        margin: 20px 0;
       }
     }
 

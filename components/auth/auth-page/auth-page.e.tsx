@@ -3,10 +3,14 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   background: #f1f1f1;
   backdrop-filter: blur(10px);
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 10%;
   .panel {
     padding: 40px 50px;
+  }
+  @media(max-width:1600px){
+  min-height: 110vh;
+
   }
 `;
 export const AuthBlock = styled.div`
