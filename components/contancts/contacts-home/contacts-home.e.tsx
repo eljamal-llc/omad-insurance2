@@ -43,7 +43,7 @@ export const ContactsBlockSlogan = styled.h3`
 
   color: #ffffff;
   @media (max-width: 425px) {
-    font-size: 24px;
+    font-size: 21px;
     line-height: 18px;
     text-transform: uppercase;
   }
@@ -74,5 +74,8 @@ export const ConImg = styled.div`
     width: 1344px;
     height: 690px;
     object-fit: cover;
+  }
+  @media(max-width:500px){
+    display: none;
   }
 `;
