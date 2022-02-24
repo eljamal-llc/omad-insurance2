@@ -166,7 +166,8 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
                 </NavbarBtn>
               </>
             ) : (
-              <NavbarBtn className="navbar-user toremove">
+              <NavbarBtn className="navbar-user y
+              ">
                 <Link href={"/auth"} passHref>
                   <a>
                     <Image src={User} alt="admin-user" />
