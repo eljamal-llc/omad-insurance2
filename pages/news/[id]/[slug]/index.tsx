@@ -54,7 +54,7 @@ const NewsPage: FC<NextPage> = () => {
   }, [router.query.id]);
 
   return (
-    <Layout title="Страхование имущества">
+    <Layout footer={footer} title="Страхование имущества">
       <Wrapper>
         <Navbar />
         <BreadcrumbsBlock
