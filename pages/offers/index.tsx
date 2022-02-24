@@ -61,7 +61,6 @@ const YurFacePage: FC<NextPage> = () => {
   }, []);
   const singleId = Object.values(router.query).toString()
   const singleTitle = useMemo(() => {
-  console.log('asfkljsfdjhg rldikhg;lk' + singleId)
     
     switch (singleId) {
       case '7': return 'АВТОСТРАХОВАНИЕ'
@@ -71,27 +70,17 @@ const YurFacePage: FC<NextPage> = () => {
       case '12' : return 'СТРАХОВАНИЕ ЗДОРОВЬЯ'
       case '13' : return 'СТРАХОВАНИЕ ИМУЩЕСТВА'
       case '14' : return 'СТРАХОВАНИЕ ОТВЕТСВЕННОСТИ'
-      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ '
+      case '15' : return 'ТРАНСПОРТ И ПЕРЕВОЗКИ'
       case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
       case '16' : return 'ОТРАСЛЕВЫЕ ПРОДУКТЫ'
       case '17' : return 'Перестрахование'
       case '18' : return 'Строительство'
-      
-
       case '11' : return 'АВТОСТРАХОВАНИЕ'
       default: ' Cингл'
 
     }
   }, [singleId])
-  // let  [SingleTitle , setSingleTitle] = useState(singleId)
 
-  // if( singleId == '7'){
-  //   setSingleTitle('АВТОСТРАХОВАНИЕ')
-  // }
-  // if(singleId == '8') {
-  //   setSingleTitle('СТРАХОВАНИЕ ЗДОРОВЬЯ')
-
-  // }
   return (
     <>
     {!loading ? (
@@ -101,10 +90,6 @@ const YurFacePage: FC<NextPage> = () => {
             breadcrumb={bred }
           />
         <HeroBgOf />
-        {/* <Stack spacing={1}>
-          <Skeleton variant="rectangular" height={600} />
-        </Stack> */}
-
       <YurFaceCardOf />
       <Footer data={footer} />
     </Layout>
