@@ -23,6 +23,7 @@ import { INewsData } from "../components/common/news/news.t";
 import { useRouter } from "next/router";
 import { ISaleData } from "../components/home/sale/sale.t";
 import { FooterProps } from "../components/common/footer/footer.t";
+
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
@@ -59,6 +60,7 @@ const Home: NextPage = () => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+
     api.get("slider-categories").then(async (response) => {
       await setSliders(response.data.data);
     });
@@ -76,11 +78,9 @@ const Home: NextPage = () => {
       setNews(res.data.data);
     });
     api.get("promotions-offers").then((res) => {
-      // console.log("--", res);
       setSale(res.data.data);
     });
     api.get("footer").then((res) => {
-      // console.log("--", res);
       setFooter(res.data);
     });
   }, []);
@@ -96,10 +96,8 @@ const Home: NextPage = () => {
   return (
     <>
       {!loading ? (
-        <Layout title=" Омад Страхование">
-          <head>
-          <meta property="og:title" content="Страхование имущества" key="title" />
-          </head>
+        <Layout title={t('site_name')} footer={footer}>
+      
           <Navbar />
           <Hero data={sliders} />
           
@@ -112,7 +110,6 @@ const Home: NextPage = () => {
           <Sale data={sale} />
           <News data={news} />
           {/* @ts-ignore */}
-          <Footer data={footer} />
         </Layout>
       ) : (
         <LoadingScreen />
