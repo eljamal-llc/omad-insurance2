@@ -187,7 +187,7 @@ export const LangSwitch = styled.option`
   }
   svg {
     margin-left: 20px;
-  }
+  } 
   @media (max-width: 1120px) {
     font-size: 14px;
     line-height: 100%;

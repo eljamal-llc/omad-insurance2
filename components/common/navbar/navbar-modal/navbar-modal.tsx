@@ -45,20 +45,16 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                 <a href={`/catalog/${item.link}/${item.id}/${slugify(item.name)}`} >
                   <Link >
                     {item.name}
-                    {/* {item.isSubMenu && (
+                    {item.isSubMenu && (
                       <>
                         <span className="arrow-down">
-                          {menuHover ? (
-                            <ArrowDropUpSharpIcon />
-                          ) : (
-                            <ArrowDropDownSharpIcon />
-                          )}
+                        
                         </span>
                       </>
-                    )} */}
+                    )}
                   </Link>
                 </a>
-                {/* {item.isSubMenu && (
+                {item.isSubMenu && (
                   <ModalSubInnerMenu className="inner-menu">
                     {item.sub?.map((itemChild, idx) => (
                       <ModalSubMenuItem key={idx}>
@@ -71,7 +67,7 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                       </ModalSubMenuItem>
                     ))}
                   </ModalSubInnerMenu>
-                )} */}
+                )}
                 
               </ModalMenuItem>
             ))
