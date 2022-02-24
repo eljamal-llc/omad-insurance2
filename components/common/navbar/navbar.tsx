@@ -151,7 +151,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
                 <Link href={"/auth"} passHref>
                   <a>
                     <Image src={User} alt="admin-user" />
-                  </a>
+                  </a> 
                 </Link>
               </NavbarBtn>
             )}
@@ -163,7 +163,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
           </NavbarRight>
         </NavbarRow>
       </GWrapper>
-      
+
       <NavbarModal isModal={navbarModal} />
     </Wrapper>
   );
