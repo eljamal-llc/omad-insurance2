@@ -25,12 +25,12 @@ const PersonalAreaInfo: FC<PersonalAreaInfoProps> = () => {
                 <PersonalAreaBodyCard>
                     <PersonalAreaBodyCardHeading>{t('common:My_details')}</PersonalAreaBodyCardHeading>
                     <PersonalAreaBodyCardText>{t('common:info_details_personal_area')}</PersonalAreaBodyCardText>
-                    <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                    <ButtonCard><CardButton><Link href={'/personal-area/user-data'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
                 </PersonalAreaBodyCard>
                 <PersonalAreaBodyCard>
                     <PersonalAreaBodyCardHeading>{t('common:My_insurance_policies')}</PersonalAreaBodyCardHeading>
                     <PersonalAreaBodyCardText>{t('common:infp_ins_polic_List')}</PersonalAreaBodyCardText>
-                    <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                    <ButtonCard><CardButton><Link href={'/personal-area/my-polic'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
                 </PersonalAreaBodyCard>
                 <PersonalAreaBodyCard>
                     <PersonalAreaBodyCardHeading>{t('common:buy_online')}</PersonalAreaBodyCardHeading>
@@ -41,12 +41,12 @@ const PersonalAreaInfo: FC<PersonalAreaInfoProps> = () => {
                     <PersonalAreaBodyCardHeading>{t('common:renew_policy')}</PersonalAreaBodyCardHeading>
                     <PersonalAreaBodyCardText>{t('common:renew_policy_INFO')}</PersonalAreaBodyCardText>
                     <PersonalAreaBodyCardText>{t('common:renew_policy_INFO22')}</PersonalAreaBodyCardText>
-                    <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                    <ButtonCard><CardButton><Link href={'/personal-area/polic-updates'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
                 </PersonalAreaBodyCard>
                 <PersonalAreaBodyCard>
                     <PersonalAreaBodyCardHeading>{t('common:settings')}</PersonalAreaBodyCardHeading>
                     <PersonalAreaBodyCardText>{t('common:settings_info')}</PersonalAreaBodyCardText>
-                    <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
+                    <ButtonCard><CardButton><Link href={'/personal-area/settings'}><a>{t('common:Go_to')}</a></Link></CardButton></ButtonCard>
                 </PersonalAreaBodyCard>
         </PersonalAreaBodyCardBody>
     </GWrapper>
