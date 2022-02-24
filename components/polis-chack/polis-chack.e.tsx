@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
         background: #f1f1f1;
         backdrop-filter: blur(10px);
         min-height: 100vh;
-        padding-top: 10%;
+        padding-top: 5%;
 `
 export const ChackTitle = styled.h2`
     font-family: Roboto;
