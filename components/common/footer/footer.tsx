@@ -39,8 +39,26 @@ const Footer: FC<FooterProps> = ({ data }) => {
                     </li>
                   ))}
                 </FooterUL>
+               
               </FooterColumn>
             ))}
+
+            <FooterColumn>
+            <ColumnHeader>{t('common:about_company')}</ColumnHeader>
+            <FooterUL>
+                <li>
+                    <Link href="/contacts" passHref>
+                        <a>{t('common:Contacts')}</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about/11/security-policy" passHref>
+                        <a>{t('common:privacy_policy')}</a>
+                    </Link>
+                  </li>
+        
+                </FooterUL>
+            </FooterColumn>
 
             <FooterColumn className="last-column">
               <ul className="social-net">
@@ -62,6 +80,8 @@ const Footer: FC<FooterProps> = ({ data }) => {
                   );
                 })}
               </ul>
+
+
               <a href="mailto:uzbekjon2003@gmail.com" className={"maillink"}>
                 @Info.totembo.com
               </a>
@@ -73,10 +93,7 @@ const Footer: FC<FooterProps> = ({ data }) => {
                 </NumAndAddress>
               ))}
 
-              {/* <NumAndAddress>
-                <span>+998 (99) 987 65 43</span>
-                <span>г. Ташкент, ул. Абая, д. 1</span>
-              </NumAndAddress> */}
+         
             </FooterColumn>
           </div>
           <FooterBottom>
