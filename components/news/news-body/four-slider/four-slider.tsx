@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FourSliderProps } from "./four-slider.t";
 import { Wrapper } from "./four-slider.e";
 import { api } from "../../../../services/api";
-
+import slugify from "slugify"
 // install Swiper modules
 SwiperCore.use([Navigation]);
 const ArrowIcon = (props: any) => (
@@ -74,7 +74,7 @@ const FourSlider: FC<FourSliderProps> = () => {
                   </div>
                   <div className="slider-content">
                     <h6 className="slider-content__name">
-                      <Link href={`/news?id=${item.id}`}>
+                      <Link href={`/news/${item.id}/${slugify(item.title)}`}>
                         <a>{item.title}</a>
                       </Link>
                     </h6>

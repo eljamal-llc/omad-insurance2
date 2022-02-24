@@ -12,7 +12,7 @@ import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
 import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
 import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
 import { useTranslation } from "next-i18next";
-
+import slugify from "slugify";
 import SwiperCore, {
   Pagination,
   Parallax,
@@ -124,7 +124,7 @@ const News: FC<NewsProps> = ({ data }) => {
               <SwiperSlide key={idx}>
                 <div className="slider-description-item">
                   <h4 className="slider-description__title">
-                    <Link href={`/news?id=${item.id}`}>
+                    <Link href={`/news/${item.id}/${slugify(item.title)}`}>
                       <a>{item.title}</a>
                     </Link>
                   </h4>

@@ -102,6 +102,7 @@ const Home: NextPage = () => {
           </head>
           <Navbar />
           <Hero data={sliders} />
+          
           <WantInsure
             onlineInsure={onlineInsure}
             setOnlineInsure={setOnlineInsure}
