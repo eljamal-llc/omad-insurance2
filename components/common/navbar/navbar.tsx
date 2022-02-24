@@ -1,7 +1,6 @@
 import { FC, useState, useContext } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
-// import { Link } from "@mui/material";
 import Link from "next/link";
 import NavbarModal from "./navbar-modal/navbar-modal";
 import { parseCookies } from "nookies";
@@ -25,7 +24,6 @@ import setLanguage from "next-translate/setLanguage";
 import { useRouter } from "next/router";
 import Logo from "../../../assets/images/navbar/logo.png";
 import User from "../../../assets/images/navbar/user.svg";
-// import { ReactComponent as User } from "../../../assets/images/navbar/user.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import { i18n, useTranslation } from "next-i18next";
 
@@ -71,59 +69,47 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
         <NavbarRow>
           <NavbarLeft>
             <NavbarLogo>
-              {/* <NextLink href="/" passHref> */}
               <Link href={"/"} passHref>
                 <a>
                   <Image src={Logo} alt="navbar-logo" />
                 </a>
               </Link>
-              {/* </NextLink> */}
             </NavbarLogo>
 
-            <NextLink href="/insurance-case" passHref>
+            <NextLink href="/catalog/shop/5/Magazin-polisov" passHref>
               <NavbarLink className="toremove">
                 {t("common:polit_market")} 
               </NavbarLink>
             </NextLink>
 
-            <NextLink href="/insurance-cases" passHref>
+            <NextLink href="/catalog/insurance/6/Strahovoj-sluchaj" passHref>
               <NavbarLink className="toremove">
                 {t("common:Insurance_case")}
               </NavbarLink>
             </NextLink>
+
             <NextLink href="/polis-chack" passHref>
               <NavbarLink className="toremove">
                 {t("common:Policy_check")}
               </NavbarLink>
             </NextLink>
+
           </NavbarLeft>
           <NavbarRight>
-            {/* <LangSwitchSelect> */}
+
             <TestDiv>
-              <LangSwitch
-                onClick={async () => await setRu()}
-                value={"ru"}
-                className={router.locale == "ru" ? "active" : ""}
-              >
-                RU
-              </LangSwitch>
+              <LangSwitch onClick={async () => await setRu()} value={"ru"} 
+              className={router.locale == "ru" ? "active" : ""} > RU </LangSwitch>
+              
               <NextLink href={"/"} locale="en">
-                <LangSwitch
-                  onClick={async () => await setEn()}
-                  value={"en"}
+                <LangSwitch onClick={async () => await setEn()} value={"en"}
                   className={router.locale == "en" ? "active" : ""}
-                >
-                  EN
-                </LangSwitch>
+                > EN </LangSwitch>
               </NextLink>
 
-              <LangSwitch
-                onClick={async () => await setUz()}
-                value={"uz"}
+              <LangSwitch onClick={async () => await setUz()} value={"uz"}
                 className={router.locale == "uz" ? "active" : ""}
-              >
-                UZ
-              </LangSwitch>
+              > UZ </LangSwitch>
             </TestDiv>
 
 
@@ -131,27 +117,22 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
               <>
     
                 <Menu
-                  id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
-                  MenuListProps={{
+                  id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose}
+                  MenuListProps={{ 
                     "aria-labelledby": "basic-button",
-                  }}
-                >
+                  }}>
+
                   <MenuItem onClick={handleClose}>
                     <Link href={"/personal-area"} passHref>
-                      <a>Profile</a>
+                      <a>{t('common:profile')}</a>
                     </Link>
                   </MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem
-                    onClick={() => {
+                  <MenuItem onClick={handleClose}>{t('common:my_cabinet')}</MenuItem>
+                  <MenuItem onClick={() => {
                       logOut();
                       handleClose();
-                    }}
-                  >
-                    Logout
+                    }} >
+                    {t('common:logout')}
                   </MenuItem>
                 </Menu>
                 <NavbarBtn
@@ -166,8 +147,7 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
                 </NavbarBtn>
               </>
             ) : (
-              <NavbarBtn className="navbar-user y
-              ">
+              <NavbarBtn className="navbar-user y">
                 <Link href={"/auth"} passHref>
                   <a>
                     <Image src={User} alt="admin-user" />
@@ -180,10 +160,10 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
               {t("common:menu")}
               <MenuIcon />
             </NavbarBtn>
-            {/* <div onClick={() => logOut()}> logOut</div> */}
           </NavbarRight>
         </NavbarRow>
       </GWrapper>
+      
       <NavbarModal isModal={navbarModal} />
     </Wrapper>
   );

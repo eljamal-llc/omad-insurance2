@@ -1,4 +1,4 @@
-import { FC, useContext, useState, forwardRef } from "react";
+import { FC, useContext, useState, forwardRef, useEffect } from "react";
 
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -13,7 +13,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
-
+import { useTranslation } from "next-i18next";
 import { AuthPageProps } from "./auth-page.t";
 import {
   AuthBlock,
@@ -25,6 +25,7 @@ import {
 import { FormElements } from "../..";
 
 import Checkbox from "@mui/material/Checkbox";
+import i18next from "i18next";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -37,15 +38,11 @@ function TabPanel(props: TabPanelProps) {
 
   return (
     <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
+      role="tabpanel" hidden={value !== index} id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`} {...other} >
       {value === index && (
         <Box className="panel">
-          <Typography>{children}</Typography>
+          <Typography>{children} </Typography>
         </Box>
       )}
     </div>
@@ -58,12 +55,12 @@ function a11yProps(index: number) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
-
 const Schema = Yup.object().shape({
-  email: Yup.string().required("This field is required"),
-  password: Yup.string().required("This field is required"),
-  name: Yup.string().required("This field is required"),
-  lastName: Yup.string().required("This field is required"),
+  
+  email: Yup.string().required(`${('common:this_field_is_required')}`),
+  password: Yup.string().required(`${('common:this_field_is_required')}`),
+  name: Yup.string().required(`${('common:this_field_is_required')}`),
+  lastName: Yup.string().required(`${('common:this_field_is_required')}`),
   confirmPassword: Yup.string().when("password", {
     is: (val: any) => (val && val.length > 0 ? true : false),
     then: Yup.string().oneOf(
@@ -73,8 +70,8 @@ const Schema = Yup.object().shape({
   }),
 });
 const SchemaLogIn = Yup.object().shape({
-  email: Yup.string().required("This field is required"),
-  password: Yup.string().required("This field is required"),
+  email: Yup.string().required(`${('common:this_field_is_required')}`),
+  password: Yup.string().required(`${('common:this_field_is_required')}`),
 });
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
@@ -119,9 +116,7 @@ const AuthPage: FC<AuthPageProps> = () => {
   return (
     <Wrapper>
       <Stack spacing={2} sx={{ width: "100%" }}>
-        {/* <Button variant="outlined" onClick={handleClick}>
-          Open success snackbar
-        </Button> */}
+  
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
