@@ -14,6 +14,9 @@ export const AuthBlock = styled.div`
   width: 100%;
   margin: 0 auto;
   background-color: #fff;
+  @media(max-width:500px){
+    margin: 69px auto;
+  }
   .tabs {
     .MuiTabs-indicator {
       display: none;
