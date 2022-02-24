@@ -84,7 +84,7 @@ const YurFacePage: FC<NextPage> = () => {
   return (
     <>
     {!loading ? (
-      <Layout title={'Cтахование'}>
+      <Layout footer={footer} title={'Cтахование'}>
       <Navbar />
       
   
