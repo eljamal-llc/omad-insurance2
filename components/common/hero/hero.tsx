@@ -126,9 +126,9 @@ const Hero: FC<HeroProps> = ({ data }) => {
             {data?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <div className="slider-description-item">
-                  <NextLink href={item?.url ? item?.url :  '/contacts' }>
+                  <NextLink href={item?.url ? item?.url :  '#' }>
                     <a>
-                      <h4 className="slider-description__title">{item.anons } {console.log(item)}</h4>
+                      <h4 className="slider-description__title">{item.anons }</h4> 
                       <p className="slider-description__content">{item.text}</p>
                     </a>
                   </NextLink>

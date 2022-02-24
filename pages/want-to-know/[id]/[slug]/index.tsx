@@ -41,7 +41,6 @@ const Mission: FC<NextPage> = () => {
   const [want  , setWant] = useState<any>()
   const [links , setLinks] = useState<any>()
   useEffect(() => {
-    // setLoading(true);
     api.get("slider-categories").then(async (response) => {
       await setSliders(response.data.data);
     });
@@ -58,11 +57,9 @@ const Mission: FC<NextPage> = () => {
         console.log(err);
       });
     api.get("about").then((res) => {
-      // console.log(res.data);
       setAbout(res.data);
     });
     api.get("footer").then((res) => {
-      // console.log("--", res);
       setFooter(res.data);
     });
     api.get('want-to-know' ,{ params: { id: router.query.id }})
@@ -79,21 +76,18 @@ const Mission: FC<NextPage> = () => {
         setPage(res.data.data);
       })
       .catch((err) => {});
-  }, []);
+  }, [router.query.id]);
   const { t } = useTranslation();
 
   return (
-    <Layout title={want?.content[0]?.title}>
+    <Layout title={want?.content[0]?.title} footer={footer}>
       <Navbar />
       {!!page && (
-      <BreadcrumbsBlock
-            breadcrumb={want?.breadcrumb }
-          />
+      <BreadcrumbsBlock breadcrumb={want?.breadcrumb } />
       )}
         <WnatKnowS links={links} data={want?.content[0]}/>
 
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };
