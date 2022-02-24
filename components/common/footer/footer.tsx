@@ -17,7 +17,7 @@ import Instagram from "../../../assets/images/footer/instagram.png";
 import Facebook from "../../../assets/images/footer/facebook.png";
 import Mail from "../../../assets/images/footer/gmail.png";
 import { useTranslation } from "next-i18next";
-
+import slugify from "slugify"
 const Footer: FC<FooterProps> = ({ data }) => {
   const { t } = useTranslation();
   return (
@@ -26,22 +26,47 @@ const Footer: FC<FooterProps> = ({ data }) => {
         <GWrapper>
           <div className="footer-container">
             {/* @ts-ignore */}
-            {data.categories.map((item, idx) => (
-              <FooterColumn className="c-column" key={idx}>
-                <ColumnHeader>{item.title}</ColumnHeader>
+
+            <FooterColumn className="c-column" >
+                <ColumnHeader>{data.categories[0].title}</ColumnHeader>
                 <FooterUL>
                   {/* @ts-ignore */}
-                  {item.fields.map((link, linkId) => (
+                  {data.categories[0].fields.map((link, linkId) => (
                     <li key={linkId}>
-                      <Link href={`/${link.slug}?id=${link.id}`} passHref>
+                      <Link href={`/catalog/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
                         <a>{link.title}</a>
                       </Link>
                     </li>
                   ))}
                 </FooterUL>
-               
               </FooterColumn>
-            ))}
+              <FooterColumn className="c-column" >
+                <ColumnHeader>{data.categories[1].title}</ColumnHeader>
+                <FooterUL>
+                  {/* @ts-ignore */}
+                  {data.categories[1].fields.map((link, linkId) => (
+                    <li key={linkId}>
+                      <Link href={`/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
+                        <a>{link.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </FooterUL>
+              </FooterColumn>
+
+              <FooterColumn className="c-column" >
+                <ColumnHeader>{data.categories[2].title}</ColumnHeader>
+                <FooterUL>
+                  {/* @ts-ignore */}
+                  {data.categories[2].fields.map((link, linkId) => (
+                    <li key={linkId}>
+                      <Link href={`/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
+                        <a>{link.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </FooterUL>
+              </FooterColumn>
 
             <FooterColumn>
             <ColumnHeader>{t('common:about_company')}</ColumnHeader>
