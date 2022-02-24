@@ -43,7 +43,7 @@ const Politics: FC<NextPage> = () => {
   }, []);
   const {t} = useTranslation()
   return (
-    <Layout title={t('common:privacy_policy')}>
+    <Layout title={t('common:privacy_policy')} footer={footer}>
       <Navbar />
       <Hero data={sliders}/>
       <PoliticsBody />

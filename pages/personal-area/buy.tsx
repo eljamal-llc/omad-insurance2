@@ -22,7 +22,7 @@ export interface PartnerProps {}
 
 const Buy: FC<NextPage> = () => {
   return (
-    <Layout title="Купить полис онлайн">
+    <Layout title="Купить полис онлайн" footer={undefined}>
       <Navbar />
       <PersonalAreaNav/>
       <BuyPolis/>

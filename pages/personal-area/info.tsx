@@ -22,7 +22,7 @@ export interface PartnerProps {}
 
 const Info: FC<NextPage> = () => {
   return (
-    <Layout title="Информация">
+    <Layout title="Информация" footer={undefined}>
       <Navbar />
       <PersonalAreaNav/>
       <PersonalAreaInfo/>
