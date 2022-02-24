@@ -73,7 +73,6 @@ const NewsPage: FC<NextPage> = () => {
         />
         <NewsBody news={news} />
 
-        <Footer data={footer} />
 
       </Wrapper>
     </Layout>

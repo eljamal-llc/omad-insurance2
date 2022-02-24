@@ -106,7 +106,6 @@ const YurFacePage: FC<NextPage> = () => {
         </Stack> */}
 
       <YurFaceCardOf />
-      <Footer data={footer} />
     </Layout>
     ):(<LoadingScreen/>)}
     </>

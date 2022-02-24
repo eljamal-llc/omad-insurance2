@@ -86,7 +86,6 @@ const Banks: FC<NextPage> = () => {
       )}
 
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };

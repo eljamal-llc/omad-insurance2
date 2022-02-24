@@ -87,7 +87,7 @@ const InsuranceCase: FC<NextPage> = () => {
   };
 
   return (
-    <Layout title={t("common:polit_market")}>
+    <Layout footer={footer} title={t("common:polit_market")}>
       <Wrapper>
         <Navbar onClass="bg-blue" />
         <HeroCase idx="shop" />

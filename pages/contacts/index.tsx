@@ -50,7 +50,7 @@ const Contacts: FC<NextPage> = () => {
     
   }, []);
   return (
-    <Layout title="КОНТАКТЫ">
+    <Layout footer={footer} title="КОНТАКТЫ">
       <Navbar />
       {contact && (
         <>
@@ -66,7 +66,6 @@ const Contacts: FC<NextPage> = () => {
       )}
 
       {/* <News data={news} /> */}
-      <Footer data={footer} />
     </Layout>
   );
 };

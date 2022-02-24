@@ -48,7 +48,6 @@ const Politics: FC<NextPage> = () => {
       <Hero data={sliders}/>
       <PoliticsBody />
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };

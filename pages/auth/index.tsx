@@ -17,7 +17,7 @@ export interface AuthProps {}
 const Auth: FC<NextPage> = () => {
   const {t} = useTranslation();
   return (
-    <Layout title={t('common:auth')} >
+    <Layout footer={null} title={t('common:auth')} >
       <Wrapper>
         <Navbar onClass="bg-blue" />
         <AuthPage />
