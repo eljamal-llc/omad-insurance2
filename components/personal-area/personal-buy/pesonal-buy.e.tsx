@@ -101,7 +101,7 @@ export const UserEmail = styled(TextField)`
     color: #000000;
     @media(max-width:425px){
         width:285px;  
-        margin-left: 0px;
+        margin-left: 0px !important;
 
     }
        
