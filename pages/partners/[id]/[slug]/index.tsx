@@ -69,7 +69,7 @@ const Banks: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("common:Банкам")}>
+    <Layout title={t("common:Банкам")} footer={footer}>
       <Navbar />
       <BreadcrumbsBlock
         url2={`/page-person?id=3`}
@@ -89,7 +89,6 @@ const Banks: FC<NextPage> = () => {
       )}
 
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };

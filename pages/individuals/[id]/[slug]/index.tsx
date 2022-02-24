@@ -84,7 +84,7 @@ const YurFacePage: FC<NextPage> = () => {
   return (
     <>
     {!loading ? (
-      <Layout title={'Cтахование'}>
+      <Layout title={'Cтахование'} footer={footer}>
       <Navbar />
       
   
@@ -106,7 +106,7 @@ const YurFacePage: FC<NextPage> = () => {
       )}
 
       <YurFaceCard data={insurances} />
-      <Footer data={footer} />
+
     </Layout>
     ):(<LoadingScreen/>)}
     </>

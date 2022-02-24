@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useState } from "react";
-import type { NextPage } from "next";
+import type { GetStaticPaths, NextPage } from "next";
 import { useRouter } from "next/router";
 import {
   Layout,
@@ -97,7 +97,7 @@ const Partner: FC<NextPage> = () => {
   return (
     <>
       {!loading ? (
-        <Layout title={t("common:Property_insurance")}>
+        <Layout title={t("common:Property_insurance")} footer={footer}>
           <Navbar />
           <BreadcrumbsBlock
             // @ts-ignore
@@ -124,7 +124,6 @@ const Partner: FC<NextPage> = () => {
           {/* @ts-ignore */}
           <SpecialOffers data={pageData.promotions} />
           <News data={news} />
-          <Footer data={footer} />
         </Layout>
       ) : (
         <LoadingScreen />
