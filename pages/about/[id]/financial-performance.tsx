@@ -13,23 +13,10 @@ import {
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-<<<<<<< HEAD:pages/about/[id]/financial-performance.tsx
-import { INewsData } from "../../../components/common/news/news.t";
-import { api } from "../../../services/api";
-import BreadcrumbsBlock from "../../../components/common/bread-crumbs/Breadcrumbs";
-export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
-  return {
-      paths: [
-      ], //indicates that no page needs be created at build time
-      fallback: 'blocking' //indicates the type of fallback
-  }
-}
-=======
 import { INewsData } from "../../components/common/news/news.t";
 import { api } from "../../services/api";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
 import About from ".";
->>>>>>> b089f178532a14f4a5e4cdc0bb67c94248984e0c:pages/about/financial-performance.tsx
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
