@@ -56,6 +56,13 @@ export const CardBlock = styled.div`
     margin: 0;
     padding: 0;
     text-align: center;
+    img{
+        width: 100%;
+    @media(max-width:500px){
+        width: 100%;
+    }
+    }
+    
 `
 export const SpecBlock = styled.div`
     background-color: #E5E5E5;

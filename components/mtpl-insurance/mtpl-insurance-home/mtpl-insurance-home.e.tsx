@@ -3,8 +3,7 @@ import styled from 'styled-components'
 export const HomeBg = styled.div`
     background: #0D4656;
     padding-bottom: 47px;
-    @media(max-width:425px){
-        background-image: url(./home-bg-1.png);
+    @media(max-width:525px){
             background-size: cover;
             background-position:center;
     }
@@ -23,7 +22,7 @@ export const HomeBlock = styled.div`
         padding:100px 0 0 0 ;
         flex-direction: column;
     }
-    @media(max-width:425px){
+    @media(max-width:505px){
         flex-direction: column-reverse;
     }
 `
@@ -35,7 +34,7 @@ export const HomeBgItem = styled.div`
     }
     @media(max-width:425px){
         background: #0D4656;
-        margin-top: 250px;
+        margin-top: 0px;
         padding:15px ;
         max-width: 425px;
     }
@@ -64,7 +63,7 @@ export const HomeHeading = styled.h2`
         /* padding:100px 0 0 0 ; */
         font-size: 24px;
         line-height: 28px;
-        width: 100px;
+        width: 300px;
         text-transform: uppercase;
     }
     

@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const ERBg = styled.div`
   background-color: #f1f1f1;
+  @media(max-width:500px){
+    padding: 20px 0;
+  }
 `
 export const MtplAdventagesBlock = styled.div`
   display: flex;
@@ -42,11 +45,12 @@ export const MtplAdventagesHeading = styled.h2`
   margin-bottom:40px ;
   padding-top: 120px;
   @media (max-width: 425px) {
-    font-size: 16px;
+    font-size: 18px;
     text-align: left;
     line-height: 16px;
     padding: 0 39px;
     width: 320px;
+    /* margin: 20px 0;   */
   }
 `;
 export const MtplAdventagesCard = styled.div`
@@ -55,12 +59,12 @@ export const MtplAdventagesCard = styled.div`
   width: 714px;
   margin: 20px 20px;
   /* width: 714px; */
-  @media (max-width: 425px) {
+  @media (max-width: 500px) {
     width: 400px;
     padding: 20px 15px;
-    margin: 2.5px 16px;
+    margin: 10px auto;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 450px) {
     margin: 0 auto;
     width: 300px;
   }
@@ -72,8 +76,8 @@ export const MtplAdventagesCardHeading = styled.h3`
   line-height: 28px;
   color: #ffffff;
   @media (max-width: 425px) {
-    font-size: 14px;
-    width: 340px;
+    font-size: 16px;
+    width: 300px;
   }
 `;
 export const MtplAdventagesCardText = styled.p`
@@ -173,6 +177,9 @@ export const NumberB = styled.div`
   @media (max-width: 768px) {
     margin: 270px auto 0;
   }
+  @media (max-width: 500px) {
+    margin: 15px auto ;
+  }
 `;
 export const ImgBlock = styled.div`
   margin-top: 20px;
@@ -205,6 +212,9 @@ export const Arrow1 = styled.div`
     width: 80px;
     height: 50px;
     margin: 20px;
+    @media(max-width:500px){
+          display: none;
+        }
       & div {
         position: relative;
           top: 20px;
@@ -284,4 +294,5 @@ export const Arrow1 = styled.div`
                 left:0;
             }
         }
+       
 `
