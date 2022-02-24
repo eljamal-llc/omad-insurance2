@@ -79,21 +79,16 @@ const Banks: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout footer={footer} title={t("Агентам и брокерам")}>
+    <Layout title={t("Агентам и брокерам")} footer={footer}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore
         breadcrumb={pageInfo?.data?.breadcrumb}
       />
       {!!pageInfo && !!table ? (
-        <AgentsBrokers
-          title={pageInfo.data.head.title}
-          // description={t(
-          //   "common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. "
-          // )}
+        <AgentsBrokers title={pageInfo.data.head.title}
           data={pageInfo.data}
-          table={table.data}
-        />
+          table={table.data} />
       ) : (
         ""
       )}

@@ -97,7 +97,7 @@ const Partner: FC<NextPage> = () => {
   return (
     <>
       {!loading ? (
-        <Layout footer={footer} title={t("common:Property_insurance")}>
+        <Layout title={t("common:Property_insurance")} footer={footer}>
           <Navbar />
           <BreadcrumbsBlock
             // @ts-ignore

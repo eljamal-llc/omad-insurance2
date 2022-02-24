@@ -78,9 +78,7 @@ const Banks: FC<NextPage> = () => {
       {!!pageInfo && (
         <BanksComp
           title={pageInfo.head.title}
-          // description={t(
-          //   "common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. "
-          // )}
+
           data={pageInfo}
         />
       )}
