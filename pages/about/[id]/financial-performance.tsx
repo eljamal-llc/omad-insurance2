@@ -13,16 +13,22 @@ import {
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { INewsData } from "../../components/common/news/news.t";
-import { api } from "../../services/api";
-import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
-import About from ".";
+import { INewsData } from "../../../components/common/news/news.t";
+import { api } from "../../../services/api";
+import BreadcrumbsBlock from "../../../components/common/bread-crumbs/Breadcrumbs";
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
+}
+export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
+  return {
+      paths: [
+      ], //indicates that no page needs be created at build time
+      fallback: 'blocking' //indicates the type of fallback
+  }
 }
 
 export interface AboutProps {}
@@ -49,7 +55,7 @@ const Values: FC<NextPage> = () => {
       .catch((err) => {});
   }, []);
   return (
-    <Layout title={t("common:Financial_performance")}>
+    <Layout footer={null} title={t("common:Financial_performance")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore
@@ -65,7 +71,6 @@ const Values: FC<NextPage> = () => {
       )}
 
       <News data={news} />
-      <Footer />
     </Layout>
   );
 };

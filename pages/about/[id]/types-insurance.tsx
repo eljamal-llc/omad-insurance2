@@ -40,12 +40,9 @@ const Mission: FC<NextPage> = () => {
   const [footer, setFooter] = useState<any>();
   const [page, setPage] = useState<any>();
   const router = useRouter();
-<<<<<<< HEAD:pages/about/[id]/types-insurance.tsx
-=======
   const { id } = router.query;
   const [insurance, seyInsurance] = useState<any>();
 
->>>>>>> b089f178532a14f4a5e4cdc0bb67c94248984e0c:pages/about/types-insurance.tsx
   useEffect(() => {
     // setLoading(true);
     api.get("slider-categories").then(async (response) => {
@@ -73,7 +70,7 @@ const Mission: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("Виды страхования")}>
+    <Layout footer={footer} title={t("Виды страхования")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore
@@ -87,7 +84,6 @@ const Mission: FC<NextPage> = () => {
         />
       )}
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };

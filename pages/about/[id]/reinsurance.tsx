@@ -70,7 +70,7 @@ const Mission: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("common:Property_insurance")}>
+    <Layout footer={footer} title={t("common:Property_insurance")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore
@@ -84,7 +84,6 @@ const Mission: FC<NextPage> = () => {
         />
       )}
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };

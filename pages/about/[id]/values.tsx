@@ -36,11 +36,16 @@ const Values: FC<NextPage> = () => {
   const { t } = useTranslation();
   const [news, setNews] = useState<INewsData[] | []>([]);
   const [page, setPage] = useState<any>();
+  const [footer , setFooter] = useState<any>()
   const router = useRouter();
   const { id } = router.query;
   useEffect(() => {
     api.get("news").then((res) => {
       setNews(res.data.data);
+    });
+    api.get("footer").then((res) => {
+      // console.log("--", res);
+      setFooter(res.data);
     });
     api
       .get("about/find", { params: { catId: router.query.id } })
@@ -50,7 +55,7 @@ const Values: FC<NextPage> = () => {
       .catch((err) => {});
   }, []);
   return (
-    <Layout title={t("common:Property_insurance")}>
+    <Layout footer={footer} title={t("common:Property_insurance")}>
       <Navbar />
       {!!page && (
         <MissionComp
@@ -60,7 +65,6 @@ const Values: FC<NextPage> = () => {
         />
       )}
       <News data={news} />
-      <Footer />
     </Layout>
   );
 };

@@ -79,7 +79,7 @@ const Mission: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("common:Mission")}>
+    <Layout footer={footer} title={t("common:Mission")}>
       <Navbar />
       {!!page && (
       <BreadcrumbsBlock
@@ -95,7 +95,6 @@ const Mission: FC<NextPage> = () => {
       )}
 
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };

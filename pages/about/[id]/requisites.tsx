@@ -71,7 +71,7 @@ const Mission: FC<NextPage> = () => {
       .catch((err) => {});
   }, []);
   return (
-    <Layout title={t("common:Requisites")}>
+    <Layout footer={footer} title={t("common:Requisites")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore
@@ -86,7 +86,6 @@ const Mission: FC<NextPage> = () => {
       )}
 
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };

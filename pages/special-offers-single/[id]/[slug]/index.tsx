@@ -74,7 +74,6 @@ const Mission: FC<NextPage> = () => {
       
     <SpecialOffersSingle data={offer?.content[0]}/>
       {/* <News data={news} /> */}
-      <Footer data={footer} />
     </Layout>
   );
 };
