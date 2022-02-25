@@ -22,7 +22,7 @@ export interface PartnerProps {}
 
 const buy: FC<NextPage> = () => {
   return (
-    <Layout title=" Мои данные" footer={undefined}>
+    <Layout title=" Мои данные">
       <Navbar />
       <PersonalAreaNav/>
       <UserData/>
