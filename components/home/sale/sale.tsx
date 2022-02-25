@@ -1,22 +1,21 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
-import Image from "next/image";
+
 
 import SwiperCore, {
   Pagination,
   Parallax,
   Navigation,
   EffectFade,
-  Controller,
   Autoplay,
   FreeMode,
   Thumbs,
 } from "swiper";
 
-import { SaleProps } from "./sale.t";
+import { ISaleData, SaleProps } from "./sale.t";
 import { GWrapper } from "../../../styles/global-styles.e";
 import {
   HorizontalSlider,
@@ -33,11 +32,10 @@ import {
   Wrapper,
 } from "./sale.e";
 import slugify from "slugify";
-import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
-import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
-import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
 import { SectionTitle } from "../..";
 import { useTranslation } from "next-i18next";
+import { api } from "../../../services/api";
+import ArrowIcon from "../../svg/ArrowIcon";
 
 SwiperCore.use([
   Pagination,
@@ -49,36 +47,25 @@ SwiperCore.use([
   Thumbs,
 ]);
 
-const Sale: FC<SaleProps> = ({ data }) => {
-  // const [controlledSwiper, setControlledSwiper] = useState(null);
+const Sale: FC<SaleProps> = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const { t } = useTranslation();
-  const ArrowIcon = (props: any) => (
-    <svg
-      width="47"
-      height="16"
-      viewBox="0 0 47 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={props.class}
-    >
-      <path
-        d="M1 7L8.74228e-08 7L-8.74228e-08 9L1 9L1 7ZM46.7071 8.70711C47.0976 8.31659 47.0976 7.68342 46.7071 7.2929L40.3431 0.928936C39.9526 0.538411 39.3195 0.538411 38.9289 0.928936C38.5384 1.31946 38.5384 1.95262 38.9289 2.34315L44.5858 8L38.9289 13.6569C38.5384 14.0474 38.5384 14.6805 38.9289 15.0711C39.3195 15.4616 39.9526 15.4616 40.3431 15.0711L46.7071 8.70711ZM1 9L46 9L46 7L1 7L1 9Z"
-        fill={props.fill}
-      />
-    </svg>
-  );
+
+  const [sale, setSale] = useState<ISaleData[] | []>([]);
+  useEffect(() => {
+    api.get("promotions-offers").then((res) => {
+      setSale(res.data.data);
+    });
+  }, []);
+
   return (
     <Wrapper>
       <GWrapper>
-        <SectionTitle
-          title={t("common:home_Promotions_and_special_offers")}
-          color="black"
-          classN="title"
-        />
-        {/*  */}
+        <SectionTitle title={t("common:home_Promotions_and_special_offers")}
+          color="black" classN="title" />
+ 
         <SaleRow>
-          {data && (
+          {sale && (
             <>
               <VerticalSlider>
                 <Swiper
@@ -129,9 +116,8 @@ const Sale: FC<SaleProps> = ({ data }) => {
                     },
                   }}
                 >
-                  {data.map((item, idx) => (
+                  {sale.map((item, idx) => (
                     <SwiperSlide key={idx}>
-                      {/* <Image src={SliderImg1} alt="test1" /> */}
                       <img src={item.image} alt={item.title} />
                     </SwiperSlide>
                   ))}
@@ -143,9 +129,8 @@ const Sale: FC<SaleProps> = ({ data }) => {
                   loop={true}
                   thumbs={{ swiper: thumbsSwiper }}
                   className="mySwiper2"
-                  speed={1200}
-                >
-                  {data.map((item, idx) => (
+                  speed={1200} >
+                  {sale.map((item, idx) => (
                     <SwiperSlide key={idx}>
                       <HorizontalSliderRow>
                         <HorizontalSliderLeft>
@@ -157,7 +142,7 @@ const Sale: FC<SaleProps> = ({ data }) => {
                           </HorizontalSliderDescription>
 
                           <HorizontalSliderButton>
-                            <NextLink href={`/special-offers-single/${item.id}/${item.title}`} passHref>
+                            <NextLink href={`/special-offers-single/${item.id}/${slugify(item.title)}`} passHref>
                                 <Link>
                                   <span>Узнать подробнее</span>
                                   <ArrowIcon fill="#F0803D" class="arrow-right" />
@@ -167,11 +152,7 @@ const Sale: FC<SaleProps> = ({ data }) => {
                         </HorizontalSliderLeft>
                         <HorizontalSliderRight>
                           <HorizontalSliderImage>
-                            {/* <Image
-                              src={SliderImg1}
-                              alt="test1"
-                              className="img"
-                            /> */}
+                         
                             <img src={item.image} alt={item.title} />
                           </HorizontalSliderImage>
                         </HorizontalSliderRight>

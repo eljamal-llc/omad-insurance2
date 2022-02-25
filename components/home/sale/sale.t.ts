@@ -1,5 +1,4 @@
 export interface SaleProps {
-  data?: ISaleData[] | [];
 }
 
 export interface ISaleData {
