@@ -32,7 +32,7 @@ const News: FC<NewsProps> = () => {
   const [news, setNews] = useState<INewsData[] | []>([]);
 
   useEffect(() => {
-    api.get("news").then((res) => {
+    api.get("v2/news/index").then((res) => {
       setNews(res.data.data);
     });
   }, []);
@@ -63,12 +63,7 @@ const News: FC<NewsProps> = () => {
       </Swiper>
 
       <div className="slider-description">
-        <div className="news-date">
-          <div className="month">
-            <span>25</span>ноября
-          </div>
-          <div className="year">2021</div>
-        </div>
+       
         <div className="slider-description__row">
           <Swiper
             fadeEffect={{ crossFade: true }}
@@ -98,12 +93,19 @@ const News: FC<NewsProps> = () => {
               swiper.navigation.update();
             }}
             onSlideChange={(swiper) => {
-              // console.log("--->>>>", swiper.realIndex);
               setLineProgress(!lineProgress);
             }}
           >
             {news?.map((item, idx) => (
+              
               <SwiperSlide key={idx}>
+                  <div className="news-date">
+                      <div className="month">
+                        <span>{item.created_at.day}</span>{item.created_at.month}
+                      </div>
+                    <div className="year">{item.created_at.year}</div>
+                  </div>
+
                 <div className="slider-description-item">
                   <h4 className="slider-description__title">
                     <Link href={`/news/${item.id}/${slugify(item.title)}`}>
