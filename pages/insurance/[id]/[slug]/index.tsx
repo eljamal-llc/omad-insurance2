@@ -62,7 +62,6 @@ const YurFacePage: FC<NextPage> = () => {
   }, []);
   //@ts-ignore
   // const dataTitle = insurance.main_content.data.title
-  console.log(insurance )
   return (
     //@ts-ignore
 

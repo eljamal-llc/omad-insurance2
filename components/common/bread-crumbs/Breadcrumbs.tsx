@@ -19,9 +19,7 @@ const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({
     //   }
     const router = useRouter()
     const {id }= router.query
-    console.log(router)
 
-    console.log('breeeeddd' +'   ' + id)
     const [pageData, setPageData] = useState([]);
 
     useEffect(() => {

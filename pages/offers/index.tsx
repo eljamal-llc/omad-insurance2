@@ -61,7 +61,6 @@ const YurFacePage: FC<NextPage> = () => {
   }, []);
   const singleId = Object.values(router.query).toString()
   const singleTitle = useMemo(() => {
-  console.log('asfkljsfdjhg rldikhg;lk' + singleId)
     
     switch (singleId) {
       case '7': return 'АВТОСТРАХОВАНИЕ'

@@ -24,7 +24,6 @@ const PersonalArea: FC<NextPage> = () => {
 
   useEffect(() => {
     api.get("user-data").then(async (res) => {
-      console.log("--->>>", res);
     });
   }, []);
   const { t } = useTranslation();

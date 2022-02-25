@@ -191,7 +191,6 @@ const Casco: FC<CascoProps> = ({ title, yurFace }) => {
     setInsuranse("insuranse");
     setStep(2);
     setPropgres("80");
-    console.log();
   };
   const handleChange = (event: any, field: any) => {
     // console.log("==>>", event.target.checked);

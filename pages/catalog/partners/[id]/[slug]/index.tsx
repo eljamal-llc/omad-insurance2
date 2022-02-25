@@ -72,7 +72,6 @@ const Partner: FC<NextPage> = () => {
       setNews(res.data.data);
     });
     api.get("insurance/find", { params: { id: router.query.id } }).then((res) => {
-      console.log(res.data);
       setPageData(res.data);
     });
   }, []);

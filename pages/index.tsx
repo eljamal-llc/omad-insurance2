@@ -33,7 +33,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
 }
 const Home: NextPage = () => {
   const router = useRouter();
-  console.log(router);
   const [sliders, setSliders] = useState<IData[] | []>([]);
   const [wantKnows, setWantKnows] = useState<IDataWantKnow[] | []>([]);
   const [sliderData, setSliderData] = useState<ISliderData[] | []>([]);
@@ -50,7 +49,6 @@ const Home: NextPage = () => {
   let [footers, setfooters] = useState<FooterProps[]>();
   useEffect(() => {
     api.get("footer").then((response) => {
-      console.log("test", response.data);
       if (response.data.success) {
         setfooters(response.data.data);
       }
