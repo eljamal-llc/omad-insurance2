@@ -1,5 +1,5 @@
 export interface HeroProps {
-  data?: IData[] | [];
+
 }
 export interface IData {
   slug: string;

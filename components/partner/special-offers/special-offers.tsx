@@ -13,9 +13,6 @@ import {
 } from "./special-offers.e";
 import { GWrapper } from "../../../styles/global-styles.e";
 import { SectionTitle } from "../..";
-
-import Img from "../../../assets/images/multi-slider/slider-1.jpg";
-
 const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
   const { t } = useTranslation();
   const ArrowIcon = (props: any) => (

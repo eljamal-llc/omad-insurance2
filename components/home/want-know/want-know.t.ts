@@ -1,5 +1,4 @@
 export interface WantKnowProps {
-  data: IDataWantKnow[] | [];
 }
 
 export interface IStyledProps {
