@@ -19,7 +19,7 @@ import SwiperCore, {
 } from "swiper";
 import { SectionTitle } from "..";
 import { api } from "../../../services/api";
-import ArrowIcon from "../../svg/ArrowIcon";
+import ArrowIconNews from "../../svg/ArrowIconNews";
 
 SwiperCore.use([Pagination, Parallax, Navigation, EffectFade, Autoplay]);
 
@@ -128,11 +128,11 @@ const News: FC<NewsProps> = () => {
             </div>
             <div className="slider-description__buttons">
               <SliderDescriptionBtn ref={navigationPrevRef}>
-                <ArrowIcon fill="#F0803D" class="arrow-top" />
+                <ArrowIconNews fill="#F0803D" class="arrow-top" />
               </SliderDescriptionBtn>
 
               <SliderDescriptionBtn ref={navigationNextRef}>
-                <ArrowIcon fill="#F0803D" class="arrow-bottom" />
+                <ArrowIconNews fill="#F0803D" class="arrow-bottom" />
               </SliderDescriptionBtn>
             </div>
           </Swiper>
