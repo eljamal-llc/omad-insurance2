@@ -24,16 +24,8 @@ const ArrowIcon = (props: any) => (
     />
   </svg>
 );
-const FourSlider: FC<FourSliderProps> = () => {
-  const [news, setNews] = useState([]);
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-  useEffect(() => {
-    api.get("news", { params: { id: "part" } }).then((res) => {
-      // console.log(res.data);
-      setNews(res.data);
-    });
-  }, []);
+const FourSlider: FC<FourSliderProps> = ({news}) => {
+
   return (
     <Wrapper>
       <Swiper

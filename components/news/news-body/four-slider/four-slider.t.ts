@@ -1,6 +1,7 @@
 export interface FourSliderProps {}
 export interface FourNews {
   data: any;
+  news:any
 }
 export interface INewsDataArr {
   items: INewsData[] | [];

@@ -3,7 +3,7 @@ export interface NewsProps {
 }
 
 export interface INewsData {
-  id: number;
+  slug: string;
   title: string | any ;
   anons: string;
   text: string;

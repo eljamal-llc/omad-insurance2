@@ -4,19 +4,15 @@ import { useRouter } from "next/router";
 import {
   Layout,
   Navbar,
-  Hero,
-  Footer,
-  PoliticsBody,
   NewsBody,
   HeroBg,
-} from "../../../../components";
+} from "../../components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { Wrapper } from "../../../../styles/global-styles.e";
-import bgImg from "../../../../public/slider1.jpg";
-import BreadcrumbsBlock from "../../../../components/common/bread-crumbs/Breadcrumbs";
-import { api } from "../../../../services/api";
-import { INewsData } from "../../../../components/common/news/news.t";
+import { Wrapper } from "../../styles/global-styles.e";
+import bgImg from "../../public/slider1.jpg";
+import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
+
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   return {
       paths: [
@@ -34,33 +30,17 @@ export async function getStaticProps({ locale }: { locale: string }) {
 export interface NewsPageProps {}
 
 const NewsPage: FC<NextPage> = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const [footer, setFooter] = useState<any>();
 
-
-  const [news, setNews] = useState<INewsData>();
-
-
-  useEffect(() => {
-    api.get("news", { params: { id: router.query.id } }).then(async (response) => {
-      await setNews(response.data.data[0]);
-    });
-    api.get("footer").then((res) => {
-      // console.log("--", res);
-      setFooter(res.data);
-    });
-
-  }, [router.query.id]);
+ 
 
   return (
-    <Layout footer={footer} title="Страхование имущества">
+    <Layout title="Страхование имущества">
       <Wrapper>
         <Navbar />
-        <BreadcrumbsBlock
+        {/* <BreadcrumbsBlock
         // @ts-ignore
             breadcrumb={news?.breadcrumb }
-          />
+          /> */}
         <HeroBg
           // @ts-ignore
           data={[
@@ -71,7 +51,7 @@ const NewsPage: FC<NextPage> = () => {
             },
           ]}
         />
-        <NewsBody news={news} />
+        <NewsBody />
 
 
       </Wrapper>

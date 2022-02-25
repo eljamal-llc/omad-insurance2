@@ -108,7 +108,7 @@ const News: FC<NewsProps> = () => {
 
                 <div className="slider-description-item">
                   <h4 className="slider-description__title">
-                    <Link href={`/news/${item.id}/${slugify(item.title)}`}>
+                    <Link href={`/news/${item.slug}`}>
                       <a>{item.title}</a>
                     </Link>
                   </h4>
@@ -117,15 +117,10 @@ const News: FC<NewsProps> = () => {
               </SwiperSlide>
             ))}
 
-            <div
-              className={
-                lineProgress
-                  ? "slider-description__line active"
-                  : "slider-description__line"
-              }
-            >
+            <div className={ lineProgress ? "slider-description__line active" : "slider-description__line" }>
               <span className="line"></span>
             </div>
+            
             <div className="slider-description__buttons">
               <SliderDescriptionBtn ref={navigationPrevRef}>
                 <ArrowIconNews fill="#F0803D" class="arrow-top" />
