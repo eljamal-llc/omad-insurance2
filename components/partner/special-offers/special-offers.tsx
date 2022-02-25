@@ -55,7 +55,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
                   <p className="offers-title">{data[0].title}</p>
                   <p className="offers-description">{data[0].text}</p>
                   <HorizontalSliderButton className="item-button">
-                    <NextLink href="/promotion" passHref>
+                    <NextLink href={`/special-offers-single/${data[0].id}/${data[0].title}`} passHref>
                       <Link>
                         <span>Узнать подробнее</span>
                         <ArrowIcon fill="#F0803D" class="arrow-right" />
@@ -73,7 +73,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
                   <p className="offers-title">{data[1].title}</p>
                   <p className="offers-description">{data[1].text}</p>
                   <HorizontalSliderButton className="item-button">
-                    <NextLink href="/promotion" passHref>
+                    <NextLink href={`/special-offers-single/${data[1].id}/${data[1].title}`} passHref>
                       <Link>
                         <span>Узнать подробнее</span>
                         <ArrowIcon fill="#F0803D" class="arrow-right" />
@@ -93,7 +93,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
                   <p className="offers-title">{data[2].title}</p>
                   <p className="offers-description">{data[2].text}</p>
                   <HorizontalSliderButton className="item-button">
-                    <NextLink href="/promotion" passHref>
+                    <NextLink href={`/special-offers-single/${data[2].id}/${data[2].title}`} passHref>
                       <Link>
                         <span>Узнать подробнее</span>
                         <ArrowIcon fill="#F0803D" class="arrow-right" />
@@ -111,7 +111,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
                   <p className="offers-title">{data[3].title}</p>
                   <p className="offers-description">{data[3].text}</p>
                   <HorizontalSliderButton className="item-button">
-                    <NextLink href="/promotion" passHref>
+                    <NextLink href={`/special-offers-single/${data[3].id}/${data[3].title}`} passHref>
                       <Link>
                         <span>Узнать подробнее</span>
                         <ArrowIcon fill="#F0803D" class="arrow-right" />
@@ -132,7 +132,7 @@ const SpecialOffers: FC<SpecialOffersProps> = ({ data }) => {
                 <p className="offers-title">{data[3].title}</p>
                 <p className="offers-description">{data[3].text}</p>
                 <HorizontalSliderButton className="item-button">
-                  <NextLink href="/promotion" passHref>
+                  <NextLink href={`/special-offers-single/${data[4].id}/${data[4].title}`} passHref>
                     <Link>
                       <span>Узнать подробнее</span>
                       <ArrowIcon fill="#F0803D" class="arrow-right" />

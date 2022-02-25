@@ -36,7 +36,7 @@ const SliderCard: FC<SliderCardProps> = ({ item, link }) => {
                   {/* <Image src={Slider1} alt="slider-image" />
                   */}
                   <img src={image} alt={name} />
-                  <SliderLink>Купить онлайн</SliderLink>
+                  <SliderLink>Подробнее </SliderLink>
                 </SliderImg>
               </div>
           </Link>

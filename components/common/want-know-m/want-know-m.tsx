@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
-
+import slugify from "slugify";
 import SectionTitle from "../section-title/section-title";
 import { WantKnowMProps } from "./want-know-m.t";
 import {
@@ -111,7 +111,7 @@ const WantKnowM: FC<WantKnowMProps> = ({ data }) => {
                       <SliderTitle>{item.title}</SliderTitle>
                       <SliderDescription>{item.text}</SliderDescription>
                       <SliderButton>
-                        <NextLink href="/" passHref>
+                        <NextLink href={`/want-to-know/${item.id}/${slugify(item.title)}`}passHref>
                           <Link>
                             <span>Узнать подробнее</span>
                             <ArrowIcon fill="#F0803D" class="arrow-right" />
