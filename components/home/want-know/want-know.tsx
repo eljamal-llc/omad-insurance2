@@ -134,10 +134,12 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
                   className={activIdx == idx  ? "list-active" : ""}
                 >
                   <NextLink href={`/want-to-know/${item.id}/${slugify(item.title)}`} passHref>
+                    <a>
                     <Link>
                       <span className="box"></span>
                       {item.title}
                     </Link>
+                    </a>  
                   </NextLink>
                 </KnowListItem>
               ))}

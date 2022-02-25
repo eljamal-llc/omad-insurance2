@@ -39,6 +39,8 @@ const Mission: FC<NextPage> = () => {
   const [offer , setOffer] = useState<any>()
   useEffect(() => {
     // setLoading(true);
+    const  slug  = Object.values(router.query).toString();
+
     api.get("slider-categories").then(async (response) => {
       await setSliders(response.data.data);
     });
@@ -58,7 +60,7 @@ const Mission: FC<NextPage> = () => {
       setOffer(response.data)
     })
     
-  }, []);
+  }, [router.query.offer]);
   const { t } = useTranslation();
 
   return (

@@ -158,10 +158,10 @@ const Sale: FC<SaleProps> = ({ data }) => {
 
                           <HorizontalSliderButton>
                             <NextLink href={`/special-offers-single/${item.id}/${item.title}`} passHref>
-                              <Link>
-                                <span>Узнать подробнее</span>
-                                <ArrowIcon fill="#F0803D" class="arrow-right" />
-                              </Link>
+                                <Link>
+                                  <span>Узнать подробнее</span>
+                                  <ArrowIcon fill="#F0803D" class="arrow-right" />
+                                </Link>
                             </NextLink>
                           </HorizontalSliderButton>
                         </HorizontalSliderLeft>

@@ -24,22 +24,22 @@ const SliderCard: FC<SliderCardProps> = ({ item, link }) => {
   return (
     <Wrapper>
       <NextLink href={`/individuals/${id}/${slugify(name)}`} passHref>
-        <Link>
-            <div>
-              <SliderTitle>{name}</SliderTitle>
-              <SliderList>
-                <CardContent>{parse(info)}</CardContent>
-              </SliderList>
-            </div>
-            <div>
-              <SliderImg>
-                {/* <Image src={Slider1} alt="slider-image" />
-                 */}
-                <img src={image} alt={name} />
-                <SliderLink>Купить онлайн</SliderLink>
-              </SliderImg>
-            </div>
-        </Link>
+          <Link>
+              <div>
+                <SliderTitle>{name}</SliderTitle>
+                <SliderList>
+                  <CardContent>{parse(info)}</CardContent>
+                </SliderList>
+              </div>
+              <div>
+                <SliderImg>
+                  {/* <Image src={Slider1} alt="slider-image" />
+                  */}
+                  <img src={image} alt={name} />
+                  <SliderLink>Купить онлайн</SliderLink>
+                </SliderImg>
+              </div>
+          </Link>
       </NextLink>
     </Wrapper>
   );

@@ -15,20 +15,21 @@ import {
   Wrapper,
 } from "./navbar-modal.e";
 import { GWrapper } from "../../../../styles/global-styles.e";
-
+import { useRouter } from "next/router";
 import ArrowDropDownSharpIcon from "@mui/icons-material/ArrowDropDownSharp";
 import ArrowDropUpSharpIcon from "@mui/icons-material/ArrowDropUpSharp";
 
 const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
   let [menuHover, setMenuHover] = useState(false);
   let [menus, setMenus] = useState<IMenus[]>();
+  const router = useRouter()
   useEffect(() => {
     api.get("categories").then((response) => {
       if (response.data.success) {
         setMenus(response.data.data);
       }
     });
-  }, []);
+  }, [router.query.menu]);
 
   return (
     <Wrapper className={isModal ? "active" : ""}>
@@ -42,7 +43,8 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                 onMouseMove={() => setMenuHover(true)}
                 onMouseLeave={() => setMenuHover(false)}
               >
-                <a href={`/catalog/${item.link}/${item.id}/${slugify(item.name)}`} >
+                <NextLink href={`/catalog/${item.link}/${item.id}/${slugify(item.name)}`} >
+                  <a>
                   <Link >
                     {item.name}
                     {item.isSubMenu && (
@@ -53,7 +55,9 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                       </>
                     )}
                   </Link>
-                </a>
+                  </a>
+                
+                </NextLink>
                 {item.isSubMenu && (
                   <ModalSubInnerMenu className="inner-menu">
                     {item.sub?.map((itemChild, idx) => (

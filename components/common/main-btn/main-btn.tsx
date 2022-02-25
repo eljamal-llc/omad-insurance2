@@ -41,10 +41,12 @@ const MainBtn: FC<MainBtnProps> = ({ onClass, text, url }) => {
   return url !== null ? (
     <Wrapper className={onClass}>
       <NextLink href={url} passHref>
+        <a>
         <Link>
           <span>{text}</span>
           <ArrowIconRight fill="#F0803D" class="arrow-right" />
         </Link>
+        </a>
       </NextLink>
     </Wrapper>
   ) : (
