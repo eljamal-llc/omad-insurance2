@@ -87,7 +87,6 @@ const YurFacePage: FC<NextPage> = () => {
         />
       )}
 
-      <Footer data={footer} />
     </Layout>
   );
 };
