@@ -22,7 +22,7 @@ import BreadcrumbsBlock from "../../../../../components/common/bread-crumbs/Brea
 
 
 
-export const getStaticPaths: GetStaticPaths<{}> = async () => {
+export const getStaticPaths: GetStaticPaths<{ }> = async () => {
   return {
       paths: [
       ], //indicates that no page needs be created at build time
