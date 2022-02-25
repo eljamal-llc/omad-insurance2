@@ -17,6 +17,7 @@ import { MtplInsuranceHomeProps } from "../../../../components/mtpl-insurance/mt
 import BreadcrumbsBlock from "../../../../components/common/bread-crumbs/Breadcrumbs";
 import { INewsData } from "../../../../components/common/news/news.t";
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
+  
   return {
       paths: [
       ], //indicates that no page needs be created at build time
@@ -36,7 +37,6 @@ const YurFacePage: FC<NextPage> = () => {
   const router = useRouter();
   const { id } = router.query;
   const [insurance, seyInsurance] = useState<any>();
-  const singleId = Object.values(router.query).toString();
   const [footer, setFooter] = useState<any>();
 
   const [news, setNews] = useState<INewsData>();

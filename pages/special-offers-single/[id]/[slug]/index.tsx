@@ -64,7 +64,7 @@ const Mission: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout footer={footer} title={offer?.content[0]?.title}>
+    <Layout title={offer?.content[0]?.title}>
       <Navbar onClass="active" />
       {/* <BreadcrumbsBlock
         url2={`/about`}

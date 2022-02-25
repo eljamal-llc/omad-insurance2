@@ -123,7 +123,7 @@ const PersonalUdates: FC<PersonalUdatesProps> = () => {
               id="insurance_id"
               value={polis.insurance_id}
             >
-              <option selected>choos</option>
+              <option selected>Страховой продукт</option>
               {insurance.map((item: any, idx: any) => (
                 <option value={item.id} key={idx}>
                   {item.title}
