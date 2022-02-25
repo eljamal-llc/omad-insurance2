@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useTranslation } from "react-i18next";
 import { Footer } from "..";
 
-const Layout: FC<LayoutProps> = ({ children, title, footer = null }) => {
+const Layout: FC<LayoutProps> = ({ children, title }) => {
   const {t} = useTranslation();
   return (
     <>
@@ -18,7 +18,7 @@ const Layout: FC<LayoutProps> = ({ children, title, footer = null }) => {
 
       <main>{children}</main>
 
-      <Footer data={footer} />
+      <Footer/>
     </>
   );
 };

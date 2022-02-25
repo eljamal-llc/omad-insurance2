@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Wrapper,
@@ -18,20 +18,30 @@ import Facebook from "../../../assets/images/footer/facebook.png";
 import Mail from "../../../assets/images/footer/gmail.png";
 import { useTranslation } from "next-i18next";
 import slugify from "slugify"
-const Footer: FC<FooterProps> = ({ data }) => {
+import { api } from "../../../services/api";
+
+
+const Footer: FC<FooterProps> = () => {
   const { t } = useTranslation();
+  const [footer, setFooter] = useState<any>();
+  useEffect(() => {
+  api.get("footer").then((res) => {
+    setFooter(res.data);
+  });
+}, []);
+
   return (
     <Wrapper>
-      {data && (
+      {footer && (
         <GWrapper>
           <div className="footer-container">
             {/* @ts-ignore */}
 
             <FooterColumn className="c-column" >
-                <ColumnHeader>{data.categories[0].title}</ColumnHeader>
+                <ColumnHeader>{footer.categories[0].title}</ColumnHeader>
                 <FooterUL>
                   {/* @ts-ignore */}
-                  {data.categories[0].fields.map((link, linkId) => (
+                  {footer.categories[0].fields.map((link, linkId) => (
                     <li key={linkId}>
                       <Link href={`/catalog/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
                         <a>{link.title}</a>
@@ -41,10 +51,10 @@ const Footer: FC<FooterProps> = ({ data }) => {
                 </FooterUL>
               </FooterColumn>
               <FooterColumn className="c-column" >
-                <ColumnHeader>{data.categories[1].title}</ColumnHeader>
+                <ColumnHeader>{footer.categories[1].title}</ColumnHeader>
                 <FooterUL>
                   {/* @ts-ignore */}
-                  {data.categories[1].fields.map((link, linkId) => (
+                  {footer.categories[1].fields.map((link, linkId) => (
                     <li key={linkId}>
                       <Link href={`/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
                         <a>{link.title}</a>
@@ -55,10 +65,10 @@ const Footer: FC<FooterProps> = ({ data }) => {
               </FooterColumn>
 
               <FooterColumn className="c-column" >
-                <ColumnHeader>{data.categories[2].title}</ColumnHeader>
+                <ColumnHeader>{footer.categories[2].title}</ColumnHeader>
                 <FooterUL>
                   {/* @ts-ignore */}
-                  {data.categories[2].fields.map((link, linkId) => (
+                  {footer.categories[2].fields.map((link, linkId) => (
                     <li key={linkId}>
                       <Link href={`/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
                         <a>{link.title}</a>
@@ -87,10 +97,10 @@ const Footer: FC<FooterProps> = ({ data }) => {
 
             <FooterColumn className="last-column">
               <ul className="social-net">
-                {Object.keys(data.social_networks).map(function (key) {
+                {Object.keys(footer.social_networks).map(function (key) {
                   return (
                     <li key={key}>
-                      <Link href={data.social_networks[key].url}>
+                      <Link href={footer.social_networks[key].url}>
                         <a>
                           {key == "telegram" && (
                             <Image src={Instagram} alt="instagram" />
@@ -111,7 +121,7 @@ const Footer: FC<FooterProps> = ({ data }) => {
                 @Info.totembo.com
               </a>
               {/* @ts-ignore */}
-              {data.phone_numbers.map((item, idx) => (
+              {footer.phone_numbers.map((item, idx) => (
                 <NumAndAddress key={idx}>
                   <span>{item.number}</span>
                   <span>{item.address}</span>

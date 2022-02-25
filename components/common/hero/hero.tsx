@@ -1,9 +1,8 @@
-import { FC, useRef, useState } from "react";
-import Image from "next/image";
+import { FC, useEffect, useRef, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { HeroProps } from "./hero.t";
+import { HeroProps, IData } from "./hero.t";
 import NextLink from 'next/link'
 import { GWrapper } from "../../../styles/global-styles.e";
 import { Wrapper, SliderImg, SliderDescriptionBtn, HeroTitle } from "./hero.e";
@@ -16,14 +15,19 @@ import SwiperCore, {
   Controller,
   Autoplay,
 } from "swiper";
+import { api } from "../../../services/api";
 
-import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
-import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
-import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
 
 SwiperCore.use([Pagination, Parallax, Navigation, EffectFade, Autoplay]);
 
-const Hero: FC<HeroProps> = ({ data }) => {
+const Hero: FC<HeroProps> = () => {
+  const [sliders, setSliders] = useState<IData[] | []>([]);
+  useEffect(() => {
+    api.get("slider-categories").then(async (response) => {
+      await setSliders(response.data.data);
+    });
+    }, []);
+
   const ArrowIcon = (props: any) => (
     <svg
       width="16"
@@ -61,7 +65,7 @@ const Hero: FC<HeroProps> = ({ data }) => {
         onSwiper={setControlledSwiper}
         allowTouchMove={false}
       >
-        {data?.map((item, idx) => (
+        {sliders?.map((item, idx) => (
           <SwiperSlide  key={idx}>
             <HeroTitle>{item.title}</HeroTitle>
             <SliderImg
@@ -113,17 +117,8 @@ const Hero: FC<HeroProps> = ({ data }) => {
               // console.log("--->>>>", swiper.realIndex);
               setLineProgress(!lineProgress);
             }}
-
-            // onSlideChangeTransitionStart={() => {
-            //   console.log("last----");
-            //   setLineProgress(true);
-            // }}
-            // onSlideChangeTransitionEnd={() => {
-            //   console.log("last++++");
-            //   setLineProgress(false);
-            // }}
           >
-            {data?.map((item, idx) => (
+            {sliders?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <div className="slider-description-item">
                   <NextLink href={item?.url ? item?.url :  '#' }>
