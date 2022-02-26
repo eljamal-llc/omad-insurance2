@@ -14,8 +14,9 @@ import {
   ButtonAdd,
   FormMessage,
   ButtonBlock,
+  Seriya
 } from "../personal-buy/pesonal-buy.e";
-import { SNumber, UserHome, UserApartment } from "./user-data.e";
+import { SNumber, UserHome, UserApartment ,} from "./user-data.e";
 import {
   UptadeSelect,
   UptadeSelectRayon,
@@ -94,6 +95,7 @@ const UserData: FC<UserDataProps> = () => {
         setDistricts(res.data.data);
       });
   };
+
   return (
     <>
       <BodyForm>
@@ -134,9 +136,6 @@ const UserData: FC<UserDataProps> = () => {
             </p>
             <FormHeading>{t("common:Personal_ata")}</FormHeading>
             <UptadeSelect
-              // onChange={(e) => {
-              //   setValue(e.target.value);
-              // }}
               name="documentTypeId"
               required
               id="documentTypeId"
@@ -146,15 +145,15 @@ const UserData: FC<UserDataProps> = () => {
               <option selected>{t("common:Citizens_passport")}</option>
               <option value={1}>Паспорт</option>
               <option value={2}>ID карта</option>
-              {/* <option value="США">США</option> */}
             </UptadeSelect>
 
-            <UserInfoInput
+            <Seriya
               placeholder=" Например: 470347034703477"
-              label={t("common:Series_number_pas")}
+              // label={t("common:Series_number_pas")}
               onChange={(e) => handleChange(e, "documentSerieAndNumber")}
               name="documentSerieAndNumber"
               required
+              type={'text'}
               id="documentSerieAndNumber"
               value={userInfo.documentSerieAndNumber}
               // InputLabelProps={{
@@ -210,11 +209,11 @@ const UserData: FC<UserDataProps> = () => {
                 className="myInput"
                 placeholder="998 90 989-89-89"
                 label={t("common:Phone_number")}
-                onChange={(e) => handleChange(e, "tel1")}
-                name="tel1"
+                onChange={(e) => handleChange(e, "phonenumber1")}
+                name="phonenumber1"
                 required
-                id="tel1"
-                value={userInfo.tel1}
+                value={userInfo.contacts?.phonenumber1}
+                id="phonenumber1"
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -226,7 +225,7 @@ const UserData: FC<UserDataProps> = () => {
                 name="email1"
                 required
                 id="email1"
-                value={userInfo.email1}
+                value={userInfo.contacts?.email1}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -237,10 +236,10 @@ const UserData: FC<UserDataProps> = () => {
                     className="myInput"
                     // id="demo-helper-text-misaligned"
                     label={t("common:Phone_number")}
-                    onChange={(e) => handleChange(e, "tel2")}
-                    name="tel2"
-                    id="tel2"
-                    value={userInfo.tel2}
+                    onChange={(e) => handleChange(e, "phonenumber1")}
+                    name="phonenumber1"
+                    id="phonenumber1"
+                    value={userInfo.contacts?.phonenumber1}
                     InputLabelProps={{
                       shrink: true,
                     }}
@@ -253,7 +252,7 @@ const UserData: FC<UserDataProps> = () => {
                     onChange={(e) => handleChange(e, "email2")}
                     name="email2"
                     id="email2"
-                    value={userInfo.email2}
+                    value={userInfo.contacts?.email2}
                     InputLabelProps={{
                       shrink: true,
                     }}
