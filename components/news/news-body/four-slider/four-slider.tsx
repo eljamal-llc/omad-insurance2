@@ -25,7 +25,9 @@ const ArrowIcon = (props: any) => (
   </svg>
 );
 const FourSlider: FC<FourSliderProps> = ({news}) => {
-
+  console.log(news+'ffs')
+  const navigationPrevRef = useRef();
+  const navigationNextRef = useRef();
   return (
     <Wrapper>
       <Swiper
@@ -66,7 +68,7 @@ const FourSlider: FC<FourSliderProps> = ({news}) => {
                   </div>
                   <div className="slider-content">
                     <h6 className="slider-content__name">
-                      <Link href={`/news/${item.id}/${slugify(item.title)}`}>
+                      <Link href={`/news/${slugify(item.slug)}`} shallow={}>
                         <a>{item.title}</a>
                       </Link>
                     </h6>
