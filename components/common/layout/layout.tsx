@@ -3,6 +3,7 @@ import { LayoutProps } from "./layout.t";
 import Head from "next/head";
 import { useTranslation } from "react-i18next";
 import { Footer } from "..";
+import useRouterScroll from "../../helper/useScroll";
 
 const Layout: FC<LayoutProps> = ({ 
   children, 
@@ -13,6 +14,7 @@ const Layout: FC<LayoutProps> = ({
   meta_image
   }) => {
   const {t} = useTranslation();
+
   return (
     <>
       <Head>

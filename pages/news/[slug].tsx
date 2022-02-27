@@ -1,6 +1,6 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import {
   Layout,
   Navbar,
@@ -22,7 +22,11 @@ import FourSlider from "../../components/news/news-body/four-slider/four-slider"
 export interface NewsPageProps {}
 
 const NewsPage: FC<NextPage> = (props) => {
+
+  const router  = useRouter();
+
   return (
+    
     <Layout title={props.post?.title}>
       <Wrapper>
         <Navbar />
@@ -69,10 +73,10 @@ const NewsPage: FC<NextPage> = (props) => {
 
 
 export async function getServerSideProps(context) {
-
   try{
     const { data } = await api.get(`v2/news/show/${context.params.slug}`);
     const post = data;
+    
     return { props: { 
       'post':post.data.data,
       'newsList':post.data.part,
