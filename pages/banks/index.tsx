@@ -64,7 +64,7 @@ const Banks: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout footer={footer} title={t('common:Банкам')}>
+    <Layout title={t('common:Банкам')}>
       <Navbar  />
       <BreadcrumbsBlock
           breadcrumb={pageInfo?.breadcrumb }

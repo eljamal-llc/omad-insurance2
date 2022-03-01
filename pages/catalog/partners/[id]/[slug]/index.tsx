@@ -96,14 +96,14 @@ const Partner: FC<NextPage> = () => {
   return (
     <>
       {!loading ? (
-        <Layout title={t("common:Property_insurance")} footer={footer}>
+        <Layout title={t("common:Property_insurance")} >
           <Navbar />
           <BreadcrumbsBlock
             // @ts-ignore
             breadcrumb={pageData?.breadcrumb}
           />
 
-          <Hero data={sliders} />
+          <Hero />
           <WrapperTitle
             title={t("common:Services")}
             onClass="view-three"

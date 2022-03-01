@@ -56,7 +56,7 @@ const Values: FC<NextPage> = () => {
       .catch((err) => {});
   }, []);
   return (
-    <Layout footer={null} title={t("common:Social_responsibility")}>
+    <Layout title={t("common:Social_responsibility")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore

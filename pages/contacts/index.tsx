@@ -9,7 +9,6 @@ import {
   ContactsCards,
 } from "../../components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import { api } from "../../services/api";
 import { INewsData } from "../../components/common/news/news.t";
 import BreadcrumbsBlock from "../../components/common/bread-crumbs/Breadcrumbs";
@@ -50,7 +49,7 @@ const Contacts: FC<NextPage> = () => {
     
   }, []);
   return (
-    <Layout footer={footer} title="КОНТАКТЫ">
+    <Layout  title="КОНТАКТЫ">
       <Navbar />
       {contact && (
         <>

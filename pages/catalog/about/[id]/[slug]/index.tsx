@@ -69,14 +69,14 @@ const About: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("common:Property_insurance")} footer={footer}>
+    <Layout title={t("common:Property_insurance")} >
       <Navbar />
         <BreadcrumbsBlock
         // @ts-ignore
         breadcrumb={about?.breadcrumb  }
         />
 
-      <Hero data={Absliders} />
+      <Hero />
       <WrapperTitle title={t("common:All_about_the_company")} />
       <Cards data={about.categories} />
       <AboutInfo dataLeft={about.content} dataRight={about.vacancy} />

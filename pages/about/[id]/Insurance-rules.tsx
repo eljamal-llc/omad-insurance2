@@ -71,7 +71,7 @@ const Mission: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout footer={footer} title={t("Правила страхования ")}>
+    <Layout title={t("Правила страхования ")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore

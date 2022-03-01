@@ -97,7 +97,7 @@ const InsuranceCase: FC<NextPage> = () => {
   };
 
   return (
-    <Layout title={'Произошло ДТП'} footer={footer}>
+    <Layout title={'Произошло ДТП'} >
       <Wrapper>
         <Navbar  />
        <CardAccident title="Произошло ДТП" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. "/>

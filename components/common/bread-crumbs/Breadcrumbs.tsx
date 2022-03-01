@@ -13,26 +13,11 @@ import parse from "html-react-parser";
 const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({
     breadcrumb
 }) => {
-    // function handleClick(event: any) {
-    //     event.preventDefault();
-    //     console.info("You clicked a breadcrumb.");
-    //   }
     const router = useRouter()
     const {id }= router.query
 
     const [pageData, setPageData] = useState([]);
 
-    useEffect(() => {
-      
-    // console.log(breadcrumb.bread.slug  + 'dsfsd sfsd')
-       
-        // api.get("insurance/find", { params: { id: id ? id : 1 } }).then((res) => {
-        //   console.log('ssss' + res.data);
-        //   setPageData(res.data);
-         
-        // });
-      }, []);
-      
       return (
         <BreadCrumbs>
             <Stack spacing={2}>
@@ -41,10 +26,7 @@ const  BreadcrumbsBlock: FC<BreadcrumbsProps> = ({
                    {breadcrumb?.map((value:any , index:any) => 
                        
                             (
-                                    <Link
-                                    underline="hover"
-                                    key="1"
-                                    color="#ffff"
+                                <Link underline="hover" key="1" color="#ffff"
                                     // @ts-ignore
                                     href={value.slug + '?id=' + value.id}
                                     // onClick={handleClick}

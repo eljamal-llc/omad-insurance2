@@ -41,8 +41,6 @@ const Values: FC<NextPage> = () => {
   const [insurance, seyInsurance] = useState<any>();
 
   useEffect(() => {
-    // setLoading(true);
-
     api.get("news").then((res) => {
       setNews(res.data.data);
     });
@@ -55,7 +53,7 @@ const Values: FC<NextPage> = () => {
       .catch((err) => {});
   }, []);
   return (
-    <Layout footer={null} title={t("common:Financial_performance")}>
+    <Layout title={t("common:Financial_performance")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore

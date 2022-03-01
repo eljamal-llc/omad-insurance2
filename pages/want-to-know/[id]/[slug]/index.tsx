@@ -80,7 +80,7 @@ const Mission: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={want?.content[0]?.title} footer={footer}>
+    <Layout title={want?.content[0]?.title}>
       <Navbar />
       {!!page && (
       <BreadcrumbsBlock breadcrumb={want?.breadcrumb } />

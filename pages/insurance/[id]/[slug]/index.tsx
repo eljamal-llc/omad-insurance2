@@ -65,7 +65,7 @@ const YurFacePage: FC<NextPage> = () => {
   return (
     //@ts-ignore
 
-    <Layout footer={footer} title={"Страхование"}>
+    <Layout title={"Страхование"}>
       <Navbar />
       {insurance && (
         <div>

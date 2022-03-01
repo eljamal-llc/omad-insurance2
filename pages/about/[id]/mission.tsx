@@ -79,7 +79,7 @@ const Mission: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout footer={footer} title={t("common:Mission")}>
+    <Layout title={t("common:Mission")}>
       <Navbar />
       {!!page && (
       <BreadcrumbsBlock

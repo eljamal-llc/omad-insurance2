@@ -24,7 +24,7 @@ const Auth: FC<NextPage> = () => {
 }, []);
 
   return (
-    <Layout title="Страхование имущества" footer={footer}>
+    <Layout title="Страхование имущества">
       <Wrapper>
         <Navbar onClass="bg-blue" />
         <PolisChack />

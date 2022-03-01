@@ -55,7 +55,7 @@ const Values: FC<NextPage> = () => {
       .catch((err) => {});
   }, []);
   return (
-    <Layout footer={footer} title={t("common:Property_insurance")}>
+    <Layout title={t("common:Property_insurance")}>
       <Navbar />
       {!!page && (
         <MissionComp

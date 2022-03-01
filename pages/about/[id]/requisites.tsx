@@ -71,7 +71,7 @@ const Mission: FC<NextPage> = () => {
       .catch((err) => {});
   }, []);
   return (
-    <Layout footer={footer} title={t("common:Requisites")}>
+    <Layout title={t("common:Requisites")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore

@@ -94,7 +94,7 @@ const YurFacePage: FC<NextPage> = () => {
   return (
     <>
     {!loading ? (
-      <Layout title={'АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ'} footer={footer}>
+      <Layout title={'АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ'} >
       <Navbar />
       <BreadcrumbsBlock
             breadcrumb={bred }

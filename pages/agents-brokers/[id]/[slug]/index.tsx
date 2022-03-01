@@ -79,7 +79,7 @@ const Banks: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("Агентам и брокерам")} footer={footer}>
+    <Layout title={t("Агентам и брокерам")}>
       <Navbar />
       <BreadcrumbsBlock
       // @ts-ignore
