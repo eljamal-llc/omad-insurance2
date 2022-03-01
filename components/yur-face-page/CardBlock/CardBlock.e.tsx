@@ -67,7 +67,14 @@ export const CardText = styled.p`
     width: 280px;
   }
 `;
-export const CardImage = styled.div``;
+export const CardImage = styled.div`
+  .image{
+ 
+    @media(max-width:425px){
+      width: 320px;
+    }
+  }
+`;
 export const CardService = styled.div`
   display: flex;
   max-width: 860px;
@@ -76,6 +83,7 @@ export const CardService = styled.div`
   //     flex-direction: column;
   //     align-items: baseline;
   // }
+  
 `;
 export const CardServiceBlock = styled.div`
   @media (max-width: 1060px) {
@@ -165,14 +173,30 @@ export const HorizontalSliderButton = styled.div`
 `;
 
 export const CardButton = styled.button`
-  border: none;
+  border: 1px solid #fff;
   background: #f0803d;
   padding: 14px 40px 15px;
+
   color: #fff;
+  &.disablet {
+    opacity: 0.5;
+    &:hover {
+    background: #f0803d;
+    color:#fff ;
+
+  }
+  }
+  &:hover {
+    background:transparent;
+    color:#f0803d ;
+    border-color: #f0803d;
+
+  }
   cursor: pointer;
   @media (max-width: 425px) {
     padding: 7px 20px 7px;
   }
+ 
 `;
 export const CardBodyContent = styled.div`
   display: flex;

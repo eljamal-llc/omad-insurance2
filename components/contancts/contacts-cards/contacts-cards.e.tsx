@@ -24,6 +24,9 @@ export const CardsText = styled.p`
     line-height: 42px;
 
     color: #FFFFFF;
+    @media(max-width:500px){
+        font-size:16px;
+    }
 `
 export const CardsTextMini = styled.p`
     font-style: normal;
@@ -32,6 +35,9 @@ export const CardsTextMini = styled.p`
     line-height: 28px;
 
     color: #FFFFFF;
+    @media(max-width:500px){
+        font-size:14px;
+    }
 `
 // cards
 export const CardImg = styled.div`
@@ -50,6 +56,9 @@ export const CardImg = styled.div`
 export const ContentsCard = styled.div`
     display: flex;
     width: 100%;
+    @media(max-width:500px){
+        flex-direction: column;
+    }
 `
 export const CardContacts = styled.div`
         padding: 40px 40px;
@@ -73,7 +82,7 @@ export const CardContactsHeading = styled.p`
     line-height: 28px;
 
     color: #000000;
-    @media(max-width:425px){
+    @media(max-width:505px){
         font-size: 14px;
     }
 `
@@ -115,4 +124,7 @@ export const CardAdress = styled.p`
     line-height: 21px;
 /* identical to box height */
     color: #000000;
+    @media(max-width:500px){
+        font-size:14px;
+    }
 `

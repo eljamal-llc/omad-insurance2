@@ -26,12 +26,13 @@ export interface PartnerProps {}
 const YurFacePage: FC<NextPage> = () => {
   const [pageInfo, setPageInfo] = useState();
   const [insurances, setInsurances] = useState<ICards[]>([]);
+  const [insurance, seyInsurance] = useState<any>();
 
   const router = useRouter();
   const { id } = router.query;
   const [loading, setLoading] = useState(false);
   const [footer, setFooter] = useState<any>();
-
+  const [bred , setBred ] = useState<any>()
   useEffect(() => {
     setLoading(true);
     setTimeout(()=>{
@@ -48,14 +49,18 @@ const YurFacePage: FC<NextPage> = () => {
       .then(async (response) => {
         await setInsurances(response.data.data);
       });
+    
       api.get("footer").then((res) => {
         // console.log("--", res);
         setFooter(res.data);
       });
+      api.get("promotions-offers/breadcrumbIndex").then((res) => {
+        setBred(res.data);
+
+      });
   }, []);
   const singleId = Object.values(router.query).toString()
   const singleTitle = useMemo(() => {
-  console.log('asfkljsfdjhg rldikhg;lk' + singleId)
     
     switch (singleId) {
       case '7': return 'АВТОСТРАХОВАНИЕ'
@@ -89,16 +94,17 @@ const YurFacePage: FC<NextPage> = () => {
   return (
     <>
     {!loading ? (
-      <Layout title={'АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ'}>
+      <Layout title={'АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ'} >
       <Navbar />
-      <BreadcrumbsBlock link1={"Главная"} link2={'АКЦИИ И СПЕЦПРЕДЛОЖЕНИЯ'} link3={""} url2={'offers'} url3={''}/>
+      <BreadcrumbsBlock
+            breadcrumb={bred }
+          />
         <HeroBgOf />
         {/* <Stack spacing={1}>
           <Skeleton variant="rectangular" height={600} />
         </Stack> */}
 
       <YurFaceCardOf />
-      <Footer data={footer} />
     </Layout>
     ):(<LoadingScreen/>)}
     </>

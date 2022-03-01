@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import {SettingsProps} from './pesronal-settings.t';
 import {
         BodyForm,
@@ -15,18 +15,20 @@ import { CardButton } from "../../yur-face-page/CardBlock/CardBlock.e";
 import { useTranslation } from "react-i18next";
 const Settings: FC<SettingsProps> = () => {
     const {t} = useTranslation()
+    const [ ukraina , setUkraina] = useState(true)
+
     return (
         <>
         <BodyForm>
             <FormBody>
                 <PageForm>
                     <FormHeading>{t('common:Change_Password')}</FormHeading>
-                    <UserInfoInput type={'password'} placeholder={t('common:Enter_new_password')}/>
+                    <UserInfoInput  placeholder={t('common:Enter_new_password')}/>
                     <br/><br/>
-                    <UserInfoInput type={'password'} placeholder={t('common:Confirm_new_password')}/>
+                    <UserInfoInput placeholder={t('common:Confirm_new_password')}/>
                 </PageForm>
                 <ButtonBlock>
-                        <CardButton>{t('common:send')}</CardButton>
+                        <CardButton disabled={ukraina} className={  ukraina == true ?  'disablet ' : '' } >{t('common:send')}</CardButton>
                     </ButtonBlock>
             </FormBody>
         </BodyForm>

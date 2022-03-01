@@ -1,18 +1,14 @@
-import { FC, useState, useRef } from "react";
+import { FC, useState, useRef, useEffect } from "react";
 
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { NewsProps } from "./news.t";
+import { INewsData, NewsProps } from "./news.t";
 
 import { GWrapper } from "../../../styles/global-styles.e";
 import { Wrapper, SliderImg, SliderDescriptionBtn, HeroTitle } from "./news.e";
 import Link from "next/link";
-import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
-import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
-import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
 import { useTranslation } from "next-i18next";
-
+import slugify from "slugify";
 import SwiperCore, {
   Pagination,
   Parallax,
@@ -22,39 +18,30 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 import { SectionTitle } from "..";
+import { api } from "../../../services/api";
+import ArrowIconNews from "../../svg/ArrowIconNews";
 
 SwiperCore.use([Pagination, Parallax, Navigation, EffectFade, Autoplay]);
 
-const News: FC<NewsProps> = ({ data }) => {
-  const ArrowIcon = (props: any) => (
-    <svg
-      width="16"
-      height="47"
-      viewBox="0 0 16 47"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={props.class}
-    >
-      <path
-        d="M9 46L9 47L7 47L7 46L9 46ZM7.29289 0.292893C7.68341 -0.0976295 8.31658 -0.0976296 8.7071 0.292892L15.0711 6.65685C15.4616 7.04738 15.4616 7.68054 15.0711 8.07107C14.6805 8.46159 14.0474 8.46159 13.6569 8.07107L8 2.41422L2.34314 8.07107C1.95262 8.46159 1.31945 8.46159 0.928929 8.07107C0.538404 7.68054 0.538404 7.04738 0.928929 6.65685L7.29289 0.292893ZM7 46L7 1L9 1L9 46L7 46Z"
-        fill={props.fill}
-      />
-    </svg>
-  );
+const News: FC<NewsProps> = () => {
+
   const { t } = useTranslation();
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [controlledSwiper, setControlledSwiper] = useState(null);
+  const [news, setNews] = useState<INewsData[] | []>([]);
 
+  useEffect(() => {
+    api.get("v2/news/index").then((res) => {
+      setNews(res.data.data);
+    });
+  }, []);
+  
   const [lineProgress, setLineProgress] = useState(false);
   return (
     <Wrapper>
       <GWrapper className="container">
-        <SectionTitle
-          title={t("common:news_title")}
-          color="white"
-          classN="title"
-        />
+        <SectionTitle title={t("common:news_title")} color="white" classN="title" />
       </GWrapper>
       <Swiper
         direction={"vertical"}
@@ -65,15 +52,10 @@ const News: FC<NewsProps> = ({ data }) => {
         // @ts-ignore
         onSwiper={setControlledSwiper}
         allowTouchMove={false}
-        className="news-image"
-      >
-        {data?.map((item, idx) => (
+        className="news-image" >
+        {news?.map((item, idx) => (
           <SwiperSlide key={idx}>
-            <SliderImg
-              data-swiper-parallax="20%"
-              data-swiper-parallax-opacity="0"
-            >
-              {/* <Image src={SliderImg1} alt="test1" /> */}
+            <SliderImg data-swiper-parallax="20%" data-swiper-parallax-opacity="0" >
               <img src={item.image} alt={item.title} />
             </SliderImg>
           </SwiperSlide>
@@ -81,12 +63,7 @@ const News: FC<NewsProps> = ({ data }) => {
       </Swiper>
 
       <div className="slider-description">
-        <div className="news-date">
-          <div className="month">
-            <span>25</span>ноября
-          </div>
-          <div className="year">2021</div>
-        </div>
+       
         <div className="slider-description__row">
           <Swiper
             fadeEffect={{ crossFade: true }}
@@ -116,15 +93,22 @@ const News: FC<NewsProps> = ({ data }) => {
               swiper.navigation.update();
             }}
             onSlideChange={(swiper) => {
-              // console.log("--->>>>", swiper.realIndex);
               setLineProgress(!lineProgress);
             }}
           >
-            {data?.map((item, idx) => (
+            {news?.map((item, idx) => (
+              
               <SwiperSlide key={idx}>
+                  <div className="news-date">
+                      <div className="month">
+                        <span>{item.created_at.day}</span>{item.created_at.month}
+                      </div>
+                    <div className="year">{item.created_at.year}</div>
+                  </div>
+
                 <div className="slider-description-item">
                   <h4 className="slider-description__title">
-                    <Link href={`/news?id=${item.id}`}>
+                    <Link href={`/news/${item.slug}`}>
                       <a>{item.title}</a>
                     </Link>
                   </h4>
@@ -133,22 +117,17 @@ const News: FC<NewsProps> = ({ data }) => {
               </SwiperSlide>
             ))}
 
-            <div
-              className={
-                lineProgress
-                  ? "slider-description__line active"
-                  : "slider-description__line"
-              }
-            >
+            <div className={ lineProgress ? "slider-description__line active" : "slider-description__line" }>
               <span className="line"></span>
             </div>
+            
             <div className="slider-description__buttons">
               <SliderDescriptionBtn ref={navigationPrevRef}>
-                <ArrowIcon fill="#F0803D" class="arrow-top" />
+                <ArrowIconNews fill="#F0803D" class="arrow-top" />
               </SliderDescriptionBtn>
 
               <SliderDescriptionBtn ref={navigationNextRef}>
-                <ArrowIcon fill="#F0803D" class="arrow-bottom" />
+                <ArrowIconNews fill="#F0803D" class="arrow-bottom" />
               </SliderDescriptionBtn>
             </div>
           </Swiper>

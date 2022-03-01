@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import NextLink from "next/link";
 import { Link } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,9 +11,8 @@ import SwiperCore, {
   FreeMode,
   Thumbs,
 } from "swiper";
-import Image from "next/image";
 
-import { WantKnowProps } from "./want-know.t";
+import { IDataWantKnow, WantKnowProps } from "./want-know.t";
 import {
   KnowList,
   KnowListItem,
@@ -23,13 +22,10 @@ import {
   WrapperMob,
 } from "./want-know.e";
 import {useTranslation} from 'next-i18next'
-
 import { GWrapper } from "../../../styles/global-styles.e";
-
-import SliderImg1 from "../../../assets/images/hero/slider1.jpg";
-import SliderImg2 from "../../../assets/images/hero/slider2.jpg";
-import SliderImg3 from "../../../assets/images/hero/slider3.jpg";
+import slugify from "slugify";
 import { SectionTitle, WantKnowM } from "../..";
+import { api } from "../../../services/api";
 
 SwiperCore.use([
   Pagination,
@@ -41,40 +37,25 @@ SwiperCore.use([
   Thumbs,
 ]);
 
-const WantKnow: FC<WantKnowProps> = ({ data }) => {
+const WantKnow: FC<WantKnowProps> = () => {
   const swiperRef = useRef(null);
   const buttonRef = useRef(null);
-  let [activIdx, setActiveIdx] = useState(1);
+  let [activIdx, setActiveIdx] = useState(0);
 
   const toSlide = (num: number) => {
     setActiveIdx(num);
     // @ts-ignore
-    swiperRef.current?.swiper.slideTo(num);
+    swiperRef.current?.swiper.slideTo(num + 3);
   };
   const { t } = useTranslation()
+  const [wantKnows, setWantKnows] = useState<IDataWantKnow[] | []>([]);
+  useEffect(() => {
+  api.get("want-to-know").then(async (response) => {
+    await setWantKnows(response.data.data);
+  });
+}, []);
 
-  const lists = [
-    {
-      id: 1,
-      name: "Оплатить счет онлайн",
-    },
-    {
-      id: 2,
-      name: "Проверка полиса на предмет хищения",
-    },
-    {
-      id: 3,
-      name: "Очередные платежи: Каско/Имущество",
-    },
-    {
-      id: 4,
-      name: "Стать агентом",
-    },
-    {
-      id: 5,
-      name: "Реестр агентов",
-    },
-  ];
+
   return (
     <>
       <Wrapper>
@@ -106,7 +87,7 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
               },
             }}
           >
-            {data.map((item, idx) => (
+            {wantKnows.map((item, idx) => (
               <SwiperSlide key={idx}>
                 {/* <Image src={SliderImg1} alt="test1" /> */}
                 <img key={idx} src={item.image} alt={item.title} />
@@ -118,12 +99,7 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
           <SectionTitle title={t("common:want_to_know")} color="white" classN="title" />
           <KnowRow>
             <KnowList>
-              {/* <div
-                className={`box-out box${activIdx}`}
-                // @ts-ignore
-                top={activIdx}
-              ></div> */}
-              {data.map((item, idx) => (
+              {wantKnows.map((item, idx) => (
                 <KnowListItem
                   key={idx}
                   onMouseMove={() => {
@@ -131,11 +107,13 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
                   }}
                   className={activIdx == idx  ? "list-active" : ""}
                 >
-                  <NextLink href="/" passHref>
+                  <NextLink href={`/want-to-know/${item.id}/${slugify(item.title)}`} passHref>
+                    <a>
                     <Link>
                       <span className="box"></span>
                       {item.title}
                     </Link>
+                    </a>  
                   </NextLink>
                 </KnowListItem>
               ))}
@@ -151,3 +129,4 @@ const WantKnow: FC<WantKnowProps> = ({ data }) => {
 };
 
 export default WantKnow;
+ 

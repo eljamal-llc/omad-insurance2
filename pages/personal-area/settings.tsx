@@ -23,7 +23,7 @@ export interface PartnerProps {}
 const Setting: FC<NextPage> = () => {
   const {t} = useTranslation()
   return (
-    <Layout title={t('common:settings')}>
+    <Layout title={t('common:settings')} >
       <Navbar />
       <PersonalAreaNav/>
       <Settings/>

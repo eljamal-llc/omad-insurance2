@@ -182,7 +182,6 @@ const Health: FC<HealthProps> = ({ title, yurFace }) => {
     setInsuranse("insuranse");
     setStep(2);
     setPropgres("100");
-    console.log();
   };
   const handleChange = (event: any, field: any) => {
     // console.log("==>>", event.target.checked);

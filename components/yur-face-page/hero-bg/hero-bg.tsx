@@ -15,7 +15,6 @@ const HeroBg: FC<HeroBgProps> = ({ data }) => {
         <HeroBgItem>
           {/* */}
           <PageHeading>{name}</PageHeading>
-          <PageText>{description}</PageText>
         </HeroBgItem>
       </GWrapper>
     </ContainerHero>

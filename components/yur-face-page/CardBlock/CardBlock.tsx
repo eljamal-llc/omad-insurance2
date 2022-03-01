@@ -4,7 +4,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 import { useTranslation } from "react-i18next";
 import { CardBlockProps } from "./CardBlock.t";
-
+import slugify from "slugify";
 import {
   CardBody,
   CradTitle,
@@ -20,8 +20,6 @@ import {
   CardBodyContent,
   CardImage,
 } from "./CardBlock.e";
-
-import car from "../../../assets/images/Card/CardCar.png";
 
 const Card: FC<CardBlockProps> = ({ item }) => {
   // console.log("inner==>>>", item);
@@ -58,7 +56,7 @@ const Card: FC<CardBlockProps> = ({ item }) => {
               </CardServiceText>
             </CardServiceBlock>
             <CardServiceBlock>
-              <CardServiceHeading>{title_2}</CardServiceHeading>
+              <CardServiceHeading>{title_2} </CardServiceHeading>
               <CardServiceText>
               {description_2}
 
@@ -72,11 +70,11 @@ const Card: FC<CardBlockProps> = ({ item }) => {
             </CardServiceBlock>
           </CardService>
           <CardBtns>
-          <Link href={`/mtpl-insurance?id=${id}`} passHref>
+          <Link href={`/insurance/${id}/${slugify(main_title)}`} passHref>
             <CardButton>{t("common:Get_policy")}</CardButton>
           </Link>
             <HorizontalSliderButton>
-              <Link href={`/mtpl-insurance?id=${id}`} passHref>
+              <Link href={`/insurance/${id}/${slugify(main_title)}`} passHref>
                 <a>
                   <span>{t("common:Learn_more")}</span>
                   <ArrowIcon fill="#F0803D" class="arrow-right" />
@@ -88,7 +86,7 @@ const Card: FC<CardBlockProps> = ({ item }) => {
         <CardImage>
           {/* <Image src={car} alt="image-test" />
            */}
-          <img src={main_image} alt={main_title} />
+          <img className="image" src={main_image} alt={main_title} />
         </CardImage>
       </CardBodyContent>
     </CardBody>

@@ -69,6 +69,25 @@ export const UserInfoInput = styled(TextField)`
         width:285px;  
     }
 `
+export const Seriya = styled.input`
+    background: #F1F1F1;
+    padding: 17px 20px;
+    border: 1px solid #b9b9b9;
+    border-radius: 5px;
+    width: 780px;
+
+    outline: none;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #000000;
+    @media(max-width:425px){
+        width:285px;  
+    }
+`
 export const UserNumber = styled(TextField)`
     background: #F1F1F1;
     /* padding: 30px 20px; */
@@ -101,7 +120,7 @@ export const UserEmail = styled(TextField)`
     color: #000000;
     @media(max-width:425px){
         width:285px;  
-        margin-left: 0px;
+        margin-left: 0px !important;
 
     }
        

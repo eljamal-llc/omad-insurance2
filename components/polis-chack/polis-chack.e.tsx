@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
         background: #f1f1f1;
         backdrop-filter: blur(10px);
         min-height: 100vh;
-        padding-top: 10%;
+        padding-top: 5%;
 `
 export const ChackTitle = styled.h2`
     font-family: Roboto;
@@ -29,7 +29,6 @@ export const CheckBlock = styled.div`
     @media(max-width:425px){
         width: 320px;
         padding: 0 17px;
-
     }
 `
 export const CheckForm = styled.form`
@@ -42,9 +41,6 @@ export const FormTitle = styled.h4`
     font-weight: normal;
     font-size: 28px;
     line-height: 33px;
-    /* identical to box height */
-
-
     color: #000000;
     @media(max-width:425px){
         display: none;

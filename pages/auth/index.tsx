@@ -14,10 +14,10 @@ export async function getStaticProps({ locale }: { locale: string }) {
   };
 }
 export interface AuthProps {}
-
 const Auth: FC<NextPage> = () => {
+  const {t} = useTranslation();
   return (
-    <Layout title="Страхование имущества">
+    <Layout title={t('common:auth')} >
       <Wrapper>
         <Navbar onClass="bg-blue" />
         <AuthPage />
@@ -28,18 +28,3 @@ const Auth: FC<NextPage> = () => {
 
 export default Auth;
 
-// export const getServerSideProps: GetServerSideProps = async (ctx) => {
-//   // console.log("()()---()()", ctx.req.cookies);
-//   const { ["nextauth.token"]: token } = parseCookies(ctx);
-//   if (!token) {
-//     return {
-//       redirect: {
-//         destination: "/",
-//         permanent: false,
-//       },
-//     };
-//   }
-//   return {
-//     props: {},
-//   };
-// };

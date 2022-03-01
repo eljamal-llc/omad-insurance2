@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/mtpl-insurance/mtpl-insurance-Form/mtpl-insurance-Form.t.tx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/mtpl-insurance/mtpl-insurance-Form/mtpl-insurance-Form.t.tx", "pages/news/[slug].tsx"],
   "exclude": ["node_modules"]
 }

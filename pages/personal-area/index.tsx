@@ -24,12 +24,11 @@ const PersonalArea: FC<NextPage> = () => {
 
   useEffect(() => {
     api.get("user-data").then(async (res) => {
-      console.log("--->>>", res);
     });
   }, []);
   const { t } = useTranslation();
   return (
-    <Layout title={t("common:Personal_Cobinet")}>
+    <Layout title={t("common:Personal_Cobinet")} >
       <Navbar />
       <PersonalAreaNav />
       {/* <h1 style={{ color: "red" }}>WElcom {user?.name}</h1> */}

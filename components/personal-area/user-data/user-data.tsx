@@ -14,8 +14,9 @@ import {
   ButtonAdd,
   FormMessage,
   ButtonBlock,
+  Seriya
 } from "../personal-buy/pesonal-buy.e";
-import { SNumber, UserHome, UserApartment } from "./user-data.e";
+import { SNumber, UserHome, UserApartment ,} from "./user-data.e";
 import {
   UptadeSelect,
   UptadeSelectRayon,
@@ -27,7 +28,7 @@ import { api } from "../../../services/api";
 const Schema = Yup.object().shape({
   full_name: Yup.string().required("This field is required"),
   data_birthday: Yup.string().required("This field is required"),
-  contacts: Yup.array().required("This field is required"),
+  phonenumber: Yup.array().required("This field is required"),
   documentTypeId: Yup.number().required("This field is required"),
   documentSerieAndNumber: Yup.string().required("This field is required"),
   documentIssuedBy: Yup.string().required("This field is required"),
@@ -51,6 +52,7 @@ const UserData: FC<UserDataProps> = () => {
     api.get("cabinet/user/get").then((res) => {
       // console.log(res);
       setUserInfo(res.data.data);
+      console.log(res.data.data)
     });
   }, []);
 
@@ -72,7 +74,7 @@ const UserData: FC<UserDataProps> = () => {
     api
       .post("cabinet/user/post", userInfo)
       .then((res) => {
-        console.log("object ==>", res);
+        console.log("object ==>", userInfo);
       })
       .catch((err) => {
         console.log("object ==>", err.response.data);
@@ -94,6 +96,7 @@ const UserData: FC<UserDataProps> = () => {
         setDistricts(res.data.data);
       });
   };
+
   return (
     <>
       <BodyForm>
@@ -118,7 +121,6 @@ const UserData: FC<UserDataProps> = () => {
               <UserNumber
                 className="myInput"
                 placeholder="01/01/2000"
-                // id="demo-helper-text-misaligned"
                 label={t("common:birth_data")}
                 onChange={(e) => handleChange(e, "data_birthday")}
                 name="data_birthday"
@@ -134,9 +136,6 @@ const UserData: FC<UserDataProps> = () => {
             </p>
             <FormHeading>{t("common:Personal_ata")}</FormHeading>
             <UptadeSelect
-              // onChange={(e) => {
-              //   setValue(e.target.value);
-              // }}
               name="documentTypeId"
               required
               id="documentTypeId"
@@ -146,15 +145,15 @@ const UserData: FC<UserDataProps> = () => {
               <option selected>{t("common:Citizens_passport")}</option>
               <option value={1}>Паспорт</option>
               <option value={2}>ID карта</option>
-              {/* <option value="США">США</option> */}
             </UptadeSelect>
 
-            <UserInfoInput
+            <Seriya
               placeholder=" Например: 470347034703477"
-              label={t("common:Series_number_pas")}
+              // label={t("common:Series_number_pas")}
               onChange={(e) => handleChange(e, "documentSerieAndNumber")}
               name="documentSerieAndNumber"
               required
+              type={'text'}
               id="documentSerieAndNumber"
               value={userInfo.documentSerieAndNumber}
               // InputLabelProps={{
@@ -210,11 +209,11 @@ const UserData: FC<UserDataProps> = () => {
                 className="myInput"
                 placeholder="998 90 989-89-89"
                 label={t("common:Phone_number")}
-                onChange={(e) => handleChange(e, "tel1")}
-                name="tel1"
+                onChange={(e) => handleChange(e, "phonenumber")}
+                name="phonenumber "
                 required
-                id="tel1"
-                value={userInfo.tel1}
+                value={userInfo.phonenumber  }
+                id="phonenumber1"
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -222,11 +221,11 @@ const UserData: FC<UserDataProps> = () => {
               <UserEmail
                 placeholder="status585@mail.ru"
                 label="Email"
-                onChange={(e) => handleChange(e, "email1")}
+                onChange={(e) => handleChange(e, "email")}
                 name="email1"
                 required
                 id="email1"
-                value={userInfo.email1}
+                value={userInfo.email}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -237,23 +236,21 @@ const UserData: FC<UserDataProps> = () => {
                     className="myInput"
                     // id="demo-helper-text-misaligned"
                     label={t("common:Phone_number")}
-                    onChange={(e) => handleChange(e, "tel2")}
-                    name="tel2"
-                    id="tel2"
-                    value={userInfo.tel2}
+                    onChange={(e) => handleChange(e, "phonenumber1")}
+                    name="phonenumber1"
+                    id="phonenumber1"
+                    value={userInfo.phonenumber1}
                     InputLabelProps={{
                       shrink: true,
                     }}
                   />
                   <UserEmail
                     className="myInput"
-                    // helperText="Please enter your email"
-                    // id="demo-helper-text-misaligned"
                     label="Email"
                     onChange={(e) => handleChange(e, "email2")}
                     name="email2"
                     id="email2"
-                    value={userInfo.email2}
+                    value={userInfo.email1}
                     InputLabelProps={{
                       shrink: true,
                     }}
@@ -344,6 +341,7 @@ const UserData: FC<UserDataProps> = () => {
               onChange={(e) => handleChange(e, "flat")}
               name="flat"
               id="flat"
+              
               value={userInfo.flat}
               InputLabelProps={{
                 shrink: true,

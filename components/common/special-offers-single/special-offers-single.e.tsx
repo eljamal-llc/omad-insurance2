@@ -45,18 +45,24 @@ export const HighBlock = styled.div`
     justify-content: space-between;
     max-width: 1400px;
     margin: 0 auto ; 
-    align-items: center;
+    /* align-items: center; */
     @media(max-width:425px){
         flex-direction: column;
 
     }
 `
 export const CardBlock = styled.div`
-    height: 580px;
+    max-height: 680px;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #fff;
+    img{
+        width: 100%;
+    @media(max-width:500px){
+        width: 100%;
+    }
+    }
+    
 `
 export const SpecBlock = styled.div`
     background-color: #E5E5E5;

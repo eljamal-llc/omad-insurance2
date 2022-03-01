@@ -110,6 +110,7 @@ export const ModalSubInnerMenu = styled.ul`
     background-color: #fff;
   }
   @media (max-width: 650px) {
+    display: none;
     height: 0;
     position: static;
     padding: 0px 0 0px;

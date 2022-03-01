@@ -45,10 +45,9 @@ const Politics: FC<NextPage> = () => {
   return (
     <Layout title={t('common:privacy_policy')}>
       <Navbar />
-      <Hero data={sliders}/>
+      <Hero />
       <PoliticsBody />
       <News data={news} />
-      <Footer data={footer} />
     </Layout>
   );
 };

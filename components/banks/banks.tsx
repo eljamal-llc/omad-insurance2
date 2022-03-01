@@ -40,7 +40,7 @@ const BanksComp: FC<BanksProps> = ({ title, description, data }) => {
       <MissionBody>
         <MissionContent>
           <div>
-            {data.content.length > 0 &&
+            {data?.content.length > 0 &&
               data.content.map((item: any, idx: any) => (
                 <MissionContentAbItem key={idx}>
                   <MissionContentTitle>{item.title} </MissionContentTitle>
@@ -48,7 +48,7 @@ const BanksComp: FC<BanksProps> = ({ title, description, data }) => {
                 </MissionContentAbItem>
               ))}
           </div>
-          <PartnersComp data={data.call_center} />
+          <PartnersComp data={data?.call_center} />
         </MissionContent>
         <InviteCooperationForm />
       </MissionBody>

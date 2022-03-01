@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Wrapper,
@@ -17,38 +17,90 @@ import Instagram from "../../../assets/images/footer/instagram.png";
 import Facebook from "../../../assets/images/footer/facebook.png";
 import Mail from "../../../assets/images/footer/gmail.png";
 import { useTranslation } from "next-i18next";
+import slugify from "slugify"
+import { api } from "../../../services/api";
 
-const Footer: FC<FooterProps> = ({ data }) => {
+
+const Footer: FC<FooterProps> = () => {
   const { t } = useTranslation();
+  const [footer, setFooter] = useState<any>();
+  useEffect(() => {
+  api.get("footer").then((res) => {
+    setFooter(res.data);
+  });
+}, []);
+
   return (
     <Wrapper>
-      {data && (
+      {footer && (
         <GWrapper>
           <div className="footer-container">
             {/* @ts-ignore */}
-            {data.categories.map((item, idx) => (
-              <FooterColumn className="c-column" key={idx}>
-                <ColumnHeader>{item.title}</ColumnHeader>
+
+            <FooterColumn className="c-column" >
+                <ColumnHeader>{footer.categories[0].title}</ColumnHeader>
                 <FooterUL>
                   {/* @ts-ignore */}
-                  {item.fields.map((link, linkId) => (
+                  {footer.categories[0].fields.map((link, linkId) => (
                     <li key={linkId}>
-                      <Link href={`/${link.slug}?id=${link.id}`} passHref>
+                      <Link href={`/catalog/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
                         <a>{link.title}</a>
                       </Link>
                     </li>
                   ))}
                 </FooterUL>
               </FooterColumn>
-            ))}
+              <FooterColumn className="c-column" >
+                <ColumnHeader>{footer.categories[1].title}</ColumnHeader>
+                <FooterUL>
+                  {/* @ts-ignore */}
+                  {footer.categories[1].fields.map((link, linkId) => (
+                    <li key={linkId}>
+                      <Link href={`/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
+                        <a>{link.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </FooterUL>
+              </FooterColumn>
+
+              <FooterColumn className="c-column" >
+                <ColumnHeader>{footer.categories[2].title}</ColumnHeader>
+                <FooterUL>
+                  {/* @ts-ignore */}
+                  {footer.categories[2].fields.map((link, linkId) => (
+                    <li key={linkId}>
+                      <Link href={`/${link.slug}/${link.id}/${slugify(link.title)}`} passHref>
+                        <a>{link.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </FooterUL>
+              </FooterColumn>
+
+            <FooterColumn>
+            <ColumnHeader>{t('common:about_company')}</ColumnHeader>
+            <FooterUL>
+                <li>
+                    <Link href="/contacts" passHref>
+                        <a>{t('common:Contacts')}</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about/11/security-policy" passHref>
+                        <a>{t('common:privacy_policy')}</a>
+                    </Link>
+                  </li>
+        
+                </FooterUL>
+            </FooterColumn>
 
             <FooterColumn className="last-column">
               <ul className="social-net">
-                {Object.keys(data.social_networks).map(function (key) {
-                  console.log(data.social_networks[key]);
+                {Object.keys(footer.social_networks).map(function (key) {
                   return (
                     <li key={key}>
-                      <Link href={data.social_networks[key].url}>
+                      <Link href={footer.social_networks[key].url}>
                         <a>
                           {key == "telegram" && (
                             <Image src={Instagram} alt="instagram" />
@@ -63,21 +115,20 @@ const Footer: FC<FooterProps> = ({ data }) => {
                   );
                 })}
               </ul>
+
+
               <a href="mailto:uzbekjon2003@gmail.com" className={"maillink"}>
                 @Info.totembo.com
               </a>
               {/* @ts-ignore */}
-              {data.phone_numbers.map((item, idx) => (
+              {footer.phone_numbers.map((item, idx) => (
                 <NumAndAddress key={idx}>
                   <span>{item.number}</span>
                   <span>{item.address}</span>
                 </NumAndAddress>
               ))}
 
-              {/* <NumAndAddress>
-                <span>+998 (99) 987 65 43</span>
-                <span>г. Ташкент, ул. Абая, д. 1</span>
-              </NumAndAddress> */}
+         
             </FooterColumn>
           </div>
           <FooterBottom>

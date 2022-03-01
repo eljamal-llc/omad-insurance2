@@ -8,6 +8,10 @@ export const GlobalFormBody = styled.div`
     margin: 0px auto;
     margin-top: 50px;
     background-color: #ffff;
+    @media(max-width:770px){
+    padding:0 ;
+
+    }
     @media(max-width:425px){
         width: 330px;
         padding: 20px 25px;

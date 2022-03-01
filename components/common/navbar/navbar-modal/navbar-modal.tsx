@@ -15,20 +15,21 @@ import {
   Wrapper,
 } from "./navbar-modal.e";
 import { GWrapper } from "../../../../styles/global-styles.e";
-
+import { useRouter } from "next/router";
 import ArrowDropDownSharpIcon from "@mui/icons-material/ArrowDropDownSharp";
 import ArrowDropUpSharpIcon from "@mui/icons-material/ArrowDropUpSharp";
 
 const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
   let [menuHover, setMenuHover] = useState(false);
   let [menus, setMenus] = useState<IMenus[]>();
+  const router = useRouter()
   useEffect(() => {
     api.get("categories").then((response) => {
       if (response.data.success) {
         setMenus(response.data.data);
       }
     });
-  }, []);
+  }, [router.query.menu]);
 
   return (
     <Wrapper className={isModal ? "active" : ""}>
@@ -42,28 +43,27 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                 onMouseMove={() => setMenuHover(true)}
                 onMouseLeave={() => setMenuHover(false)}
               >
-                <NextLink href={`/catalog/${item.id}/${slugify(item.name)}`} passHref>
-                  <Link>
+                <NextLink href={`/catalog/${item.link}/${item.id}/${slugify(item.name)}`} >
+                  <a>
+                  <Link >
                     {item.name}
                     {item.isSubMenu && (
                       <>
                         <span className="arrow-down">
-                          {menuHover ? (
-                            <ArrowDropUpSharpIcon />
-                          ) : (
-                            <ArrowDropDownSharpIcon />
-                          )}
+                        
                         </span>
                       </>
                     )}
                   </Link>
+                  </a>
+                
                 </NextLink>
                 {item.isSubMenu && (
                   <ModalSubInnerMenu className="inner-menu">
                     {item.sub?.map((itemChild, idx) => (
                       <ModalSubMenuItem key={idx}>
                         <NextLink
-                          href={`/${itemChild.link}?id=${itemChild.id}`}
+                          href={`/${itemChild.link}/${itemChild.id}/${slugify(itemChild.name)}`}
                           passHref
                         >
                           <Link>{itemChild.name}</Link>
@@ -72,8 +72,27 @@ const NavbarModal: FC<NavbarModalProps> = ({ isModal }) => {
                     ))}
                   </ModalSubInnerMenu>
                 )}
+                
               </ModalMenuItem>
-            ))}
+            ))
+            }
+            <ModalMenuItem>
+            <a href={`/news`} >
+            <Link >
+              новости              
+            </Link>
+          </a>
+          </ModalMenuItem>
+          <ModalMenuItem>
+            <a href={`/contacts`} >
+            <Link >
+              Контакты              
+            </Link>
+          </a>
+          </ModalMenuItem>
+            
+
+    
           </ModalMenuList>
         </ModalRow>
       </GWrapper>

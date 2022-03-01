@@ -108,6 +108,7 @@ export const Wrapper = styled.div`
       padding-top: 45px;
       @media (max-width: 1800px) {
         max-width: 80%;
+        margin: 20px 0;
       }
     }
 
@@ -138,6 +139,9 @@ export const Wrapper = styled.div`
       margin: 0;
       @media (max-width: 1800px) {
         font-size: calc(14px + 4 * (100vw / 1920));
+      }
+      @media (max-width: 500px) {
+        display: none;
       }
     }
     &__line {

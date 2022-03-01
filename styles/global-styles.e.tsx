@@ -25,16 +25,3 @@ export const Wrapper = styled.div`
   }
 `;
 
-// export const GlobalStyles = styled.div`
-//   padding: 0 100px;
-
-//   @media (max-width: 1300px) {
-//     padding: 0 70px;
-//   }
-//   @media (max-width: 1024px) {
-//     padding: 0 30px !important;
-//   }
-//   @media (max-width: 700px) {
-//     padding: 0 15px !important;
-//   }
-// `;

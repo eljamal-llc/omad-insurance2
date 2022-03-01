@@ -64,26 +64,13 @@ const Banks: FC<NextPage> = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={t("common:Банкам")}>
-      <Navbar />
+    <Layout title={t('common:Банкам')}>
+      <Navbar  />
       <BreadcrumbsBlock
-        url2={`/page-person?id=3`}
-        url3={"/banks"}
-        link1="Главная"
-        link2="Партнерам"
-        link3={t("Банкам")}
-      />
-      {!!pageInfo && (
-        <BanksComp
-          title={pageInfo.head.title}
-          // description={t(
-          //   "common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. "
-          // )}
-          data={pageInfo}
+          breadcrumb={pageInfo?.breadcrumb }
         />
-      )}
-
-      <News data={news} />
+      <BanksComp title={t('Банкам')} description={t('common:Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie posuere nibh amet semper scelerisque sollicitudin. Orci nam quisque ullamcorper nisi a turpis volutpat. Consectetur lacus, iaculis mauris sed vitae tellus tempor, tortor. ')}/>
+      <News data={news}/>
       <Footer data={footer} />
     </Layout>
   );

@@ -3,7 +3,7 @@ export interface NewsProps {
 }
 
 export interface INewsData {
-  id: number;
+  slug: string;
   title: string | any ;
   anons: string;
   text: string;
@@ -11,5 +11,6 @@ export interface INewsData {
   meta_title: string;
   meta_description: string;
   forms?: any;
+  created_at: any;
 
 }
