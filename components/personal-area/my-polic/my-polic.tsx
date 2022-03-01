@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import NextLink from "next/link";
 import {
     PersonalAreaBodyBg,
@@ -17,14 +17,19 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 const MyPolic: FC<MyPolicProps> = () => {
     const {t} = useTranslation()
+    const [polis , setPolis ] = useState(false)
     return (
         <PersonalAreaBodyBg>
             <GWrapper>
                 <PersonalAreaBodyHeading>{t('common:My_insurance_policies')}</PersonalAreaBodyHeading>
 
                 <PersonalAreaBodyCardBody>
+                    {polis == false ? (
                     <PersonalAreaBodyCardText> У вас пока  нет  действующих полисов</PersonalAreaBodyCardText>
-                        {/* <PersonalAreaBodyCard>
+                        
+                    ): (
+                    <>
+                        <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>{t('common:My_details')}</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>{t('common:info_details_personal_area')}</PersonalAreaBodyCardText>
                             <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:dow')}</a></Link></CardButton></ButtonCard>
@@ -49,7 +54,10 @@ const MyPolic: FC<MyPolicProps> = () => {
                             <PersonalAreaBodyCardHeading>{t('common:settings')}</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>{t('common:settings_info  ')}</PersonalAreaBodyCardText>
                             <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:dow')}</a></Link></CardButton></ButtonCard>
-                        </PersonalAreaBodyCard> */}
+                        </PersonalAreaBodyCard>
+                    </>
+                )}
+                        
                 </PersonalAreaBodyCardBody>
             </GWrapper>
         </PersonalAreaBodyBg>
@@ -58,3 +66,11 @@ const MyPolic: FC<MyPolicProps> = () => {
 }
 
 export default MyPolic  ;
+
+
+// ved eta moya vecheriinkaaaaa 
+// odna i taje plostinkaaaaa
+// ved eta moya vecherinkaaa
+// 33 suki oni ne ulibayutsa
+// ni 1 iz nih mne ne nyjna rezinkaaa
+//oooooo eta moyaa vecherinka!!!!!!

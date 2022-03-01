@@ -50,34 +50,34 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
           <MtplAdventagesBlock>
             <MtplAdventagesCard>
               <MtplAdventagesCardHeading>
-                {parse(dataAdvantage.title_1)}
+                {parse(dataAdvantage.title_1 || '')}
               </MtplAdventagesCardHeading>
               <MtplAdventagesCardText>
-                {parse(dataAdvantage.text_1)}
+                {parse(dataAdvantage.text_1 || '')}
               </MtplAdventagesCardText>
             </MtplAdventagesCard>
             <MtplAdventagesCard>
               <MtplAdventagesCardHeading>
-                {parse(dataAdvantage.title_2)}
+                {parse(dataAdvantage.title_2 || '')}
               </MtplAdventagesCardHeading>
               <MtplAdventagesCardText>
-                {parse(dataAdvantage.text_2)}
+                {parse(dataAdvantage.text_2 || '')}
               </MtplAdventagesCardText>
             </MtplAdventagesCard>
             <MtplAdventagesCard>
               <MtplAdventagesCardHeading>
-                {parse(dataAdvantage.title_3)}
+                {parse(dataAdvantage.title_3 || '')}
               </MtplAdventagesCardHeading>
               <MtplAdventagesCardText>
-                {parse(dataAdvantage.text_3)}
+                {parse(dataAdvantage.text_3 || '')}
               </MtplAdventagesCardText>
             </MtplAdventagesCard>
             <MtplAdventagesCard>
               <MtplAdventagesCardHeading>
-                {parse(dataAdvantage.title_4)}
+                {parse(dataAdvantage.title_4 || '')}
               </MtplAdventagesCardHeading>
               <MtplAdventagesCardText>
-                {parse(dataAdvantage.text_4)}
+                {parse(dataAdvantage.text_4 || '')}
               </MtplAdventagesCardText>
             </MtplAdventagesCard>
           </MtplAdventagesBlock>
@@ -92,13 +92,13 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
                 {t("common:Online_as_much")}
               </MtplAdventagesInsuranceHeading> */}
               <MtplAdventagesInsuranceText>
-                {parse(dataCardImage.card_1.text_1)}
+                {parse(dataCardImage.card_1.text_1 || '')}
               </MtplAdventagesInsuranceText>
               {/* <MtplAdventagesInsuranceHeading>
-                {t("common:Online_as_much")}
+                {t("common:Online_as_much" || '')}
               </MtplAdventagesInsuranceHeading> */}
               <MtplAdventagesInsuranceText>
-                {parse(dataCardImage.card_1.text_2)}
+                {parse(dataCardImage.card_1.text_2 || '')}
               </MtplAdventagesInsuranceText>
             </div>
             {/* <Image src={NoutImg} alt="images" /> */}
@@ -114,16 +114,16 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
             </CardImage>
             <div>
               {/* <MtplAdventagesInsuranceHeading>
-                {t("common:Online_as_much")}
+                {t("common:Online_as_much" || '')}
               </MtplAdventagesInsuranceHeading> */}
               <MtplAdventagesInsuranceText>
-                {parse(dataCardImage.card_2.text_1)}
+                {parse(dataCardImage.card_2.text_1 || '')}
               </MtplAdventagesInsuranceText>
               {/* <MtplAdventagesInsuranceHeading>
-                {t("common:Online_as_much")}
+                {t("common:Online_as_much" || '')}
               </MtplAdventagesInsuranceHeading> */}
               <MtplAdventagesInsuranceText>
-                {parse(dataCardImage.card_2.text_2)}
+                {parse(dataCardImage.card_2.text_2 || '')}
               </MtplAdventagesInsuranceText>
             </div>
           </MtplAdventagesInsuranceTwo>
@@ -138,10 +138,10 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
                 {dataCards.card_1.title}
               </MtplAdventagesCardHeading>
               <MtplAdventagesCardText>
-                {parse(dataCards.card_1.text_1)}
+                {parse(dataCards.card_1.text_1 || '')}
               </MtplAdventagesCardText>
               <MtplAdventagesCardText>
-                {parse(dataCards.card_1.text_2)}
+                {parse(dataCards.card_1.text_2 || '')}
               </MtplAdventagesCardText>
             </MtplAdventagesCard>
             <MtplAdventagesCard>
@@ -149,10 +149,10 @@ const MtplAdventages: FC<MtplAdventagesProps> = ({
                 {dataCards.card_2.title}
               </MtplAdventagesCardHeading>
               <MtplAdventagesCardText>
-                {parse(dataCards.card_2.text_1)}
+                {parse(dataCards.card_2.text_1 || '')}
               </MtplAdventagesCardText>
               <MtplAdventagesCardText>
-                {parse(dataCards.card_2.text_2)}
+                {parse(dataCards.card_2.text_2 || '')}
               </MtplAdventagesCardText>
             </MtplAdventagesCard>
           </MtplAdventagesBlock>

@@ -52,9 +52,7 @@ const YurFacePage: FC<NextPage> = () => {
       .catch((err) => {
         console.log(err);
       });
-    api.get("news", { params: { id: id } }).then( (response) => {
-       setNews(response.data.data[0]);
-    });
+
     api.get("footer").then((res) => {
       // console.log("--", res);
       setFooter(res.data);
