@@ -22,7 +22,7 @@ export interface PartnerProps {}
 
 const MyPolics: FC<NextPage> = () => {
   return (
-    <Layout title="Мои страховые полиса" footer={undefined}>
+    <Layout title="Мои страховые полиса" >
       <Navbar />
       <PersonalAreaNav/>
       <MyPolic/>

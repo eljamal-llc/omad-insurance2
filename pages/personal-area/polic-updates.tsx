@@ -22,7 +22,7 @@ export interface PartnerProps {}
 
 const Uptade: FC<NextPage> = () => {
   return (
-    <Layout title="Продлить полис онлайн" footer={undefined}>
+    <Layout title="Продлить полис онлайн" >
       <Navbar />
       <PersonalAreaNav/>
       <PersonalUdates/>

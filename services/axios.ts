@@ -5,7 +5,7 @@ export function getAPIСlient(ctx?: any) {
   const { "nextauth.token": token } = parseCookies(ctx);
 
   const api = axios.create({
-    baseURL: "https://znutech.uz/api/",
+    baseURL: "https://api.omadsugurta.uz/api/",
   });
 
   api.interceptors.request.use((config) => {

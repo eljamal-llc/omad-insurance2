@@ -120,7 +120,6 @@ const UserData: FC<UserDataProps> = () => {
               <UserNumber
                 className="myInput"
                 placeholder="01/01/2000"
-                // id="demo-helper-text-misaligned"
                 label={t("common:birth_data")}
                 onChange={(e) => handleChange(e, "data_birthday")}
                 name="data_birthday"
@@ -209,10 +208,10 @@ const UserData: FC<UserDataProps> = () => {
                 className="myInput"
                 placeholder="998 90 989-89-89"
                 label={t("common:Phone_number")}
-                onChange={(e) => handleChange(e, "phonenumber1")}
+                onChange={(e) => handleChange(e, "phonenumber")}
                 name="phonenumber1"
                 required
-                value={userInfo.contacts?.phonenumber1}
+                value={userInfo.phonenumber}
                 id="phonenumber1"
                 InputLabelProps={{
                   shrink: true,
@@ -221,11 +220,11 @@ const UserData: FC<UserDataProps> = () => {
               <UserEmail
                 placeholder="status585@mail.ru"
                 label="Email"
-                onChange={(e) => handleChange(e, "email1")}
+                onChange={(e) => handleChange(e, "email")}
                 name="email1"
                 required
                 id="email1"
-                value={userInfo.contacts?.email1}
+                value={userInfo.email}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -343,6 +342,7 @@ const UserData: FC<UserDataProps> = () => {
               onChange={(e) => handleChange(e, "flat")}
               name="flat"
               id="flat"
+              
               value={userInfo.flat}
               InputLabelProps={{
                 shrink: true,

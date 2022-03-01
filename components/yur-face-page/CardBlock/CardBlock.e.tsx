@@ -173,10 +173,17 @@ export const HorizontalSliderButton = styled.div`
 `;
 
 export const CardButton = styled.button`
-  border: none;
+  border: 1px solid #fff;
   background: #f0803d;
   padding: 14px 40px 15px;
+
   color: #fff;
+  &:hover {
+    background:transparent;
+    color:#f0803d ;
+    border-color: #f0803d;
+
+  }
   cursor: pointer;
   @media (max-width: 425px) {
     padding: 7px 20px 7px;
