@@ -67,10 +67,3 @@ const MyPolic: FC<MyPolicProps> = () => {
 
 export default MyPolic  ;
 
-
-// ved eta moya vecheriinkaaaaa 
-// odna i taje plostinkaaaaa
-// ved eta moya vecherinkaaa
-// 33 suki oni ne ulibayutsa
-// ni 1 iz nih mne ne nyjna rezinkaaa
-//oooooo eta moyaa vecherinka!!!!!!
