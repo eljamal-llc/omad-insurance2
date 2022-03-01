@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import parse from "html-react-parser";
 import { NewsBodyProps } from "./news-body.t";
 import { Wrapper } from "./news-body.e";
@@ -15,11 +15,15 @@ const NewsBody: FC<NewsBodyProps> = () => {
 
   const router = useRouter();
   const [news, setNews] = useState<INewsData>();
+  
+  
 
   useEffect(() => {
     api.get("v2/news/show/" + router.query.slug).then(async (response) => {
       await setNews(response.data.data.data);
     });
+    router.push('news/'+router.query.slug)
+
   }, [router.query.slug]);
   
   return (
