@@ -28,7 +28,7 @@ import { api } from "../../../services/api";
 const Schema = Yup.object().shape({
   full_name: Yup.string().required("This field is required"),
   data_birthday: Yup.string().required("This field is required"),
-  contacts: Yup.array().required("This field is required"),
+  phonenumber: Yup.array().required("This field is required"),
   documentTypeId: Yup.number().required("This field is required"),
   documentSerieAndNumber: Yup.string().required("This field is required"),
   documentIssuedBy: Yup.string().required("This field is required"),
@@ -52,6 +52,7 @@ const UserData: FC<UserDataProps> = () => {
     api.get("cabinet/user/get").then((res) => {
       // console.log(res);
       setUserInfo(res.data.data);
+      console.log(res.data.data)
     });
   }, []);
 
@@ -73,7 +74,7 @@ const UserData: FC<UserDataProps> = () => {
     api
       .post("cabinet/user/post", userInfo)
       .then((res) => {
-        console.log("object ==>", res);
+        console.log("object ==>", userInfo);
       })
       .catch((err) => {
         console.log("object ==>", err.response.data);
@@ -209,9 +210,9 @@ const UserData: FC<UserDataProps> = () => {
                 placeholder="998 90 989-89-89"
                 label={t("common:Phone_number")}
                 onChange={(e) => handleChange(e, "phonenumber")}
-                name="phonenumber1"
+                name="phonenumber "
                 required
-                value={userInfo.phonenumber}
+                value={userInfo.phonenumber  }
                 id="phonenumber1"
                 InputLabelProps={{
                   shrink: true,
@@ -238,20 +239,18 @@ const UserData: FC<UserDataProps> = () => {
                     onChange={(e) => handleChange(e, "phonenumber1")}
                     name="phonenumber1"
                     id="phonenumber1"
-                    value={userInfo.contacts?.phonenumber1}
+                    value={userInfo.phonenumber1}
                     InputLabelProps={{
                       shrink: true,
                     }}
                   />
                   <UserEmail
                     className="myInput"
-                    // helperText="Please enter your email"
-                    // id="demo-helper-text-misaligned"
                     label="Email"
                     onChange={(e) => handleChange(e, "email2")}
                     name="email2"
                     id="email2"
-                    value={userInfo.contacts?.email2}
+                    value={userInfo.email1}
                     InputLabelProps={{
                       shrink: true,
                     }}

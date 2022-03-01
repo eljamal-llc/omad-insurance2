@@ -23,7 +23,8 @@ const MyPolic: FC<MyPolicProps> = () => {
                 <PersonalAreaBodyHeading>{t('common:My_insurance_policies')}</PersonalAreaBodyHeading>
 
                 <PersonalAreaBodyCardBody>
-                        <PersonalAreaBodyCard>
+                    <PersonalAreaBodyCardText> У вас пока  нет  действующих полисов</PersonalAreaBodyCardText>
+                        {/* <PersonalAreaBodyCard>
                             <PersonalAreaBodyCardHeading>{t('common:My_details')}</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>{t('common:info_details_personal_area')}</PersonalAreaBodyCardText>
                             <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:dow')}</a></Link></CardButton></ButtonCard>
@@ -48,7 +49,7 @@ const MyPolic: FC<MyPolicProps> = () => {
                             <PersonalAreaBodyCardHeading>{t('common:settings')}</PersonalAreaBodyCardHeading>
                             <PersonalAreaBodyCardText>{t('common:settings_info  ')}</PersonalAreaBodyCardText>
                             <ButtonCard><CardButton><Link href={'/personal-area'}><a>{t('common:dow')}</a></Link></CardButton></ButtonCard>
-                        </PersonalAreaBodyCard>
+                        </PersonalAreaBodyCard> */}
                 </PersonalAreaBodyCardBody>
             </GWrapper>
         </PersonalAreaBodyBg>
