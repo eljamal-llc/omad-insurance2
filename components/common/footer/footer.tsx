@@ -134,7 +134,7 @@ const Footer: FC<FooterProps> = () => {
           <FooterBottom>
             <Image src={Logo} alt="logo of Omad" className="bottom-logo" />
             <span>© El jamal group все   права защищены</span>
-            <small className="khan">© Davidkhan khadjayev</small>
+            <small className="khan">© Davidkhan khodjayev</small>
           </FooterBottom>
         </GWrapper>
       )}

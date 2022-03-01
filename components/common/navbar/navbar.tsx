@@ -124,10 +124,10 @@ const Navbar: FC<NavbarProps> = ({ onClass }) => {
 
                   <MenuItem onClick={handleClose}>
                     <Link href={"/personal-area"} passHref>
-                      <a>{t('common:profile')}</a>
+                      <a>{t('common:my_cabinet')}</a>
                     </Link>
                   </MenuItem>
-                  <MenuItem onClick={handleClose}>{t('common:my_cabinet')}</MenuItem>
+                  {/* <MenuItem onClick={handleClose}>{t('common:my_cabinet')}</MenuItem> */}
                   <MenuItem onClick={() => {
                       logOut();
                       handleClose();
