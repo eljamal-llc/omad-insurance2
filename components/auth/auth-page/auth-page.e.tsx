@@ -74,13 +74,21 @@ export const AuthButton = styled.button`
   border: 0;
   width: 100%;
   padding: 10px;
+  border: 1px solid #0d4656;
+
   &:hover {
     cursor: pointer;
+    background-color: transparent;
+    color: #0d4656;
   }
   &[disabled] {
     opacity: 0.5;
     &:hover {
       cursor: not-allowed;
+  color: #ffffff;
+
+  background-color: #0d4656;
+
     }
   }
 `;

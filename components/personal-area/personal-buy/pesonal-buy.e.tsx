@@ -12,6 +12,9 @@ export const FormBody = styled.div`
     padding:80px 50px;
     margin: 0 auto;
     background-color: #fff;
+    @media(max-width:770px){
+        max-width: 680px;
+    }
     @media(max-width:425px){
         width: 305px;
         padding:80px 10px;
@@ -65,6 +68,9 @@ export const UserInfoInput = styled(TextField)`
 
 
     color: #000000;
+    @media(max-width:770px){
+        max-width: 580px;
+    }
     @media(max-width:425px){
         width:285px;  
     }
@@ -84,6 +90,10 @@ export const Seriya = styled.input`
 
 
     color: #000000;
+    @media(max-width:770px){
+     max-width: 580px;
+
+    }
     @media(max-width:425px){
         width:285px;  
     }
@@ -98,6 +108,7 @@ export const UserNumber = styled(TextField)`
     font-size: 18px;
     line-height: 21px;
     color: #000000;
+   
     @media(max-width:425px){
         width:285px;  
     }
@@ -118,6 +129,9 @@ export const UserEmail = styled(TextField)`
     font-size: 18px;
     line-height: 21px;
     color: #000000;
+    @media(max-width:770px){
+        margin: 0 !important;
+    }
     @media(max-width:425px){
         width:285px;  
         margin-left: 0px !important;

@@ -96,7 +96,8 @@ const UserData: FC<UserDataProps> = () => {
         setDistricts(res.data.data);
       });
   };
-
+  // if(userInfo.region_id != null)
+  //  getDistrict(userInfo.region_id);
   return (
     <>
       <BodyForm>
@@ -284,18 +285,19 @@ const UserData: FC<UserDataProps> = () => {
               placeholder="Область"
               onChange={(e) => {
                 handleChange(e, "region_id");
-                getDistrict(e.target.value);
+                // getDistrict(e.target.value);
               }}
               name="region_id"
               required
             >
-              <option selected>{t("common:Region")}</option>
+              <option >{t("common:Region")}</option>
               {regions.map((item: any, idx: any) => (
-                <option value={item.id} key={idx}>
+                <option value={item.id} selected = {item.id == userInfo.region_id ? true : false} key={idx}>
                   {item.title}
                 </option>
               ))}
             </UptadeSelect>
+            
             <UptadeSelectRayon
               className="rayon"
               placeholder="Область"
@@ -304,11 +306,11 @@ const UserData: FC<UserDataProps> = () => {
               }}
               name="region_id"
             >
-              <option selected value="Область">
+              <option selected value="Область" >
                 {t("common:District_city")}
               </option>
               {districts.map((item: any, idx: any) => (
-                <option selected value={item.id} key={idx}>
+                <option  value={item.id }  selected = {item.id == userInfo.district_id ? true : false} key={idx} >
                   {item.title}
                 </option>
               ))}

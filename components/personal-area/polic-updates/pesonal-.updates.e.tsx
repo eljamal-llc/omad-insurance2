@@ -35,7 +35,9 @@ export const UptadeSelectRayon = styled.select`
     color: #000000;
     margin-left: 50px;
     border-radius: 5px;;
-     
+     @media(max-width:770px){
+         margin-left: 0;
+     }
     @media(max-width:425px){
         width:285px; 
         margin-left: 0;
